@@ -1,5 +1,7 @@
 package game;
 
+import game.animation.Trail;
+import game.resources.PlayerStats;
 import godot.annotation.Export;
 import godot.annotation.RegisterProperty;
 import godot.api.Input;
@@ -13,16 +15,25 @@ import godot.core.Color;
 import godot.core.StringName;
 import godot.annotation.RegisterClass;
 import godot.annotation.RegisterFunction;
+import godot.global.GD;
 
 @RegisterClass
 public class Player extends BaseUnit {
+	//Player Stats
+	@Export
+	@RegisterProperty
+	public PlayerStats stats;
+
+
 	private Vector2 moveDirection = new Vector2(0.0f, 0.0f);
-	private final float defaultSpeed = 500.0f;
+
+
 
 	// --- CÁC BIẾN CHO DASH ---
 	private Timer dashTimer;
 	private Timer dashCooldownTimer;
 	private CollisionShape2D collision;
+	private Trail trail;
 
 	@Export
 	@RegisterProperty
@@ -49,6 +60,7 @@ public class Player extends BaseUnit {
 		dashTimer = (Timer) getNode("DashTimer");
 		dashCooldownTimer = (Timer) getNode("DashCooldownTimer");
 		collision = (CollisionShape2D) getNode("CollisionShape2D");
+		trail = (Trail) getNode("%Visuals/%Trail");
 
 		// Cài đặt thời gian cho Timer
 		if (dashTimer != null) dashTimer.setWaitTime(dashDuration);
@@ -66,6 +78,8 @@ public class Player extends BaseUnit {
 		if (canDash()) {
 			startDash();
 		}
+
+		float defaultSpeed = (stats != null) ? stats.speed : 300.0f;
 		Vector2 currentVelocity = moveDirection.times(defaultSpeed);
 
 		// Nếu đang Dash, nhân tốc độ lên
@@ -75,8 +89,13 @@ public class Player extends BaseUnit {
 
 		Vector2 currentPos = getPosition();
 		Vector2 newPos = currentPos.plus(currentVelocity.times(fDelta));
-		setPosition(newPos);
+		// Ép điểm X nằm gọn trong khoảng -1000 đến 1000
+		float clampedX = (float) Math.clamp(newPos.getX(), -1000.0f, 1000.0f);
+		// Ép điểm Y nằm gọn trong khoảng -500 đến 500
+		float clampedY = (float) Math.clamp(newPos.getY(), -500.0f, 500.0f);
 
+		// Đặt lại vị trí mới đã bị nhốt
+		setPosition(new Vector2(clampedX, clampedY));
 		updateAnimations();
 		updateRotation();
 	}
@@ -94,6 +113,11 @@ public class Player extends BaseUnit {
 
 		if (dashTimer != null) dashTimer.start(-1.0); // Bắt đầu đếm ngược
 
+		//Vẽ trail
+		if (trail != null) {
+			trail.startTrail();
+		}
+
 		// Làm mờ nhân vật đi một nửa (Alpha = 0.5)
 		if (visuals != null) {
 			visuals.setModulate(new Color(1.0f, 1.0f, 1.0f, 0.5f));
@@ -103,6 +127,8 @@ public class Player extends BaseUnit {
 		if (collision != null) {
 			collision.setDeferred(new StringName("disabled"), true);
 		}
+
+
 	}
 
 	// Hàm này sẽ được gọi khi DashTimer chạy xong (chạm mức 0)

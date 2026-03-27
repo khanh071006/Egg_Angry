@@ -20,7 +20,8 @@ signals = [
     
 ]
 properties = [
-    dash_duration,
+    stats,
+	dash_duration,
 	dash_speed_multi,
 	dash_cooldown
 ]

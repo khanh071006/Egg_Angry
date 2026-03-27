@@ -15,8 +15,14 @@ run/main_scene="uid://3ltab4xt014s"
 config/features=PackedStringArray("4.5", "Mobile")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Global="*res://gdj/game/autoloads/Global.gdj"
+
 [display]
 
+window/size/viewport_width=1920
+window/size/viewport_height=1080
 window/stretch/mode="canvas_items"
 
 [input]
