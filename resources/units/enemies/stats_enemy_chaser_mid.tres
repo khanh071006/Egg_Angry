@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="EnemyStats" load_steps=3 format=3 uid="uid://bqdx4pk5p5ouc"]
+
+[ext_resource type="Script" uid="uid://bgy8iaa1dequj" path="res://gdj/game/resources/EnemyStats.gdj" id="1_8qwe7"]
+[ext_resource type="Texture2D" uid="uid://bf4ls8ho3cuqa" path="res://gdj/game/Game+Assets/assets/sprites/Enemies/Enemy_2.png" id="1_gkg84"]
+
+[resource]
+script = ExtResource("1_8qwe7")
+gold_drop = 2.0
+block_chance = 7.0
+unit_name = "Chaser Mid"
+icon = ExtResource("1_gkg84")
+health = 8.0
+health_increase_per_wave = 2.0
+damage = 2.0

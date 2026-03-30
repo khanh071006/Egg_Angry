@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://3ltab4xt014s"]
+[gd_scene load_steps=9 format=3 uid="uid://3ltab4xt014s"]
 
 [ext_resource type="Script" uid="uid://catri2uhih447" path="res://src/main/java/game/BaseUnit.java" id="1_bhlit"]
-[ext_resource type="Texture2D" uid="uid://devt2xbk78rej" path="res://assets/sprites/shadow.png" id="1_vh40f"]
+[ext_resource type="Texture2D" uid="uid://devt2xbk78rej" path="res://gdj/game/Game+Assets/assets/sprites/shadow.png" id="1_vh40f"]
+[ext_resource type="PackedScene" uid="uid://bbq6idxk4cpsb" path="res://scenes/component/hurtbox_component.tscn" id="3_vh40f"]
 
 [sub_resource type="Animation" id="Animation_baxm0"]
 length = 0.001
@@ -174,7 +175,7 @@ _data = {
 &"move": SubResource("Animation_5wnup")
 }
 
-[node name="Unit" type="Node2D"]
+[node name="Unit" type="Area2D"]
 scale = Vector2(0.5, 0.5)
 script = ExtResource("1_bhlit")
 
@@ -196,3 +197,5 @@ position = Vector2(2, -62)
 libraries = {
 &"": SubResource("AnimationLibrary_of1k5")
 }
+
+[node name="HurtboxComponent" parent="." instance=ExtResource("3_vh40f")]

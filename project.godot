@@ -53,6 +53,15 @@ dash={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="Player"
+2d_physics/layer_2="Enemy"
+2d_physics/layer_3="HitboxPlayer"
+2d_physics/layer_4="HurtboxPlayer"
+2d_physics/layer_5="HitboxEnemy"
+2d_physics/layer_6="HurtboxEnemy"
+
 [rendering]
 
 renderer/rendering_method="mobile"

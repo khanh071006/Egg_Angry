@@ -1,6 +1,6 @@
 package game.autoloads;
 
-import game.Player;
+import game.entity.Player;
 import godot.api.Node;
 import godot.annotation.RegisterClass;
 

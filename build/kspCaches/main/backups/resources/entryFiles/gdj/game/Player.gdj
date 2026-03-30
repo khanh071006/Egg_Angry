@@ -4,9 +4,11 @@
 registeredName = Player
 fqName = game.Player
 relativeSourcePath = src/main/java/game/Player.java
-baseType = Node2D
+baseType = Area2D
 supertypes = [
     game.BaseUnit,
+	godot.api.Area2D,
+	godot.api.CollisionObject2D,
 	godot.api.Node2D,
 	godot.api.CanvasItem,
 	godot.api.Node,

@@ -1,7 +1,7 @@
 package game.arena;
 
-import game.Player;
 import game.autoloads.Global;
+import game.entity.Player;
 import godot.api.Node2D;
 import godot.annotation.RegisterClass;
 import godot.annotation.RegisterFunction;

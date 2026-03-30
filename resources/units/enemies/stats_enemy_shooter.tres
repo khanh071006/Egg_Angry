@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="EnemyStats" load_steps=3 format=3 uid="uid://d15j55qden05i"]
+
+[ext_resource type="Texture2D" uid="uid://4mllmwdfhmce" path="res://assets/sprites/Enemies/Enemy_4.png" id="1_llpja"]
+[ext_resource type="Script" uid="uid://bgy8iaa1dequj" path="res://gdj/game/resources/EnemyStats.gdj" id="2_1vxf5"]
+
+[resource]
+script = ExtResource("2_1vxf5")
+gold_drop = 3.0
+block_chance = 3.0
+unit_name = "Shooter"
+icon = ExtResource("1_llpja")
+health = 4.0
+health_increase_per_wave = 2.0
+damage = 3.0
+damage_increase_per_wave = 1.5
+speed = 260.0

@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://qsfra4lkbc8d"]
+
+[ext_resource type="PackedScene" uid="uid://necfel4mlt5p" path="res://scenes/unit/enemy_chaser.tscn" id="1_4ibrt"]
+[ext_resource type="Texture2D" uid="uid://4mllmwdfhmce" path="res://gdj/game/Game+Assets/assets/sprites/Enemies/Enemy_4.png" id="2_hjt04"]
+
+[node name="EnemyShooter" instance=ExtResource("1_4ibrt")]
+
+[node name="Sprite" parent="Visuals" index="1"]
+texture = ExtResource("2_hjt04")

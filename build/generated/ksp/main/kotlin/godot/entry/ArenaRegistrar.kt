@@ -36,7 +36,7 @@ public open class ArenaRegistrar : ClassRegistrar {
         constructor(KtConstructor0(::Arena))
         notificationFunctions(listOf())
         function(Arena::_ready, NIL, KtFunctionArgument(NIL, "kotlin.Unit"), KtRpcConfig(DISABLED.id.toInt(), false, RELIABLE.id.toInt(), 0))
-        property(Arena::player, OBJECT, OBJECT, "game.Player", NODE_TYPE, "Player", godot.core.PropertyUsageFlags.DEFAULT.flag)
+        property(Arena::player, OBJECT, OBJECT, "game.entity.Player", NODE_TYPE, "Player", godot.core.PropertyUsageFlags.DEFAULT.flag)
       }
     }
   }

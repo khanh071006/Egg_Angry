@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="EnemyStats" load_steps=3 format=3 uid="uid://cxaovpfmc4ddl"]
+
+[ext_resource type="Texture2D" uid="uid://d1ou504pylric" path="res://gdj/game/Game+Assets/assets/sprites/Enemies/Enemy_1.png" id="1_cneyk"]
+[ext_resource type="Script" uid="uid://bgy8iaa1dequj" path="res://gdj/game/resources/EnemyStats.gdj" id="1_m42qi"]
+
+[resource]
+script = ExtResource("1_m42qi")
+gold_drop = 1.0
+block_chance = 3.0
+unit_name = "Chaser Slow"
+icon = ExtResource("1_cneyk")
+health = 6.0
+damage = 1.5
+speed = 250.0
