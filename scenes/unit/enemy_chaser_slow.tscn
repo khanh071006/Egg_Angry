@@ -45,3 +45,7 @@ collision_mask = 8
 position = Vector2(2, -58)
 shape = SubResource("CircleShape2D_07cq8")
 debug_color = Color(0.93776786, 0.13023272, 0.53524446, 0.41960785)
+
+[node name="HealthBar" parent="." index="7"]
+back_color = Color(0.015686275, 0.05490196, 0.16862746, 1)
+fill_color = Color(0.37254903, 0.5372549, 0.75686276, 1)

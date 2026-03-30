@@ -15,7 +15,7 @@ import godot.global.GD;
 public class HitBoxComponent extends Area2D {
 
     @RegisterProperty
-    public float damage;
+    public float damage = 1.0f;
 
     @RegisterProperty
     public boolean critical;

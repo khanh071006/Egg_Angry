@@ -21,8 +21,9 @@ signals = [
 	
 ]
 properties = [
-	
+	stats
 ]
 functions = [
-	_ready
+	_ready,
+	_on_hurtbox_component_on_damage
 ]

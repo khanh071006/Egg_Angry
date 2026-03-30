@@ -1,8 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://3ltab4xt014s"]
+[gd_scene load_steps=12 format=3 uid="uid://3ltab4xt014s"]
 
 [ext_resource type="Script" uid="uid://catri2uhih447" path="res://src/main/java/game/BaseUnit.java" id="1_bhlit"]
 [ext_resource type="Texture2D" uid="uid://devt2xbk78rej" path="res://gdj/game/Game+Assets/assets/sprites/shadow.png" id="1_vh40f"]
 [ext_resource type="PackedScene" uid="uid://bbq6idxk4cpsb" path="res://scenes/component/hurtbox_component.tscn" id="3_vh40f"]
+[ext_resource type="PackedScene" uid="uid://oc25wqt8ykxq" path="res://scenes/component/heath_component.tscn" id="4_bhlit"]
+[ext_resource type="PackedScene" uid="uid://b16t4cqpolric" path="res://scenes/ui/health_bar.tscn" id="5_vgvef"]
+[ext_resource type="Script" uid="uid://cxx3jawltsso2" path="res://gdj/game/ui/HealthBar.gdj" id="6_3po7s"]
 
 [sub_resource type="Animation" id="Animation_baxm0"]
 length = 0.001
@@ -199,3 +202,19 @@ libraries = {
 }
 
 [node name="HurtboxComponent" parent="." instance=ExtResource("3_vh40f")]
+
+[node name="HealthComponent" parent="." instance=ExtResource("4_bhlit")]
+
+[node name="HealthBar" parent="." instance=ExtResource("5_vgvef")]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -48.0
+offset_top = -150.0
+offset_right = 48.0
+offset_bottom = -130.0
+grow_horizontal = 2
+script = ExtResource("6_3po7s")
+
+[connection signal="on_damage" from="HurtboxComponent" to="." method="_on_hurtbox_component_on_damage"]
+[connection signal="on_health_changed" from="HealthComponent" to="HealthBar" method="_on_health_component_on_health_changed"]

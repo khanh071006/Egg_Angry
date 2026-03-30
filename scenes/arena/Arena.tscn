@@ -28,12 +28,9 @@ script = ExtResource("5_faeup")
 
 [node name="EnemyChaserSlow" parent="." instance=ExtResource("6_e8lwv")]
 position = Vector2(244, -161)
-flock_push = 20.0
 
 [node name="EnemyChaserSlow2" parent="." instance=ExtResource("6_e8lwv")]
 position = Vector2(469, 128)
-flock_push = 20.0
 
 [node name="EnemyChaserSlow4" parent="." instance=ExtResource("6_e8lwv")]
 position = Vector2(611, -223)
-flock_push = 20.0

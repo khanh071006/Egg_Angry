@@ -5,6 +5,7 @@ import game.animation.Trail
 import game.arena.Arena
 import game.arena.CameraController
 import game.autoloads.Global
+import game.components.HealthComponent
 import game.components.HitBoxComponent
 import game.components.HurtBoxComponent
 import game.entity.BaseUnit
@@ -13,12 +14,15 @@ import game.entity.Player
 import game.resources.EnemyStats
 import game.resources.PlayerStats
 import game.resources.UnitStats
+import game.ui.HealthBar
 import godot.entry.ArenaRegistrar
 import godot.entry.BaseUnitRegistrar
 import godot.entry.CameraControllerRegistrar
 import godot.entry.EnemyRegistrar
 import godot.entry.EnemyStatsRegistrar
 import godot.entry.GlobalRegistrar
+import godot.entry.HealthBarRegistrar
+import godot.entry.HealthComponentRegistrar
 import godot.entry.HitBoxComponentRegistrar
 import godot.entry.HurtBoxComponentRegistrar
 import godot.entry.PlayerRegistrar
@@ -38,7 +42,7 @@ import kotlin.collections.listOf
 import kotlin.reflect.KClass
 
 public class Entry : Entry() {
-  public override val classRegistrarCount: Int = 12
+  public override val classRegistrarCount: Int = 14
 
   public override val projectName: String = "project-3"
 
@@ -47,6 +51,7 @@ public class Entry : Entry() {
     ArenaRegistrar().register(registry)
     CameraControllerRegistrar().register(registry)
     GlobalRegistrar().register(registry)
+    HealthComponentRegistrar().register(registry)
     HitBoxComponentRegistrar().register(registry)
     HurtBoxComponentRegistrar().register(registry)
     BaseUnitRegistrar().register(registry)
@@ -55,6 +60,7 @@ public class Entry : Entry() {
     EnemyStatsRegistrar().register(registry)
     PlayerStatsRegistrar().register(registry)
     UnitStatsRegistrar().register(registry)
+    HealthBarRegistrar().register(registry)
   }
 
   public override fun Context.initEngineTypes(): Unit {
@@ -64,7 +70,7 @@ public class Entry : Entry() {
   }
 
   public override fun Context.getRegisteredClasses(): List<KClass<*>> = listOf(Trail::class,
-      Arena::class, CameraController::class, Global::class, HitBoxComponent::class,
-      HurtBoxComponent::class, BaseUnit::class, Enemy::class, Player::class, EnemyStats::class,
-      PlayerStats::class, UnitStats::class)
+      Arena::class, CameraController::class, Global::class, HealthComponent::class,
+      HitBoxComponent::class, HurtBoxComponent::class, BaseUnit::class, Enemy::class, Player::class,
+      EnemyStats::class, PlayerStats::class, UnitStats::class, HealthBar::class)
 }

@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="PlayerStats" load_steps=3 format=3 uid="uid://c7seiylrx3igi"]
 
-[ext_resource type="Texture2D" uid="uid://dq63ocnu3lset" path="res://assets/sprites/Players/Player_3}.png" id="1_ujefh"]
+[ext_resource type="Texture2D" uid="uid://dq63ocnu3lset" path="res://gdj/game/Game+Assets/assets/sprites/Players/Player_3}.png" id="1_ujefh"]
 [ext_resource type="Script" uid="uid://75n7qhb6f577" path="res://gdj/game/resources/PlayerStats.gdj" id="2_xvmk0"]
 
 [resource]
@@ -9,7 +9,7 @@ luck = 5.0
 block_chance = 5.0
 unit_name = "Crazy"
 icon = ExtResource("1_ujefh")
-health = 15.0
+health = 20.0
 health_increase_per_wave = 0.0
 damage = 3.0
 damage_increase_per_wave = 0.0

@@ -16,9 +16,9 @@ import godot.core.Vector2;
 @RegisterClass
 public class Enemy extends BaseUnit {
 
-    @Export
-    @RegisterProperty
-    public EnemyStats stats;
+//    @Export
+//    @RegisterProperty
+//    public EnemyStats stats;
 
     @Export
     @RegisterProperty
@@ -30,6 +30,8 @@ public class Enemy extends BaseUnit {
     @RegisterFunction
     @Override
     public void _ready() {
+        super._ready();
+
         visuals = (Node2D) getNode("%Visuals");
         sprite = (Sprite2D) getNode("%Sprite");
         animPlayer = (AnimationPlayer) getNode("AnimationPlayer");

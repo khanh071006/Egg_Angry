@@ -13,10 +13,10 @@ import godot.core.Vector2;
 
 @RegisterClass
 public class Player extends BaseUnit {
-	//Player Stats
-	@Export
-	@RegisterProperty
-	public PlayerStats stats;
+//	//Player Stats
+//	@Export
+//	@RegisterProperty
+//	public PlayerStats stats;
 
 
 	private Vector2 moveDirection = new Vector2(0.0f, 0.0f);
@@ -45,6 +45,9 @@ public class Player extends BaseUnit {
 	@RegisterFunction
 	@Override
 	public void _ready() {
+        //Run parent constructor
+        super._ready();
+
 		// Tìm các Node cơ bản
 		visuals = (Node2D) getNode("%Visuals");
 		sprite = (Sprite2D) getNode("%Sprite");

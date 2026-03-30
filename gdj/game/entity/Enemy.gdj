@@ -22,10 +22,11 @@ signals = [
 	
 ]
 properties = [
-	stats,
-	flock_push
+	flock_push,
+	stats
 ]
 functions = [
 	_physics_process,
-	_ready
+	_ready,
+	_on_hurtbox_component_on_damage
 ]
