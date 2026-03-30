@@ -26,7 +26,7 @@ import kotlin.collections.listOf
   "godot.api.Area2D,godot.api.CollisionObject2D,godot.api.Node2D,godot.api.CanvasItem,godot.api.Node,godot.api.Object,godot.core.KtObject,godot.common.interop.NativeWrapper,godot.common.interop.NativePointer,kotlin.Any",
   "",
   "game.entity.BaseUnit.stats",
-  "game.entity.BaseUnit._ready,game.entity.BaseUnit._on_hurtbox_component_on_damage",
+  "game.entity.BaseUnit._ready,game.entity.BaseUnit.setFlashMaterial,game.entity.BaseUnit._on_hurtbox_component_on_damage,game.entity.BaseUnit._on_flash_timer_timeout",
   true,
 )
 public open class BaseUnitRegistrar : ClassRegistrar {
@@ -36,7 +36,9 @@ public open class BaseUnitRegistrar : ClassRegistrar {
         constructor(KtConstructor0(::BaseUnit))
         notificationFunctions(listOf())
         function(BaseUnit::_ready, NIL, KtFunctionArgument(NIL, "kotlin.Unit"), KtRpcConfig(DISABLED.id.toInt(), false, RELIABLE.id.toInt(), 0))
+        function(BaseUnit::setFlashMaterial, NIL, KtFunctionArgument(NIL, "kotlin.Unit"), KtRpcConfig(DISABLED.id.toInt(), false, RELIABLE.id.toInt(), 0))
         function(BaseUnit::_on_hurtbox_component_on_damage, NIL, OBJECT, KtFunctionArgument(OBJECT, "game.components.HitBoxComponent", "hitbox"), KtFunctionArgument(NIL, "kotlin.Unit"), KtRpcConfig(DISABLED.id.toInt(), false, RELIABLE.id.toInt(), 0))
+        function(BaseUnit::_on_flash_timer_timeout, NIL, KtFunctionArgument(NIL, "kotlin.Unit"), KtRpcConfig(DISABLED.id.toInt(), false, RELIABLE.id.toInt(), 0))
         property(BaseUnit::stats, OBJECT, OBJECT, "game.resources.UnitStats", RESOURCE_TYPE, "UnitStats", godot.core.PropertyUsageFlags.DEFAULT.flag)
       }
     }

@@ -28,5 +28,7 @@ properties = [
 functions = [
 	_physics_process,
 	_ready,
-	_on_hurtbox_component_on_damage
+	set_flash_material,
+	_on_hurtbox_component_on_damage,
+	_on_flash_timer_timeout
 ]

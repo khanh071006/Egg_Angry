@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="project-3"
-run/main_scene="uid://3ltab4xt014s"
+run/main_scene="uid://dbc1cru0wxnsf"
 config/features=PackedStringArray("4.5", "Mobile")
 config/icon="res://icon.svg"
 
@@ -24,6 +24,10 @@ Global="*res://gdj/game/autoloads/Global.gdj"
 window/size/viewport_width=1544
 window/size/viewport_height=918
 window/stretch/mode="canvas_items"
+
+[gd_jvm]
+
+jvm_args="-XX:ErrorFile=logs/hs_err_pid%p.log"
 
 [gui]
 
@@ -69,3 +73,4 @@ dash={
 [rendering]
 
 renderer/rendering_method="mobile"
+

@@ -29,6 +29,8 @@ public class Player extends BaseUnit {
 	private CollisionShape2D collision;
 	private Trail trail;
 
+
+
 	@Export
 	@RegisterProperty
 	public float dashDuration = 0.4f;
@@ -59,9 +61,12 @@ public class Player extends BaseUnit {
 		collision = (CollisionShape2D) getNode("CollisionShape2D");
 		trail = (Trail) getNode("%Visuals/%Trail");
 
+
 		// Cài đặt thời gian cho Timer
 		if (dashTimer != null) dashTimer.setWaitTime(dashDuration);
 		if (dashCooldownTimer != null) dashCooldownTimer.setWaitTime(dashCooldown);
+
+
 	}
 
 	@RegisterFunction

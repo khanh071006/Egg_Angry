@@ -29,7 +29,7 @@ import kotlin.collections.listOf
   "game.entity.BaseUnit,godot.api.Area2D,godot.api.CollisionObject2D,godot.api.Node2D,godot.api.CanvasItem,godot.api.Node,godot.api.Object,godot.core.KtObject,godot.common.interop.NativeWrapper,godot.common.interop.NativePointer,kotlin.Any",
   "",
   "game.entity.Enemy.flockPush,game.entity.Enemy.stats",
-  "game.entity.Enemy._physicsProcess,game.entity.Enemy._ready,game.entity.Enemy._on_hurtbox_component_on_damage",
+  "game.entity.Enemy._physicsProcess,game.entity.Enemy._ready,game.entity.Enemy.setFlashMaterial,game.entity.Enemy._on_hurtbox_component_on_damage,game.entity.Enemy._on_flash_timer_timeout",
   true,
 )
 public open class EnemyRegistrar : ClassRegistrar {
@@ -40,7 +40,9 @@ public open class EnemyRegistrar : ClassRegistrar {
         notificationFunctions(listOf())
         function(Enemy::_physicsProcess, NIL, DOUBLE, KtFunctionArgument(DOUBLE, "kotlin.Double", "delta"), KtFunctionArgument(NIL, "kotlin.Unit"), KtRpcConfig(DISABLED.id.toInt(), false, RELIABLE.id.toInt(), 0))
         function(Enemy::_ready, NIL, KtFunctionArgument(NIL, "kotlin.Unit"), KtRpcConfig(DISABLED.id.toInt(), false, RELIABLE.id.toInt(), 0))
+        function(Enemy::setFlashMaterial, NIL, KtFunctionArgument(NIL, "kotlin.Unit"), KtRpcConfig(DISABLED.id.toInt(), false, RELIABLE.id.toInt(), 0))
         function(Enemy::_on_hurtbox_component_on_damage, NIL, OBJECT, KtFunctionArgument(OBJECT, "game.components.HitBoxComponent", "hitbox"), KtFunctionArgument(NIL, "kotlin.Unit"), KtRpcConfig(DISABLED.id.toInt(), false, RELIABLE.id.toInt(), 0))
+        function(Enemy::_on_flash_timer_timeout, NIL, KtFunctionArgument(NIL, "kotlin.Unit"), KtRpcConfig(DISABLED.id.toInt(), false, RELIABLE.id.toInt(), 0))
         property(Enemy::flockPush, FLOAT, DOUBLE, "kotlin.Float", NONE, "", godot.core.PropertyUsageFlags.DEFAULT.flag)
         property(Enemy::stats, OBJECT, OBJECT, "game.resources.UnitStats", RESOURCE_TYPE, "UnitStats", godot.core.PropertyUsageFlags.DEFAULT.flag)
       }

@@ -38,7 +38,6 @@ player = NodePath("../..")
 z_index = 1
 
 [node name="Sprite" parent="Visuals" index="2"]
-z_index = 1
 texture = ExtResource("3_fnkm0")
 
 [node name="CollisionShape2D" parent="." index="1"]
@@ -69,6 +68,10 @@ debug_color = Color(0.8624754, 0.33731166, 0.33926293, 0.41960785)
 [node name="HealthBar" parent="." index="8"]
 back_color = Color(0.13725491, 0.019607844, 0.02745098, 1)
 fill_color = Color(1, 0.2901961, 0.45490196, 1)
+
+[node name="FlashTimer" parent="." index="9"]
+wait_time = 0.2
+one_shot = true
 
 [connection signal="timeout" from="DashTimer" to="." method="_on_dash_timer_timeout"]
 [connection signal="timeout" from="TrailTimer" to="." method="_on_trail_timer_timeout"]
