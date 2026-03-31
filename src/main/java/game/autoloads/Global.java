@@ -8,6 +8,8 @@ import godot.api.ResourceLoader;
 import godot.api.ShaderMaterial;
 import godot.global.GD;
 
+import java.util.Random;
+
 @RegisterClass
 public class Global extends Node {
 
@@ -20,5 +22,14 @@ public class Global extends Node {
     public void _ready() {
         // Load file .tres mà bạn đã tạo từ Shader ở bước 1
         FLASH_MATERIAL = (ShaderMaterial) ResourceLoader.load("res://effects/flash_material.tres");
+        get_chance_sucess(0.5f);
+    }
+
+    @RegisterFunction
+    public static boolean get_chance_sucess(float chance){
+        Random random = new Random();
+        float randomFloat = random.nextFloat();
+        if (randomFloat <= chance) return true;
+        return false;
     }
 }

@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://3ltab4xt014s"]
 
-[ext_resource type="Script" uid="uid://catri2uhih447" path="res://src/main/java/game/BaseUnit.java" id="1_bhlit"]
+[ext_resource type="Script" uid="uid://chn4qdpi4d6kx" path="res://gdj/game/entity/BaseUnit.gdj" id="1_3po7s"]
 [ext_resource type="Texture2D" uid="uid://devt2xbk78rej" path="res://gdj/game/Game+Assets/assets/sprites/shadow.png" id="1_vh40f"]
 [ext_resource type="PackedScene" uid="uid://bbq6idxk4cpsb" path="res://scenes/component/hurtbox_component.tscn" id="3_vh40f"]
 [ext_resource type="PackedScene" uid="uid://oc25wqt8ykxq" path="res://scenes/component/heath_component.tscn" id="4_bhlit"]
@@ -180,7 +180,7 @@ _data = {
 
 [node name="Unit" type="Area2D"]
 scale = Vector2(0.5, 0.5)
-script = ExtResource("1_bhlit")
+script = ExtResource("1_3po7s")
 
 [node name="Visuals" type="Node2D" parent="."]
 unique_name_in_owner = true

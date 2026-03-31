@@ -28,7 +28,8 @@ properties = [
 	health_increase_per_wave,
 	damage,
 	damage_increase_per_wave,
-	speed
+	speed,
+	blockchance
 ]
 functions = [
     

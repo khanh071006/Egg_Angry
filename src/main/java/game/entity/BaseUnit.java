@@ -3,6 +3,7 @@ package game.entity;
 import game.autoloads.Global;
 import game.components.HealthComponent;
 import game.components.HitBoxComponent;
+import game.resources.PlayerStats;
 import game.resources.UnitStats;
 import godot.annotation.Export;
 import godot.annotation.RegisterClass;
@@ -65,6 +66,14 @@ public class BaseUnit extends Area2D { // Đổi tên class ở đây
         if (healthComponent.currentHealth <= 0) {
             return;
         }
+        //block
+        PlayerStats playerStats;
+        boolean blocked = Global.get_chance_sucess(stats.blockchance / 100);
+        if (blocked){
+            GD.print("Blocked");
+            return;
+        }
+
 
         healthComponent.takeDamage(hitbox.damage);
 

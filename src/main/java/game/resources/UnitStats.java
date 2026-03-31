@@ -46,6 +46,10 @@ public class UnitStats extends Resource {
 	@RegisterProperty
 	public float speed = 300.0f;
 
+	@Export
+	@RegisterProperty
+	public float blockchance = 0.0f;
+
 	// BẮT BUỘC CÓ CONSTRUCTOR RỖNG
 	public UnitStats() {
 	}

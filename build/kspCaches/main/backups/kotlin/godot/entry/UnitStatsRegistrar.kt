@@ -26,7 +26,7 @@ import kotlin.collections.listOf
   "project-3",
   "godot.api.Resource,godot.api.RefCounted,godot.api.Object,godot.core.KtObject,godot.common.interop.NativeWrapper,godot.common.interop.NativePointer,kotlin.Any",
   "",
-  "game.resources.UnitStats.unitName,game.resources.UnitStats.type,game.resources.UnitStats.icon,game.resources.UnitStats.health,game.resources.UnitStats.healthIncreasePerWave,game.resources.UnitStats.damage,game.resources.UnitStats.damageIncreasePerWave,game.resources.UnitStats.speed",
+  "game.resources.UnitStats.unitName,game.resources.UnitStats.type,game.resources.UnitStats.icon,game.resources.UnitStats.health,game.resources.UnitStats.healthIncreasePerWave,game.resources.UnitStats.damage,game.resources.UnitStats.damageIncreasePerWave,game.resources.UnitStats.speed,game.resources.UnitStats.blockchance",
   "",
   true,
 )
@@ -44,6 +44,7 @@ public open class UnitStatsRegistrar : ClassRegistrar {
         property(UnitStats::damage, FLOAT, DOUBLE, "kotlin.Float", NONE, "", godot.core.PropertyUsageFlags.DEFAULT.flag)
         property(UnitStats::damageIncreasePerWave, FLOAT, DOUBLE, "kotlin.Float", NONE, "", godot.core.PropertyUsageFlags.DEFAULT.flag)
         property(UnitStats::speed, FLOAT, DOUBLE, "kotlin.Float", NONE, "", godot.core.PropertyUsageFlags.DEFAULT.flag)
+        property(UnitStats::blockchance, FLOAT, DOUBLE, "kotlin.Float", NONE, "", godot.core.PropertyUsageFlags.DEFAULT.flag)
       }
     }
   }
