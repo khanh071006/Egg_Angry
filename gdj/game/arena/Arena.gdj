@@ -19,8 +19,13 @@ signals = [
     
 ]
 properties = [
-    player
+    normal_color,
+	block_color,
+	crit_color,
+	player
 ]
 functions = [
-    _ready
+    _ready,
+	show_block_text,
+	show_damage_text
 ]

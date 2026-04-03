@@ -70,12 +70,14 @@ public class BaseUnit extends Area2D { // Đổi tên class ở đây
         PlayerStats playerStats;
         boolean blocked = Global.get_chance_sucess(stats.blockchance / 100);
         if (blocked){
+            Global.instance.onCreateBlockText.emit(this);
             GD.print("Blocked");
             return;
         }
 
 
         healthComponent.takeDamage(hitbox.damage);
+        Global.instance.onCreateDamageText.emit(this,hitbox);
 
         // Gọi hiệu ứng chớp trắng
         setFlashMaterial();

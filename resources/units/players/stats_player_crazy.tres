@@ -14,4 +14,4 @@ health_increase_per_wave = 0.0
 damage = 3.0
 damage_increase_per_wave = 0.0
 speed = 350.0
-blockchance = 50.0
+blockchance = 20.0

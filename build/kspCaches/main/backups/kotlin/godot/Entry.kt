@@ -14,12 +14,14 @@ import game.entity.Player
 import game.resources.EnemyStats
 import game.resources.PlayerStats
 import game.resources.UnitStats
+import game.ui.FloatingText
 import game.ui.HealthBar
 import godot.entry.ArenaRegistrar
 import godot.entry.BaseUnitRegistrar
 import godot.entry.CameraControllerRegistrar
 import godot.entry.EnemyRegistrar
 import godot.entry.EnemyStatsRegistrar
+import godot.entry.FloatingTextRegistrar
 import godot.entry.GlobalRegistrar
 import godot.entry.HealthBarRegistrar
 import godot.entry.HealthComponentRegistrar
@@ -42,7 +44,7 @@ import kotlin.collections.listOf
 import kotlin.reflect.KClass
 
 public class Entry : Entry() {
-  public override val classRegistrarCount: Int = 14
+  public override val classRegistrarCount: Int = 15
 
   public override val projectName: String = "project-3"
 
@@ -60,6 +62,7 @@ public class Entry : Entry() {
     EnemyStatsRegistrar().register(registry)
     PlayerStatsRegistrar().register(registry)
     UnitStatsRegistrar().register(registry)
+    FloatingTextRegistrar().register(registry)
     HealthBarRegistrar().register(registry)
   }
 
@@ -72,5 +75,6 @@ public class Entry : Entry() {
   public override fun Context.getRegisteredClasses(): List<KClass<*>> = listOf(Trail::class,
       Arena::class, CameraController::class, Global::class, HealthComponent::class,
       HitBoxComponent::class, HurtBoxComponent::class, BaseUnit::class, Enemy::class, Player::class,
-      EnemyStats::class, PlayerStats::class, UnitStats::class, HealthBar::class)
+      EnemyStats::class, PlayerStats::class, UnitStats::class, FloatingText::class,
+      HealthBar::class)
 }

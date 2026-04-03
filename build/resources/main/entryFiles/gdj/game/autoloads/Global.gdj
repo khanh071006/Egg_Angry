@@ -14,7 +14,8 @@ supertypes = [
 	kotlin.Any
 ]
 signals = [
-    
+    on_create_block_text,
+	on_create_damage_text
 ]
 properties = [
     
