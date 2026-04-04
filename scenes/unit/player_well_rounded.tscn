@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://lty2nxmp27i0"]
+[gd_scene load_steps=10 format=3 uid="uid://lty2nxmp27i0"]
 
 [ext_resource type="PackedScene" uid="uid://3ltab4xt014s" path="res://scenes/unit/unit.tscn" id="1_7pj5n"]
 [ext_resource type="Script" uid="uid://ceteilad77rgr" path="res://gdj/game/entity/Player.gdj" id="2_pn14a"]
 [ext_resource type="Resource" uid="uid://c7seiylrx3igi" path="res://resources/units/players/stats_player_crazy.tres" id="3_33ukp"]
 [ext_resource type="Texture2D" uid="uid://cproxhccob85g" path="res://gdj/game/Game+Assets/assets/sprites/Players/Player_1.png" id="3_fnkm0"]
 [ext_resource type="Script" uid="uid://bh6x7q48mxnpg" path="res://gdj/game/animation/Trail.gdj" id="4_5i5rg"]
+[ext_resource type="Script" uid="uid://kxyeh3emxcab" path="res://gdj/game/entity/WeaponContainer.gdj" id="6_cnynf"]
 
 [sub_resource type="Curve" id="Curve_cnynf"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
@@ -34,10 +35,8 @@ default_color = Color(1, 1, 1, 0.56078434)
 script = ExtResource("4_5i5rg")
 player = NodePath("../..")
 
-[node name="Shadow" parent="Visuals" index="1"]
-z_index = 1
-
 [node name="Sprite" parent="Visuals" index="2"]
+z_index = 1
 texture = ExtResource("3_fnkm0")
 
 [node name="CollisionShape2D" parent="." index="1"]
@@ -72,6 +71,90 @@ fill_color = Color(1, 0.2901961, 0.45490196, 1)
 [node name="FlashTimer" parent="." index="9"]
 wait_time = 0.2
 one_shot = true
+
+[node name="WeaponContainer" type="Node2D" parent="." index="10"]
+unique_name_in_owner = true
+script = ExtResource("6_cnynf")
+
+[node name="1" type="Node2D" parent="WeaponContainer" index="0"]
+visible = false
+
+[node name="Marker2D" type="Marker2D" parent="WeaponContainer/1" index="0"]
+position = Vector2(0, -15)
+
+[node name="2" type="Node2D" parent="WeaponContainer" index="1"]
+visible = false
+
+[node name="Marker2D" type="Marker2D" parent="WeaponContainer/2" index="0"]
+position = Vector2(80, 50)
+
+[node name="Marker2D2" type="Marker2D" parent="WeaponContainer/2" index="1"]
+position = Vector2(-80, 50)
+
+[node name="3" type="Node2D" parent="WeaponContainer" index="2"]
+visible = false
+
+[node name="Marker2D" type="Marker2D" parent="WeaponContainer/3" index="0"]
+position = Vector2(80, 50)
+
+[node name="Marker2D2" type="Marker2D" parent="WeaponContainer/3" index="1"]
+position = Vector2(-80, 50)
+
+[node name="Marker2D3" type="Marker2D" parent="WeaponContainer/3" index="2"]
+position = Vector2(0, -180)
+
+[node name="4" type="Node2D" parent="WeaponContainer" index="3"]
+visible = false
+
+[node name="Marker2D" type="Marker2D" parent="WeaponContainer/4" index="0"]
+position = Vector2(-80, 50)
+
+[node name="Marker2D2" type="Marker2D" parent="WeaponContainer/4" index="1"]
+position = Vector2(80, 50)
+
+[node name="Marker2D3" type="Marker2D" parent="WeaponContainer/4" index="2"]
+position = Vector2(-80, -180)
+
+[node name="Marker2D4" type="Marker2D" parent="WeaponContainer/4" index="3"]
+position = Vector2(80, -180)
+
+[node name="5" type="Node2D" parent="WeaponContainer" index="4"]
+visible = false
+
+[node name="Marker2D" type="Marker2D" parent="WeaponContainer/5" index="0"]
+position = Vector2(-80, 50)
+
+[node name="Marker2D2" type="Marker2D" parent="WeaponContainer/5" index="1"]
+position = Vector2(80, 50)
+
+[node name="Marker2D3" type="Marker2D" parent="WeaponContainer/5" index="2"]
+position = Vector2(130, -60)
+
+[node name="Marker2D4" type="Marker2D" parent="WeaponContainer/5" index="3"]
+position = Vector2(-130, -60)
+
+[node name="Marker2D5" type="Marker2D" parent="WeaponContainer/5" index="4"]
+position = Vector2(0, -180)
+
+[node name="6" type="Node2D" parent="WeaponContainer" index="5"]
+
+[node name="Marker2D" type="Marker2D" parent="WeaponContainer/6" index="0"]
+position = Vector2(-80, 50)
+
+[node name="Marker2D2" type="Marker2D" parent="WeaponContainer/6" index="1"]
+position = Vector2(80, 50)
+
+[node name="Marker2D3" type="Marker2D" parent="WeaponContainer/6" index="2"]
+position = Vector2(130, -60)
+
+[node name="Marker2D4" type="Marker2D" parent="WeaponContainer/6" index="3"]
+position = Vector2(-130, -60)
+
+[node name="Marker2D5" type="Marker2D" parent="WeaponContainer/6" index="4"]
+position = Vector2(-60, -170)
+
+[node name="Marker2D6" type="Marker2D" parent="WeaponContainer/6" index="5"]
+position = Vector2(60, -170)
 
 [connection signal="timeout" from="DashTimer" to="." method="_on_dash_timer_timeout"]
 [connection signal="timeout" from="TrailTimer" to="." method="_on_trail_timer_timeout"]

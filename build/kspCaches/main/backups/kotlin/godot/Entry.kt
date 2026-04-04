@@ -11,9 +11,14 @@ import game.components.HurtBoxComponent
 import game.entity.BaseUnit
 import game.entity.Enemy
 import game.entity.Player
-import game.resources.EnemyStats
-import game.resources.PlayerStats
-import game.resources.UnitStats
+import game.entity.WeaponContainer
+import game.items.weapons.Weapon
+import game.resources.items.ItemBase
+import game.resources.items.weapons.ItemWeapon
+import game.resources.items.weapons.WeaponStats
+import game.resources.units.EnemyStats
+import game.resources.units.PlayerStats
+import game.resources.units.UnitStats
 import game.ui.FloatingText
 import game.ui.HealthBar
 import godot.entry.ArenaRegistrar
@@ -27,10 +32,15 @@ import godot.entry.HealthBarRegistrar
 import godot.entry.HealthComponentRegistrar
 import godot.entry.HitBoxComponentRegistrar
 import godot.entry.HurtBoxComponentRegistrar
+import godot.entry.ItemBaseRegistrar
+import godot.entry.ItemWeaponRegistrar
 import godot.entry.PlayerRegistrar
 import godot.entry.PlayerStatsRegistrar
 import godot.entry.TrailRegistrar
 import godot.entry.UnitStatsRegistrar
+import godot.entry.WeaponContainerRegistrar
+import godot.entry.WeaponRegistrar
+import godot.entry.WeaponStatsRegistrar
 import godot.registerEngineTypeMethods
 import godot.registerEngineTypes
 import godot.registerVariantMapping
@@ -44,7 +54,7 @@ import kotlin.collections.listOf
 import kotlin.reflect.KClass
 
 public class Entry : Entry() {
-  public override val classRegistrarCount: Int = 15
+  public override val classRegistrarCount: Int = 20
 
   public override val projectName: String = "project-3"
 
@@ -59,6 +69,11 @@ public class Entry : Entry() {
     BaseUnitRegistrar().register(registry)
     EnemyRegistrar().register(registry)
     PlayerRegistrar().register(registry)
+    WeaponContainerRegistrar().register(registry)
+    WeaponRegistrar().register(registry)
+    ItemBaseRegistrar().register(registry)
+    ItemWeaponRegistrar().register(registry)
+    WeaponStatsRegistrar().register(registry)
     EnemyStatsRegistrar().register(registry)
     PlayerStatsRegistrar().register(registry)
     UnitStatsRegistrar().register(registry)
@@ -75,6 +90,7 @@ public class Entry : Entry() {
   public override fun Context.getRegisteredClasses(): List<KClass<*>> = listOf(Trail::class,
       Arena::class, CameraController::class, Global::class, HealthComponent::class,
       HitBoxComponent::class, HurtBoxComponent::class, BaseUnit::class, Enemy::class, Player::class,
+      WeaponContainer::class, Weapon::class, ItemBase::class, ItemWeapon::class, WeaponStats::class,
       EnemyStats::class, PlayerStats::class, UnitStats::class, FloatingText::class,
       HealthBar::class)
 }

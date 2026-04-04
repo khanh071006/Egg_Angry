@@ -2,11 +2,11 @@
 // Note: You can however freely move this file inside your godot project if you want. Keep in mind however, that if you rename the originating source code file, this file will be deleted and regenerated as a new file instead of being updated! Other modifications to the source file however, will result in this file being updated.
 
 registeredName = PlayerStats
-fqName = game.resources.PlayerStats
-relativeSourcePath = src/main/java/game/resources/PlayerStats.java
+fqName = game.resources.units.PlayerStats
+relativeSourcePath = src/main/java/game/resources/units/PlayerStats.java
 baseType = Resource
 supertypes = [
-	game.resources.UnitStats,
+	game.resources.units.UnitStats,
 	godot.api.Resource,
 	godot.api.RefCounted,
 	godot.api.Object,

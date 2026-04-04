@@ -49,4 +49,11 @@ public class Global extends Node {
         return false;
     }
 
+    public enum UpgradeTier {
+        COMMON,
+        RARE,
+        EPIC,
+        LEGENDARY
+    }
+
 }

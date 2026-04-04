@@ -35,7 +35,7 @@ public open class HealthComponentRegistrar : ClassRegistrar {
       registerClass<HealthComponent>(listOf(), HealthComponent::class, false, "Node", "HealthComponent", "src/main/java/game/components/HealthComponent.java", "gdj/game/components/HealthComponent.gdj") {
         constructor(KtConstructor0(::HealthComponent))
         notificationFunctions(listOf())
-        function(HealthComponent::setup, NIL, OBJECT, KtFunctionArgument(OBJECT, "game.resources.UnitStats", "stats"), KtFunctionArgument(NIL, "kotlin.Unit"), KtRpcConfig(DISABLED.id.toInt(), false, RELIABLE.id.toInt(), 0))
+        function(HealthComponent::setup, NIL, OBJECT, KtFunctionArgument(OBJECT, "game.resources.units.UnitStats", "stats"), KtFunctionArgument(NIL, "kotlin.Unit"), KtRpcConfig(DISABLED.id.toInt(), false, RELIABLE.id.toInt(), 0))
         function(HealthComponent::takeDamage, NIL, FLOAT, KtFunctionArgument(FLOAT, "kotlin.Float", "value"), KtFunctionArgument(NIL, "kotlin.Unit"), KtRpcConfig(DISABLED.id.toInt(), false, RELIABLE.id.toInt(), 0))
         function(HealthComponent::Die, NIL, KtFunctionArgument(NIL, "kotlin.Unit"), KtRpcConfig(DISABLED.id.toInt(), false, RELIABLE.id.toInt(), 0))
         function(HealthComponent::heal, NIL, FLOAT, KtFunctionArgument(FLOAT, "kotlin.Float", "amount"), KtFunctionArgument(NIL, "kotlin.Unit"), KtRpcConfig(DISABLED.id.toInt(), false, RELIABLE.id.toInt(), 0))

@@ -1,6 +1,6 @@
 package game.components;
 
-import game.resources.UnitStats;
+import game.resources.units.UnitStats;
 import godot.annotation.RegisterClass;
 import godot.annotation.RegisterFunction;
 import godot.annotation.RegisterSignal;

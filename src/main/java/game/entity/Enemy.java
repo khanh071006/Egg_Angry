@@ -1,7 +1,6 @@
 package game.entity;
 
 import game.autoloads.Global;
-import game.resources.EnemyStats;
 import godot.annotation.Export;
 import godot.annotation.RegisterClass;
 import godot.annotation.RegisterFunction;

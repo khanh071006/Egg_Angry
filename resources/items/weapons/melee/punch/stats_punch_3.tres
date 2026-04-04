@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="WeaponStats" load_steps=2 format=3 uid="uid://bafrm2ogwknrq"]
+
+[ext_resource type="Script" uid="uid://bwod6o4yfvkuf" path="res://gdj/game/resources/items/weapons/WeaponStats.gdj" id="1_jst7l"]
+
+[resource]
+script = ExtResource("1_jst7l")
+damage = 16.0
+accuracy = 1.0
+cooldown = 0.9
+max_range = 180.0
+knockback = 1.0
+projectile_speed = 1600.0
+metadata/_custom_type_script = "uid://bwod6o4yfvkuf"

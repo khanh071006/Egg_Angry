@@ -1,8 +1,8 @@
 // THIS FILE IS GENERATED! DO NOT EDIT IT MANUALLY!
 package godot.entry
 
-import game.resources.EnemyStats
-import game.resources.UnitStats.UnitType
+import game.resources.units.EnemyStats
+import game.resources.units.UnitStats.UnitType
 import godot.`annotation`.RegisteredClassMetadata
 import godot.core.KtConstructor0
 import godot.core.PropertyHint.NONE
@@ -20,20 +20,20 @@ import kotlin.collections.listOf
 @RegisteredClassMetadata(
   "EnemyStats",
   "Resource",
-  "game.resources.EnemyStats",
-  "src/main/java/game/resources/EnemyStats.java",
+  "game.resources.units.EnemyStats",
+  "src/main/java/game/resources/units/EnemyStats.java",
   "gdj/game/resources/EnemyStats.gdj",
   "project-3",
-  "game.resources.UnitStats,godot.api.Resource,godot.api.RefCounted,godot.api.Object,godot.core.KtObject,godot.common.interop.NativeWrapper,godot.common.interop.NativePointer,kotlin.Any",
+  "game.resources.units.UnitStats,godot.api.Resource,godot.api.RefCounted,godot.api.Object,godot.core.KtObject,godot.common.interop.NativeWrapper,godot.common.interop.NativePointer,kotlin.Any",
   "",
-  "game.resources.EnemyStats.goldDrop,game.resources.EnemyStats.blockChance,game.resources.EnemyStats.unitName,game.resources.EnemyStats.type,game.resources.EnemyStats.icon,game.resources.EnemyStats.health,game.resources.EnemyStats.healthIncreasePerWave,game.resources.EnemyStats.damage,game.resources.EnemyStats.damageIncreasePerWave,game.resources.EnemyStats.speed,game.resources.EnemyStats.blockchance",
+  "game.resources.units.EnemyStats.goldDrop,game.resources.units.EnemyStats.blockChance,game.resources.units.EnemyStats.unitName,game.resources.units.EnemyStats.type,game.resources.units.EnemyStats.icon,game.resources.units.EnemyStats.health,game.resources.units.EnemyStats.healthIncreasePerWave,game.resources.units.EnemyStats.damage,game.resources.units.EnemyStats.damageIncreasePerWave,game.resources.units.EnemyStats.speed,game.resources.units.EnemyStats.blockchance",
   "",
   true,
 )
 public open class EnemyStatsRegistrar : ClassRegistrar {
   public override fun register(registry: ClassRegistry): Unit {
     with(registry) {
-      registerClass<EnemyStats>(listOf("UnitStats"), EnemyStats::class, false, "Resource", "EnemyStats", "src/main/java/game/resources/EnemyStats.java", "gdj/game/resources/EnemyStats.gdj") {
+      registerClass<EnemyStats>(listOf("UnitStats"), EnemyStats::class, false, "Resource", "EnemyStats", "src/main/java/game/resources/units/EnemyStats.java", "gdj/game/resources/EnemyStats.gdj") {
         constructor(KtConstructor0(::EnemyStats))
         notificationFunctions(listOf())
         property(EnemyStats::goldDrop, FLOAT, DOUBLE, "kotlin.Float", NONE, "", godot.core.PropertyUsageFlags.DEFAULT.flag)

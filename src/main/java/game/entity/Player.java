@@ -1,7 +1,8 @@
 package game.entity;
 
 import game.animation.Trail;
-import game.resources.PlayerStats;
+import game.items.weapons.Weapon;
+import game.resources.items.weapons.ItemWeapon;
 import godot.annotation.Export;
 import godot.annotation.RegisterClass;
 import godot.annotation.RegisterFunction;
@@ -10,6 +11,9 @@ import godot.api.*;
 import godot.core.Color;
 import godot.core.StringName;
 import godot.core.Vector2;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @RegisterClass
 public class Player extends BaseUnit {
@@ -29,6 +33,12 @@ public class Player extends BaseUnit {
 	private CollisionShape2D collision;
 	private Trail trail;
 
+    // Weapon
+    // Tham chiếu đến cái Container sếp vừa làm ở video trước
+    private WeaponContainer weaponContainer;
+
+    // Bể chứa các vũ khí Player đang cầm
+    private List<Node> currentWeapons = new ArrayList<>();
 
 
 	@Export
@@ -66,7 +76,20 @@ public class Player extends BaseUnit {
 		if (dashTimer != null) dashTimer.setWaitTime(dashDuration);
 		if (dashCooldownTimer != null) dashCooldownTimer.setWaitTime(dashCooldown);
 
+        weaponContainer = (WeaponContainer) getNode("%WeaponContainer");
+        // 2. TEST GAME: Tải file dữ liệu của Punch LV1 (Thay đường dẫn cho đúng máy sếp)
+        String weaponPath = "res://resources/items/weapons/melee/punch/item_punch_2.tres";
+        ItemWeapon testWeapon = (ItemWeapon) ResourceLoader.load(weaponPath);
 
+        if (testWeapon != null) {
+            // Test thử add 6 cái vũ khí xem nó có xếp thành hình tròn không
+            addWeapon(testWeapon);
+            addWeapon(testWeapon);
+            addWeapon(testWeapon);
+            addWeapon(testWeapon);
+            addWeapon(testWeapon);
+            addWeapon(testWeapon);
+        }
 	}
 
 	@RegisterFunction
@@ -176,4 +199,25 @@ public class Player extends BaseUnit {
 			}
 		}
 	}
+
+    @RegisterFunction
+    public void addWeapon(ItemWeapon data){
+        // 1. Lấy "Bản thiết kế" (.tscn) từ Data và đúc nó thành "Đồ thật"
+        Node instance = data.weaponScene.instantiate();
+
+        // 2. Ép kiểu nó về class Weapon của sếp
+        Weapon weapon = (Weapon) instance;
+
+        // 3. Gắn nó làm con của Player (để nó di chuyển theo Player)
+        this.addChild(weapon);
+
+        // 4. "Đổ xăng" - Truyền thông số từ ItemWeapon vào Vũ khí thực tế
+        weapon.setupWeapon(data);
+
+        // 5. Thêm vào balo và cập nhật vị trí đội hình
+        currentWeapons.add(weapon);
+        if (weaponContainer != null) {
+            weaponContainer.updateWeaponsPosition(currentWeapons);
+        }
+    }
 }
