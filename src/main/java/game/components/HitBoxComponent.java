@@ -52,6 +52,7 @@ public class HitBoxComponent extends Area2D {
     @RegisterFunction
     public void _on_area_entered(Area2D area){
         if (area instanceof HurtBoxComponent){
+
             HurtBoxComponent hurtbox = (HurtBoxComponent) area;
 
             onHitHurtbox.emit(hurtbox);

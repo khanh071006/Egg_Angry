@@ -1,8 +1,10 @@
 package game.items.weapons;
 
+import game.autoloads.Global;
 import game.resources.items.weapons.ItemWeapon;
 
 
+import godot.annotation.Export;
 import godot.annotation.RegisterClass;
 import godot.annotation.RegisterFunction;
 import godot.annotation.RegisterProperty;
@@ -22,12 +24,22 @@ public class Weapon extends Node2D {
     private CollisionShape2D collision;
     private Timer cooldownTimer;
 
+
+    public Sprite2D getSprite() {
+        return sprite;
+    }
+
+    @Export
+    @RegisterProperty
+    public Node2D weaponBehavior;
+
     // --- Data & State ---
     @RegisterProperty
     public ItemWeapon data;
 
     public boolean isAttacking = false;
     public Vector2 attackStartPosition = new Vector2();
+    public double weaponSpread = 0.0;
 
     // Dùng ArrayList của Java thay cho VariantArray (Dứt điểm gạch đỏ!)
     public List<Node> targets = new ArrayList<>();
@@ -50,12 +62,6 @@ public class Weapon extends Node2D {
     public void setupWeapon(ItemWeapon weaponData) {
         this.data = weaponData;
 
-        if (data != null) {
-            GD.print("Đã lắp vũ khí: " + data.itemName + " - Sát thương: " + data.stats.damage);
-            // ... logic setRadius giữ nguyên ...
-        } else {
-            GD.printErr("LỖI: Chưa kéo thả file WeaponStats vào ItemWeapon!");
-        }
         // Cập nhật tầm đánh từ Stats vào CollisionShape
         if (data != null && data.stats != null && collision != null) {
             CircleShape2D shape = (CircleShape2D) collision.getShape();
@@ -75,19 +81,15 @@ public class Weapon extends Node2D {
 
     @RegisterFunction
     public void _on_range_area_area_entered(Area2D area) {
-        // Lấy chủ sở hữu (Enemy) của Area
-        Node enemy = area.getOwner();
+        // 1. IN RA THẲNG TÊN CỦA AREA (Tuyệt đối không dùng getOwner ở bước này để chống crash)
+        GD.print("QUÉT TRÚNG RỒI! Tên Area là: " + area.getName());
 
-        // Thêm vào danh sách (dùng add của Java)
-        if (!targets.contains(enemy)) {
-            targets.add(enemy);
-        }
-        // Debug xem quái có thực sự bước vào vùng đánh chưa
-        GD.print("Phát hiện mục tiêu: " + enemy.getName());
+        Node enemy = area.getParent();
+        if (enemy == null) return; // Nếu null thì bỏ qua luôn cho khỏi lỗi đỏ
 
         if (!targets.contains(enemy)) {
             targets.add(enemy);
-            GD.print("Số lượng mục tiêu trong tầm: " + targets.size());
+            GD.print("Đã thêm quái: " + enemy.getName() + " | Số lượng: " + targets.size());
         }
     }
 
@@ -99,6 +101,107 @@ public class Weapon extends Node2D {
         // Kiểm tra rỗng (dùng isEmpty của Java)
         if (targets.isEmpty()) {
             closestTarget = null;
+        }
+    }
+
+    // --- LOGIC TÌM MỤC TIÊU ---
+
+    @RegisterFunction
+    public void updateClosestTarget() {
+        closestTarget = getClosestTarget();
+    }
+
+    @RegisterFunction
+    public Node2D getClosestTarget() {
+        if (targets == null || targets.isEmpty()) return null;
+        Node2D closestEnemy = (Node2D) targets.get(0);
+        double closestDistance = this.getGlobalPosition().distanceTo(closestEnemy.getGlobalPosition());
+
+        for (int j = 1; j < targets.size(); j++) {
+            Node2D target = (Node2D) targets.get(j);
+            double distance = this.getGlobalPosition().distanceTo(target.getGlobalPosition());
+            if (distance < closestDistance) {
+                closestDistance = distance;
+                closestEnemy = target;
+            }
+        }
+        return closestEnemy;
+    }
+
+    @RegisterFunction
+    public double getIdleRotation() {
+        if (Global.player != null && Global.player.isFacingRight()) {
+            return 0.0; // Chỉ thẳng sang phải
+        }
+        return Math.PI; // Xoay 180 độ (Pi radian) sang trái
+    }
+
+    @RegisterFunction
+    public void calculateSpread() {
+        if (data != null && data.stats != null) {
+            double range = 1.0 - data.stats.accuracy;
+            weaponSpread = GD.randfRange((float) -range, (float) range);
+        }
+    }
+
+    @RegisterFunction
+    public double getRotationToTarget() {
+        if (targets.isEmpty() || closestTarget == null) {
+            return getIdleRotation();
+        }
+        // Tính góc hướng tới mục tiêu
+        return this.getGlobalPosition().directionTo(((Node2D) closestTarget).getGlobalPosition()).angle();
+    }
+
+    @RegisterFunction
+    public double getCustomRotationToTarget() {
+        if (closestTarget == null || !closestTarget.isInsideTree()) {
+            return this.getRotation();
+        }
+        // Tính góc tới mục tiêu + độ giật (spread)
+        double rot = this.getGlobalPosition().directionTo(((Node2D) closestTarget).getGlobalPosition()).angle();
+        return rot + weaponSpread;
+    }
+
+    @RegisterFunction
+    public void rotateToTarget() {
+        if (isAttacking) {
+            this.setRotation((float) getCustomRotationToTarget());
+        } else {
+            this.setRotation((float) getRotationToTarget());
+        }
+    }
+
+    // --- VÒNG LẶP KHUNG HÌNH ---
+
+    @RegisterFunction
+    @Override
+    public void _process(double delta) {
+        if (!isAttacking) {
+            if (!targets.isEmpty()) {
+                updateClosestTarget();
+            } else {
+                closestTarget = null;
+            }
+            rotateToTarget();
+        }
+        if (canUseWeapon())
+            useWeapon();
+    }
+
+    // Sử dụng weapon
+    @RegisterFunction
+    public void useWeapon() {
+        // KIỂM TRA ĐIỀU KIỆN:
+        // 1. Đồng hồ Cooldown phải dừng (hết thời gian chờ)
+        // 2. Không được đang trong trạng thái đánh (isAttacking = false)
+        if (cooldownTimer.isStopped() && !isAttacking) {
+
+            // Lệnh quan trọng nhất: Gọi "cái tay" thực hiện đòn đánh
+            ((WeaponBehavior) weaponBehavior).executeAttack();
+
+            // Bắt đầu đếm ngược thời gian chờ cho phát đấm sau
+            cooldownTimer.start();
         }
     }
 }

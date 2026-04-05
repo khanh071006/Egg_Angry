@@ -5,8 +5,12 @@ import godot.annotation.RegisterClass;
 import godot.annotation.RegisterFunction;
 import godot.annotation.RegisterSignal;
 import godot.api.Node;
+import godot.api.Node2D;
 import godot.core.Signal0;
 import godot.core.Signal2;
+import godot.core.StringName;
+import godot.global.GD;
+
 
 @RegisterClass
 public class HealthComponent extends Node {
@@ -51,8 +55,21 @@ public class HealthComponent extends Node {
 
     @RegisterFunction
     public void Die(){
-        if (getOwner() != null){
-            getOwner().queueFree();
+        Node parent = getParent();
+        if (parent != null){
+
+            // 1. ĐÓNG BĂNG MỌI HOẠT ĐỘNG (Tương đương ProcessMode = PROCESS_MODE_DISABLED)
+            // Lệnh này ép con quái ngừng chạy _process, ngừng AI, ngừng tính toán vật lý
+            parent.setDeferred(new StringName("process_mode"), 4);
+
+            // 2. TÀNG HÌNH (Ẩn nó khỏi màn hình)
+            parent.setDeferred(new StringName("visible"), false);
+
+            // 3. ĐÀY RA ĐẢO XA (Dịch chuyển nó ra khỏi bản đồ chơi để chắc chắn 100% không ai chạm trúng)
+            if (parent instanceof Node2D) {
+                // Ép kiểu tọa độ bằng godot.core.Vector2
+                ((Node2D) parent).setDeferred(new StringName("global_position"), new godot.core.Vector2(-9999, -9999));
+            }
         }
     }
 

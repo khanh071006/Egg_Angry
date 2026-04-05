@@ -1,14 +1,12 @@
 package game.entity;
 
 import game.autoloads.Global;
+import game.components.HitBoxComponent;
 import godot.annotation.Export;
 import godot.annotation.RegisterClass;
 import godot.annotation.RegisterFunction;
 import godot.annotation.RegisterProperty;
-import godot.api.AnimationPlayer;
-import godot.api.Area2D;
-import godot.api.Node2D;
-import godot.api.Sprite2D;
+import godot.api.*;
 import godot.core.VariantArray;
 import godot.core.Vector2;
 
@@ -26,6 +24,13 @@ public class Enemy extends BaseUnit {
     private Area2D visionArea;
     private boolean canMove = true;
 
+    //Knockback
+    private Vector2 knockbackDirection = new Vector2(0, 0);
+    public double knockbackPower = 0.0;
+
+    @RegisterProperty
+    public Timer knockbackTimer;
+
     @RegisterFunction
     @Override
     public void _ready() {
@@ -35,11 +40,14 @@ public class Enemy extends BaseUnit {
         sprite = (Sprite2D) getNode("%Sprite");
         animPlayer = (AnimationPlayer) getNode("AnimationPlayer");
         visionArea = (Area2D) getNode("VisionArea");
+
+        //KnockbackTimer init
+        knockbackTimer = (Timer) getNode("KnockbackTimer");
     }
 
     // Dùng _physics_process để đồng bộ chuẩn với hệ thống quét Radar của Godot
     @RegisterFunction
-        @Override
+    @Override
     public void _physicsProcess(double delta) {
         float fDelta = (float) delta;
 
@@ -55,10 +63,10 @@ public class Enemy extends BaseUnit {
         float speed = (stats != null) ? stats.speed : 250.0f;
         Vector2 velocity = moveDir.times(speed);
 
-        // Tương đương: position += move_direction * speed * delta
-        Vector2 currentPos = getGlobalPosition();
-        setGlobalPosition(currentPos.plus(velocity.times(fDelta)));
-
+        // 2. Tính toán Vector tổng (Cộng thêm lực đẩy lùi)
+        // Velocity = (moveDir * speed) + (knockbackDirection * knockbackPower)
+        Vector2 finalVelocity = moveDir.times(speed).plus(knockbackDirection.times(knockbackPower));
+        setPosition(getPosition().plus(finalVelocity.times(delta)));
         updateRotation();
     }
 
@@ -119,6 +127,48 @@ public class Enemy extends BaseUnit {
             visuals.setScale(new Vector2(-1f, 1f));
         } else {
             visuals.setScale(new Vector2(1f, 1f));
+        }
+    }
+
+    // Knock Timer
+    @RegisterFunction
+    public void applyKnockback(Vector2 direction, double power) {
+        this.knockbackDirection = direction;
+        this.knockbackPower = power;
+
+        // Nếu đang bị đẩy mà lại bị đấm tiếp -> Reset Timer để đẩy tiếp từ đầu
+        if (knockbackTimer.getTimeLeft() > 0) {
+            knockbackTimer.stop();
+        }
+        knockbackTimer.start();
+    }
+
+    @RegisterFunction
+    public void resetKnockback() {
+        this.knockbackDirection = new Vector2(0, 0);
+        this.knockbackPower = 0.0;
+    }
+
+    // Hàm này sếp nối với Signal "timeout" của KnockbackTimer trên Editor nhé
+    @RegisterFunction
+    public void _on_knockback_timer_timeout() {
+        resetKnockback();
+    }
+
+    @RegisterFunction
+    @Override
+    public void _on_hurtbox_component_on_damage(HitBoxComponent hitbox) {
+        // 1. Gọi hàm của lớp cha để trừ máu, hiện số nhảy...
+        super._on_hurtbox_component_on_damage(hitbox);
+
+        // 2. Nếu vũ khí có lực đẩy (Knockback Power > 0)
+        if (hitbox.knockbackPower > 0) {
+            // Tính hướng: Từ "Kẻ ra đòn" (Source) đến "Bản thân con quái"
+            // Direction = (EnemyPos - PlayerPos).normalized()
+            Vector2 knockDir = getGlobalPosition().minus(Global.player.getGlobalPosition()).normalized();
+
+            // 3. Thực thi đẩy lùi
+            applyKnockback(knockDir, hitbox.knockbackPower * 100); // Nhân 100 để lực đủ mạnh
         }
     }
 }

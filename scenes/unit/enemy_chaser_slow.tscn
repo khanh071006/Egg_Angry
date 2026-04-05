@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bw6b5kktpiof3"]
+[gd_scene load_steps=10 format=3 uid="uid://bw6b5kktpiof3"]
 
 [ext_resource type="PackedScene" uid="uid://3ltab4xt014s" path="res://scenes/unit/unit.tscn" id="1_7gwxk"]
 [ext_resource type="Texture2D" uid="uid://d1ou504pylric" path="res://gdj/game/Game+Assets/assets/sprites/Enemies/Enemy_1.png" id="2_st0p2"]
@@ -12,14 +12,17 @@ radius = 20.09975
 [sub_resource type="CircleShape2D" id="CircleShape2D_7gwxk"]
 radius = 300.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_s6apq"]
+radius = 59.22837
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_07cq8"]
-radius = 88.362885
+radius = 76.105194
 
 [node name="EnemyChaserSlow" instance=ExtResource("1_7gwxk")]
-collision_layer = 2
+collision_layer = 0
 script = ExtResource("2_yf04y")
-stats = ExtResource("3_yf04y")
 flock_push = 20.0
+stats = ExtResource("3_yf04y")
 
 [node name="Sprite" parent="Visuals" index="1"]
 texture = ExtResource("2_st0p2")
@@ -37,15 +40,28 @@ collision_mask = 2
 position = Vector2(0, -58)
 shape = SubResource("CircleShape2D_7gwxk")
 
+[node name="HurtboxComponent" parent="." index="4"]
+collision_layer = 34
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent" index="0"]
+position = Vector2(0, -58)
+shape = SubResource("CircleShape2D_s6apq")
+debug_color = Color(0.38018677, 0.5704355, 0.62567276, 0.41960785)
+
 [node name="HitboxComponent" parent="." index="5" instance=ExtResource("5_s6apq")]
-collision_layer = 16
+collision_layer = 18
 collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent" index="0"]
 position = Vector2(2, -58)
 shape = SubResource("CircleShape2D_07cq8")
-debug_color = Color(0.93776786, 0.13023272, 0.53524446, 0.41960785)
+debug_color = Color(0.82263786, 0.36264893, 0.45049143, 0.41960785)
 
 [node name="HealthBar" parent="." index="7"]
 back_color = Color(0.015686275, 0.05490196, 0.16862746, 1)
 fill_color = Color(0.37254903, 0.5372549, 0.75686276, 1)
+
+[node name="KnockbackTimer" type="Timer" parent="." index="9"]
+
+[connection signal="timeout" from="KnockbackTimer" to="." method="_on_knockback_timer_timeout"]

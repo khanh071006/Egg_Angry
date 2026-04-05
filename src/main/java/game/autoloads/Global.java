@@ -42,9 +42,9 @@ public class Global extends Node {
     }
 
     @RegisterFunction
-    public static boolean get_chance_sucess(float chance){
+    public static boolean get_chance_sucess(double chance){
         Random random = new Random();
-        float randomFloat = random.nextFloat();
+        double randomFloat = random.nextFloat();
         if (randomFloat <= chance) return true;
         return false;
     }

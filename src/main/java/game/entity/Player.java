@@ -1,6 +1,7 @@
 package game.entity;
 
 import game.animation.Trail;
+import game.autoloads.Global;
 import game.items.weapons.Weapon;
 import game.resources.items.weapons.ItemWeapon;
 import godot.annotation.Export;
@@ -78,16 +79,11 @@ public class Player extends BaseUnit {
 
         weaponContainer = (WeaponContainer) getNode("%WeaponContainer");
         // 2. TEST GAME: Tải file dữ liệu của Punch LV1 (Thay đường dẫn cho đúng máy sếp)
-        String weaponPath = "res://resources/items/weapons/melee/punch/item_punch_2.tres";
+        String weaponPath = "res://resources/items/weapons/melee/punch/item_punch_1.tres";
         ItemWeapon testWeapon = (ItemWeapon) ResourceLoader.load(weaponPath);
 
         if (testWeapon != null) {
             // Test thử add 6 cái vũ khí xem nó có xếp thành hình tròn không
-            addWeapon(testWeapon);
-            addWeapon(testWeapon);
-            addWeapon(testWeapon);
-            addWeapon(testWeapon);
-            addWeapon(testWeapon);
             addWeapon(testWeapon);
         }
 	}
@@ -177,6 +173,9 @@ public class Player extends BaseUnit {
 		if (collision != null) {
 			collision.setDeferred(new StringName("disabled"), false);
 		}
+
+        //Sử dụng vũ khí
+
 	}
 
 	private void updateAnimations() {
@@ -219,5 +218,10 @@ public class Player extends BaseUnit {
         if (weaponContainer != null) {
             weaponContainer.updateWeaponsPosition(currentWeapons);
         }
+    }
+
+    public boolean isFacingRight() {
+        // Nếu Scale X dương (thường là -1.0) thì là bên phải
+        return this.visuals.getScale().getX() < 0;
     }
 }

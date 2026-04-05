@@ -4,10 +4,10 @@
 
 [resource]
 script = ExtResource("1_b0adc")
-damage = 4.0
+damage = 2.0
 accuracy = 1.0
 cooldown = 1.5
 max_range = 180.0
-knockback = 1.0
+knockback = 2.0
 projectile_speed = 1600.0
 metadata/_custom_type_script = "uid://bwod6o4yfvkuf"

@@ -25,6 +25,9 @@ dash_speed_multi = 1.5
 dash_cooldown = 1.5
 stats = ExtResource("3_33ukp")
 
+[node name="Visuals" parent="." index="0"]
+scale = Vector2(-1, 1)
+
 [node name="Trail" type="Line2D" parent="Visuals" index="0" node_paths=PackedStringArray("player")]
 unique_name_in_owner = true
 top_level = true

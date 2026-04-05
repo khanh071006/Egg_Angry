@@ -19,12 +19,22 @@ signals = [
 	
 ]
 properties = [
+	weapon_behavior,
 	data
 ]
 functions = [
+	_process,
 	_ready,
 	setup_weapon,
 	can_use_weapon,
 	_on_range_area_area_entered,
-	_on_range_area_area_exited
+	_on_range_area_area_exited,
+	update_closest_target,
+	get_closest_target,
+	get_idle_rotation,
+	calculate_spread,
+	get_rotation_to_target,
+	get_custom_rotation_to_target,
+	rotate_to_target,
+	use_weapon
 ]

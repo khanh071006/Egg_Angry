@@ -23,6 +23,7 @@ signals = [
 ]
 properties = [
     flock_push,
+	knockback_timer,
 	stats
 ]
 functions = [
@@ -30,5 +31,8 @@ functions = [
 	_ready,
 	set_flash_material,
 	_on_hurtbox_component_on_damage,
-	_on_flash_timer_timeout
+	_on_flash_timer_timeout,
+	apply_knockback,
+	reset_knockback,
+	_on_knockback_timer_timeout
 ]

@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://dbc1cru0wxnsf"]
+[gd_scene load_steps=8 format=3 uid="uid://dbc1cru0wxnsf"]
 
 [ext_resource type="Texture2D" uid="uid://cy4xfx762bxgb" path="res://gdj/game/Game+Assets/assets/sprites/BG.png" id="1_dm0lm"]
 [ext_resource type="Script" uid="uid://cbvtm502as2ux" path="res://gdj/game/arena/Arena.gdj" id="1_etbs0"]
 [ext_resource type="Texture2D" uid="uid://ov4fmsbglo55" path="res://gdj/game/Game+Assets/assets/sprites/Map.png" id="2_etbs0"]
 [ext_resource type="PackedScene" uid="uid://lty2nxmp27i0" path="res://scenes/unit/player_well_rounded.tscn" id="3_faeup"]
 [ext_resource type="Script" uid="uid://dr32cptk08mq0" path="res://gdj/game/arena/CameraController.gdj" id="5_faeup"]
+[ext_resource type="Resource" uid="uid://dqrt363axanpe" path="res://resources/units/players/stats_player_well_rounded.tres" id="5_jgfk2"]
 [ext_resource type="PackedScene" uid="uid://bw6b5kktpiof3" path="res://scenes/unit/enemy_chaser_slow.tscn" id="6_e8lwv"]
 
 [node name="Arena" type="Node2D" node_paths=PackedStringArray("player")]
@@ -22,15 +23,28 @@ texture = ExtResource("2_etbs0")
 [node name="PlayerWellRounded" parent="." instance=ExtResource("3_faeup")]
 collision_mask = 0
 dash_speed_multi = 2.7
+stats = ExtResource("5_jgfk2")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 script = ExtResource("5_faeup")
 
 [node name="EnemyChaserSlow" parent="." instance=ExtResource("6_e8lwv")]
-position = Vector2(244, -161)
+position = Vector2(-475, -218)
 
 [node name="EnemyChaserSlow2" parent="." instance=ExtResource("6_e8lwv")]
-position = Vector2(469, 128)
+position = Vector2(-214, 322)
+
+[node name="EnemyChaserSlow3" parent="." instance=ExtResource("6_e8lwv")]
+position = Vector2(68, 356)
 
 [node name="EnemyChaserSlow4" parent="." instance=ExtResource("6_e8lwv")]
-position = Vector2(611, -223)
+position = Vector2(-443, 351)
+
+[node name="EnemyChaserSlow5" parent="." instance=ExtResource("6_e8lwv")]
+position = Vector2(-135, 79)
+
+[node name="EnemyChaserSlow6" parent="." instance=ExtResource("6_e8lwv")]
+position = Vector2(-236, 48)
+
+[node name="EnemyChaserSlow7" parent="." instance=ExtResource("6_e8lwv")]
+position = Vector2(-224, -219)
