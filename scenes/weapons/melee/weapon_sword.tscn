@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://0im1r5fouqh"]
+
+[ext_resource type="PackedScene" uid="uid://d0c5ne05f8x2i" path="res://scenes/weapons/melee/weapon_punch.tscn" id="1_mcquq"]
+[ext_resource type="Texture2D" uid="uid://2fk3slrab3bp" path="res://gdj/game/Game+Assets/assets/sprites/Weapons/Melee/Weapon_sword.png" id="2_m1lus"]
+
+[node name="WeaponSword" instance=ExtResource("1_mcquq")]
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_m1lus")
+
+[node name="CollisionShape2D" parent="Sprite2D/HitBoxComponent" index="0"]
+scale = Vector2(8, 8)

@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://b1hwa1bu1i5tu"]
+
+[ext_resource type="PackedScene" uid="uid://d0c5ne05f8x2i" path="res://scenes/weapons/melee/weapon_punch.tscn" id="1_yv2nf"]
+[ext_resource type="Texture2D" uid="uid://nrabpofasepu" path="res://gdj/game/Game+Assets/assets/sprites/Weapons/Melee/Weapon_chainsaw.png" id="2_8vnv6"]
+
+[node name="WeaponChainsaw" instance=ExtResource("1_yv2nf")]
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_8vnv6")

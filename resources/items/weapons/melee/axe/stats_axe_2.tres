@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="WeaponStats" load_steps=2 format=3 uid="uid://cmrfe3yah7i0e"]
+
+[ext_resource type="Script" uid="uid://bwod6o4yfvkuf" path="res://gdj/game/resources/items/weapons/WeaponStats.gdj" id="1_okk1u"]
+
+[resource]
+script = ExtResource("1_okk1u")
+damage = 25.0
+accuracy = 0.8
+cooldown = 1.2
+crit_damage = 2.2
+max_range = 165.0
+knockback = 3.0
+recoil_duration = 0.18
+attack_duration = 0.13
+back_duration = 0.35
+projectile_speed = 1600.0
+metadata/_custom_type_script = "uid://bwod6o4yfvkuf"

@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://y417pcresfam"]
+
+[ext_resource type="PackedScene" uid="uid://dpqr3476rdomq" path="res://scenes/weapons/range/weapon_pistol.tscn" id="1_do0ve"]
+[ext_resource type="Texture2D" uid="uid://c7cwrud8hbq0b" path="res://assets/sprites/Weapons/Range/WeaponShotgun.png" id="2_q2o1a"]
+
+[node name="WeaponShotgun" instance=ExtResource("1_do0ve")]
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_q2o1a")
+
+[node name="Muzzle" parent="Sprite2D" index="0"]
+position = Vector2(130, -15)

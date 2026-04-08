@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ItemWeapon" load_steps=6 format=3 uid="uid://tw33bpcxcdy5"]
+
+[ext_resource type="Texture2D" uid="uid://dmo5qwx6l6wdu" path="res://assets/sprites/Weapons/Icons/weapon_revolver_icon.png" id="1_26sto"]
+[ext_resource type="Script" uid="uid://bql6f74ltjh1f" path="res://gdj/game/resources/items/weapons/ItemWeapon.gdj" id="2_26sto"]
+[ext_resource type="Resource" uid="uid://b5xo6ldg0qhdg" path="res://resources/items/weapons/range/revolver/stats_revolver_3.tres" id="3_26sto"]
+[ext_resource type="Resource" uid="uid://bbg84rdc5uipt" path="res://resources/items/weapons/range/revolver/item_revolver_4.tres" id="4_l71qt"]
+[ext_resource type="PackedScene" uid="uid://c8o8m5jmsdeg8" path="res://scenes/weapons/range/weapon_revolver.tscn" id="5_l71qt"]
+
+[resource]
+script = ExtResource("2_26sto")
+type = 1
+weapon_scene = ExtResource("5_l71qt")
+stats = ExtResource("3_26sto")
+upgrade_to = ExtResource("4_l71qt")
+item_name = "Revolver 3"
+item_icon = ExtResource("1_26sto")
+item_tier = 2
+item_cost = 12
+metadata/_custom_type_script = "uid://bql6f74ltjh1f"

@@ -15,6 +15,8 @@ import game.entity.WeaponContainer
 import game.items.weapons.Weapon
 import game.items.weapons.WeaponBehavior
 import game.items.weapons.melee.MeleeBehavior
+import game.items.weapons.projectiles.Projectile
+import game.items.weapons.range.RangeBehavior
 import game.resources.items.ItemBase
 import game.resources.items.weapons.ItemWeapon
 import game.resources.items.weapons.WeaponStats
@@ -39,6 +41,8 @@ import godot.entry.ItemWeaponRegistrar
 import godot.entry.MeleeBehaviorRegistrar
 import godot.entry.PlayerRegistrar
 import godot.entry.PlayerStatsRegistrar
+import godot.entry.ProjectileRegistrar
+import godot.entry.RangeBehaviorRegistrar
 import godot.entry.TrailRegistrar
 import godot.entry.UnitStatsRegistrar
 import godot.entry.WeaponBehaviorRegistrar
@@ -58,7 +62,7 @@ import kotlin.collections.listOf
 import kotlin.reflect.KClass
 
 public class Entry : Entry() {
-  public override val classRegistrarCount: Int = 22
+  public override val classRegistrarCount: Int = 24
 
   public override val projectName: String = "project-3"
 
@@ -75,6 +79,8 @@ public class Entry : Entry() {
     PlayerRegistrar().register(registry)
     WeaponContainerRegistrar().register(registry)
     MeleeBehaviorRegistrar().register(registry)
+    ProjectileRegistrar().register(registry)
+    RangeBehaviorRegistrar().register(registry)
     WeaponRegistrar().register(registry)
     WeaponBehaviorRegistrar().register(registry)
     ItemBaseRegistrar().register(registry)
@@ -96,7 +102,8 @@ public class Entry : Entry() {
   public override fun Context.getRegisteredClasses(): List<KClass<*>> = listOf(Trail::class,
       Arena::class, CameraController::class, Global::class, HealthComponent::class,
       HitBoxComponent::class, HurtBoxComponent::class, BaseUnit::class, Enemy::class, Player::class,
-      WeaponContainer::class, MeleeBehavior::class, Weapon::class, WeaponBehavior::class,
-      ItemBase::class, ItemWeapon::class, WeaponStats::class, EnemyStats::class, PlayerStats::class,
-      UnitStats::class, FloatingText::class, HealthBar::class)
+      WeaponContainer::class, MeleeBehavior::class, Projectile::class, RangeBehavior::class,
+      Weapon::class, WeaponBehavior::class, ItemBase::class, ItemWeapon::class, WeaponStats::class,
+      EnemyStats::class, PlayerStats::class, UnitStats::class, FloatingText::class,
+      HealthBar::class)
 }

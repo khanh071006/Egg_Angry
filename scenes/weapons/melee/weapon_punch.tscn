@@ -1,16 +1,19 @@
-[gd_scene load_steps=5 format=3 uid="uid://d0c5ne05f8x2i"]
+[gd_scene load_steps=6 format=3 uid="uid://d0c5ne05f8x2i"]
 
 [ext_resource type="PackedScene" uid="uid://b4wkibpbsncdl" path="res://scenes/weapons/weapon_base.tscn" id="1_soyvn"]
 [ext_resource type="Texture2D" uid="uid://l5hst1cf27oo" path="res://gdj/game/Game+Assets/assets/sprites/Weapons/Melee/Weapon_Punch.png" id="2_sv013"]
 [ext_resource type="Script" uid="uid://bwrgjtj6t361v" path="res://gdj/game/components/HitBoxComponent.gdj" id="3_etoc4"]
+[ext_resource type="Script" uid="uid://b145tmfm7kp2k" path="res://gdj/game/items/weapons/melee/MeleeBehavior.gdj" id="4_etoc4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7lfcn"]
-size = Vector2(23.035715, 14.000001)
+size = Vector2(24.107147, 15.035717)
 
-[node name="WeaponPunch" instance=ExtResource("1_soyvn")]
+[node name="WeaponPunch" node_paths=PackedStringArray("weapon_behavior") instance=ExtResource("1_soyvn")]
 z_index = 1
+weapon_behavior = NodePath("WeaponBehavior")
 
 [node name="Sprite2D" parent="." index="0"]
+position = Vector2(27.999998, 0)
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("2_sv013")
 
@@ -22,7 +25,6 @@ script = ExtResource("3_etoc4")
 metadata/_custom_type_script = "uid://bwrgjtj6t361v"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/HitBoxComponent" index="0"]
-position = Vector2(0.6249969, 0)
 scale = Vector2(6.9999986, 6.9999986)
 shape = SubResource("RectangleShape2D_7lfcn")
 debug_color = Color(0.67989993, 0, 0.2627649, 0.41960785)
@@ -31,5 +33,6 @@ debug_color = Color(0.67989993, 0, 0.2627649, 0.41960785)
 one_shot = true
 
 [node name="WeaponBehavior" parent="." index="3" node_paths=PackedStringArray("hitbox", "weapon")]
+script = ExtResource("4_etoc4")
 hitbox = NodePath("../Sprite2D/HitBoxComponent")
 weapon = NodePath("..")

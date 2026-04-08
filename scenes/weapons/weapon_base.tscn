@@ -1,14 +1,13 @@
 [gd_scene load_steps=4 format=3 uid="uid://b4wkibpbsncdl"]
 
 [ext_resource type="Script" uid="uid://b0ihn8io4xc7o" path="res://gdj/game/items/weapons/Weapon.gdj" id="1_v4xn6"]
-[ext_resource type="Script" uid="uid://b145tmfm7kp2k" path="res://gdj/game/items/weapons/melee/MeleeBehavior.gdj" id="2_uvw4m"]
+[ext_resource type="Script" uid="uid://gjf3rjhy2031" path="res://gdj/game/items/weapons/WeaponBehavior.gdj" id="2_uvw4m"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vffjk"]
 radius = 150.0
 
-[node name="WeaponBase" type="Node2D" node_paths=PackedStringArray("weapon_behavior")]
+[node name="WeaponBase" type="Node2D"]
 script = ExtResource("1_v4xn6")
-weapon_behavior = NodePath("WeaponBehavior")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 unique_name_in_owner = true
@@ -24,6 +23,7 @@ shape = SubResource("CircleShape2D_vffjk")
 
 [node name="CooldownTimer" type="Timer" parent="."]
 unique_name_in_owner = true
+one_shot = true
 
 [node name="WeaponBehavior" type="Node2D" parent="."]
 script = ExtResource("2_uvw4m")

@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ItemWeapon" load_steps=6 format=3 uid="uid://dvk7jqx18odm2"]
+
+[ext_resource type="Texture2D" uid="uid://dx2oqsohwycoa" path="res://gdj/game/Game+Assets/assets/sprites/Weapons/Icons/weapon_shotgun_icon.png" id="1_07dv5"]
+[ext_resource type="Script" uid="uid://bql6f74ltjh1f" path="res://gdj/game/resources/items/weapons/ItemWeapon.gdj" id="2_k0agr"]
+[ext_resource type="Resource" uid="uid://h56jpxu5ian5" path="res://resources/items/weapons/range/shotgun/stats_shotgun_2.tres" id="3_7fmsw"]
+[ext_resource type="PackedScene" uid="uid://y417pcresfam" path="res://scenes/weapons/range/weapon_shotgun.tscn" id="3_61ngo"]
+[ext_resource type="Resource" uid="uid://cyupsl1a8q7j4" path="res://resources/items/weapons/range/shotgun/item_shotgun_3.tres" id="4_asuau"]
+
+[resource]
+script = ExtResource("2_k0agr")
+type = 1
+weapon_scene = ExtResource("3_61ngo")
+stats = ExtResource("3_7fmsw")
+upgrade_to = ExtResource("4_asuau")
+item_name = "Shotgun 2"
+item_icon = ExtResource("1_07dv5")
+item_tier = 1
+item_cost = 12
+metadata/_custom_type_script = "uid://bql6f74ltjh1f"

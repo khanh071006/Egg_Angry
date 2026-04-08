@@ -29,7 +29,7 @@ import kotlin.collections.listOf
   "godot.api.Node2D,godot.api.CanvasItem,godot.api.Node,godot.api.Object,godot.core.KtObject,godot.common.interop.NativeWrapper,godot.common.interop.NativePointer,kotlin.Any",
   "",
   "game.items.weapons.Weapon.weaponBehavior,game.items.weapons.Weapon.data",
-  "game.items.weapons.Weapon._process,game.items.weapons.Weapon._ready,game.items.weapons.Weapon.setupWeapon,game.items.weapons.Weapon.canUseWeapon,game.items.weapons.Weapon._on_range_area_area_entered,game.items.weapons.Weapon._on_range_area_area_exited,game.items.weapons.Weapon.updateClosestTarget,game.items.weapons.Weapon.getClosestTarget,game.items.weapons.Weapon.getIdleRotation,game.items.weapons.Weapon.calculateSpread,game.items.weapons.Weapon.getRotationToTarget,game.items.weapons.Weapon.getCustomRotationToTarget,game.items.weapons.Weapon.rotateToTarget,game.items.weapons.Weapon.useWeapon",
+  "game.items.weapons.Weapon._process,game.items.weapons.Weapon._ready,game.items.weapons.Weapon.setupWeapon,game.items.weapons.Weapon.canUseWeapon,game.items.weapons.Weapon._on_range_area_area_entered,game.items.weapons.Weapon._on_range_area_area_exited,game.items.weapons.Weapon.updateClosestTarget,game.items.weapons.Weapon.getClosestTarget,game.items.weapons.Weapon.getIdleRotation,game.items.weapons.Weapon.calculateSpread,game.items.weapons.Weapon.getRotationToTarget,game.items.weapons.Weapon.getCustomRotationToTarget,game.items.weapons.Weapon.rotateToTarget,game.items.weapons.Weapon.useWeapon,game.items.weapons.Weapon.updateVisuals",
   true,
 )
 public open class WeaponRegistrar : ClassRegistrar {
@@ -52,6 +52,7 @@ public open class WeaponRegistrar : ClassRegistrar {
         function(Weapon::getCustomRotationToTarget, DOUBLE, KtFunctionArgument(DOUBLE, "kotlin.Double"), KtRpcConfig(DISABLED.id.toInt(), false, RELIABLE.id.toInt(), 0))
         function(Weapon::rotateToTarget, NIL, KtFunctionArgument(NIL, "kotlin.Unit"), KtRpcConfig(DISABLED.id.toInt(), false, RELIABLE.id.toInt(), 0))
         function(Weapon::useWeapon, NIL, KtFunctionArgument(NIL, "kotlin.Unit"), KtRpcConfig(DISABLED.id.toInt(), false, RELIABLE.id.toInt(), 0))
+        function(Weapon::updateVisuals, NIL, KtFunctionArgument(NIL, "kotlin.Unit"), KtRpcConfig(DISABLED.id.toInt(), false, RELIABLE.id.toInt(), 0))
         property(Weapon::weaponBehavior, OBJECT, OBJECT, "godot.api.Node2D", NODE_TYPE, "Node2D", godot.core.PropertyUsageFlags.DEFAULT.flag)
         property(Weapon::`data`, OBJECT, OBJECT, "game.resources.items.weapons.ItemWeapon", RESOURCE_TYPE, "ItemWeapon", godot.core.PropertyUsageFlags.NONE.flag)
       }

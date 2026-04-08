@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="WeaponStats" load_steps=2 format=3 uid="uid://ty1joil8lpwr"]
+
+[ext_resource type="Script" uid="uid://bwod6o4yfvkuf" path="res://gdj/game/resources/items/weapons/WeaponStats.gdj" id="1_i4ibl"]
+
+[resource]
+script = ExtResource("1_i4ibl")
+damage = 20.0
+accuracy = 0.88
+crit_chance = 0.08
+crit_damage = 2.0
+max_range = 255.0
+knockback = 2.5
+recoil = 20.0
+recoil_duration = 0.15
+attack_duration = 0.1
+back_duration = 0.3
+projectile_speed = 1600.0
+metadata/_custom_type_script = "uid://bwod6o4yfvkuf"

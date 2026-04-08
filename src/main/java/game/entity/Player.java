@@ -79,12 +79,37 @@ public class Player extends BaseUnit {
 
         weaponContainer = (WeaponContainer) getNode("%WeaponContainer");
         // 2. TEST GAME: Tải file dữ liệu của Punch LV1 (Thay đường dẫn cho đúng máy sếp)
-        String weaponPath = "res://resources/items/weapons/melee/punch/item_punch_1.tres";
+        String weaponPath = "res://resources/items/weapons/melee/wand/item_wand_1.tres";
+        String weaponPath2 = "res://resources/items/weapons/melee/mace/item_mace_1.tres";
+        String weaponPath5 = "res://resources/items/weapons/melee/chainsaw/item_chainsaw_1.tres";
+        String weaponPath6 = "res://resources/items/weapons/melee/punch/item_punch_1.tres";
+        String weaponPath3 = "res://resources/items/weapons/melee/sword/item_sword_1.tres";
+        String weaponPath4 = "res://resources/items/weapons/range/smg/item_smg_1.tres";
+        String weaponPath7 = "res://resources/items/weapons/range/pistol/item_pistol_1.tres";
+        String weaponPath8 = "res://resources/items/weapons/range/shotgun/item_shotgun_1.tres";
+        String weaponPath9 = "res://resources/items/weapons/range/revolver/item_revolver_1.tres";
+        String weaponPath10 = "res://resources/items/weapons/range/laser/item_laser_1.tres";
         ItemWeapon testWeapon = (ItemWeapon) ResourceLoader.load(weaponPath);
+        ItemWeapon testWeapon2 = (ItemWeapon) ResourceLoader.load(weaponPath2);
+        ItemWeapon testWeapon3 = (ItemWeapon) ResourceLoader.load(weaponPath3);
+        ItemWeapon testWeapon4 = (ItemWeapon) ResourceLoader.load(weaponPath4);
+        ItemWeapon testWeapon5 = (ItemWeapon) ResourceLoader.load(weaponPath5);
+        ItemWeapon testWeapon6 = (ItemWeapon) ResourceLoader.load(weaponPath6);
+        ItemWeapon testWeapon7 = (ItemWeapon) ResourceLoader.load(weaponPath7);
+        ItemWeapon testWeapon8 = (ItemWeapon) ResourceLoader.load(weaponPath8);
+        ItemWeapon testWeapon9 = (ItemWeapon) ResourceLoader.load(weaponPath9);
+        ItemWeapon testWeapon10 = (ItemWeapon) ResourceLoader.load(weaponPath10);
 
         if (testWeapon != null) {
             // Test thử add 6 cái vũ khí xem nó có xếp thành hình tròn không
-            addWeapon(testWeapon);
+            addWeapon(testWeapon4);
+            addWeapon(testWeapon4);
+            addWeapon(testWeapon4);
+            addWeapon(testWeapon4);
+            addWeapon(testWeapon4);
+
+
+
         }
 	}
 

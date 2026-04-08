@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ItemWeapon" load_steps=6 format=3 uid="uid://23kf60mfq0ru"]
+
+[ext_resource type="Texture2D" uid="uid://yk5ltsb4khr8" path="res://assets/sprites/Weapons/Icons/weapon_chainsaw_icon.png" id="1_bwo2n"]
+[ext_resource type="Script" uid="uid://bql6f74ltjh1f" path="res://gdj/game/resources/items/weapons/ItemWeapon.gdj" id="2_vhrn7"]
+[ext_resource type="Resource" uid="uid://ur0uyyex7jsd" path="res://resources/items/weapons/melee/chainsaw/stats_chainsaw_1.tres" id="3_8f8c5"]
+[ext_resource type="Resource" uid="uid://bcakyrkvr8jh3" path="res://resources/items/weapons/melee/chainsaw/item_chainsaw_2.tres" id="4_8f8c5"]
+[ext_resource type="PackedScene" uid="uid://b1hwa1bu1i5tu" path="res://scenes/weapons/melee/weapon_chainsaw.tscn" id="4_cb55p"]
+
+[resource]
+script = ExtResource("2_vhrn7")
+weapon_scene = ExtResource("4_cb55p")
+stats = ExtResource("3_8f8c5")
+upgrade_to = ExtResource("4_8f8c5")
+item_name = "Chainsaw 1"
+item_icon = ExtResource("1_bwo2n")
+item_cost = 12
+metadata/_custom_type_script = "uid://bql6f74ltjh1f"

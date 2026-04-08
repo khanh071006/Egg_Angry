@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://dpqr3476rdomq"]
+
+[ext_resource type="PackedScene" uid="uid://b4wkibpbsncdl" path="res://scenes/weapons/weapon_base.tscn" id="1_g1grj"]
+[ext_resource type="Texture2D" uid="uid://bbsd0o1wllf0p" path="res://gdj/game/Game+Assets/assets/sprites/Weapons/Range/WeaponPistol.png" id="2_x7rn7"]
+[ext_resource type="Script" uid="uid://8re3c452lpbl" path="res://gdj/game/items/weapons/range/RangeBehavior.gdj" id="3_12s28"]
+
+[node name="WeaponPistol" node_paths=PackedStringArray("weapon_behavior") instance=ExtResource("1_g1grj")]
+weapon_behavior = NodePath("WeaponBehavior")
+
+[node name="Sprite2D" parent="." index="0"]
+z_index = 1
+position = Vector2(20, 0)
+texture = ExtResource("2_x7rn7")
+
+[node name="Muzzle" type="Marker2D" parent="Sprite2D" index="0"]
+position = Vector2(120, -30)
+
+[node name="CooldownTimer" parent="." index="2"]
+one_shot = true
+
+[node name="WeaponBehavior" parent="." index="3" node_paths=PackedStringArray("muzzle", "weapon")]
+script = ExtResource("3_12s28")
+muzzle = NodePath("../Sprite2D/Muzzle")
+weapon = NodePath("..")

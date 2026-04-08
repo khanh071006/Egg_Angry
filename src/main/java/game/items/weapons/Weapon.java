@@ -64,17 +64,23 @@ public class Weapon extends Node2D {
 
         // Cập nhật tầm đánh từ Stats vào CollisionShape
         if (data != null && data.stats != null && collision != null) {
-            CircleShape2D shape = (CircleShape2D) collision.getShape();
-            if (shape != null) {
-                shape.setRadius(data.stats.maxRange);
-            }
+//            CircleShape2D shape = (CircleShape2D) collision.getShape();
+//            if (shape != null) {
+//                shape.setRadius(data.stats.maxRange);
+//            }
+
+            CircleShape2D newShape = new CircleShape2D();
+            newShape.setRadius((float) data.stats.maxRange); // Cài tầm đánh
+            collision.setShape(newShape); // Lắp vòng tròn mới vào vũ khí
         }
     }
 
     @RegisterFunction
     public boolean canUseWeapon() {
         // Có thể dùng nếu Timer đã dừng VÀ có mục tiêu
+        // IN RA ĐỂ SOI XEM NÓ ĐỌC ĐÚNG THÔNG SỐ KHÔNG
         return cooldownTimer.isStopped() && closestTarget != null;
+
     }
 
     // --- Signal Handlers ---
@@ -187,6 +193,7 @@ public class Weapon extends Node2D {
         }
         if (canUseWeapon())
             useWeapon();
+        updateVisuals();
     }
 
     // Sử dụng weapon
@@ -197,11 +204,46 @@ public class Weapon extends Node2D {
         // 2. Không được đang trong trạng thái đánh (isAttacking = false)
         if (cooldownTimer.isStopped() && !isAttacking) {
 
-            // Lệnh quan trọng nhất: Gọi "cái tay" thực hiện đòn đánh
+            GD.print("==== KIỂM TRA TIMER ====");
+
+            // BẰNG CHỨNG 1: Xem Java có đọc đúng file Stats không? (Nhập 10s nó có ra 10s không)
+            GD.print("1. File Stats báo Cooldown là: " + data.stats.cooldown + " giây");
+
+            // Ép Timer nhận thông số
+            cooldownTimer.setWaitTime(data.stats.cooldown);
+
+            // BẰNG CHỨNG 2: Xem cái Node Timer nó có chịu "nuốt" cái con số 10s kia không?
+            GD.print("2. Timer thực tế đang cài đặt WaitTime là: " + cooldownTimer.getWaitTime() + " giây");
+
+            // Thực hiện bắn
             ((WeaponBehavior) weaponBehavior).executeAttack();
 
-            // Bắt đầu đếm ngược thời gian chờ cho phát đấm sau
+            // Khởi động đồng hồ
             cooldownTimer.start();
+
+            // BẰNG CHỨNG 3: Xem lúc đang chạy, đồng hồ nó đếm ngược từ số mấy?
+            GD.print("3. Đã bấm Start! Thời gian đếm ngược còn lại: " + cooldownTimer.getTimeLeft() + " giây");
+            GD.print("========================");
+        }
+    }
+
+    @RegisterFunction
+    public void updateVisuals() {
+        if (sprite == null) return;
+
+        // Lấy góc quay hiện tại của toàn bộ cây súng
+        double currentRotation = this.getRotation();
+
+        // Lấy Scale (kích thước) hiện tại của Sprite
+        Vector2 currentScale = sprite.getScale();
+
+        // Kiểm tra xem trị tuyệt đối của góc quay có lớn hơn 90 độ (PI/2) không
+        if (Math.abs(currentRotation) > (Math.PI / 2.0)) {
+            // Đang chĩa sang TRÁI -> Lật ngược trục Y (cho nó thành số âm)
+            sprite.setScale(new Vector2(currentScale.getX(), -Math.abs(currentScale.getY())));
+        } else {
+            // Đang chĩa sang PHẢI -> Giữ trục Y bình thường (số dương)
+            sprite.setScale(new Vector2(currentScale.getX(), Math.abs(currentScale.getY())));
         }
     }
 }

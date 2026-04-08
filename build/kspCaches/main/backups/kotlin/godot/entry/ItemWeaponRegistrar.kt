@@ -46,7 +46,7 @@ public open class ItemWeaponRegistrar : ClassRegistrar {
         property(ItemWeapon::type, ENUM<WeaponType>(WeaponType.entries.toTypedArray()), ENUM<WeaponType>(WeaponType.entries.toTypedArray()), "Int", godot.core.PropertyHint.ENUM, "MELEE,RANGE", godot.core.PropertyUsageFlags.DEFAULT.flag)
         property(ItemWeapon::weaponScene, OBJECT, OBJECT, "godot.api.PackedScene", RESOURCE_TYPE, "PackedScene", godot.core.PropertyUsageFlags.DEFAULT.flag)
         property(ItemWeapon::stats, OBJECT, OBJECT, "game.resources.items.weapons.WeaponStats", RESOURCE_TYPE, "WeaponStats", godot.core.PropertyUsageFlags.DEFAULT.flag)
-        property(ItemWeapon::upgradeTo, OBJECT, OBJECT, "game.resources.items.weapons.ItemWeapon", RESOURCE_TYPE, "ItemWeapon", godot.core.PropertyUsageFlags.DEFAULT.flag)
+        property(ItemWeapon::upgradeTo, OBJECT, OBJECT, "godot.api.Resource", RESOURCE_TYPE, "Resource", godot.core.PropertyUsageFlags.DEFAULT.flag)
         property(ItemWeapon::itemName, STRING, STRING, "kotlin.String", NONE, "", godot.core.PropertyUsageFlags.DEFAULT.flag)
         property(ItemWeapon::itemIcon, OBJECT, OBJECT, "godot.api.Texture2D", RESOURCE_TYPE, "Texture2D", godot.core.PropertyUsageFlags.DEFAULT.flag)
         property(ItemWeapon::itemTier, ENUM<UpgradeTier>(UpgradeTier.entries.toTypedArray()), ENUM<UpgradeTier>(UpgradeTier.entries.toTypedArray()), "Int", godot.core.PropertyHint.ENUM, "COMMON,RARE,EPIC,LEGENDARY", godot.core.PropertyUsageFlags.DEFAULT.flag)

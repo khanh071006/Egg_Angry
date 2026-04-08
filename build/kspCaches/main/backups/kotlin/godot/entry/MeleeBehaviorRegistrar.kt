@@ -33,7 +33,7 @@ import kotlin.collections.listOf
 public open class MeleeBehaviorRegistrar : ClassRegistrar {
   public override fun register(registry: ClassRegistry): Unit {
     with(registry) {
-      registerClass<MeleeBehavior>(listOf(), MeleeBehavior::class, false, "Node2D", "MeleeBehavior", "src/main/java/game/items/weapons/melee/MeleeBehavior.java", "gdj/game/items/weapons/melee/MeleeBehavior.gdj") {
+      registerClass<MeleeBehavior>(listOf("WeaponBehavior"), MeleeBehavior::class, false, "Node2D", "MeleeBehavior", "src/main/java/game/items/weapons/melee/MeleeBehavior.java", "gdj/game/items/weapons/melee/MeleeBehavior.gdj") {
         constructor(KtConstructor0(::MeleeBehavior))
         notificationFunctions(listOf())
         function(MeleeBehavior::_process, NIL, DOUBLE, KtFunctionArgument(DOUBLE, "kotlin.Double", "delta"), KtFunctionArgument(NIL, "kotlin.Unit"), KtRpcConfig(DISABLED.id.toInt(), false, RELIABLE.id.toInt(), 0))

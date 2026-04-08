@@ -21,6 +21,7 @@ scale = Vector2(2, 2)
 texture = ExtResource("2_etbs0")
 
 [node name="PlayerWellRounded" parent="." instance=ExtResource("3_faeup")]
+position = Vector2(99, 148)
 collision_mask = 0
 dash_speed_multi = 2.7
 stats = ExtResource("5_jgfk2")
@@ -29,22 +30,58 @@ stats = ExtResource("5_jgfk2")
 script = ExtResource("5_faeup")
 
 [node name="EnemyChaserSlow" parent="." instance=ExtResource("6_e8lwv")]
-position = Vector2(-475, -218)
+position = Vector2(-772, -345)
 
 [node name="EnemyChaserSlow2" parent="." instance=ExtResource("6_e8lwv")]
-position = Vector2(-214, 322)
+position = Vector2(-554, 388)
 
 [node name="EnemyChaserSlow3" parent="." instance=ExtResource("6_e8lwv")]
-position = Vector2(68, 356)
+position = Vector2(-251, 372)
 
 [node name="EnemyChaserSlow4" parent="." instance=ExtResource("6_e8lwv")]
-position = Vector2(-443, 351)
+position = Vector2(-556, 172)
 
 [node name="EnemyChaserSlow5" parent="." instance=ExtResource("6_e8lwv")]
-position = Vector2(-135, 79)
+position = Vector2(-251, 164)
 
 [node name="EnemyChaserSlow6" parent="." instance=ExtResource("6_e8lwv")]
-position = Vector2(-236, 48)
+position = Vector2(-424, -29)
 
 [node name="EnemyChaserSlow7" parent="." instance=ExtResource("6_e8lwv")]
 position = Vector2(-224, -219)
+
+[node name="EnemyChaserSlow8" parent="." instance=ExtResource("6_e8lwv")]
+position = Vector2(-167, -388)
+
+[node name="EnemyChaserSlow9" parent="." instance=ExtResource("6_e8lwv")]
+position = Vector2(739, -366)
+
+[node name="EnemyChaserSlow10" parent="." instance=ExtResource("6_e8lwv")]
+position = Vector2(729, -102)
+
+[node name="EnemyChaserSlow11" parent="." instance=ExtResource("6_e8lwv")]
+position = Vector2(399, 299)
+
+[node name="EnemyChaserSlow12" parent="." instance=ExtResource("6_e8lwv")]
+position = Vector2(693, 199)
+
+[node name="EnemyChaserSlow13" parent="." instance=ExtResource("6_e8lwv")]
+position = Vector2(486, -90)
+
+[node name="EnemyChaserSlow14" parent="." instance=ExtResource("6_e8lwv")]
+position = Vector2(496, -289)
+
+[node name="EnemyChaserSlow15" parent="." instance=ExtResource("6_e8lwv")]
+position = Vector2(-843, 187)
+
+[node name="EnemyChaserSlow16" parent="." instance=ExtResource("6_e8lwv")]
+position = Vector2(-606, -189)
+
+[node name="EnemyChaserSlow17" parent="." instance=ExtResource("6_e8lwv")]
+position = Vector2(-843, -120)
+
+[node name="EnemyChaserSlow18" parent="." instance=ExtResource("6_e8lwv")]
+position = Vector2(137, -428)
+
+[node name="EnemyChaserSlow19" parent="." instance=ExtResource("6_e8lwv")]
+position = Vector2(333, 40)

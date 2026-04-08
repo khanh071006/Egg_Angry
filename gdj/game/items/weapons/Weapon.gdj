@@ -36,5 +36,6 @@ functions = [
 	get_rotation_to_target,
 	get_custom_rotation_to_target,
 	rotate_to_target,
-	use_weapon
+	use_weapon,
+	update_visuals
 ]

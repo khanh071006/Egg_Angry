@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="WeaponStats" load_steps=3 format=3 uid="uid://b5xo6ldg0qhdg"]
+
+[ext_resource type="PackedScene" uid="uid://dxoxxtlbebpsm" path="res://scenes/weapons/range/projectiles/projectile_revolver.tscn" id="1_wqftu"]
+[ext_resource type="Script" uid="uid://bwod6o4yfvkuf" path="res://gdj/game/resources/items/weapons/WeaponStats.gdj" id="2_cg7eg"]
+
+[resource]
+script = ExtResource("2_cg7eg")
+damage = 120.0
+accuracy = 1.0
+cooldown = 0.55
+crit_chance = 0.45
+crit_damage = 2.5
+max_range = 550.0
+knockback = 2.2
+recoil = 40.0
+recoil_duration = 0.15
+attack_duration = 0.08
+back_duration = 0.15
+projectile_scene = ExtResource("1_wqftu")
+projectile_speed = 1200.0
+metadata/_custom_type_script = "uid://bwod6o4yfvkuf"

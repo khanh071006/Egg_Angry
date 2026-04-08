@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ItemWeapon" load_steps=5 format=3 uid="uid://dt31b548ojdhs"]
+
+[ext_resource type="Texture2D" uid="uid://ctbl7s5o37g7v" path="res://gdj/game/Game+Assets/assets/sprites/Weapons/Icons/weapon_pistol_icon.png" id="1_mhi7e"]
+[ext_resource type="Script" uid="uid://bql6f74ltjh1f" path="res://gdj/game/resources/items/weapons/ItemWeapon.gdj" id="2_0l2s8"]
+[ext_resource type="Resource" uid="uid://dakxuecnyw3vh" path="res://resources/items/weapons/range/pistol/stats_pistol_4.tres" id="3_mhi7e"]
+[ext_resource type="PackedScene" uid="uid://dpqr3476rdomq" path="res://scenes/weapons/range/weapon_pistol.tscn" id="4_y85l0"]
+
+[resource]
+script = ExtResource("2_0l2s8")
+type = 1
+weapon_scene = ExtResource("4_y85l0")
+stats = ExtResource("3_mhi7e")
+item_name = "Pistol 4"
+item_icon = ExtResource("1_mhi7e")
+item_tier = 3
+item_cost = 12
+metadata/_custom_type_script = "uid://bql6f74ltjh1f"

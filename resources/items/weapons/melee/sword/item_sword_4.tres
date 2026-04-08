@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ItemWeapon" load_steps=5 format=3 uid="uid://dvtxiy882xc6j"]
+
+[ext_resource type="Texture2D" uid="uid://bnb452021oi28" path="res://gdj/game/Game+Assets/assets/sprites/Weapons/Icons/weapon_sword_icon.png" id="1_h86n1"]
+[ext_resource type="Script" uid="uid://bql6f74ltjh1f" path="res://gdj/game/resources/items/weapons/ItemWeapon.gdj" id="2_whs76"]
+[ext_resource type="Resource" uid="uid://bc3h5fmeanqy" path="res://resources/items/weapons/melee/punch/stats_punch_1.tres" id="3_vw15e"]
+[ext_resource type="PackedScene" uid="uid://d0c5ne05f8x2i" path="res://scenes/weapons/melee/weapon_punch.tscn" id="5_xdeu2"]
+
+[resource]
+script = ExtResource("2_whs76")
+weapon_scene = ExtResource("5_xdeu2")
+stats = ExtResource("3_vw15e")
+item_name = "Sword 4"
+item_icon = ExtResource("1_h86n1")
+item_tier = 3
+item_cost = 12
+metadata/_custom_type_script = "uid://bql6f74ltjh1f"

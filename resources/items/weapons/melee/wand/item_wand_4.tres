@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ItemWeapon" load_steps=5 format=3 uid="uid://d0yl4b4ftoi8d"]
+
+[ext_resource type="Texture2D" uid="uid://bvrve6ucp4svv" path="res://gdj/game/Game+Assets/assets/sprites/Weapons/Icons/weapon_wand_icon.png" id="1_2pwme"]
+[ext_resource type="Script" uid="uid://bql6f74ltjh1f" path="res://gdj/game/resources/items/weapons/ItemWeapon.gdj" id="2_2o7jn"]
+[ext_resource type="Resource" uid="uid://7l7k1oy4w4cn" path="res://resources/items/weapons/melee/wand/stats_wand_4.tres" id="3_2pwme"]
+[ext_resource type="PackedScene" uid="uid://cbjt4py75k30r" path="res://scenes/weapons/melee/weapon_wand.tscn" id="4_1mvdo"]
+
+[resource]
+script = ExtResource("2_2o7jn")
+weapon_scene = ExtResource("4_1mvdo")
+stats = ExtResource("3_2pwme")
+item_name = "Wand 4"
+item_icon = ExtResource("1_2pwme")
+item_tier = 3
+item_cost = 12
+metadata/_custom_type_script = "uid://bql6f74ltjh1f"

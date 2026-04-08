@@ -5,6 +5,7 @@ import godot.annotation.Export;
 import godot.annotation.RegisterClass;
 import godot.annotation.RegisterProperty;
 import godot.api.PackedScene;
+import godot.api.Resource;
 
 @RegisterClass
 public class ItemWeapon extends ItemBase {
@@ -35,5 +36,5 @@ public class ItemWeapon extends ItemBase {
     // 5. Hệ thống nâng cấp: Kéo file ItemWeapon cấp độ cao hơn vào đây
     @Export
     @RegisterProperty
-    public ItemWeapon upgradeTo;
+    public Resource upgradeTo;
 }

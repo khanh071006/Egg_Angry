@@ -8,7 +8,7 @@ import godot.annotation.RegisterProperty;
 import godot.api.Node2D;
 
 @RegisterClass
-public abstract class WeaponBehavior extends Node2D {
+public class WeaponBehavior extends Node2D {
     @Export
     @RegisterProperty
     public Weapon weapon;
@@ -39,5 +39,5 @@ public abstract class WeaponBehavior extends Node2D {
 
     // Hàm ảo để các class con tự viết logic đánh riêng
     @RegisterFunction
-    public abstract void executeAttack();
+    public void executeAttack(){}
 }

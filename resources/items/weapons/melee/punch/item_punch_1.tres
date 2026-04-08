@@ -1,15 +1,25 @@
-[gd_resource type="Resource" script_class="ItemWeapon" load_steps=6 format=3 uid="uid://c5t7t8hr2bmaw"]
+[gd_resource type="Resource" script_class="ItemWeapon" load_steps=7 format=3 uid="uid://c5t7t8hr2bmaw"]
 
 [ext_resource type="Texture2D" uid="uid://cyh23wqn8vcac" path="res://gdj/game/Game+Assets/assets/sprites/Weapons/Icons/weapon_punch_icon.png" id="1_0ag6p"]
 [ext_resource type="Script" uid="uid://bql6f74ltjh1f" path="res://gdj/game/resources/items/weapons/ItemWeapon.gdj" id="2_yfbc5"]
-[ext_resource type="Resource" uid="uid://bc3h5fmeanqy" path="res://resources/items/weapons/melee/punch/stats_punch_1.tres" id="3_rm85p"]
+[ext_resource type="Script" uid="uid://bwod6o4yfvkuf" path="res://gdj/game/resources/items/weapons/WeaponStats.gdj" id="3_rm85p"]
 [ext_resource type="Resource" uid="uid://bbfam8wiu84lh" path="res://resources/items/weapons/melee/punch/item_punch_2.tres" id="4_hfoo1"]
 [ext_resource type="PackedScene" uid="uid://d0c5ne05f8x2i" path="res://scenes/weapons/melee/weapon_punch.tscn" id="5_gyxhw"]
+
+[sub_resource type="Resource" id="Resource_hfoo1"]
+script = ExtResource("3_rm85p")
+damage = 2.0
+accuracy = 1.0
+cooldown = 1.5
+max_range = 180.0
+knockback = 2.0
+projectile_speed = 1600.0
+metadata/_custom_type_script = "uid://bwod6o4yfvkuf"
 
 [resource]
 script = ExtResource("2_yfbc5")
 weapon_scene = ExtResource("5_gyxhw")
-stats = ExtResource("3_rm85p")
+stats = SubResource("Resource_hfoo1")
 upgrade_to = ExtResource("4_hfoo1")
 item_name = "Punch 1"
 item_icon = ExtResource("1_0ag6p")
