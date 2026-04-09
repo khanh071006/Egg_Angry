@@ -1,2 +1,8 @@
 # Normalize EOL for all files that Git considers text files.
 * text=auto eol=lf
+# 1. Ép GitHub coi tất cả các file Kotlin là "Tài liệu" hoặc "Dữ liệu" (Không tính vào stats)
+*.kt linguist-detectable=false
+*.kt linguist-documentation=true
+
+# 2. Loại bỏ HTML ra khỏi thống kê (Thường là do các file build hoặc báo cáo)
+*.html linguist-detectable=false

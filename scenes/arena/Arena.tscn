@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dbc1cru0wxnsf"]
+[gd_scene load_steps=7 format=3 uid="uid://dbc1cru0wxnsf"]
 
 [ext_resource type="Texture2D" uid="uid://cy4xfx762bxgb" path="res://gdj/game/Game+Assets/assets/sprites/BG.png" id="1_dm0lm"]
 [ext_resource type="Script" uid="uid://cbvtm502as2ux" path="res://gdj/game/arena/Arena.gdj" id="1_etbs0"]
@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://lty2nxmp27i0" path="res://scenes/unit/player_well_rounded.tscn" id="3_faeup"]
 [ext_resource type="Script" uid="uid://dr32cptk08mq0" path="res://gdj/game/arena/CameraController.gdj" id="5_faeup"]
 [ext_resource type="Resource" uid="uid://dqrt363axanpe" path="res://resources/units/players/stats_player_well_rounded.tres" id="5_jgfk2"]
-[ext_resource type="PackedScene" uid="uid://bw6b5kktpiof3" path="res://scenes/unit/enemy_chaser_slow.tscn" id="6_e8lwv"]
 
 [node name="Arena" type="Node2D" node_paths=PackedStringArray("player")]
 script = ExtResource("1_etbs0")
@@ -29,59 +28,10 @@ stats = ExtResource("5_jgfk2")
 [node name="Camera2D" type="Camera2D" parent="."]
 script = ExtResource("5_faeup")
 
-[node name="EnemyChaserSlow" parent="." instance=ExtResource("6_e8lwv")]
-position = Vector2(-772, -345)
+[node name="Spawner" type="Node2D" parent="."]
 
-[node name="EnemyChaserSlow2" parent="." instance=ExtResource("6_e8lwv")]
-position = Vector2(-554, 388)
+[node name="SpawnTimer" type="Timer" parent="Spawner"]
+one_shot = true
 
-[node name="EnemyChaserSlow3" parent="." instance=ExtResource("6_e8lwv")]
-position = Vector2(-251, 372)
-
-[node name="EnemyChaserSlow4" parent="." instance=ExtResource("6_e8lwv")]
-position = Vector2(-556, 172)
-
-[node name="EnemyChaserSlow5" parent="." instance=ExtResource("6_e8lwv")]
-position = Vector2(-251, 164)
-
-[node name="EnemyChaserSlow6" parent="." instance=ExtResource("6_e8lwv")]
-position = Vector2(-424, -29)
-
-[node name="EnemyChaserSlow7" parent="." instance=ExtResource("6_e8lwv")]
-position = Vector2(-224, -219)
-
-[node name="EnemyChaserSlow8" parent="." instance=ExtResource("6_e8lwv")]
-position = Vector2(-167, -388)
-
-[node name="EnemyChaserSlow9" parent="." instance=ExtResource("6_e8lwv")]
-position = Vector2(739, -366)
-
-[node name="EnemyChaserSlow10" parent="." instance=ExtResource("6_e8lwv")]
-position = Vector2(729, -102)
-
-[node name="EnemyChaserSlow11" parent="." instance=ExtResource("6_e8lwv")]
-position = Vector2(399, 299)
-
-[node name="EnemyChaserSlow12" parent="." instance=ExtResource("6_e8lwv")]
-position = Vector2(693, 199)
-
-[node name="EnemyChaserSlow13" parent="." instance=ExtResource("6_e8lwv")]
-position = Vector2(486, -90)
-
-[node name="EnemyChaserSlow14" parent="." instance=ExtResource("6_e8lwv")]
-position = Vector2(496, -289)
-
-[node name="EnemyChaserSlow15" parent="." instance=ExtResource("6_e8lwv")]
-position = Vector2(-843, 187)
-
-[node name="EnemyChaserSlow16" parent="." instance=ExtResource("6_e8lwv")]
-position = Vector2(-606, -189)
-
-[node name="EnemyChaserSlow17" parent="." instance=ExtResource("6_e8lwv")]
-position = Vector2(-843, -120)
-
-[node name="EnemyChaserSlow18" parent="." instance=ExtResource("6_e8lwv")]
-position = Vector2(137, -428)
-
-[node name="EnemyChaserSlow19" parent="." instance=ExtResource("6_e8lwv")]
-position = Vector2(333, 40)
+[node name="WaveTimer" type="Timer" parent="Spawner"]
+one_shot = true

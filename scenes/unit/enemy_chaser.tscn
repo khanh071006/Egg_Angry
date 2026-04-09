@@ -1,11 +1,72 @@
-[gd_scene load_steps=4 format=3 uid="uid://necfel4mlt5p"]
+[gd_scene load_steps=8 format=3 uid="uid://necfel4mlt5p"]
 
 [ext_resource type="PackedScene" uid="uid://bw6b5kktpiof3" path="res://scenes/unit/enemy_chaser_slow.tscn" id="1_qbeij"]
-[ext_resource type="Texture2D" uid="uid://emsi6ifyt0vf" path="res://assets/sprites/Enemies/Enemy_5.png" id="2_d3ybq"]
+[ext_resource type="Texture2D" uid="uid://emsi6ifyt0vf" path="res://gdj/game/Game+Assets/assets/sprites/Enemies/Enemy_5.png" id="2_d3ybq"]
 [ext_resource type="Resource" uid="uid://rlcn4ik6vjrh" path="res://resources/units/enemies/stats_enemy_chaser.tres" id="2_docw7"]
+[ext_resource type="Script" path="res://gdj/game/entity/ChaserBehavior.gdj" id="4_docw7"]
+
+[sub_resource type="Animation" id="Animation_d3ybq"]
+resource_name = "charge"
+length = 0.7
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visuals/Sprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.9999997, 0.012344238, 0.21392918, 1), Color(1, 1, 1, 1), Color(1, 0.011764706, 0.21568628, 1), Color(1, 1, 1, 1), Color(1, 0.011764706, 0.21568628, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_docw7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visuals/Sprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_m6te6"]
+_data = {
+&"RESET": SubResource("Animation_docw7"),
+&"charge": SubResource("Animation_d3ybq")
+}
 
 [node name="EnemyChaser" instance=ExtResource("1_qbeij")]
 stats = ExtResource("2_docw7")
 
 [node name="Sprite" parent="Visuals" index="1"]
 texture = ExtResource("2_d3ybq")
+
+[node name="CollisionShape2D" parent="." index="1"]
+visible = false
+
+[node name="VisionArea" parent="." index="3"]
+visible = false
+
+[node name="HurtboxComponent" parent="." index="4"]
+visible = false
+
+[node name="HitboxComponent" parent="." index="5"]
+visible = false
+
+[node name="ChaserBehavior" type="Node2D" parent="." index="10" node_paths=PackedStringArray("enemy", "anim_effects")]
+script = ExtResource("4_docw7")
+enemy = NodePath("..")
+anim_effects = NodePath("../AnimationEffect")
+
+[node name="AnimationEffect" type="AnimationPlayer" parent="." index="11"]
+libraries = {
+&"": SubResource("AnimationLibrary_m6te6")
+}

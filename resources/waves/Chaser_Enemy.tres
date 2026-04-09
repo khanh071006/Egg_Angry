@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="WaveUnitData" load_steps=3 format=3 uid="uid://elkkw3yeoxyg"]
+
+[ext_resource type="Script" uid="uid://bf8v16a6b8yrh" path="res://gdj/game/resources/waves/WaveUnitData.gdj" id="1_h0c7j"]
+[ext_resource type="PackedScene" uid="uid://necfel4mlt5p" path="res://scenes/unit/enemy_chaser.tscn" id="2_h0c7j"]
+
+[resource]
+script = ExtResource("1_h0c7j")
+unit_scene = ExtResource("2_h0c7j")
+weight = 1.0

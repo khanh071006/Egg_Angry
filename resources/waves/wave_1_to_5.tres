@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="WaveData" load_steps=4 format=3 uid="uid://cyw8lnqs80gun"]
+
+[ext_resource type="Script" uid="uid://cjecllwrga6ph" path="res://gdj/game/resources/waves/WaveData.gdj" id="1_mlfpo"]
+[ext_resource type="Resource" uid="uid://dj7glkal687wc" path="res://resources/waves/Slow_Enemy.tres" id="2_k285s"]
+[ext_resource type="Resource" uid="uid://elkkw3yeoxyg" path="res://resources/waves/Chaser_Enemy.tres" id="3_f3aph"]
+
+[resource]
+script = ExtResource("1_mlfpo")
+from = 1
+to = 5
+units = Array[Object]([ExtResource("2_k285s"), ExtResource("3_f3aph")])

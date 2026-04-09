@@ -9,9 +9,11 @@ import game.components.HealthComponent
 import game.components.HitBoxComponent
 import game.components.HurtBoxComponent
 import game.entity.BaseUnit
-import game.entity.Enemy
 import game.entity.Player
 import game.entity.WeaponContainer
+import game.entity.enemies.ChaserBehavior
+import game.entity.enemies.Enemy
+import game.entity.enemies.ShootingBehavior
 import game.items.weapons.Weapon
 import game.items.weapons.WeaponBehavior
 import game.items.weapons.melee.MeleeBehavior
@@ -23,11 +25,14 @@ import game.resources.items.weapons.WeaponStats
 import game.resources.units.EnemyStats
 import game.resources.units.PlayerStats
 import game.resources.units.UnitStats
+import game.resources.waves.WaveData
+import game.resources.waves.WaveUnitData
 import game.ui.FloatingText
 import game.ui.HealthBar
 import godot.entry.ArenaRegistrar
 import godot.entry.BaseUnitRegistrar
 import godot.entry.CameraControllerRegistrar
+import godot.entry.ChaserBehaviorRegistrar
 import godot.entry.EnemyRegistrar
 import godot.entry.EnemyStatsRegistrar
 import godot.entry.FloatingTextRegistrar
@@ -43,8 +48,11 @@ import godot.entry.PlayerRegistrar
 import godot.entry.PlayerStatsRegistrar
 import godot.entry.ProjectileRegistrar
 import godot.entry.RangeBehaviorRegistrar
+import godot.entry.ShootingBehaviorRegistrar
 import godot.entry.TrailRegistrar
 import godot.entry.UnitStatsRegistrar
+import godot.entry.WaveDataRegistrar
+import godot.entry.WaveUnitDataRegistrar
 import godot.entry.WeaponBehaviorRegistrar
 import godot.entry.WeaponContainerRegistrar
 import godot.entry.WeaponRegistrar
@@ -62,11 +70,13 @@ import kotlin.collections.listOf
 import kotlin.reflect.KClass
 
 public class Entry : Entry() {
-  public override val classRegistrarCount: Int = 24
+  public override val classRegistrarCount: Int = 28
 
   public override val projectName: String = "project-3"
 
   public override fun Context.`init`(): Unit {
+    WaveDataRegistrar().register(registry)
+    WaveUnitDataRegistrar().register(registry)
     TrailRegistrar().register(registry)
     ArenaRegistrar().register(registry)
     CameraControllerRegistrar().register(registry)
@@ -75,7 +85,9 @@ public class Entry : Entry() {
     HitBoxComponentRegistrar().register(registry)
     HurtBoxComponentRegistrar().register(registry)
     BaseUnitRegistrar().register(registry)
+    ChaserBehaviorRegistrar().register(registry)
     EnemyRegistrar().register(registry)
+    ShootingBehaviorRegistrar().register(registry)
     PlayerRegistrar().register(registry)
     WeaponContainerRegistrar().register(registry)
     MeleeBehaviorRegistrar().register(registry)
@@ -99,9 +111,10 @@ public class Entry : Entry() {
     registerEngineTypeMethods()
   }
 
-  public override fun Context.getRegisteredClasses(): List<KClass<*>> = listOf(Trail::class,
-      Arena::class, CameraController::class, Global::class, HealthComponent::class,
-      HitBoxComponent::class, HurtBoxComponent::class, BaseUnit::class, Enemy::class, Player::class,
+  public override fun Context.getRegisteredClasses(): List<KClass<*>> = listOf(WaveData::class,
+      WaveUnitData::class, Trail::class, Arena::class, CameraController::class, Global::class,
+      HealthComponent::class, HitBoxComponent::class, HurtBoxComponent::class, BaseUnit::class,
+      ChaserBehavior::class, Enemy::class, ShootingBehavior::class, Player::class,
       WeaponContainer::class, MeleeBehavior::class, Projectile::class, RangeBehavior::class,
       Weapon::class, WeaponBehavior::class, ItemBase::class, ItemWeapon::class, WeaponStats::class,
       EnemyStats::class, PlayerStats::class, UnitStats::class, FloatingText::class,
