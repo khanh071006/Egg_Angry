@@ -21,6 +21,8 @@ properties = [
 	from,
 	to,
 	wave_time,
+	spawn_type,
+	fixed_spawn_time,
 	min_spawn_time,
 	max_spawn_time,
 	units

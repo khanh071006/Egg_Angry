@@ -14,6 +14,7 @@ import game.entity.WeaponContainer
 import game.entity.enemies.ChaserBehavior
 import game.entity.enemies.Enemy
 import game.entity.enemies.ShootingBehavior
+import game.entity.enemies.Spawner
 import game.items.weapons.Weapon
 import game.items.weapons.WeaponBehavior
 import game.items.weapons.melee.MeleeBehavior
@@ -49,6 +50,7 @@ import godot.entry.PlayerStatsRegistrar
 import godot.entry.ProjectileRegistrar
 import godot.entry.RangeBehaviorRegistrar
 import godot.entry.ShootingBehaviorRegistrar
+import godot.entry.SpawnerRegistrar
 import godot.entry.TrailRegistrar
 import godot.entry.UnitStatsRegistrar
 import godot.entry.WaveDataRegistrar
@@ -70,7 +72,7 @@ import kotlin.collections.listOf
 import kotlin.reflect.KClass
 
 public class Entry : Entry() {
-  public override val classRegistrarCount: Int = 28
+  public override val classRegistrarCount: Int = 29
 
   public override val projectName: String = "project-3"
 
@@ -88,6 +90,7 @@ public class Entry : Entry() {
     ChaserBehaviorRegistrar().register(registry)
     EnemyRegistrar().register(registry)
     ShootingBehaviorRegistrar().register(registry)
+    SpawnerRegistrar().register(registry)
     PlayerRegistrar().register(registry)
     WeaponContainerRegistrar().register(registry)
     MeleeBehaviorRegistrar().register(registry)
@@ -114,7 +117,7 @@ public class Entry : Entry() {
   public override fun Context.getRegisteredClasses(): List<KClass<*>> = listOf(WaveData::class,
       WaveUnitData::class, Trail::class, Arena::class, CameraController::class, Global::class,
       HealthComponent::class, HitBoxComponent::class, HurtBoxComponent::class, BaseUnit::class,
-      ChaserBehavior::class, Enemy::class, ShootingBehavior::class, Player::class,
+      ChaserBehavior::class, Enemy::class, ShootingBehavior::class, Spawner::class, Player::class,
       WeaponContainer::class, MeleeBehavior::class, Projectile::class, RangeBehavior::class,
       Weapon::class, WeaponBehavior::class, ItemBase::class, ItemWeapon::class, WeaponStats::class,
       EnemyStats::class, PlayerStats::class, UnitStats::class, FloatingText::class,

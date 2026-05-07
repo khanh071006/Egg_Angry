@@ -7,11 +7,16 @@ import godot.annotation.RegisterFunction
 import godot.annotation.RegisterProperty
 import godot.api.PackedScene
 import godot.api.Resource
+import godot.core.PropertyHint
 import godot.core.VariantArray
 import kotlin.random.Random // Dùng Random của Kotlin rất xịn
 
 @RegisterClass
 class WaveData : Resource() {
+    enum class SpawnType {
+        FIXED,
+        RANDOM
+    }
 
     @Export
     @RegisterProperty
@@ -23,6 +28,14 @@ class WaveData : Resource() {
     @Export
     @RegisterProperty
     var waveTime: Int = 20
+
+    // 2. DÙNG THẲNG ENUM (Godot tự hiểu và vẽ menu Dropdown)
+    @Export @RegisterProperty var spawnType: SpawnType = SpawnType.FIXED
+
+    @Export
+    @RegisterProperty
+    var fixedSpawnTime: Float = 0.5f
+
     @Export
     @RegisterProperty
     var minSpawnTime: Float = 0.5f
