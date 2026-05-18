@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dbc1cru0wxnsf"]
+[gd_scene load_steps=12 format=3 uid="uid://dbc1cru0wxnsf"]
 
 [ext_resource type="Texture2D" uid="uid://cy4xfx762bxgb" path="res://gdj/game/Game+Assets/assets/sprites/BG.png" id="1_dm0lm"]
 [ext_resource type="Script" uid="uid://cbvtm502as2ux" path="res://gdj/game/arena/Arena.gdj" id="1_etbs0"]
@@ -9,6 +9,12 @@
 [ext_resource type="Script" uid="uid://cqy82on6oilua" path="res://gdj/game/entity/enemies/Spawner.gdj" id="7_2g53k"]
 [ext_resource type="Script" uid="uid://cjecllwrga6ph" path="res://gdj/game/resources/waves/WaveData.gdj" id="8_g06lh"]
 [ext_resource type="Resource" uid="uid://cyw8lnqs80gun" path="res://resources/waves/wave_1_to_5.tres" id="9_2ri42"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_2g53k"]
+font_size = 64
+
+[sub_resource type="LabelSettings" id="LabelSettings_g06lh"]
+font_size = 64
 
 [node name="Arena" type="Node2D" node_paths=PackedStringArray("player")]
 script = ExtResource("1_etbs0")
@@ -40,6 +46,34 @@ one_shot = true
 
 [node name="WaveTimer" type="Timer" parent="Spawner"]
 one_shot = true
+
+[node name="GameUI" type="CanvasLayer" parent="."]
+
+[node name="WaveTimeLabel" type="Label" parent="GameUI"]
+unique_name_in_owner = true
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -34.0
+offset_top = 100.0
+offset_right = 34.0
+offset_bottom = 177.33334
+grow_horizontal = 2
+text = "10"
+label_settings = SubResource("LabelSettings_2g53k")
+
+[node name="WaveIndexLabel" type="Label" parent="GameUI"]
+unique_name_in_owner = true
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -110.0
+offset_top = 20.0
+offset_right = 110.0
+offset_bottom = 97.333336
+grow_horizontal = 2
+text = "Wave 1"
+label_settings = SubResource("LabelSettings_g06lh")
 
 [connection signal="timeout" from="Spawner/SpawnTimer" to="Spawner" method="_on_spawn_timer_timeout"]
 [connection signal="timeout" from="Spawner/SpawnTimer" to="Spawner" method="spawnEnemy"]

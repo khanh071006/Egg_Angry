@@ -3,16 +3,15 @@ package game.arena;
 import game.autoloads.Global;
 import game.components.HitBoxComponent;
 import game.entity.Player;
+import game.entity.enemies.Spawner;
 import game.ui.FloatingText;
+import godot.api.Label;
 import godot.api.Node2D;
 import godot.annotation.RegisterClass;
 import godot.annotation.RegisterFunction;
 import godot.annotation.Export;
 import godot.annotation.RegisterProperty;
-import godot.core.Callable;
-import godot.core.Color;
-import godot.core.StringName;
-import godot.core.Vector2;
+import godot.core.*;
 import godot.global.GD;
 
 
@@ -36,6 +35,11 @@ public class Arena extends Node2D {
     @RegisterProperty
     public Player player;
 
+    //Wave Information
+    private Label waveIndexLabel;
+    private Label waveTimeLabel;
+    private Spawner spawner;
+
     @RegisterFunction
     @Override
     public void _ready() {
@@ -45,6 +49,29 @@ public class Arena extends Node2D {
         godot.core.Error errBlock = Global.instance.onCreateBlockText.connect(Callable.create(this, new StringName("show_block_text")), 0);
 
         godot.core.Error errDamage = Global.instance.onCreateDamageText.connect(Callable.create(this, new StringName("show_damage_text")), 0);
+
+        // Dùng getNode bắt thẳng mấy cái UI vừa tạo và tóm lấy Spawner
+        waveIndexLabel = (Label) getNode("GameUI/WaveIndexLabel");
+        waveTimeLabel = (Label) getNode("GameUI/WaveTimeLabel");
+        spawner = (Spawner) getNode("Spawner");
+
+        if (spawner == null) GD.printErr("Arena LỖI: Không tìm thấy Spawner!");
+        if (waveIndexLabel == null) GD.printErr("Arena LỖI: Không tìm thấy WaveIndexLabel!");
+    }
+
+    @RegisterFunction
+    @Override
+    public void _process(double delta) {
+        // Hàm này chạy liên tục mỗi khung hình (60 FPS)
+        // Cập nhật text liên tục từ Spawner lên Màn hình
+        if (spawner != null) {
+            if (waveIndexLabel != null) {
+                waveIndexLabel.setText(spawner.getWaveText());
+            }
+            if (waveTimeLabel != null) {
+                waveTimeLabel.setText(spawner.getWaveTimerText());
+            }
+        }
     }
 
     // 2. ĐỔI TÊN HÀM THẬT ĐƠN GIẢN ĐỂ GODOT KHÔNG BÓP MÉO ĐƯỢC

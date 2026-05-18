@@ -23,7 +23,7 @@ import kotlin.collections.listOf
   "project-3",
   "godot.api.Resource,godot.api.RefCounted,godot.api.Object,godot.core.KtObject,godot.common.interop.NativeWrapper,godot.common.interop.NativePointer,kotlin.Any",
   "",
-  "game.resources.waves.WaveUnitData.unitScene,game.resources.waves.WaveUnitData.weight",
+  "game.resources.waves.WaveUnitData.unitScene,game.resources.waves.WaveUnitData.weight,game.resources.waves.WaveUnitData.unitStats",
   "",
   true,
 )
@@ -35,6 +35,7 @@ public open class WaveUnitDataRegistrar : ClassRegistrar {
         notificationFunctions(listOf())
         property(WaveUnitData::unitScene, OBJECT, OBJECT, "godot.api.PackedScene?", RESOURCE_TYPE, "PackedScene", godot.core.PropertyUsageFlags.DEFAULT.flag)
         property(WaveUnitData::weight, FLOAT, DOUBLE, "kotlin.Float", NONE, "", godot.core.PropertyUsageFlags.DEFAULT.flag)
+        property(WaveUnitData::unitStats, OBJECT, OBJECT, "godot.api.Resource?", RESOURCE_TYPE, "Resource", godot.core.PropertyUsageFlags.DEFAULT.flag)
       }
     }
   }

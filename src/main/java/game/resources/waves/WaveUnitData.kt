@@ -16,4 +16,9 @@ class WaveUnitData : Resource() {
     @Export
     @RegisterProperty
     var weight: Float = 0.0f
+
+    // THÊM DÒNG NÀY VÀO SẾP NHÉ: Để nó cầm luôn file chỉ số của con quái đó
+    @Export
+    @RegisterProperty
+    var unitStats: Resource? = null
 }

@@ -19,7 +19,8 @@ signals = [
 ]
 properties = [
     unit_scene,
-	weight
+	weight,
+	unit_stats
 ]
 functions = [
     

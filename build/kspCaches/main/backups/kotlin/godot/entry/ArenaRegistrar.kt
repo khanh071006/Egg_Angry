@@ -10,6 +10,7 @@ import godot.core.KtRpcConfig
 import godot.core.PropertyHint.NODE_TYPE
 import godot.core.PropertyHint.NONE
 import godot.core.VariantParser.COLOR
+import godot.core.VariantParser.DOUBLE
 import godot.core.VariantParser.NIL
 import godot.core.VariantParser.OBJECT
 import godot.registration.ClassRegistrar
@@ -28,7 +29,7 @@ import kotlin.collections.listOf
   "godot.api.Node2D,godot.api.CanvasItem,godot.api.Node,godot.api.Object,godot.core.KtObject,godot.common.interop.NativeWrapper,godot.common.interop.NativePointer,kotlin.Any",
   "",
   "game.arena.Arena.normalColor,game.arena.Arena.blockColor,game.arena.Arena.critColor,game.arena.Arena.player",
-  "game.arena.Arena._ready,game.arena.Arena.show_block_text,game.arena.Arena.show_damage_text",
+  "game.arena.Arena._process,game.arena.Arena._ready,game.arena.Arena.show_block_text,game.arena.Arena.show_damage_text",
   true,
 )
 public open class ArenaRegistrar : ClassRegistrar {
@@ -37,6 +38,7 @@ public open class ArenaRegistrar : ClassRegistrar {
       registerClass<Arena>(listOf(), Arena::class, false, "Node2D", "Arena", "src/main/java/game/arena/Arena.java", "gdj/game/arena/Arena.gdj") {
         constructor(KtConstructor0(::Arena))
         notificationFunctions(listOf())
+        function(Arena::_process, NIL, DOUBLE, KtFunctionArgument(DOUBLE, "kotlin.Double", "delta"), KtFunctionArgument(NIL, "kotlin.Unit"), KtRpcConfig(DISABLED.id.toInt(), false, RELIABLE.id.toInt(), 0))
         function(Arena::_ready, NIL, KtFunctionArgument(NIL, "kotlin.Unit"), KtRpcConfig(DISABLED.id.toInt(), false, RELIABLE.id.toInt(), 0))
         function(Arena::show_block_text, NIL, OBJECT, KtFunctionArgument(OBJECT, "godot.api.Node2D", "unit"), KtFunctionArgument(NIL, "kotlin.Unit"), KtRpcConfig(DISABLED.id.toInt(), false, RELIABLE.id.toInt(), 0))
         function(Arena::show_damage_text, NIL, OBJECT, OBJECT, KtFunctionArgument(OBJECT, "godot.api.Node2D", "unit"), KtFunctionArgument(OBJECT, "game.components.HitBoxComponent", "hitbox"), KtFunctionArgument(NIL, "kotlin.Unit"), KtRpcConfig(DISABLED.id.toInt(), false, RELIABLE.id.toInt(), 0))

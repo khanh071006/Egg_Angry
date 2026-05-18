@@ -53,4 +53,76 @@ public class UnitStats extends Resource {
 	// BẮT BUỘC CÓ CONSTRUCTOR RỖNG
 	public UnitStats() {
 	}
+
+    public String getUnitName() {
+        return unitName;
+    }
+
+    public void setUnitName(String unitName) {
+        this.unitName = unitName;
+    }
+
+    public UnitType getType() {
+        return type;
+    }
+
+    public void setType(UnitType type) {
+        this.type = type;
+    }
+
+    public Texture2D getIcon() {
+        return icon;
+    }
+
+    public void setIcon(Texture2D icon) {
+        this.icon = icon;
+    }
+
+    public float getHealth() {
+        return health;
+    }
+
+    public void setHealth(float health) {
+        this.health = health;
+    }
+
+    public float getHealthIncreasePerWave() {
+        return healthIncreasePerWave;
+    }
+
+    public void setHealthIncreasePerWave(float healthIncreasePerWave) {
+        this.healthIncreasePerWave = healthIncreasePerWave;
+    }
+
+    public float getDamage() {
+        return damage;
+    }
+
+    public void setDamage(float damage) {
+        this.damage = damage;
+    }
+
+    public float getDamageIncreasePerWave() {
+        return damageIncreasePerWave;
+    }
+
+    public void setDamageIncreasePerWave(float damageIncreasePerWave) {
+        this.damageIncreasePerWave = damageIncreasePerWave;
+    }
+
+    public float getSpeed() {
+        return speed;
+    }
+
+    public void setSpeed(float speed) {
+        this.speed = speed;
+    }
+
+    public float getBlockchance() {
+        return blockchance;
+    }
+
+    public void setBlockchance(float blockchance) {
+        this.blockchance = blockchance;
+    }
 }

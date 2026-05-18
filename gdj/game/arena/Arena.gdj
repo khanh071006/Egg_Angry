@@ -25,6 +25,7 @@ properties = [
 	player
 ]
 functions = [
+	_process,
 	_ready,
 	show_block_text,
 	show_damage_text
