@@ -21,6 +21,7 @@ import game.items.weapons.melee.MeleeBehavior
 import game.items.weapons.projectiles.Projectile
 import game.items.weapons.range.RangeBehavior
 import game.resources.items.ItemBase
+import game.resources.items.upgrades.ItemUpgrade
 import game.resources.items.weapons.ItemWeapon
 import game.resources.items.weapons.WeaponStats
 import game.resources.units.EnemyStats
@@ -30,6 +31,7 @@ import game.resources.waves.WaveData
 import game.resources.waves.WaveUnitData
 import game.ui.FloatingText
 import game.ui.HealthBar
+import game.ui.StatsContainer
 import godot.entry.ArenaRegistrar
 import godot.entry.BaseUnitRegistrar
 import godot.entry.CameraControllerRegistrar
@@ -43,6 +45,7 @@ import godot.entry.HealthComponentRegistrar
 import godot.entry.HitBoxComponentRegistrar
 import godot.entry.HurtBoxComponentRegistrar
 import godot.entry.ItemBaseRegistrar
+import godot.entry.ItemUpgradeRegistrar
 import godot.entry.ItemWeaponRegistrar
 import godot.entry.MeleeBehaviorRegistrar
 import godot.entry.PlayerRegistrar
@@ -51,6 +54,7 @@ import godot.entry.ProjectileRegistrar
 import godot.entry.RangeBehaviorRegistrar
 import godot.entry.ShootingBehaviorRegistrar
 import godot.entry.SpawnerRegistrar
+import godot.entry.StatsContainerRegistrar
 import godot.entry.TrailRegistrar
 import godot.entry.UnitStatsRegistrar
 import godot.entry.WaveDataRegistrar
@@ -72,7 +76,7 @@ import kotlin.collections.listOf
 import kotlin.reflect.KClass
 
 public class Entry : Entry() {
-  public override val classRegistrarCount: Int = 29
+  public override val classRegistrarCount: Int = 31
 
   public override val projectName: String = "project-3"
 
@@ -99,6 +103,7 @@ public class Entry : Entry() {
     WeaponRegistrar().register(registry)
     WeaponBehaviorRegistrar().register(registry)
     ItemBaseRegistrar().register(registry)
+    ItemUpgradeRegistrar().register(registry)
     ItemWeaponRegistrar().register(registry)
     WeaponStatsRegistrar().register(registry)
     EnemyStatsRegistrar().register(registry)
@@ -106,6 +111,7 @@ public class Entry : Entry() {
     UnitStatsRegistrar().register(registry)
     FloatingTextRegistrar().register(registry)
     HealthBarRegistrar().register(registry)
+    StatsContainerRegistrar().register(registry)
   }
 
   public override fun Context.initEngineTypes(): Unit {
@@ -119,7 +125,7 @@ public class Entry : Entry() {
       HealthComponent::class, HitBoxComponent::class, HurtBoxComponent::class, BaseUnit::class,
       ChaserBehavior::class, Enemy::class, ShootingBehavior::class, Spawner::class, Player::class,
       WeaponContainer::class, MeleeBehavior::class, Projectile::class, RangeBehavior::class,
-      Weapon::class, WeaponBehavior::class, ItemBase::class, ItemWeapon::class, WeaponStats::class,
-      EnemyStats::class, PlayerStats::class, UnitStats::class, FloatingText::class,
-      HealthBar::class)
+      Weapon::class, WeaponBehavior::class, ItemBase::class, ItemUpgrade::class, ItemWeapon::class,
+      WeaponStats::class, EnemyStats::class, PlayerStats::class, UnitStats::class,
+      FloatingText::class, HealthBar::class, StatsContainer::class)
 }

@@ -12,10 +12,6 @@ public class PlayerStats extends UnitStats {
 	@RegisterProperty
 	public float luck = 1.0f;
 
-	@Export
-	@RegisterProperty
-	public float blockChance = 0.0f;
-
 	public PlayerStats() {
 		super(); // Gọi hàm khởi tạo của Cha
 		this.type = UnitType.PLAYER; // Tự động khóa chặt loại là PLAYER, khỏi sợ điền nhầm!

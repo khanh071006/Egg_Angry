@@ -50,6 +50,18 @@ public class UnitStats extends Resource {
 	@RegisterProperty
 	public float blockchance = 0.0f;
 
+	@Export
+	@RegisterProperty
+	public float hpRegion = 0.0f;
+
+	@Export
+	@RegisterProperty
+	public float lifesteal = 0.0f;
+
+	@Export
+	@RegisterProperty
+	public float harvesting = 0.0f;
+
 	// BẮT BUỘC CÓ CONSTRUCTOR RỖNG
 	public UnitStats() {
 	}
@@ -125,4 +137,11 @@ public class UnitStats extends Resource {
     public void setBlockchance(float blockchance) {
         this.blockchance = blockchance;
     }
+
+    public float getHpRegion() { return hpRegion; }
+    public void setHpRegion(float hpRegion) { this.hpRegion = hpRegion; }
+    public float getLifesteal() { return lifesteal; }
+    public void setLifesteal(float lifesteal) { this.lifesteal = lifesteal; }
+    public float getHarvesting() { return harvesting; }
+    public void setHarvesting(float harvesting) { this.harvesting = harvesting; }
 }

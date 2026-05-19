@@ -26,7 +26,7 @@ import kotlin.collections.listOf
   "project-3",
   "game.resources.units.UnitStats,godot.api.Resource,godot.api.RefCounted,godot.api.Object,godot.core.KtObject,godot.common.interop.NativeWrapper,godot.common.interop.NativePointer,kotlin.Any",
   "",
-  "game.resources.units.EnemyStats.goldDrop,game.resources.units.EnemyStats.blockChance,game.resources.units.EnemyStats.unitName,game.resources.units.EnemyStats.type,game.resources.units.EnemyStats.icon,game.resources.units.EnemyStats.health,game.resources.units.EnemyStats.healthIncreasePerWave,game.resources.units.EnemyStats.damage,game.resources.units.EnemyStats.damageIncreasePerWave,game.resources.units.EnemyStats.speed,game.resources.units.EnemyStats.blockchance",
+  "game.resources.units.EnemyStats.goldDrop,game.resources.units.EnemyStats.blockChance,game.resources.units.EnemyStats.unitName,game.resources.units.EnemyStats.type,game.resources.units.EnemyStats.icon,game.resources.units.EnemyStats.health,game.resources.units.EnemyStats.healthIncreasePerWave,game.resources.units.EnemyStats.damage,game.resources.units.EnemyStats.damageIncreasePerWave,game.resources.units.EnemyStats.speed,game.resources.units.EnemyStats.blockchance,game.resources.units.EnemyStats.hpRegion,game.resources.units.EnemyStats.lifesteal,game.resources.units.EnemyStats.harvesting",
   "",
   true,
 )
@@ -47,6 +47,9 @@ public open class EnemyStatsRegistrar : ClassRegistrar {
         property(EnemyStats::damageIncreasePerWave, FLOAT, DOUBLE, "kotlin.Float", NONE, "", godot.core.PropertyUsageFlags.DEFAULT.flag)
         property(EnemyStats::speed, FLOAT, DOUBLE, "kotlin.Float", NONE, "", godot.core.PropertyUsageFlags.DEFAULT.flag)
         property(EnemyStats::blockchance, FLOAT, DOUBLE, "kotlin.Float", NONE, "", godot.core.PropertyUsageFlags.DEFAULT.flag)
+        property(EnemyStats::hpRegion, FLOAT, DOUBLE, "kotlin.Float", NONE, "", godot.core.PropertyUsageFlags.DEFAULT.flag)
+        property(EnemyStats::lifesteal, FLOAT, DOUBLE, "kotlin.Float", NONE, "", godot.core.PropertyUsageFlags.DEFAULT.flag)
+        property(EnemyStats::harvesting, FLOAT, DOUBLE, "kotlin.Float", NONE, "", godot.core.PropertyUsageFlags.DEFAULT.flag)
       }
     }
   }

@@ -20,7 +20,6 @@ signals = [
 ]
 properties = [
 	luck,
-	block_chance,
 	unit_name,
 	type,
 	icon,
@@ -29,7 +28,10 @@ properties = [
 	damage,
 	damage_increase_per_wave,
 	speed,
-	blockchance
+	blockchance,
+	hp_region,
+	lifesteal,
+	harvesting
 ]
 functions = [
 	

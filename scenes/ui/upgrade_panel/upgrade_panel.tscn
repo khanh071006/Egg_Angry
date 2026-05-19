@@ -1,0 +1,58 @@
+[gd_scene load_steps=4 format=3 uid="uid://fk6w23e0taua"]
+
+[ext_resource type="PackedScene" uid="uid://b7fwix0hr7c41" path="res://scenes/ui/stats_container/stats_container.tscn" id="1_6gbsu"]
+[ext_resource type="PackedScene" uid="uid://dbailjkaj25em" path="res://scenes/ui/upgrade_card/upgrade_card.tscn" id="1_52meh"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_l8hix"]
+font_size = 120
+
+[node name="UpgradePanel" type="Panel"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 32
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 24
+alignment = 1
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "wave completed"
+label_settings = SubResource("LabelSettings_l8hix")
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="UpgradeCard" parent="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer" instance=ExtResource("1_52meh")]
+layout_mode = 2
+
+[node name="UpgradeCard2" parent="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer" instance=ExtResource("1_52meh")]
+layout_mode = 2
+
+[node name="UpgradeCard3" parent="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer" instance=ExtResource("1_52meh")]
+layout_mode = 2
+
+[node name="UpgradeCard4" parent="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer" instance=ExtResource("1_52meh")]
+layout_mode = 2
+
+[node name="StatsContainer" parent="MarginContainer/HBoxContainer" instance=ExtResource("1_6gbsu")]
+layout_mode = 2
+size_flags_vertical = 4

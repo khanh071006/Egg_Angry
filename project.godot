@@ -21,8 +21,8 @@ Global="*res://gdj/game/autoloads/Global.gdj"
 
 [display]
 
-window/size/viewport_width=1500
-window/size/viewport_height=800
+window/size/viewport_width=1900
+window/size/viewport_height=1100
 window/stretch/mode="canvas_items"
 
 [gd_jvm]
