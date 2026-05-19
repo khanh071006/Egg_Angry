@@ -32,6 +32,8 @@ import game.resources.waves.WaveUnitData
 import game.ui.FloatingText
 import game.ui.HealthBar
 import game.ui.StatsContainer
+import game.ui.UpgradeCard
+import game.ui.UpgradePanel
 import godot.entry.ArenaRegistrar
 import godot.entry.BaseUnitRegistrar
 import godot.entry.CameraControllerRegistrar
@@ -57,6 +59,8 @@ import godot.entry.SpawnerRegistrar
 import godot.entry.StatsContainerRegistrar
 import godot.entry.TrailRegistrar
 import godot.entry.UnitStatsRegistrar
+import godot.entry.UpgradeCardRegistrar
+import godot.entry.UpgradePanelRegistrar
 import godot.entry.WaveDataRegistrar
 import godot.entry.WaveUnitDataRegistrar
 import godot.entry.WeaponBehaviorRegistrar
@@ -76,7 +80,7 @@ import kotlin.collections.listOf
 import kotlin.reflect.KClass
 
 public class Entry : Entry() {
-  public override val classRegistrarCount: Int = 31
+  public override val classRegistrarCount: Int = 33
 
   public override val projectName: String = "project-3"
 
@@ -112,6 +116,8 @@ public class Entry : Entry() {
     FloatingTextRegistrar().register(registry)
     HealthBarRegistrar().register(registry)
     StatsContainerRegistrar().register(registry)
+    UpgradeCardRegistrar().register(registry)
+    UpgradePanelRegistrar().register(registry)
   }
 
   public override fun Context.initEngineTypes(): Unit {
@@ -127,5 +133,6 @@ public class Entry : Entry() {
       WeaponContainer::class, MeleeBehavior::class, Projectile::class, RangeBehavior::class,
       Weapon::class, WeaponBehavior::class, ItemBase::class, ItemUpgrade::class, ItemWeapon::class,
       WeaponStats::class, EnemyStats::class, PlayerStats::class, UnitStats::class,
-      FloatingText::class, HealthBar::class, StatsContainer::class)
+      FloatingText::class, HealthBar::class, StatsContainer::class, UpgradeCard::class,
+      UpgradePanel::class)
 }

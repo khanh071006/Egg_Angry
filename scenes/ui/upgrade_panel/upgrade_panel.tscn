@@ -1,7 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://fk6w23e0taua"]
+[gd_scene load_steps=14 format=3 uid="uid://fk6w23e0taua"]
 
 [ext_resource type="PackedScene" uid="uid://b7fwix0hr7c41" path="res://scenes/ui/stats_container/stats_container.tscn" id="1_6gbsu"]
 [ext_resource type="PackedScene" uid="uid://dbailjkaj25em" path="res://scenes/ui/upgrade_card/upgrade_card.tscn" id="1_52meh"]
+[ext_resource type="Script" path="res://gdj/game/ui/UpgradePanel.gdj" id="1_aghkh"]
+[ext_resource type="Script" uid="uid://b8ofl8x8e0fi6" path="res://gdj/game/resources/items/upgrades/ItemUpgrade.gdj" id="3_evmld"]
+[ext_resource type="Resource" uid="uid://b2aef344c57yh" path="res://resources/items/upgrades/data/upgrade_block_1.tres" id="4_t2jfx"]
+[ext_resource type="Resource" uid="uid://c8antr8et47bj" path="res://resources/items/upgrades/data/upgrade_damage_1.tres" id="5_cehub"]
+[ext_resource type="Resource" uid="uid://duel3iohh5prt" path="res://resources/items/upgrades/data/upgrade_harvesting_1.tres" id="6_078e8"]
+[ext_resource type="Resource" uid="uid://b67dik1075qn5" path="res://resources/items/upgrades/data/upgrade_health_1.tres" id="7_jevkw"]
+[ext_resource type="Resource" uid="uid://cu7yqoluwulmx" path="res://resources/items/upgrades/data/upgrade_hp_regen_1.tres" id="8_h4hr2"]
+[ext_resource type="Resource" uid="uid://b3fouf273aim7" path="res://resources/items/upgrades/data/upgrade_lifesteal_1.tres" id="9_lndip"]
+[ext_resource type="Resource" uid="uid://bo4tl3i7yns4j" path="res://resources/items/upgrades/data/upgrade_luck_3.tres" id="10_23ymm"]
+[ext_resource type="Resource" uid="uid://d1bqja0xvtxsv" path="res://resources/items/upgrades/data/upgrade_speed_5.tres" id="11_0g4sm"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_l8hix"]
 font_size = 120
@@ -12,6 +22,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_aghkh")
+upgrade_card_scene = ExtResource("1_52meh")
+upgrade_list = Array[ExtResource("3_evmld")]([ExtResource("4_t2jfx"), ExtResource("5_cehub"), ExtResource("6_078e8"), ExtResource("7_jevkw"), ExtResource("8_h4hr2"), ExtResource("9_lndip"), ExtResource("10_23ymm"), ExtResource("11_0g4sm")])
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -37,20 +50,21 @@ text = "wave completed"
 label_settings = SubResource("LabelSettings_l8hix")
 horizontal_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="ItemsContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_constants/separation = 24
 
-[node name="UpgradeCard" parent="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer" instance=ExtResource("1_52meh")]
+[node name="UpgradeCard" parent="MarginContainer/HBoxContainer/VBoxContainer/ItemsContainer" instance=ExtResource("1_52meh")]
 layout_mode = 2
 
-[node name="UpgradeCard2" parent="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer" instance=ExtResource("1_52meh")]
+[node name="UpgradeCard2" parent="MarginContainer/HBoxContainer/VBoxContainer/ItemsContainer" instance=ExtResource("1_52meh")]
 layout_mode = 2
 
-[node name="UpgradeCard3" parent="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer" instance=ExtResource("1_52meh")]
+[node name="UpgradeCard3" parent="MarginContainer/HBoxContainer/VBoxContainer/ItemsContainer" instance=ExtResource("1_52meh")]
 layout_mode = 2
 
-[node name="UpgradeCard4" parent="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer" instance=ExtResource("1_52meh")]
+[node name="UpgradeCard4" parent="MarginContainer/HBoxContainer/VBoxContainer/ItemsContainer" instance=ExtResource("1_52meh")]
 layout_mode = 2
 
 [node name="StatsContainer" parent="MarginContainer/HBoxContainer" instance=ExtResource("1_6gbsu")]
