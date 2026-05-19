@@ -6,7 +6,7 @@ fqName = game.resources.waves.WaveData
 relativeSourcePath = src/main/java/game/resources/waves/WaveData.kt
 baseType = Resource
 supertypes = [
-    godot.api.Resource,
+	godot.api.Resource,
 	godot.api.RefCounted,
 	godot.api.Object,
 	godot.core.KtObject,
@@ -15,10 +15,10 @@ supertypes = [
 	kotlin.Any
 ]
 signals = [
-    
+	
 ]
 properties = [
-    from,
+	from,
 	to,
 	wave_time,
 	spawn_type,
@@ -28,5 +28,5 @@ properties = [
 	units
 ]
 functions = [
-    get_random_unit
+	get_random_unit
 ]

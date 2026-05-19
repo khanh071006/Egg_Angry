@@ -6,7 +6,7 @@ fqName = game.resources.units.EnemyStats
 relativeSourcePath = src/main/java/game/resources/units/EnemyStats.java
 baseType = Resource
 supertypes = [
-    game.resources.units.UnitStats,
+	game.resources.units.UnitStats,
 	godot.api.Resource,
 	godot.api.RefCounted,
 	godot.api.Object,
@@ -16,10 +16,10 @@ supertypes = [
 	kotlin.Any
 ]
 signals = [
-    
+	
 ]
 properties = [
-    gold_drop,
+	gold_drop,
 	block_chance,
 	unit_name,
 	type,
@@ -32,5 +32,5 @@ properties = [
 	blockchance
 ]
 functions = [
-    
+	
 ]

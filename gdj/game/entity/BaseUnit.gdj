@@ -6,7 +6,7 @@ fqName = game.entity.BaseUnit
 relativeSourcePath = src/main/java/game/entity/BaseUnit.java
 baseType = Area2D
 supertypes = [
-    godot.api.Area2D,
+	godot.api.Area2D,
 	godot.api.CollisionObject2D,
 	godot.api.Node2D,
 	godot.api.CanvasItem,
@@ -18,13 +18,13 @@ supertypes = [
 	kotlin.Any
 ]
 signals = [
-    
+	
 ]
 properties = [
-    stats
+	stats
 ]
 functions = [
-    _ready,
+	_ready,
 	set_flash_material,
 	_on_hurtbox_component_on_damage,
 	_on_flash_timer_timeout

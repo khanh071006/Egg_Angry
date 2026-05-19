@@ -6,7 +6,7 @@ fqName = game.entity.WeaponContainer
 relativeSourcePath = src/main/java/game/entity/WeaponContainer.java
 baseType = Node2D
 supertypes = [
-    godot.api.Node2D,
+	godot.api.Node2D,
 	godot.api.CanvasItem,
 	godot.api.Node,
 	godot.api.Object,
@@ -16,11 +16,11 @@ supertypes = [
 	kotlin.Any
 ]
 signals = [
-    
+	
 ]
 properties = [
-    
+	
 ]
 functions = [
-    _ready
+	_ready
 ]

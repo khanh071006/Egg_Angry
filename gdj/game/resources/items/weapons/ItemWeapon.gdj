@@ -6,7 +6,7 @@ fqName = game.resources.items.weapons.ItemWeapon
 relativeSourcePath = src/main/java/game/resources/items/weapons/ItemWeapon.java
 baseType = Resource
 supertypes = [
-    game.resources.items.ItemBase,
+	game.resources.items.ItemBase,
 	godot.api.Resource,
 	godot.api.RefCounted,
 	godot.api.Object,
@@ -16,10 +16,10 @@ supertypes = [
 	kotlin.Any
 ]
 signals = [
-    
+	
 ]
 properties = [
-    type,
+	type,
 	weapon_scene,
 	stats,
 	upgrade_to,
@@ -30,5 +30,5 @@ properties = [
 	item_cost
 ]
 functions = [
-    get_description
+	get_description
 ]

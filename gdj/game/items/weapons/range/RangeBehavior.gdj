@@ -6,7 +6,7 @@ fqName = game.items.weapons.range.RangeBehavior
 relativeSourcePath = src/main/java/game/items/weapons/range/RangeBehavior.java
 baseType = Node2D
 supertypes = [
-    game.items.weapons.WeaponBehavior,
+	game.items.weapons.WeaponBehavior,
 	godot.api.Node2D,
 	godot.api.CanvasItem,
 	godot.api.Node,
@@ -17,14 +17,14 @@ supertypes = [
 	kotlin.Any
 ]
 signals = [
-    
+	
 ]
 properties = [
-    muzzle,
+	muzzle,
 	weapon
 ]
 functions = [
-    _process,
+	_process,
 	get_damage,
 	execute_attack,
 	on_attack_finished,

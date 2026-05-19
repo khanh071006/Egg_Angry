@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://b7fwix0hr7c41"]
+
+[node name="StatsContainer" type="Panel"]
+offset_right = 40.0
+offset_bottom = 40.0

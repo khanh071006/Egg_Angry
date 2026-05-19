@@ -60,6 +60,7 @@ public class HealthComponent extends Node {
         if (parent != null){
             if (parent instanceof game.entity.Player) {
                 game.autoloads.Global.isAttack = false;
+                game.autoloads.Global.gamePaused = true;
             }
             // 1. ĐÓNG BĂNG MỌI HOẠT ĐỘNG (Tương đương ProcessMode = PROCESS_MODE_DISABLED)
             // Lệnh này ép con quái ngừng chạy _process, ngừng AI, ngừng tính toán vật lý

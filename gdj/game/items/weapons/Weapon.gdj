@@ -6,7 +6,7 @@ fqName = game.items.weapons.Weapon
 relativeSourcePath = src/main/java/game/items/weapons/Weapon.java
 baseType = Node2D
 supertypes = [
-    godot.api.Node2D,
+	godot.api.Node2D,
 	godot.api.CanvasItem,
 	godot.api.Node,
 	godot.api.Object,
@@ -16,14 +16,14 @@ supertypes = [
 	kotlin.Any
 ]
 signals = [
-    
+	
 ]
 properties = [
-    weapon_behavior,
+	weapon_behavior,
 	data
 ]
 functions = [
-    _process,
+	_process,
 	_ready,
 	setup_weapon,
 	can_use_weapon,
