@@ -32,5 +32,5 @@ metadata/_custom_type_script = "uid://bf8v16a6b8yrh"
 
 [resource]
 script = ExtResource("1_mlfpo")
-wave_time = 2
+wave_time = 10
 units = Array[ExtResource("2_k285s")]([SubResource("Resource_o3xoa"), SubResource("Resource_47o53"), SubResource("Resource_8c4he")])

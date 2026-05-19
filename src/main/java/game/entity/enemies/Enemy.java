@@ -34,6 +34,7 @@ public class Enemy extends BaseUnit {
 
     @RegisterProperty
     public Timer knockbackTimer;
+    private Timer deathTimer;
 
     @RegisterFunction
     @Override
@@ -48,7 +49,11 @@ public class Enemy extends BaseUnit {
         //KnockbackTimer init
         knockbackTimer = (Timer) getNode("KnockbackTimer");
 
-        animPlayer.connect("animation_finished", new NativeCallable(this, new StringName("onAnimationFinished")));
+        // Death Timer
+        deathTimer = new Timer();
+        deathTimer.setOneShot(true);
+        deathTimer.connect("timeout", new NativeCallable(this, new StringName("_on_death_timer_timeout")));
+        addChild(deathTimer);
     }
 
     // Dùng _physics_process để đồng bộ chuẩn với hệ thống quét Radar của Godot
@@ -77,7 +82,7 @@ public class Enemy extends BaseUnit {
     }
 
     private boolean canMoveTowardsPlayer() {
-        if (Global.player == null || !Global.player.isInsideTree()) {
+        if (!Global.isAttack || Global.player == null || !Global.player.isInsideTree()) {
             return false;
         }
         float dist = (float) getGlobalPosition().distanceTo(Global.player.getGlobalPosition());
@@ -85,7 +90,7 @@ public class Enemy extends BaseUnit {
     }
 
     private Vector2 getMoveDirection() {
-        if (Global.player == null || !Global.player.isInsideTree()) {
+        if (!Global.isAttack || Global.player == null || !Global.player.isInsideTree()) {
             return new Vector2(0, 0);
         }
 
@@ -183,12 +188,11 @@ public class Enemy extends BaseUnit {
         canMove = false;
         canAttack = false;
         animPlayer.play("die");
+        deathTimer.start(0.6);
     }
 
     @RegisterFunction
-    public void onAnimationFinished(StringName animName) {
-        if (animName.equals(new StringName("die"))) {
-            setGlobalPosition(new Vector2(10000, 10000));
-        }
+    public void _on_death_timer_timeout() {
+        queueFree();
     }
 }

@@ -56,7 +56,7 @@ public class ShootingBehavior extends Node2D {
             currentCooldown -= delta;
         } else {
             // Hết Cooldown -> Kiểm tra Player còn sống không thì Bóp cò!
-            if (Global.player != null && !Global.player.isQueuedForDeletion()) {
+            if (Global.isAttack && Global.player != null && !Global.player.isQueuedForDeletion()) {
                 shoot();
                 currentCooldown = cooldown; // Bắn xong quay lại đếm 3s
             }

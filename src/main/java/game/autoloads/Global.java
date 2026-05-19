@@ -21,6 +21,7 @@ public class Global extends Node {
     public static ShaderMaterial FLASH_MATERIAL;
     public static Global instance;
     public static PackedScene floatingTextScene;
+    public static boolean isAttack = true;
 
     @RegisterSignal
     public Signal1<Node2D> onCreateBlockText = Signal1.create(this, "onCreateBlockText");
@@ -35,6 +36,7 @@ public class Global extends Node {
         // Load file .tres mà bạn đã tạo từ Shader ở bước 1
         FLASH_MATERIAL = (ShaderMaterial) ResourceLoader.load("res://effects/flash_material.tres");
         floatingTextScene = (PackedScene) ResourceLoader.load("res://effects/floating_text.tscn");
+        isAttack = true;
 
 
         get_chance_sucess(0.5f);
