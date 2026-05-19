@@ -183,6 +183,7 @@ public class Weapon extends Node2D {
     @RegisterFunction
     @Override
     public void _process(double delta) {
+        if (Global.gamePaused) return;
         if (!isAttacking) {
             if (!targets.isEmpty()) {
                 updateClosestTarget();

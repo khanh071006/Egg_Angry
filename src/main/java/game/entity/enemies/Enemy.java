@@ -60,6 +60,7 @@ public class Enemy extends BaseUnit {
     @RegisterFunction
     @Override
     public void _physicsProcess(double delta) {
+        if (Global.gamePaused) return;
         float fDelta = (float) delta;
 
         if (!canMove) return;

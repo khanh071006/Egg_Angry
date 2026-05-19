@@ -1,6 +1,7 @@
 package game.entity.enemies; // Sếp đổi package theo project nha
 
 import game.Helper.GodotHelper;
+import game.autoloads.Global;
 import game.entity.BaseUnit;
 import game.resources.units.UnitStats;
 import game.resources.waves.WaveUnitData;
@@ -203,6 +204,7 @@ public class Spawner extends Node2D {
         if (spawnTimer != null) {
             spawnTimer.stop();
         }
+        Global.gamePaused = true;
         clearEnemies();
         //waveIndex++;
         //startWave();

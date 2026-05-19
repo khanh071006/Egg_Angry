@@ -62,6 +62,7 @@ public class Arena extends Node2D {
     @RegisterFunction
     @Override
     public void _process(double delta) {
+        if (Global.gamePaused) return;
         // Hàm này chạy liên tục mỗi khung hình (60 FPS)
         // Cập nhật text liên tục từ Spawner lên Màn hình
         if (spawner != null) {

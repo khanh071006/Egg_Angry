@@ -22,6 +22,7 @@ public class Global extends Node {
     public static Global instance;
     public static PackedScene floatingTextScene;
     public static boolean isAttack = true;
+    public static boolean gamePaused = false;
 
     @RegisterSignal
     public Signal1<Node2D> onCreateBlockText = Signal1.create(this, "onCreateBlockText");
@@ -37,6 +38,7 @@ public class Global extends Node {
         FLASH_MATERIAL = (ShaderMaterial) ResourceLoader.load("res://effects/flash_material.tres");
         floatingTextScene = (PackedScene) ResourceLoader.load("res://effects/floating_text.tscn");
         isAttack = true;
+        gamePaused = false;
 
 
         get_chance_sucess(0.5f);

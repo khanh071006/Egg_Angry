@@ -116,6 +116,7 @@ public class Player extends BaseUnit {
 	@RegisterFunction
 	@Override
 	public void _process(double delta) {
+        if (Global.gamePaused) return;
 		float fDelta = (float) delta;
 
 		moveDirection = Input.INSTANCE.getVector("move_left", "move_right", "move_up", "move_down", 0.5f);
