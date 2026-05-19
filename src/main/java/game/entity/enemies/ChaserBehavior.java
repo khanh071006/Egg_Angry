@@ -46,7 +46,7 @@ public class ChaserBehavior extends Node2D {
     @RegisterFunction
     @Override
     public void _process(double delta) {
-        if (enemy == null) return;
+        if (enemy == null || !enemy.canAttack) return;
 
         if (isCharging) {
             Vector2 currentPos = enemy.getGlobalPosition();

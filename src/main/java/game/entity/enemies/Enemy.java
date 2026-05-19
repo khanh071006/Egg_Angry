@@ -8,6 +8,8 @@ import godot.annotation.RegisterClass;
 import godot.annotation.RegisterFunction;
 import godot.annotation.RegisterProperty;
 import godot.api.*;
+import godot.core.NativeCallable;
+import godot.core.StringName;
 import godot.core.VariantArray;
 import godot.core.Vector2;
 
@@ -24,6 +26,7 @@ public class Enemy extends BaseUnit {
 
     private Area2D visionArea;
     public boolean canMove = true;
+    public boolean canAttack = true;
 
     //Knockback
     private Vector2 knockbackDirection = new Vector2(0, 0);
@@ -44,6 +47,8 @@ public class Enemy extends BaseUnit {
 
         //KnockbackTimer init
         knockbackTimer = (Timer) getNode("KnockbackTimer");
+
+        animPlayer.connect("animation_finished", new NativeCallable(this, new StringName("onAnimationFinished")));
     }
 
     // Dùng _physics_process để đồng bộ chuẩn với hệ thống quét Radar của Godot
@@ -170,6 +175,20 @@ public class Enemy extends BaseUnit {
 
             // 3. Thực thi đẩy lùi
             applyKnockback(knockDir, hitbox.knockbackPower * 100); // Nhân 100 để lực đủ mạnh
+        }
+    }
+
+    @RegisterFunction
+    public void destroyEnemy() {
+        canMove = false;
+        canAttack = false;
+        animPlayer.play("die");
+    }
+
+    @RegisterFunction
+    public void onAnimationFinished(StringName animName) {
+        if (animName.equals(new StringName("die"))) {
+            setGlobalPosition(new Vector2(10000, 10000));
         }
     }
 }

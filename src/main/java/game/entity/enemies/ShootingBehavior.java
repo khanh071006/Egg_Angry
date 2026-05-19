@@ -39,7 +39,7 @@ public class ShootingBehavior extends Node2D {
     @RegisterFunction
     @Override
     public void _process(double delta) {
-        if (enemy == null) return;
+        if (enemy == null || !enemy.canAttack) return;
 
         // TRẠNG THÁI 1: Bắn xong, đứng chờ 1 giây cho ngầu
         if (isWaiting) {

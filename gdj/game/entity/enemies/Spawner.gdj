@@ -25,5 +25,5 @@ properties = [
 functions = [
 	_ready,
 	_on_spawn_timer_timeout,
-	on_wave_timer_timeout
+	_on_wave_timer_timeout
 ]

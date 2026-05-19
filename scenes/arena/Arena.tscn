@@ -77,3 +77,4 @@ label_settings = SubResource("LabelSettings_g06lh")
 
 [connection signal="timeout" from="Spawner/SpawnTimer" to="Spawner" method="_on_spawn_timer_timeout"]
 [connection signal="timeout" from="Spawner/SpawnTimer" to="Spawner" method="spawnEnemy"]
+[connection signal="timeout" from="Spawner/WaveTimer" to="Spawner" method="_on_wave_timer_timeout"]

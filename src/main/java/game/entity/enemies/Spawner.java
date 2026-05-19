@@ -1,6 +1,7 @@
 package game.entity.enemies; // Sếp đổi package theo project nha
 
 import game.Helper.GodotHelper;
+import game.entity.BaseUnit;
 import game.resources.units.UnitStats;
 import game.resources.waves.WaveUnitData;
 import godot.annotation.*;
@@ -28,9 +29,6 @@ public class Spawner extends Node2D {
     // Spawn Area Size (1000, 500) như trong video
     @Export @RegisterProperty
     public Vector2 spawnAreaSize = new Vector2(1000, 500);
-    // Mảng lưu trữ quái vật (Dùng Java ArrayList cho sướng)
-    // YouTuber bảo lưu lại để sau này tăng máu/đam khi qua màn
-    private ArrayList<Node> spawnEnemies = new ArrayList<>();
 
     // --- BIẾN LOGIC (Chỉ chạy ngầm trong Java) ---
     private int waveIndex = 1; // Bắt đầu từ Wave 1
@@ -141,44 +139,50 @@ public class Spawner extends Node2D {
 
         if (enemyScene != null) {
             // Tạo ra con quái thật sự
-            Node enemyInstance = enemyScene.instantiate();
+            Node enemyInstanceNode = enemyScene.instantiate();
 
-            // Tạm thời để quái xuất hiện ở giữa map (Vector2.ZERO)
-            if (enemyInstance instanceof Node2D) {
-                ((Node2D) enemyInstance).setGlobalPosition(spawn_pos);
+            if (enemyInstanceNode instanceof BaseUnit) {
+                BaseUnit enemyInstance = (BaseUnit) enemyInstanceNode;
+                UnitStats originalStats = enemyInstance.stats;
+
+                // Tạo một bản sao của stats để không thay đổi file gốc
+                UnitStats newStats = (UnitStats) originalStats.duplicate();
+
+                // Tính toán và áp dụng chỉ số mới
+                float healthIncrease = newStats.healthIncreasePerWave * (waveIndex - 1);
+                float damageIncrease = newStats.damageIncreasePerWave * (waveIndex - 1);
+                newStats.health += healthIncrease;
+                newStats.damage += damageIncrease;
+
+                // Gán stats mới cho quái
+                enemyInstance.stats = newStats;
+            }
+
+
+            if (enemyInstanceNode instanceof Node2D) {
+                ((Node2D) enemyInstanceNode).setGlobalPosition(spawn_pos);
             }
 
             // Gắn vào Arena (Node cha của Spawner)
-            getParent().addChild(enemyInstance);
+            getParent().addChild(enemyInstanceNode);
 
             // Thêm vào danh sách quản lý
-            spawnedEnemies.add(enemyInstance);
+            spawnedEnemies.add(enemyInstanceNode);
         }
     }
 
-    //Update Enemy
-    private void updateEnemiesNewWave() {
-        GD.print("Đã hết Wave! Đang mò vào mảng units để buff sức mạnh...");
+    private void clearEnemies() {
+        if (spawnedEnemies.size() == 0) {
+            return;
+        }
 
-        // Dùng thẳng mảng units nằm trong currentWaveData của sếp!
-        if (currentWaveData == null || currentWaveData.getUnits() == null) return;
-
-        VariantArray<WaveUnitData> units = currentWaveData.getUnits();
-
-        for (int i = 0; i < units.size(); i++) {
-            WaveUnitData unitData = units.get(i);
-
-            // Móc cái file UnitStats từ trong unitData ra
-            if (unitData != null && unitData.getUnitStats() != null) {
-                // Ép kiểu nó về class UnitStats thật của sếp
-                UnitStats stat = (UnitStats) unitData.getUnitStats();
-
-                // Tăng máu và sát thương
-                stat.setHealth(stat.getHealth() + stat.getHealthIncreasePerWave());
-                stat.setDamage(stat.getDamage() + stat.getDamageIncreasePerWave());
-                GD.print("Đã buff sức mạnh cho 1 loại quái!");
+        for (Node enemyNode : spawnedEnemies) {
+            if (GD.isInstanceValid(enemyNode)) {
+                Enemy enemy = (Enemy) enemyNode;
+                enemy.destroyEnemy();
             }
         }
+        spawnedEnemies.clear();
     }
 
     @RegisterFunction
@@ -195,10 +199,12 @@ public class Spawner extends Node2D {
     }
 
     @RegisterFunction
-    public void on_wave_timer_timeout() {
-        if (spawnTimer != null) spawnTimer.stop();
-        updateEnemiesNewWave();
+    public void _on_wave_timer_timeout() {
+        if (spawnTimer != null) {
+            spawnTimer.stop();
+        }
+        clearEnemies();
+        //waveIndex++;
+        //startWave();
     }
 }
-
-

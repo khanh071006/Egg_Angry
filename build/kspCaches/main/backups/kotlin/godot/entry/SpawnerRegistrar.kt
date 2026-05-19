@@ -28,7 +28,7 @@ import kotlin.collections.listOf
   "godot.api.Node2D,godot.api.CanvasItem,godot.api.Node,godot.api.Object,godot.core.KtObject,godot.common.interop.NativeWrapper,godot.common.interop.NativePointer,kotlin.Any",
   "",
   "game.entity.enemies.Spawner.wavesData,game.entity.enemies.Spawner.spawnAreaSize",
-  "game.entity.enemies.Spawner._ready,game.entity.enemies.Spawner._on_spawn_timer_timeout,game.entity.enemies.Spawner.on_wave_timer_timeout",
+  "game.entity.enemies.Spawner._ready,game.entity.enemies.Spawner._on_spawn_timer_timeout,game.entity.enemies.Spawner._on_wave_timer_timeout",
   true,
 )
 public open class SpawnerRegistrar : ClassRegistrar {
@@ -39,7 +39,7 @@ public open class SpawnerRegistrar : ClassRegistrar {
         notificationFunctions(listOf())
         function(Spawner::_ready, NIL, KtFunctionArgument(NIL, "kotlin.Unit"), KtRpcConfig(DISABLED.id.toInt(), false, RELIABLE.id.toInt(), 0))
         function(Spawner::_on_spawn_timer_timeout, NIL, KtFunctionArgument(NIL, "kotlin.Unit"), KtRpcConfig(DISABLED.id.toInt(), false, RELIABLE.id.toInt(), 0))
-        function(Spawner::on_wave_timer_timeout, NIL, KtFunctionArgument(NIL, "kotlin.Unit"), KtRpcConfig(DISABLED.id.toInt(), false, RELIABLE.id.toInt(), 0))
+        function(Spawner::_on_wave_timer_timeout, NIL, KtFunctionArgument(NIL, "kotlin.Unit"), KtRpcConfig(DISABLED.id.toInt(), false, RELIABLE.id.toInt(), 0))
         property(Spawner::wavesData, ARRAY, ARRAY, "godot.core.VariantArray", TYPE_STRING, "24/17:WaveData", godot.core.PropertyUsageFlags.DEFAULT.flag)
         property(Spawner::spawnAreaSize, VECTOR2, VECTOR2, "godot.core.Vector2", NONE, "", godot.core.PropertyUsageFlags.DEFAULT.flag)
       }
