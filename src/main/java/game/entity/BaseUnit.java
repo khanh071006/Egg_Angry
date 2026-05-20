@@ -25,7 +25,7 @@ public class BaseUnit extends Area2D { // Đổi tên class ở đây
 	protected Node2D visuals;
 	protected Sprite2D sprite;
 	protected AnimationPlayer animPlayer;
-    private HealthComponent healthComponent;
+    public HealthComponent healthComponent;
 	@RegisterFunction
 	@Override
 	public void _ready() {

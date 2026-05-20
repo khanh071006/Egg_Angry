@@ -60,12 +60,15 @@ public class StatsContainer extends Panel {
     @Override
     public void _process(double delta) {
         if (!godot.global.GD.isInstanceValid(game.autoloads.Global.player)) {
+            // Uncomment dòng dưới nếu muốn kiểm tra lỗi Player bị null
+            // godot.global.GD.printErr("StatsContainer: Global.player đang NULL! Hãy kiểm tra biến Player trong Arena Inspector.");
             return;
         }
 
         game.resources.units.UnitStats stats = game.autoloads.Global.player.stats;
-        if (stats == null)
+        if (stats == null) {
             return;
+        }
 
         if (healthLabel != null)
             healthLabel.setText(String.valueOf(stats.health));

@@ -53,4 +53,12 @@ public class UpgradeCard extends Panel {
             itemDescription.setText(value.description);
         }
     }
+
+    @RegisterFunction
+    public void _on_custom_button_pressed() {
+        if (itemData != null && godot.global.GD.isInstanceValid(game.autoloads.Global.player)) {
+            itemData.applyUpgrade();
+            game.autoloads.Global.instance.onUpgradeSelected.emit();
+        }
+    }
 }

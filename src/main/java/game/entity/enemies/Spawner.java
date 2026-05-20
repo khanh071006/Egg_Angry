@@ -10,7 +10,9 @@ import godot.api.*;
 import godot.core.VariantArray;
 import godot.core.Vector2;
 import game.resources.waves.WaveData; // Import file Kotlin vào đây
+import game.resources.waves.WaveData; // Import file Kotlin vào đây
 import godot.global.GD;
+import godot.core.Signal0;
 
 import java.util.ArrayList;
 
@@ -32,8 +34,11 @@ public class Spawner extends Node2D {
     public Vector2 spawnAreaSize = new Vector2(1000, 500);
 
     // --- BIẾN LOGIC (Chỉ chạy ngầm trong Java) ---
-    private int waveIndex = 1; // Bắt đầu từ Wave 1
+    public int waveIndex = 1; // Bắt đầu từ Wave 1
     private WaveData currentWaveData; // Lưu kịch bản hiện tại
+
+    @RegisterSignal
+    public Signal0 onWaveCompleted = Signal0.create(this, "onWaveCompleted");
 
     // Lưu quái vật đang sống bằng ArrayList của Java cho tốc độ bàn thờ
     private ArrayList<Node> spawnedEnemies = new ArrayList<>();
@@ -73,7 +78,6 @@ public class Spawner extends Node2D {
         if (spawnTimer == null) GD.printErr("LỖI NẶNG: Chưa kéo SpawnTimer vào Inspector!");
         if (waveTimer == null) GD.printErr("LỖI NẶNG: Chưa kéo WaveTimer vào Inspector!");
         if (wavesData.isEmpty()) GD.printErr("LỖI NẶNG: Mảng Waves Data trống trơn! Chưa kéo file .tres vào!");
-        startWave();
     }
 
     // --- HÀM TÌM KỊCH BẢN (find_wave_data) ---
@@ -206,7 +210,6 @@ public class Spawner extends Node2D {
         }
         Global.gamePaused = true;
         clearEnemies();
-        //waveIndex++;
-        //startWave();
+        onWaveCompleted.emit();
     }
 }

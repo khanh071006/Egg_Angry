@@ -16,7 +16,7 @@ supertypes = [
 	kotlin.Any
 ]
 signals = [
-    
+    on_wave_completed
 ]
 properties = [
     waves_data,

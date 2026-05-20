@@ -22,11 +22,16 @@ properties = [
     normal_color,
 	block_color,
 	crit_color,
-	player
+	player,
+	upgrade_panel
 ]
 functions = [
     _process,
 	_ready,
 	show_block_text,
-	show_damage_text
+	show_damage_text,
+	_on_wave_completed,
+	show_upgrades,
+	_on_upgrade_selected,
+	start_new_wave
 ]

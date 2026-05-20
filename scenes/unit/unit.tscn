@@ -204,7 +204,7 @@ _data = {
 }
 
 [node name="Unit" type="Area2D"]
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.6, 0.6)
 script = ExtResource("1_3po7s")
 
 [node name="Visuals" type="Node2D" parent="."]
@@ -234,11 +234,12 @@ libraries = {
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -48.0
-offset_top = -150.0
-offset_right = 48.0
-offset_bottom = -130.0
+offset_left = -73.33333
+offset_top = -165.00002
+offset_right = 22.666672
+offset_bottom = -145.00002
 grow_horizontal = 2
+scale = Vector2(1.5, 1.5)
 script = ExtResource("6_3po7s")
 
 [node name="FlashTimer" type="Timer" parent="."]

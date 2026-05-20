@@ -40,6 +40,10 @@ public class Arena extends Node2D {
     private Label waveTimeLabel;
     private Spawner spawner;
 
+    @Export
+    @RegisterProperty
+    public game.ui.UpgradePanel upgradePanel;
+
     @RegisterFunction
     @Override
     public void _ready() {
@@ -57,6 +61,13 @@ public class Arena extends Node2D {
 
         if (spawner == null) GD.printErr("Arena LỖI: Không tìm thấy Spawner!");
         if (waveIndexLabel == null) GD.printErr("Arena LỖI: Không tìm thấy WaveIndexLabel!");
+
+        Global.instance.onUpgradeSelected.connect(Callable.create(this, new StringName("_on_upgrade_selected")), 0);
+        
+        if (spawner != null) {
+            spawner.onWaveCompleted.connect(Callable.create(this, new StringName("_on_wave_completed")), 0);
+            spawner.startWave();
+        }
     }
 
     @RegisterFunction
@@ -105,6 +116,36 @@ public class Arena extends Node2D {
         return instance;
     }
 
+    @RegisterFunction
+    public void _on_wave_completed() {
+        getTree().createTimer(1.0).getTimeout().connect(Callable.create(this, new StringName("show_upgrades")), 0);
+    }
 
+    @RegisterFunction
+    public void show_upgrades() {
+        if (!godot.global.GD.isInstanceValid(Global.player)) return;
+        if (upgradePanel != null) {
+            upgradePanel.show();
+        }
+    }
 
+    @RegisterFunction
+    public void _on_upgrade_selected() {
+        if (upgradePanel != null) {
+            upgradePanel.hide();
+        }
+        startNewWave();
+    }
+
+    @RegisterFunction
+    public void startNewWave() {
+        Global.gamePaused = false;
+        if (spawner != null) {
+            spawner.waveIndex += 1;
+            spawner.startWave();
+        }
+        if (Global.player != null) {
+            Global.player.updatePlayerNewWave();
+        }
+    }
 }

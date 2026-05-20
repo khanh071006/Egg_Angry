@@ -24,5 +24,6 @@ properties = [
 ]
 functions = [
     _ready,
-	set_data
+	set_data,
+	_on_custom_button_pressed
 ]

@@ -23,7 +23,7 @@ import kotlin.collections.listOf
   "gdj/game/autoloads/Global.gdj",
   "project-3",
   "godot.api.Node,godot.api.Object,godot.core.KtObject,godot.common.interop.NativeWrapper,godot.common.interop.NativePointer,kotlin.Any",
-  "game.autoloads.Global.onCreateBlockText,game.autoloads.Global.onCreateDamageText",
+  "game.autoloads.Global.onCreateBlockText,game.autoloads.Global.onCreateDamageText,game.autoloads.Global.onUpgradeSelected",
   "",
   "game.autoloads.Global._ready",
   true,
@@ -37,6 +37,7 @@ public open class GlobalRegistrar : ClassRegistrar {
         function(Global::_ready, NIL, KtFunctionArgument(NIL, "kotlin.Unit"), KtRpcConfig(DISABLED.id.toInt(), false, RELIABLE.id.toInt(), 0))
         signal(Global::onCreateBlockText, KtFunctionArgument(OBJECT, "godot.api.Node2D", "p0"))
         signal(Global::onCreateDamageText, KtFunctionArgument(OBJECT, "godot.api.Node2D", "p0"), KtFunctionArgument(OBJECT, "game.components.HitBoxComponent", "p1"))
+        signal(Global::onUpgradeSelected)
       }
     }
   }

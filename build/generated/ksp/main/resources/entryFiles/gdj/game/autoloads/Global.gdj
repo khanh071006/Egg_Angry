@@ -15,7 +15,8 @@ supertypes = [
 ]
 signals = [
     on_create_block_text,
-	on_create_damage_text
+	on_create_damage_text,
+	on_upgrade_selected
 ]
 properties = [
     

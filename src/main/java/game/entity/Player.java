@@ -102,7 +102,7 @@ public class Player extends BaseUnit {
 
         if (testWeapon != null) {
             // Test thử add 6 cái vũ khí xem nó có xếp thành hình tròn không
-            //addWeapon(testWeapon4);
+            addWeapon(testWeapon4);
             //addWeapon(testWeapon3);
             //addWeapon(testWeapon2);
             //addWeapon(testWeapon8);
@@ -249,5 +249,14 @@ public class Player extends BaseUnit {
     public boolean isFacingRight() {
         // Nếu Scale X dương (thường là -1.0) thì là bên phải
         return this.visuals.getScale().getX() < 0;
+    }
+
+    @RegisterFunction
+    public void updatePlayerNewWave() {
+        if (stats == null) return;
+        stats.health += stats.healthIncreasePerWave;
+        if (healthComponent != null) {
+            healthComponent.setup(stats);
+        }
     }
 }

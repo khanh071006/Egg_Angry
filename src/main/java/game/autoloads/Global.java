@@ -7,6 +7,7 @@ import godot.annotation.RegisterProperty;
 import godot.annotation.RegisterSignal;
 import godot.api.*;
 import godot.annotation.RegisterClass;
+import godot.core.Signal0;
 import godot.core.Signal1;
 import godot.core.Signal2;
 import godot.global.GD;
@@ -29,6 +30,9 @@ public class Global extends Node {
 
     @RegisterSignal
     public Signal2<Node2D, HitBoxComponent> onCreateDamageText = Signal2.create(this, "onCreateDamageText");
+
+    @RegisterSignal
+    public Signal0 onUpgradeSelected = Signal0.create(this, "onUpgradeSelected");
 
 
     @RegisterFunction
