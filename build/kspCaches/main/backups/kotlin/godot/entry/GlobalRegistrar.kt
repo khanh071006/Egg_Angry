@@ -7,6 +7,7 @@ import godot.api.MultiplayerAPI.RPCMode.DISABLED
 import godot.api.MultiplayerPeer.TransferMode.RELIABLE
 import godot.core.KtConstructor0
 import godot.core.KtRpcConfig
+import godot.core.VariantCaster.FLOAT
 import godot.core.VariantParser.NIL
 import godot.core.VariantParser.OBJECT
 import godot.registration.ClassRegistrar
@@ -23,7 +24,7 @@ import kotlin.collections.listOf
   "gdj/game/autoloads/Global.gdj",
   "project-3",
   "godot.api.Node,godot.api.Object,godot.core.KtObject,godot.common.interop.NativeWrapper,godot.common.interop.NativePointer,kotlin.Any",
-  "game.autoloads.Global.onCreateBlockText,game.autoloads.Global.onCreateDamageText,game.autoloads.Global.onUpgradeSelected",
+  "game.autoloads.Global.onCreateBlockText,game.autoloads.Global.onCreateDamageText,game.autoloads.Global.onUpgradeSelected,game.autoloads.Global.onCreateHealText",
   "",
   "game.autoloads.Global._ready",
   true,
@@ -38,6 +39,7 @@ public open class GlobalRegistrar : ClassRegistrar {
         signal(Global::onCreateBlockText, KtFunctionArgument(OBJECT, "godot.api.Node2D", "p0"))
         signal(Global::onCreateDamageText, KtFunctionArgument(OBJECT, "godot.api.Node2D", "p0"), KtFunctionArgument(OBJECT, "game.components.HitBoxComponent", "p1"))
         signal(Global::onUpgradeSelected)
+        signal(Global::onCreateHealText, KtFunctionArgument(OBJECT, "godot.api.Node2D", "p0"), KtFunctionArgument(FLOAT, "kotlin.Float", "p1"))
       }
     }
   }

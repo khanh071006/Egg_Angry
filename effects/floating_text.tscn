@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://cwas66a6ynioj" path="res://gdj/game/ui/FloatingText.gdj" id="1_0a43f"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_7dkof"]
-font_size = 32
+font_size = 50
 outline_size = 10
 outline_color = Color(0.00033390365, 0.0003339036, 0.00033390356, 1)
 

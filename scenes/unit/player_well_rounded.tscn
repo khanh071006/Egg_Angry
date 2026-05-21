@@ -159,6 +159,10 @@ position = Vector2(-60, -170)
 [node name="Marker2D6" type="Marker2D" parent="WeaponContainer/6" index="5"]
 position = Vector2(60, -170)
 
+[node name="HPRegenTimer" type="Timer" parent="." index="11"]
+autostart = true
+
 [connection signal="timeout" from="DashTimer" to="." method="_on_dash_timer_timeout"]
 [connection signal="timeout" from="TrailTimer" to="." method="_on_trail_timer_timeout"]
 [connection signal="timeout" from="TrailTimer" to="Visuals/Trail" method="_on_trail_timer_timeout"]
+[connection signal="timeout" from="HPRegenTimer" to="." method="_on_hp_regen_timer_timeout"]

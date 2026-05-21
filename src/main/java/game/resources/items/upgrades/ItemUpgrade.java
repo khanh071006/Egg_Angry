@@ -39,36 +39,40 @@ public class ItemUpgrade extends ItemBase {
             return;
         }
 
-        StringName id = new StringName(statId);
-
-        // Lấy giá trị hiện tại dựa trên tên biến (statId)
-        Object currentValObj = Global.player.stats.get(id);
-
-        if (currentValObj == null) {
-            godot.global.GD.printErr("Lỗi: Không tìm thấy biến nào có tên '" + statId + "' trong UnitStats!");
-            return;
-        }
-
-        float currentVal = 0.0f;
-
-        // Ép kiểu an toàn sang float
-        if (currentValObj instanceof Number) {
-            currentVal = ((Number) currentValObj).floatValue();
-        } else {
-            try {
-                currentVal = Float.parseFloat(currentValObj.toString());
-            } catch (Exception e) {
-                godot.global.GD.printErr("Lỗi: Không thể chuyển đổi giá trị của '" + statId + "' thành số!");
+        // Lần trước bạn copy code cũ đè lên đoạn switch-case an toàn của tôi rồi!
+        // Giờ tôi khôi phục lại cấu trúc switch-case để đảm bảo không bị lỗi ép kiểu (parsing) nữa.
+        switch (statId) {
+            case "health":
+                Global.player.stats.health += value;
+                break;
+            case "damage":
+                Global.player.stats.damage += value;
+                break;
+            case "speed":
+                Global.player.stats.speed += value;
+                break;
+            case "blockchance":
+                Global.player.stats.blockchance += value;
+                break;
+            case "hpRegen":
+                Global.player.stats.hpRegen += value;
+                break;
+            case "lifesteal":
+                Global.player.stats.lifesteal += value;
+                break;
+            case "harvesting":
+                Global.player.stats.harvesting += value;
+                break;
+            case "luck":
+                if (Global.player.stats instanceof game.resources.units.PlayerStats) {
+                    ((game.resources.units.PlayerStats) Global.player.stats).luck += value;
+                }
+                break;
+            default:
+                godot.global.GD.printErr("Lỗi: Không hỗ trợ nâng cấp cho statId: " + statId);
                 return;
-            }
         }
 
-        // Tính giá trị mới
-        float newVal = currentVal + value;
-
-        // Cập nhật lại vào PlayerStats
-        Global.player.stats.set(id, newVal);
-
-        godot.global.GD.print("Đã nâng cấp: " + statId + " lên " + newVal);
+        godot.global.GD.print("Đã nâng cấp: " + statId + " thêm " + value);
     }
 }

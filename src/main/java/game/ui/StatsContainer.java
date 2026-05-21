@@ -70,7 +70,7 @@ public class StatsContainer extends Panel {
         if (healthLabel != null)
             healthLabel.setText(String.valueOf(stats.health));
         if (regenLabel != null)
-            regenLabel.setText(String.valueOf(stats.hpRegion));
+            regenLabel.setText(String.valueOf(stats.hpRegen));
         if (lifestealLabel != null)
             lifestealLabel.setText(String.valueOf(stats.lifesteal) + "%");
         if (damageLabel != null)

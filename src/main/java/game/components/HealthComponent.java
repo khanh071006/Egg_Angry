@@ -26,7 +26,7 @@ public class HealthComponent extends Node {
     public Signal0 onUnitDie = Signal0.create(this, "onUnitDie");
 
     @RegisterSignal
-        public Signal2<Float, Float> onHealthChanged = Signal2.create(this, "onHealthChanged");
+    public Signal2<Float, Float> onHealthChanged = Signal2.create(this, "onHealthChanged");
 
     @RegisterFunction
     public void setup(UnitStats stats) {

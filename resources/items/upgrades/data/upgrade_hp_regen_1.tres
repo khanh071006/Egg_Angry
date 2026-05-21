@@ -7,7 +7,7 @@
 script = ExtResource("2_8r7f1")
 value = 1.0
 description = "+ 1"
-stat_id = "hpRegion"
-item_name = "HpRegion"
+stat_id = "hpRegen"
+item_name = "HpRegen"
 item_icon = ExtResource("1_spl5c")
 metadata/_custom_type_script = "uid://b8ofl8x8e0fi6"

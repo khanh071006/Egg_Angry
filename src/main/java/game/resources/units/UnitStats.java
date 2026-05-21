@@ -52,7 +52,7 @@ public class UnitStats extends Resource {
 
 	@Export
 	@RegisterProperty
-	public float hpRegion = 0.0f;
+	public float hpRegen = 0.0f;
 
 	@Export
 	@RegisterProperty
@@ -138,8 +138,8 @@ public class UnitStats extends Resource {
         this.blockchance = blockchance;
     }
 
-    public float getHpRegion() { return hpRegion; }
-    public void setHpRegion(float hpRegion) { this.hpRegion = hpRegion; }
+    public float getHpRegen() { return hpRegen; }
+    public void setHpRegen(float hpRegen) { this.hpRegen = hpRegen; }
     public float getLifesteal() { return lifesteal; }
     public void setLifesteal(float lifesteal) { this.lifesteal = lifesteal; }
     public float getHarvesting() { return harvesting; }

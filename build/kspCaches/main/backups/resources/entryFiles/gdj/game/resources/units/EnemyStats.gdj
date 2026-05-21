@@ -30,7 +30,7 @@ properties = [
 	damage_increase_per_wave,
 	speed,
 	blockchance,
-	hp_region,
+	hp_regen,
 	lifesteal,
 	harvesting
 ]

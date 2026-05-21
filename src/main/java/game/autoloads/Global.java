@@ -34,6 +34,9 @@ public class Global extends Node {
     @RegisterSignal
     public Signal0 onUpgradeSelected = Signal0.create(this, "onUpgradeSelected");
 
+    @RegisterSignal
+    public Signal2<Node2D, Float> onCreateHealText = Signal2.create(this, "onCreateHealText");
+
 
     @RegisterFunction
     @Override

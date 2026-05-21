@@ -12,3 +12,4 @@ health = 50.0
 health_increase_per_wave = 0.0
 damage = 2.0
 damage_increase_per_wave = 0.0
+hp_regen = 1.0

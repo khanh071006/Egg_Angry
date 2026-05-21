@@ -35,5 +35,6 @@ functions = [
 	_on_flash_timer_timeout,
 	_on_dash_timer_timeout,
 	add_weapon,
-	update_player_new_wave
+	update_player_new_wave,
+	_on_hp_regen_timer_timeout
 ]

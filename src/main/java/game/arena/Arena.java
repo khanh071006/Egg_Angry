@@ -30,6 +30,10 @@ public class Arena extends Node2D {
     @RegisterProperty
     public Color critColor = new Color(1.0f, 1.0f, 0.0f, 1.0f);       // Vàng
 
+    @Export
+    @RegisterProperty
+    public Color hpColor = new Color(0.0f, 1.0f, 0.0f, 1.0f);         // Xanh lá
+
 
     @Export
     @RegisterProperty
@@ -53,6 +57,8 @@ public class Arena extends Node2D {
         godot.core.Error errBlock = Global.instance.onCreateBlockText.connect(Callable.create(this, new StringName("show_block_text")), 0);
 
         godot.core.Error errDamage = Global.instance.onCreateDamageText.connect(Callable.create(this, new StringName("show_damage_text")), 0);
+
+        godot.core.Error errHeal = Global.instance.onCreateHealText.connect(Callable.create(this, new StringName("show_heal_text")), 0);
 
         // Dùng getNode bắt thẳng mấy cái UI vừa tạo và tóm lấy Spawner
         waveIndexLabel = (Label) getNode("GameUI/WaveIndexLabel");
@@ -100,6 +106,13 @@ public class Arena extends Node2D {
         FloatingText textInstance = spawnTextAroundUnit(unit);
         String damageStr = String.valueOf((int) hitbox.damage);
         textInstance.setup(damageStr, normalColor);
+    }
+
+    @RegisterFunction
+    public void show_heal_text(Node2D unit, Float heal) {
+        FloatingText textInstance = spawnTextAroundUnit(unit);
+        String healStr = "+" + String.valueOf((int) (float) heal);
+        textInstance.setup(healStr, hpColor);
     }
 
     // HÀM HỖ TRỢ: Tính toán vị trí văng ra để số không đè lên nhau

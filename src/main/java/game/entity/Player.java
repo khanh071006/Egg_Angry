@@ -259,4 +259,23 @@ public class Player extends BaseUnit {
             healthComponent.setup(stats);
         }
     }
+
+    @RegisterFunction
+    public void _on_hp_regen_timer_timeout() {
+        if (healthComponent == null || stats == null) return;
+
+        // Nếu máu đã hết (bằng 0) thì không hồi máu nữa
+        if (healthComponent.currentHealth <= 0) return;
+
+        // Chỉ hồi máu nếu máu hiện tại nhỏ hơn máu tối đa
+        if (healthComponent.currentHealth < stats.health) {
+            float healValue = stats.hpRegen;
+            
+            // Nếu chỉ số hồi máu bằng 0 thì không làm gì cả
+            if (healValue <= 0) return;
+
+            healthComponent.heal(healValue);
+            Global.instance.onCreateHealText.emit(this, healValue);
+        }
+    }
 }

@@ -26,7 +26,7 @@ import kotlin.collections.listOf
   "project-3",
   "game.resources.units.UnitStats,godot.api.Resource,godot.api.RefCounted,godot.api.Object,godot.core.KtObject,godot.common.interop.NativeWrapper,godot.common.interop.NativePointer,kotlin.Any",
   "",
-  "game.resources.units.PlayerStats.luck,game.resources.units.PlayerStats.unitName,game.resources.units.PlayerStats.type,game.resources.units.PlayerStats.icon,game.resources.units.PlayerStats.health,game.resources.units.PlayerStats.healthIncreasePerWave,game.resources.units.PlayerStats.damage,game.resources.units.PlayerStats.damageIncreasePerWave,game.resources.units.PlayerStats.speed,game.resources.units.PlayerStats.blockchance,game.resources.units.PlayerStats.hpRegion,game.resources.units.PlayerStats.lifesteal,game.resources.units.PlayerStats.harvesting",
+  "game.resources.units.PlayerStats.luck,game.resources.units.PlayerStats.unitName,game.resources.units.PlayerStats.type,game.resources.units.PlayerStats.icon,game.resources.units.PlayerStats.health,game.resources.units.PlayerStats.healthIncreasePerWave,game.resources.units.PlayerStats.damage,game.resources.units.PlayerStats.damageIncreasePerWave,game.resources.units.PlayerStats.speed,game.resources.units.PlayerStats.blockchance,game.resources.units.PlayerStats.hpRegen,game.resources.units.PlayerStats.lifesteal,game.resources.units.PlayerStats.harvesting",
   "",
   true,
 )
@@ -46,7 +46,7 @@ public open class PlayerStatsRegistrar : ClassRegistrar {
         property(PlayerStats::damageIncreasePerWave, FLOAT, DOUBLE, "kotlin.Float", NONE, "", godot.core.PropertyUsageFlags.DEFAULT.flag)
         property(PlayerStats::speed, FLOAT, DOUBLE, "kotlin.Float", NONE, "", godot.core.PropertyUsageFlags.DEFAULT.flag)
         property(PlayerStats::blockchance, FLOAT, DOUBLE, "kotlin.Float", NONE, "", godot.core.PropertyUsageFlags.DEFAULT.flag)
-        property(PlayerStats::hpRegion, FLOAT, DOUBLE, "kotlin.Float", NONE, "", godot.core.PropertyUsageFlags.DEFAULT.flag)
+        property(PlayerStats::hpRegen, FLOAT, DOUBLE, "kotlin.Float", NONE, "", godot.core.PropertyUsageFlags.DEFAULT.flag)
         property(PlayerStats::lifesteal, FLOAT, DOUBLE, "kotlin.Float", NONE, "", godot.core.PropertyUsageFlags.DEFAULT.flag)
         property(PlayerStats::harvesting, FLOAT, DOUBLE, "kotlin.Float", NONE, "", godot.core.PropertyUsageFlags.DEFAULT.flag)
       }
