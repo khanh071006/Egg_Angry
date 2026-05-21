@@ -27,7 +27,7 @@ import kotlin.collections.listOf
   "game.items.weapons.WeaponBehavior,godot.api.Node2D,godot.api.CanvasItem,godot.api.Node,godot.api.Object,godot.core.KtObject,godot.common.interop.NativeWrapper,godot.common.interop.NativePointer,kotlin.Any",
   "",
   "game.items.weapons.melee.MeleeBehavior.hitbox,game.items.weapons.melee.MeleeBehavior.weapon",
-  "game.items.weapons.melee.MeleeBehavior._process,game.items.weapons.melee.MeleeBehavior.getDamage,game.items.weapons.melee.MeleeBehavior.executeAttack,game.items.weapons.melee.MeleeBehavior.onAttackFinished",
+  "game.items.weapons.melee.MeleeBehavior._process,game.items.weapons.melee.MeleeBehavior.getDamage,game.items.weapons.melee.MeleeBehavior.executeAttack,game.items.weapons.melee.MeleeBehavior.applyLifesteal,game.items.weapons.melee.MeleeBehavior.onAttackFinished",
   true,
 )
 public open class MeleeBehaviorRegistrar : ClassRegistrar {
@@ -39,6 +39,7 @@ public open class MeleeBehaviorRegistrar : ClassRegistrar {
         function(MeleeBehavior::_process, NIL, DOUBLE, KtFunctionArgument(DOUBLE, "kotlin.Double", "delta"), KtFunctionArgument(NIL, "kotlin.Unit"), KtRpcConfig(DISABLED.id.toInt(), false, RELIABLE.id.toInt(), 0))
         function(MeleeBehavior::getDamage, DOUBLE, KtFunctionArgument(DOUBLE, "kotlin.Double"), KtRpcConfig(DISABLED.id.toInt(), false, RELIABLE.id.toInt(), 0))
         function(MeleeBehavior::executeAttack, NIL, KtFunctionArgument(NIL, "kotlin.Unit"), KtRpcConfig(DISABLED.id.toInt(), false, RELIABLE.id.toInt(), 0))
+        function(MeleeBehavior::applyLifesteal, NIL, KtFunctionArgument(NIL, "kotlin.Unit"), KtRpcConfig(DISABLED.id.toInt(), false, RELIABLE.id.toInt(), 0))
         function(MeleeBehavior::onAttackFinished, NIL, KtFunctionArgument(NIL, "kotlin.Unit"), KtRpcConfig(DISABLED.id.toInt(), false, RELIABLE.id.toInt(), 0))
         property(MeleeBehavior::hitbox, OBJECT, OBJECT, "game.components.HitBoxComponent", NODE_TYPE, "HitBoxComponent", godot.core.PropertyUsageFlags.DEFAULT.flag)
         property(MeleeBehavior::weapon, OBJECT, OBJECT, "game.items.weapons.Weapon", NODE_TYPE, "Weapon", godot.core.PropertyUsageFlags.DEFAULT.flag)

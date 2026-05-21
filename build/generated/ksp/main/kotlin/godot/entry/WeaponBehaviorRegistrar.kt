@@ -27,7 +27,7 @@ import kotlin.collections.listOf
   "godot.api.Node2D,godot.api.CanvasItem,godot.api.Node,godot.api.Object,godot.core.KtObject,godot.common.interop.NativeWrapper,godot.common.interop.NativePointer,kotlin.Any",
   "",
   "game.items.weapons.WeaponBehavior.weapon",
-  "game.items.weapons.WeaponBehavior.getDamage,game.items.weapons.WeaponBehavior.executeAttack",
+  "game.items.weapons.WeaponBehavior.getDamage,game.items.weapons.WeaponBehavior.executeAttack,game.items.weapons.WeaponBehavior.applyLifesteal",
   true,
 )
 public open class WeaponBehaviorRegistrar : ClassRegistrar {
@@ -38,6 +38,7 @@ public open class WeaponBehaviorRegistrar : ClassRegistrar {
         notificationFunctions(listOf())
         function(WeaponBehavior::getDamage, DOUBLE, KtFunctionArgument(DOUBLE, "kotlin.Double"), KtRpcConfig(DISABLED.id.toInt(), false, RELIABLE.id.toInt(), 0))
         function(WeaponBehavior::executeAttack, NIL, KtFunctionArgument(NIL, "kotlin.Unit"), KtRpcConfig(DISABLED.id.toInt(), false, RELIABLE.id.toInt(), 0))
+        function(WeaponBehavior::applyLifesteal, NIL, KtFunctionArgument(NIL, "kotlin.Unit"), KtRpcConfig(DISABLED.id.toInt(), false, RELIABLE.id.toInt(), 0))
         property(WeaponBehavior::weapon, OBJECT, OBJECT, "game.items.weapons.Weapon", NODE_TYPE, "Weapon", godot.core.PropertyUsageFlags.DEFAULT.flag)
       }
     }

@@ -27,7 +27,7 @@ import kotlin.collections.listOf
   "game.items.weapons.WeaponBehavior,godot.api.Node2D,godot.api.CanvasItem,godot.api.Node,godot.api.Object,godot.core.KtObject,godot.common.interop.NativeWrapper,godot.common.interop.NativePointer,kotlin.Any",
   "",
   "game.items.weapons.range.RangeBehavior.muzzle,game.items.weapons.range.RangeBehavior.weapon",
-  "game.items.weapons.range.RangeBehavior._process,game.items.weapons.range.RangeBehavior.getDamage,game.items.weapons.range.RangeBehavior.executeAttack,game.items.weapons.range.RangeBehavior.onAttackFinished,game.items.weapons.range.RangeBehavior.createProjectile",
+  "game.items.weapons.range.RangeBehavior._process,game.items.weapons.range.RangeBehavior.getDamage,game.items.weapons.range.RangeBehavior.executeAttack,game.items.weapons.range.RangeBehavior.applyLifesteal,game.items.weapons.range.RangeBehavior.onAttackFinished,game.items.weapons.range.RangeBehavior.createProjectile",
   true,
 )
 public open class RangeBehaviorRegistrar : ClassRegistrar {
@@ -39,6 +39,7 @@ public open class RangeBehaviorRegistrar : ClassRegistrar {
         function(RangeBehavior::_process, NIL, DOUBLE, KtFunctionArgument(DOUBLE, "kotlin.Double", "delta"), KtFunctionArgument(NIL, "kotlin.Unit"), KtRpcConfig(DISABLED.id.toInt(), false, RELIABLE.id.toInt(), 0))
         function(RangeBehavior::getDamage, DOUBLE, KtFunctionArgument(DOUBLE, "kotlin.Double"), KtRpcConfig(DISABLED.id.toInt(), false, RELIABLE.id.toInt(), 0))
         function(RangeBehavior::executeAttack, NIL, KtFunctionArgument(NIL, "kotlin.Unit"), KtRpcConfig(DISABLED.id.toInt(), false, RELIABLE.id.toInt(), 0))
+        function(RangeBehavior::applyLifesteal, NIL, KtFunctionArgument(NIL, "kotlin.Unit"), KtRpcConfig(DISABLED.id.toInt(), false, RELIABLE.id.toInt(), 0))
         function(RangeBehavior::onAttackFinished, NIL, KtFunctionArgument(NIL, "kotlin.Unit"), KtRpcConfig(DISABLED.id.toInt(), false, RELIABLE.id.toInt(), 0))
         function(RangeBehavior::createProjectile, NIL, KtFunctionArgument(NIL, "kotlin.Unit"), KtRpcConfig(DISABLED.id.toInt(), false, RELIABLE.id.toInt(), 0))
         property(RangeBehavior::muzzle, OBJECT, OBJECT, "godot.api.Marker2D", NODE_TYPE, "Marker2D", godot.core.PropertyUsageFlags.DEFAULT.flag)

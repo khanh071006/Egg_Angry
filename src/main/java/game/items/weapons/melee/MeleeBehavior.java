@@ -29,6 +29,8 @@ public class MeleeBehavior extends WeaponBehavior {
 
     public void executeAttack(){
         weapon.isAttacking = true;
+        
+        applyLifesteal();
 
         // Tạo Tween để làm animation chuyển động
         Tween tween = createTween();

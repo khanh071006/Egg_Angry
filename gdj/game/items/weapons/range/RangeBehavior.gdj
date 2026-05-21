@@ -27,6 +27,7 @@ functions = [
 	_process,
 	get_damage,
 	execute_attack,
+	apply_lifesteal,
 	on_attack_finished,
 	create_projectile
 ]

@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("2_fe0lo")
 value = 2.0
-description = "+ 1"
+description = "+ 2"
 stat_id = "hpRegen"
 item_name = "HpRegen"
 item_icon = ExtResource("1_xqjb8")

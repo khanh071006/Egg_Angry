@@ -25,5 +25,6 @@ properties = [
 functions = [
     _ready,
 	calculate_tier_probability,
+	get_harvesting_coins,
 	select_items_for_offer
 ]

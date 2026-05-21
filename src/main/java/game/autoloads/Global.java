@@ -21,6 +21,7 @@ public class Global extends Node {
     public static PackedScene floatingTextScene;
     public static boolean isAttack = true;
     public static boolean gamePaused = false;
+    public static int coins = 0;
 
     // --- CÁC STYLE CHO THẺ NÂNG CẤP ---
     public godot.api.StyleBoxFlat commonStyle;
@@ -175,6 +176,15 @@ public class Global extends Node {
                 return epicStyle;
             default:
                 return legendaryStyle;
+        }
+    }
+
+    // --- LOGIC HARVESTING (THU THẬP XU) ---
+    @RegisterFunction
+    public void getHarvestingCoins() {
+        if (player != null && player.stats != null) {
+            coins += (int) player.stats.harvesting;
+            GD.print("Đã thu thập: " + (int)player.stats.harvesting + " xu. Tổng xu: " + coins);
         }
     }
 

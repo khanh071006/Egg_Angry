@@ -23,5 +23,6 @@ properties = [
 ]
 functions = [
     get_damage,
-	execute_attack
+	execute_attack,
+	apply_lifesteal
 ]

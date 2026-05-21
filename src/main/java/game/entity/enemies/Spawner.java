@@ -205,6 +205,10 @@ public class Spawner extends Node2D {
         }
         Global.gamePaused = true;
         clearEnemies();
+        
+        // --- GỌI HÀM HARVESTING NHẬN XU KHI HẾT WAVE ---
+        Global.instance.getHarvestingCoins();
+        
         onWaveCompleted.emit();
     }
 }

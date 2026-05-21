@@ -27,6 +27,8 @@ public class RangeBehavior extends WeaponBehavior {
     @RegisterFunction
     public void executeAttack(){
         weapon.isAttacking = true;
+        
+        applyLifesteal();
         createProjectile();
 
         Tween tween = createTween();
