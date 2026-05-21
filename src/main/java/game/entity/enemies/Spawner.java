@@ -88,7 +88,7 @@ public class Spawner extends Node2D {
 
             // THAY VÌ GỌI isValidIndex, JAVA TỰ DÙNG getFrom() VÀ getTo() ĐỂ SO SÁNH!
             if (wave != null && waveIndex >= wave.getFrom() && waveIndex <= wave.getTo()) {
-                GD.print("  -> ĐÃ TÌM THẤY KỊCH BẢN HỢP LỆ!");
+                GD.print("  -> ĐÃ TÌM THẤY KỊCH BẢN HỢ  P LỆ!");
                 return wave;
             }
         }

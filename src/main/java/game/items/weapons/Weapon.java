@@ -114,6 +114,11 @@ public class Weapon extends Node2D {
 
     @RegisterFunction
     public void updateClosestTarget() {
+        // Lọc bỏ những mục tiêu đã chết (freed) khỏi danh sách trước khi quét
+        // NẾU KHÔNG LÀM VIỆC NÀY, GAME SẼ CRASH KHI GỌI TỌA ĐỘ CỦA QUÁI ĐÃ CHẾT!
+        if (targets != null) {
+            targets.removeIf(node -> !godot.global.GD.isInstanceValid(node) || !node.isInsideTree());
+        }
         closestTarget = getClosestTarget();
     }
 
@@ -152,7 +157,7 @@ public class Weapon extends Node2D {
 
     @RegisterFunction
     public double getRotationToTarget() {
-        if (targets.isEmpty() || closestTarget == null) {
+        if (targets.isEmpty() || closestTarget == null || !godot.global.GD.isInstanceValid(closestTarget)) {
             return getIdleRotation();
         }
         // Tính góc hướng tới mục tiêu
@@ -161,7 +166,7 @@ public class Weapon extends Node2D {
 
     @RegisterFunction
     public double getCustomRotationToTarget() {
-        if (closestTarget == null || !closestTarget.isInsideTree()) {
+        if (closestTarget == null || !godot.global.GD.isInstanceValid(closestTarget) || !closestTarget.isInsideTree()) {
             return this.getRotation();
         }
         // Tính góc tới mục tiêu + độ giật (spread)

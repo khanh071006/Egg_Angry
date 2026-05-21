@@ -11,6 +11,9 @@ stats = ExtResource("2_gyel1")
 [node name="Sprite" parent="Visuals" index="2"]
 texture = ExtResource("2_pptme")
 
+[node name="CollisionShape2D" parent="HurtboxComponent" index="0"]
+position = Vector2(-8, -58)
+
 [node name="HealthBar" parent="." index="8"]
 offset_left = -48.0
 offset_top = -150.0

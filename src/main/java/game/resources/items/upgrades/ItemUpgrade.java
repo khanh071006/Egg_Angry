@@ -40,7 +40,7 @@ public class ItemUpgrade extends ItemBase {
         }
 
         StringName id = new StringName(statId);
-        
+
         // Lấy giá trị hiện tại dựa trên tên biến (statId)
         Object currentValObj = Global.player.stats.get(id);
 
@@ -50,7 +50,7 @@ public class ItemUpgrade extends ItemBase {
         }
 
         float currentVal = 0.0f;
-        
+
         // Ép kiểu an toàn sang float
         if (currentValObj instanceof Number) {
             currentVal = ((Number) currentValObj).floatValue();
@@ -65,10 +65,10 @@ public class ItemUpgrade extends ItemBase {
 
         // Tính giá trị mới
         float newVal = currentVal + value;
-        
+
         // Cập nhật lại vào PlayerStats
         Global.player.stats.set(id, newVal);
-        
+
         godot.global.GD.print("Đã nâng cấp: " + statId + " lên " + newVal);
     }
 }

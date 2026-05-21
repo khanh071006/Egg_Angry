@@ -70,6 +70,8 @@ public class Arena extends Node2D {
         }
     }
 
+
+
     @RegisterFunction
     @Override
     public void _process(double delta) {
