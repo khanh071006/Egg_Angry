@@ -7,7 +7,7 @@
 [ext_resource type="Resource" uid="uid://b2aef344c57yh" path="res://resources/items/upgrades/data/block/upgrade_block_1.tres" id="4_oekas"]
 [ext_resource type="Resource" uid="uid://d25ixk8j5btrr" path="res://resources/items/upgrades/data/block/upgrade_block_2.tres" id="5_k56t5"]
 [ext_resource type="Resource" uid="uid://dql6dutp1kbwr" path="res://resources/items/upgrades/data/block/upgrade_block_4.tres" id="6_l4p84"]
-[ext_resource type="Resource" uid="uid://ciw213h0gd5ub" path="res://resources/items/upgrades/data/block/upgrade_block_5.tres" id="7_625vb"]
+[ext_resource type="Resource" uid="uid://wpeg6jw0076t" path="res://resources/items/upgrades/data/block/upgrade_block_5.tres" id="7_625vb"]
 [ext_resource type="Resource" uid="uid://u0cklub3ya5q" path="res://resources/items/upgrades/data/block/upgrade_block_6.tres" id="8_rm2kw"]
 [ext_resource type="Resource" uid="uid://d3e07hfisamal" path="res://resources/items/upgrades/data/block/upgrade_block_7.tres" id="9_kbsgn"]
 [ext_resource type="Resource" uid="uid://c8antr8et47bj" path="res://resources/items/upgrades/data/damage/upgrade_damage_1.tres" id="10_a1b4m"]

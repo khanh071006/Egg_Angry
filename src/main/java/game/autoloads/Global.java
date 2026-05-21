@@ -90,34 +90,39 @@ public class Global extends Node {
     }
 
     public static java.util.Map<String, TierConfig> upgradeProbabilityConfig = new java.util.HashMap<>();
+    public static java.util.Map<String, TierConfig> shopProbabilityConfig = new java.util.HashMap<>();
 
     static {
         upgradeProbabilityConfig.put("rare", new TierConfig(2, 0.06f));
         upgradeProbabilityConfig.put("epic", new TierConfig(4, 0.02f));
         upgradeProbabilityConfig.put("legendary", new TierConfig(7, 0.0023f));
+
+        shopProbabilityConfig.put("rare", new TierConfig(2, 0.1f));
+        shopProbabilityConfig.put("epic", new TierConfig(4, 0.06f));
+        shopProbabilityConfig.put("legendary", new TierConfig(7, 0.01f));
     }
 
     @RegisterFunction
-    public float[] calculateTierProbability(int currentWave) {
+    public float[] calculateTierProbability(int currentWave, java.util.Map<String, TierConfig> config) {
         float commonChance = 0.0f;
         float rareChance = 0.0f;
         float epicChance = 0.0f;
         float legendaryChance = 0.0f;
 
         // 1. Kiểm tra Rare
-        TierConfig rare = upgradeProbabilityConfig.get("rare");
+        TierConfig rare = config.get("rare");
         if (currentWave >= rare.startWave) {
             rareChance = Math.min(1.0f, (currentWave - (rare.startWave - 1)) * rare.baseMulti);
         }
 
         // 2. Kiểm tra Epic
-        TierConfig epic = upgradeProbabilityConfig.get("epic");
+        TierConfig epic = config.get("epic");
         if (currentWave >= epic.startWave) {
             epicChance = Math.min(1.0f, (currentWave - (epic.startWave - 3)) * epic.baseMulti);
         }
 
         // 3. Kiểm tra Legendary
-        TierConfig legendary = upgradeProbabilityConfig.get("legendary");
+        TierConfig legendary = config.get("legendary");
         if (currentWave >= legendary.startWave) {
             legendaryChance = Math.min(1.0f, (currentWave - (legendary.startWave - 6)) * legendary.baseMulti);
         }
@@ -189,20 +194,23 @@ public class Global extends Node {
     }
 
     @RegisterFunction
-    public godot.core.VariantArray<game.resources.items.upgrades.ItemUpgrade> selectItemsForOffer(
-            godot.core.VariantArray<game.resources.items.upgrades.ItemUpgrade> itemPool, 
-            int currentWave) {
+    public godot.core.VariantArray<game.resources.items.ItemBase> selectItemsForOffer(
+            godot.core.VariantArray<? extends game.resources.items.ItemBase> itemPool, 
+            int currentWave,
+            java.util.Map<String, TierConfig> config) {
 
-        float[] tierChances = calculateTierProbability(currentWave);
+        float[] tierChances = calculateTierProbability(currentWave, config);
 
         float legendaryLimit = tierChances[3];
         float epicLimit = legendaryLimit + tierChances[2];
         float rareLimit = epicLimit + tierChances[1];
 
-        godot.core.VariantArray<game.resources.items.upgrades.ItemUpgrade> offerItems = game.Helper.GodotHelper.createItemUpgradeArray();
+        java.util.List<game.resources.items.ItemBase> offerItemsList = new java.util.ArrayList<>();
         int failsafe = 0; // Để tránh vòng lặp vô tận nếu mảng ItemPool ít hơn 4 món
 
-        while (offerItems.size() < 4 && failsafe < 100) {
+        GD.print("Debug: Bắt đầu selectItemsForOffer. itemPool size = " + itemPool.size());
+
+        while (offerItemsList.size() < 4 && failsafe < 100) {
             failsafe++;
             float roll = (float) Math.random(); // Ngẫu nhiên từ 0.0 đến 1.0
             int chosenTierIndex = 0; // Mặc định là Common (0)
@@ -216,44 +224,47 @@ public class Global extends Node {
             }
 
             int currentSearchTierIndex = chosenTierIndex;
-            godot.core.VariantArray<game.resources.items.upgrades.ItemUpgrade> potentialItems = game.Helper.GodotHelper.createItemUpgradeArray();
+            java.util.List<game.resources.items.ItemBase> potentialItemsList = new java.util.ArrayList<>();
 
-            while (potentialItems.isEmpty() && currentSearchTierIndex >= 0) {
+            while (potentialItemsList.isEmpty() && currentSearchTierIndex >= 0) {
                 // Lọc những thẻ có phẩm chất (tier) trùng với currentSearchTierIndex
                 for (int i = 0; i < itemPool.size(); i++) {
-                    game.resources.items.upgrades.ItemUpgrade item = itemPool.get(i);
+                    game.resources.items.ItemBase item = itemPool.get(i);
                     if (item != null && item.itemTier != null && item.itemTier.ordinal() == currentSearchTierIndex) {
-                        potentialItems.append(item);
+                        potentialItemsList.add(item);
                     }
                 }
 
-                if (potentialItems.isEmpty()) {
+                if (potentialItemsList.isEmpty()) {
                     currentSearchTierIndex--; // Giảm 1 cấp nếu không tìm thấy thẻ ở phẩm chất đó
                 } else {
                     break;
                 }
             }
 
-            if (!potentialItems.isEmpty()) {
+            if (!potentialItemsList.isEmpty()) {
                 // Chọn ngẫu nhiên 1 phần tử
-                int randomIndex = (int) (Math.random() * potentialItems.size());
-                game.resources.items.upgrades.ItemUpgrade selectedItem = potentialItems.get(randomIndex);
+                int randomIndex = (int) (Math.random() * potentialItemsList.size());
+                game.resources.items.ItemBase selectedItem = potentialItemsList.get(randomIndex);
 
                 // Kiểm tra xem thẻ đã được chọn chưa (Chống trùng lặp)
-                boolean hasItem = false;
-                for (int i = 0; i < offerItems.size(); i++) {
-                    if (offerItems.get(i) == selectedItem) {
-                        hasItem = true;
-                        break;
-                    }
-                }
-
-                if (!hasItem) {
-                    offerItems.append(selectedItem);
+                if (!offerItemsList.contains(selectedItem)) {
+                    offerItemsList.add(selectedItem);
                 }
             }
         }
 
-        return offerItems;
+        // Chuyển List thành VariantArray để Godot dùng
+        godot.core.VariantArray<game.resources.items.ItemBase> finalArray = game.Helper.GodotHelper.createItemBaseArray();
+        
+        GD.print("Debug: Vòng lặp kết thúc, offerItemsList size = " + offerItemsList.size());
+        
+        for (game.resources.items.ItemBase item : offerItemsList) {
+            finalArray.append(item);
+        }
+        
+        GD.print("Debug: Sau khi copy sang finalArray, size = " + finalArray.size());
+        
+        return finalArray;
     }
 }

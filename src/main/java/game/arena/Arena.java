@@ -48,6 +48,10 @@ public class Arena extends Node2D {
     @RegisterProperty
     public game.ui.UpgradePanel upgradePanel;
 
+    @Export
+    @RegisterProperty
+    public game.ui.ShopPanel shopPanel;
+
     @RegisterFunction
     @Override
     public void _ready() {
@@ -73,6 +77,11 @@ public class Arena extends Node2D {
         if (spawner != null) {
             spawner.onWaveCompleted.connect(Callable.create(this, new StringName("_on_wave_completed")), 0);
             spawner.startWave();
+        }
+
+        // --- TESTING SHOP PANEL ---
+        if (shopPanel != null) {
+            shopPanel.loadShop(7);
         }
     }
 
@@ -144,7 +153,7 @@ public class Arena extends Node2D {
         int currentWave = 1;
         if (spawner != null) {
             currentWave = spawner.waveIndex;
-            Global.instance.calculateTierProbability(currentWave);
+            Global.instance.calculateTierProbability(currentWave, Global.upgradeProbabilityConfig);
         }
 
         if (upgradePanel != null) {

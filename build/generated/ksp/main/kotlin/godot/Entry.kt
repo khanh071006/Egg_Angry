@@ -31,6 +31,8 @@ import game.resources.waves.WaveData
 import game.resources.waves.WaveUnitData
 import game.ui.FloatingText
 import game.ui.HealthBar
+import game.ui.ShopCard
+import game.ui.ShopPanel
 import game.ui.StatsContainer
 import game.ui.UpgradeCard
 import game.ui.UpgradePanel
@@ -55,6 +57,8 @@ import godot.entry.PlayerStatsRegistrar
 import godot.entry.ProjectileRegistrar
 import godot.entry.RangeBehaviorRegistrar
 import godot.entry.ShootingBehaviorRegistrar
+import godot.entry.ShopCardRegistrar
+import godot.entry.ShopPanelRegistrar
 import godot.entry.SpawnerRegistrar
 import godot.entry.StatsContainerRegistrar
 import godot.entry.TrailRegistrar
@@ -80,7 +84,7 @@ import kotlin.collections.listOf
 import kotlin.reflect.KClass
 
 public class Entry : Entry() {
-  public override val classRegistrarCount: Int = 33
+  public override val classRegistrarCount: Int = 35
 
   public override val projectName: String = "project-3"
 
@@ -115,6 +119,8 @@ public class Entry : Entry() {
     UnitStatsRegistrar().register(registry)
     FloatingTextRegistrar().register(registry)
     HealthBarRegistrar().register(registry)
+    ShopCardRegistrar().register(registry)
+    ShopPanelRegistrar().register(registry)
     StatsContainerRegistrar().register(registry)
     UpgradeCardRegistrar().register(registry)
     UpgradePanelRegistrar().register(registry)
@@ -133,6 +139,6 @@ public class Entry : Entry() {
       WeaponContainer::class, MeleeBehavior::class, Projectile::class, RangeBehavior::class,
       Weapon::class, WeaponBehavior::class, ItemBase::class, ItemUpgrade::class, ItemWeapon::class,
       WeaponStats::class, EnemyStats::class, PlayerStats::class, UnitStats::class,
-      FloatingText::class, HealthBar::class, StatsContainer::class, UpgradeCard::class,
-      UpgradePanel::class)
+      FloatingText::class, HealthBar::class, ShopCard::class, ShopPanel::class,
+      StatsContainer::class, UpgradeCard::class, UpgradePanel::class)
 }

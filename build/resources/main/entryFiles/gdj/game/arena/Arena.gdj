@@ -24,7 +24,8 @@ properties = [
 	crit_color,
 	hp_color,
 	player,
-	upgrade_panel
+	upgrade_panel,
+	shop_panel
 ]
 functions = [
     _process,

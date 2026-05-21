@@ -29,7 +29,7 @@ import kotlin.collections.listOf
   "project-3",
   "godot.api.Node2D,godot.api.CanvasItem,godot.api.Node,godot.api.Object,godot.core.KtObject,godot.common.interop.NativeWrapper,godot.common.interop.NativePointer,kotlin.Any",
   "",
-  "game.arena.Arena.normalColor,game.arena.Arena.blockColor,game.arena.Arena.critColor,game.arena.Arena.hpColor,game.arena.Arena.player,game.arena.Arena.upgradePanel",
+  "game.arena.Arena.normalColor,game.arena.Arena.blockColor,game.arena.Arena.critColor,game.arena.Arena.hpColor,game.arena.Arena.player,game.arena.Arena.upgradePanel,game.arena.Arena.shopPanel",
   "game.arena.Arena._process,game.arena.Arena._ready,game.arena.Arena.show_block_text,game.arena.Arena.show_damage_text,game.arena.Arena.show_heal_text,game.arena.Arena._on_wave_completed,game.arena.Arena.show_upgrades,game.arena.Arena._on_upgrade_selected,game.arena.Arena.startNewWave",
   true,
 )
@@ -54,6 +54,7 @@ public open class ArenaRegistrar : ClassRegistrar {
         property(Arena::hpColor, COLOR, COLOR, "godot.core.Color", NONE, "", godot.core.PropertyUsageFlags.DEFAULT.flag)
         property(Arena::player, OBJECT, OBJECT, "game.entity.Player", NODE_TYPE, "Player", godot.core.PropertyUsageFlags.DEFAULT.flag)
         property(Arena::upgradePanel, OBJECT, OBJECT, "game.ui.UpgradePanel", NODE_TYPE, "UpgradePanel", godot.core.PropertyUsageFlags.DEFAULT.flag)
+        property(Arena::shopPanel, OBJECT, OBJECT, "game.ui.ShopPanel", NODE_TYPE, "ShopPanel", godot.core.PropertyUsageFlags.DEFAULT.flag)
       }
     }
   }

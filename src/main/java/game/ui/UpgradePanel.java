@@ -58,10 +58,18 @@ public class UpgradePanel extends Panel {
         }
 
         // 2. Tự động sinh ra 4 thẻ dựa theo xác suất Tier
-        VariantArray<ItemUpgrade> selectedUpgrades = game.autoloads.Global.instance.selectItemsForOffer(upgradeList, currentWave);
+        godot.core.VariantArray<game.resources.items.ItemBase> selectedUpgrades = game.autoloads.Global.instance.selectItemsForOffer(upgradeList, currentWave, game.autoloads.Global.upgradeProbabilityConfig);
+        
+        GD.print("UpgradePanel: selectItemsForOffer trả về " + selectedUpgrades.size() + " thẻ.");
 
         for (int i = 0; i < selectedUpgrades.size(); i++) {
-            ItemUpgrade randomUpgrade = selectedUpgrades.get(i);
+            game.resources.items.ItemBase baseItem = selectedUpgrades.get(i);
+            
+            if (!(baseItem instanceof ItemUpgrade)) {
+                GD.printErr("UpgradePanel: Thẻ bị loại vì không phải ItemUpgrade! Lớp thực tế: " + baseItem.getClass().getName());
+                continue;
+            }
+            ItemUpgrade randomUpgrade = (ItemUpgrade) baseItem;
 
             if (randomUpgrade == null) continue;
 
