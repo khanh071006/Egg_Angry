@@ -151,4 +151,73 @@ public class Global extends Node {
                 Math.max(0.0f, legendaryChance)
         };
     }
+
+    @RegisterFunction
+    public godot.core.VariantArray<game.resources.items.upgrades.ItemUpgrade> selectItemsForOffer(
+            godot.core.VariantArray<game.resources.items.upgrades.ItemUpgrade> itemPool, 
+            int currentWave) {
+
+        float[] tierChances = calculateTierProbability(currentWave);
+
+        float legendaryLimit = tierChances[3];
+        float epicLimit = legendaryLimit + tierChances[2];
+        float rareLimit = epicLimit + tierChances[1];
+
+        godot.core.VariantArray<game.resources.items.upgrades.ItemUpgrade> offerItems = game.Helper.GodotHelper.createItemUpgradeArray();
+        int failsafe = 0; // Để tránh vòng lặp vô tận nếu mảng ItemPool ít hơn 4 món
+
+        while (offerItems.size() < 4 && failsafe < 100) {
+            failsafe++;
+            float roll = (float) Math.random(); // Ngẫu nhiên từ 0.0 đến 1.0
+            int chosenTierIndex = 0; // Mặc định là Common (0)
+
+            if (roll < legendaryLimit) {
+                chosenTierIndex = 3; // Legendary
+            } else if (roll < epicLimit) {
+                chosenTierIndex = 2; // Epic
+            } else if (roll < rareLimit) {
+                chosenTierIndex = 1; // Rare
+            }
+
+            int currentSearchTierIndex = chosenTierIndex;
+            godot.core.VariantArray<game.resources.items.upgrades.ItemUpgrade> potentialItems = game.Helper.GodotHelper.createItemUpgradeArray();
+
+            while (potentialItems.isEmpty() && currentSearchTierIndex >= 0) {
+                // Lọc những thẻ có phẩm chất (tier) trùng với currentSearchTierIndex
+                for (int i = 0; i < itemPool.size(); i++) {
+                    game.resources.items.upgrades.ItemUpgrade item = itemPool.get(i);
+                    if (item != null && item.itemTier != null && item.itemTier.ordinal() == currentSearchTierIndex) {
+                        potentialItems.append(item);
+                    }
+                }
+
+                if (potentialItems.isEmpty()) {
+                    currentSearchTierIndex--; // Giảm 1 cấp nếu không tìm thấy thẻ ở phẩm chất đó
+                } else {
+                    break;
+                }
+            }
+
+            if (!potentialItems.isEmpty()) {
+                // Chọn ngẫu nhiên 1 phần tử
+                int randomIndex = (int) (Math.random() * potentialItems.size());
+                game.resources.items.upgrades.ItemUpgrade selectedItem = potentialItems.get(randomIndex);
+
+                // Kiểm tra xem thẻ đã được chọn chưa (Chống trùng lặp)
+                boolean hasItem = false;
+                for (int i = 0; i < offerItems.size(); i++) {
+                    if (offerItems.get(i) == selectedItem) {
+                        hasItem = true;
+                        break;
+                    }
+                }
+
+                if (!hasItem) {
+                    offerItems.append(selectedItem);
+                }
+            }
+        }
+
+        return offerItems;
+    }
 }

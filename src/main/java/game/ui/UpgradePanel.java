@@ -35,11 +35,11 @@ public class UpgradePanel extends Panel {
             GD.printErr("UpgradePanel: Không tìm thấy node %ItemsContainer!");
             return;
         }
-        loadUpgrades();
+        // Đã xóa loadUpgrades() ở đây vì giờ nó cần biết currentWave
     }
 
     @RegisterFunction
-    public void loadUpgrades() {
+    public void loadUpgrades(int currentWave) {
         if (itemsContainer == null) return;
 
         // 1. Xóa tất cả các thẻ nâng cấp có sẵn (Placeholder)
@@ -57,11 +57,11 @@ public class UpgradePanel extends Panel {
             return;
         }
 
-        // 2. Tạo 4 thẻ nâng cấp ngẫu nhiên mới
-        for (int i = 0; i < 4; i++) {
-            // Bốc ngẫu nhiên 1 nâng cấp từ danh sách
-            int randomIndex = random.nextInt(upgradeList.size());
-            ItemUpgrade randomUpgrade = upgradeList.get(randomIndex);
+        // 2. Tự động sinh ra 4 thẻ dựa theo xác suất Tier
+        VariantArray<ItemUpgrade> selectedUpgrades = game.autoloads.Global.instance.selectItemsForOffer(upgradeList, currentWave);
+
+        for (int i = 0; i < selectedUpgrades.size(); i++) {
+            ItemUpgrade randomUpgrade = selectedUpgrades.get(i);
 
             if (randomUpgrade == null) continue;
 
@@ -74,7 +74,7 @@ public class UpgradePanel extends Panel {
             // Cập nhật dữ liệu cho thẻ
             if (cardInstanceNode instanceof UpgradeCard) {
                 UpgradeCard cardInstance = (UpgradeCard) cardInstanceNode;
-                // Truyền dữ liệu nâng cấp ngẫu nhiên vào Card
+                // Truyền dữ liệu nâng cấp vào Card
                 cardInstance.setData(randomUpgrade);
             } else {
                 GD.printErr("UpgradePanel: Node vừa sinh ra không phải là UpgradeCard!");

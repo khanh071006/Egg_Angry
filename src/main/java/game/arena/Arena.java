@@ -141,11 +141,14 @@ public class Arena extends Node2D {
         if (!godot.global.GD.isInstanceValid(Global.player)) return;
 
         // --- GỌI HÀM TÍNH XÁC SUẤT ĐỂ IN RA DEBUG NHƯ TRONG VIDEO ---
+        int currentWave = 1;
         if (spawner != null) {
-            Global.instance.calculateTierProbability(spawner.waveIndex);
+            currentWave = spawner.waveIndex;
+            Global.instance.calculateTierProbability(currentWave);
         }
 
         if (upgradePanel != null) {
+            upgradePanel.loadUpgrades(currentWave);
             upgradePanel.show();
         }
     }

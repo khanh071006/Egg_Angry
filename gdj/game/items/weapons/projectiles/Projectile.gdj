@@ -6,7 +6,7 @@ fqName = game.items.weapons.projectiles.Projectile
 relativeSourcePath = src/main/java/game/items/weapons/projectiles/Projectile.java
 baseType = Node2D
 supertypes = [
-    godot.api.Node2D,
+	godot.api.Node2D,
 	godot.api.CanvasItem,
 	godot.api.Node,
 	godot.api.Object,
@@ -16,13 +16,13 @@ supertypes = [
 	kotlin.Any
 ]
 signals = [
-    
+	
 ]
 properties = [
-    hitbox
+	hitbox
 ]
 functions = [
-    _process,
+	_process,
 	set_projectile,
 	_on_visible_on_screen_enabler_2d_screen_exited,
 	_on_hitbox_component_on_hit_hurtbox

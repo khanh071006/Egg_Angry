@@ -9,6 +9,7 @@ import godot.core.KtConstructor0
 import godot.core.KtRpcConfig
 import godot.core.PropertyHint.RESOURCE_TYPE
 import godot.core.PropertyHint.TYPE_STRING
+import godot.core.VariantCaster.INT
 import godot.core.VariantParser.ARRAY
 import godot.core.VariantParser.NIL
 import godot.core.VariantParser.OBJECT
@@ -38,7 +39,7 @@ public open class UpgradePanelRegistrar : ClassRegistrar {
         constructor(KtConstructor0(::UpgradePanel))
         notificationFunctions(listOf())
         function(UpgradePanel::_ready, NIL, KtFunctionArgument(NIL, "kotlin.Unit"), KtRpcConfig(DISABLED.id.toInt(), false, RELIABLE.id.toInt(), 0))
-        function(UpgradePanel::loadUpgrades, NIL, KtFunctionArgument(NIL, "kotlin.Unit"), KtRpcConfig(DISABLED.id.toInt(), false, RELIABLE.id.toInt(), 0))
+        function(UpgradePanel::loadUpgrades, NIL, INT, KtFunctionArgument(INT, "kotlin.Int", "currentWave"), KtFunctionArgument(NIL, "kotlin.Unit"), KtRpcConfig(DISABLED.id.toInt(), false, RELIABLE.id.toInt(), 0))
         property(UpgradePanel::upgradeCardScene, OBJECT, OBJECT, "godot.api.PackedScene", RESOURCE_TYPE, "PackedScene", godot.core.PropertyUsageFlags.DEFAULT.flag)
         property(UpgradePanel::upgradeList, ARRAY, ARRAY, "godot.core.VariantArray", TYPE_STRING, "24/17:ItemUpgrade", godot.core.PropertyUsageFlags.DEFAULT.flag)
       }

@@ -6,7 +6,7 @@ fqName = game.arena.Arena
 relativeSourcePath = src/main/java/game/arena/Arena.java
 baseType = Node2D
 supertypes = [
-    godot.api.Node2D,
+	godot.api.Node2D,
 	godot.api.CanvasItem,
 	godot.api.Node,
 	godot.api.Object,
@@ -16,10 +16,10 @@ supertypes = [
 	kotlin.Any
 ]
 signals = [
-    
+	
 ]
 properties = [
-    normal_color,
+	normal_color,
 	block_color,
 	crit_color,
 	hp_color,
@@ -27,7 +27,7 @@ properties = [
 	upgrade_panel
 ]
 functions = [
-    _process,
+	_process,
 	_ready,
 	show_block_text,
 	show_damage_text,

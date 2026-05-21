@@ -24,5 +24,6 @@ properties = [
 ]
 functions = [
     _ready,
-	calculate_tier_probability
+	calculate_tier_probability,
+	select_items_for_offer
 ]

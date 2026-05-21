@@ -6,7 +6,7 @@ fqName = game.items.weapons.melee.MeleeBehavior
 relativeSourcePath = src/main/java/game/items/weapons/melee/MeleeBehavior.java
 baseType = Node2D
 supertypes = [
-    game.items.weapons.WeaponBehavior,
+	game.items.weapons.WeaponBehavior,
 	godot.api.Node2D,
 	godot.api.CanvasItem,
 	godot.api.Node,
@@ -17,14 +17,14 @@ supertypes = [
 	kotlin.Any
 ]
 signals = [
-    
+	
 ]
 properties = [
-    hitbox,
+	hitbox,
 	weapon
 ]
 functions = [
-    _process,
+	_process,
 	get_damage,
 	execute_attack,
 	on_attack_finished
