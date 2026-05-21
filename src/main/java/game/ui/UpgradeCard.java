@@ -52,6 +52,12 @@ public class UpgradeCard extends Panel {
         if (itemDescription != null) {
             itemDescription.setText(value.description);
         }
+
+        // --- CẬP NHẬT MÀU NỀN CHO THẺ ---
+        godot.api.StyleBoxFlat tierStyle = game.autoloads.Global.instance.getTierStyle(value.itemTier);
+        if (tierStyle != null) {
+            addThemeStyleboxOverride("panel", tierStyle);
+        }
     }
 
     @RegisterFunction

@@ -5,9 +5,10 @@
 
 [resource]
 script = ExtResource("2_efhha")
-value = 1.0
-description = "+ 1%"
+value = 4.0
+description = "+ 4%"
 stat_id = "lifesteal"
 item_name = "Lifesteal"
 item_icon = ExtResource("1_be7ut")
+item_tier = 1
 metadata/_custom_type_script = "uid://b8ofl8x8e0fi6"

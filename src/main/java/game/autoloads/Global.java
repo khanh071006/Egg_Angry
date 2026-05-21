@@ -2,11 +2,8 @@ package game.autoloads;
 
 import game.components.HitBoxComponent;
 import game.entity.Player;
-import godot.annotation.RegisterFunction;
-import godot.annotation.RegisterProperty;
-import godot.annotation.RegisterSignal;
+import godot.annotation.*;
 import godot.api.*;
-import godot.annotation.RegisterClass;
 import godot.core.Signal0;
 import godot.core.Signal1;
 import godot.core.Signal2;
@@ -24,6 +21,12 @@ public class Global extends Node {
     public static PackedScene floatingTextScene;
     public static boolean isAttack = true;
     public static boolean gamePaused = false;
+
+    // --- CÁC STYLE CHO THẺ NÂNG CẤP ---
+    public godot.api.StyleBoxFlat commonStyle;
+    public godot.api.StyleBoxFlat rareStyle;
+    public godot.api.StyleBoxFlat epicStyle;
+    public godot.api.StyleBoxFlat legendaryStyle;
 
     @RegisterSignal
     public Signal1<Node2D> onCreateBlockText = Signal1.create(this, "onCreateBlockText");
@@ -44,6 +47,13 @@ public class Global extends Node {
         // Load file .tres mà bạn đã tạo từ Shader ở bước 1
         FLASH_MATERIAL = (ShaderMaterial) ResourceLoader.load("res://effects/flash_material.tres");
         floatingTextScene = (PackedScene) ResourceLoader.load("res://effects/floating_text.tscn");
+        
+        // Tự động load các Style màu thẻ từ thư mục styles (khỏi cần kéo thả tay)
+        commonStyle = (godot.api.StyleBoxFlat) ResourceLoader.load("res://styles/common_style.tres");
+        rareStyle = (godot.api.StyleBoxFlat) ResourceLoader.load("res://styles/rare_style.tres");
+        epicStyle = (godot.api.StyleBoxFlat) ResourceLoader.load("res://styles/epic_style.tres");
+        legendaryStyle = (godot.api.StyleBoxFlat) ResourceLoader.load("res://styles/legendary_style.tres");
+
         isAttack = true;
         gamePaused = false;
 
@@ -150,6 +160,22 @@ public class Global extends Node {
                 Math.max(0.0f, epicChance),
                 Math.max(0.0f, legendaryChance)
         };
+    }
+
+    // --- HÀM LẤY STYLE DỰA TRÊN ĐỘ HIẾM (TIER) ---
+    public godot.api.StyleBoxFlat getTierStyle(UpgradeTier itemTier) {
+        if (itemTier == null) return legendaryStyle;
+
+        switch (itemTier) {
+            case COMMON:
+                return commonStyle;
+            case RARE:
+                return rareStyle;
+            case EPIC:
+                return epicStyle;
+            default:
+                return legendaryStyle;
+        }
     }
 
     @RegisterFunction
