@@ -139,6 +139,12 @@ public class Arena extends Node2D {
     @RegisterFunction
     public void show_upgrades() {
         if (!godot.global.GD.isInstanceValid(Global.player)) return;
+
+        // --- GỌI HÀM TÍNH XÁC SUẤT ĐỂ IN RA DEBUG NHƯ TRONG VIDEO ---
+        if (spawner != null) {
+            Global.instance.calculateTierProbability(spawner.waveIndex);
+        }
+
         if (upgradePanel != null) {
             upgradePanel.show();
         }

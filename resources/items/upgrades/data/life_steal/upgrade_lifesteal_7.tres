@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemUpgrade" load_steps=3 format=3 uid="uid://bcflq6hgndux4"]
+
+[ext_resource type="Texture2D" uid="uid://dxl550mv1d5l6" path="res://gdj/game/Game+Assets/assets/sprites/Upgrades/3.png" id="1_txbfq"]
+[ext_resource type="Script" uid="uid://b8ofl8x8e0fi6" path="res://gdj/game/resources/items/upgrades/ItemUpgrade.gdj" id="2_3xj55"]
+
+[resource]
+script = ExtResource("2_3xj55")
+value = 7.0
+description = "+ 7%"
+stat_id = "lifesteal"
+item_name = "Lifesteal"
+item_icon = ExtResource("1_txbfq")
+item_tier = 2
+metadata/_custom_type_script = "uid://b8ofl8x8e0fi6"

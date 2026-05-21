@@ -67,4 +67,88 @@ public class Global extends Node {
         LEGENDARY
     }
 
+    // --- BỘ CẤU HÌNH XÁC SUẤT XUẤT HIỆN THẺ NÂNG CẤP ---
+    public static class TierConfig {
+        public int startWave;
+        public float baseMulti;
+
+        public TierConfig(int startWave, float baseMulti) {
+            this.startWave = startWave;
+            this.baseMulti = baseMulti;
+        }
+    }
+
+    public static java.util.Map<String, TierConfig> upgradeProbabilityConfig = new java.util.HashMap<>();
+
+    static {
+        upgradeProbabilityConfig.put("rare", new TierConfig(2, 0.06f));
+        upgradeProbabilityConfig.put("epic", new TierConfig(4, 0.02f));
+        upgradeProbabilityConfig.put("legendary", new TierConfig(7, 0.0023f));
+    }
+
+    @RegisterFunction
+    public float[] calculateTierProbability(int currentWave) {
+        float commonChance = 0.0f;
+        float rareChance = 0.0f;
+        float epicChance = 0.0f;
+        float legendaryChance = 0.0f;
+
+        // 1. Kiểm tra Rare
+        TierConfig rare = upgradeProbabilityConfig.get("rare");
+        if (currentWave >= rare.startWave) {
+            rareChance = Math.min(1.0f, (currentWave - (rare.startWave - 1)) * rare.baseMulti);
+        }
+
+        // 2. Kiểm tra Epic
+        TierConfig epic = upgradeProbabilityConfig.get("epic");
+        if (currentWave >= epic.startWave) {
+            epicChance = Math.min(1.0f, (currentWave - (epic.startWave - 3)) * epic.baseMulti);
+        }
+
+        // 3. Kiểm tra Legendary
+        TierConfig legendary = upgradeProbabilityConfig.get("legendary");
+        if (currentWave >= legendary.startWave) {
+            legendaryChance = Math.min(1.0f, (currentWave - (legendary.startWave - 6)) * legendary.baseMulti);
+        }
+
+        // 4. Áp dụng hệ số Luck (May mắn) của người chơi
+        float playerLuck = 0.0f;
+        if (player != null && player.stats instanceof game.resources.units.PlayerStats) {
+            playerLuck = ((game.resources.units.PlayerStats) player.stats).luck;
+        }
+        
+        // Ví dụ: Luck = 10 -> luckFactor = 1.1 (Tăng 10% cơ hội)
+        float luckFactor = 1.0f + (playerLuck / 100.0f);
+
+        rareChance *= luckFactor;
+        epicChance *= luckFactor;
+        legendaryChance *= luckFactor;
+
+        // 5. Chuẩn hóa xác suất (Normalize) để tổng không vượt quá 1 (100%)
+        float totalNonCommonChances = rareChance + epicChance + legendaryChance;
+        if (totalNonCommonChances > 1.0f) {
+            float scaleDown = 1.0f / totalNonCommonChances;
+            rareChance *= scaleDown;
+            epicChance *= scaleDown;
+            legendaryChance *= scaleDown;
+            totalNonCommonChances = 1.0f;
+        }
+
+        // 6. Tính xác suất của Common
+        commonChance = 1.0f - totalNonCommonChances;
+
+        // --- DEBUG RA CONSOLE (In kết quả ra giống trong video) ---
+        String message = String.format(java.util.Locale.US, 
+            "Wave: %d | Luck: %.1f | Chances -> Common: %.2f | Rare: %.2f | Epic: %.2f | Legendary: %.4f",
+            currentWave, playerLuck, commonChance, rareChance, epicChance, legendaryChance);
+        GD.print(message);
+
+        // Trả về mảng 4 giá trị tỉ lệ
+        return new float[] {
+                Math.max(0.0f, commonChance),
+                Math.max(0.0f, rareChance),
+                Math.max(0.0f, epicChance),
+                Math.max(0.0f, legendaryChance)
+        };
+    }
 }
