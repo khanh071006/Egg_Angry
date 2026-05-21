@@ -310,7 +310,7 @@ offset_bottom = 1040.0
 theme_override_constants/separation = 16
 alignment = 1
 
-[node name="NewWaveButton" type="Button" parent="MarginContainer/Control/VBoxContainer"]
+[node name="NextWaveButton" type="Button" parent="MarginContainer/Control/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 48
 theme_override_styles/normal = SubResource("StyleBoxFlat_1gnn5")
@@ -328,3 +328,5 @@ theme_override_font_sizes/font_size = 48
 theme_override_styles/normal = SubResource("StyleBoxFlat_fjhgy")
 text = "shell
 "
+
+[connection signal="pressed" from="MarginContainer/Control/VBoxContainer/NextWaveButton" to="." method="_on_next_wave_button_pressed"]

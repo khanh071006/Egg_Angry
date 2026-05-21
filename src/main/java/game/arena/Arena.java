@@ -79,9 +79,10 @@ public class Arena extends Node2D {
             spawner.startWave();
         }
 
-        // --- TESTING SHOP PANEL ---
+        // --- KẾT NỐI SHOP PANEL ---
         if (shopPanel != null) {
-            shopPanel.loadShop(7);
+            shopPanel.onShopNextWave.connect(Callable.create(this, new StringName("_on_shop_next_wave")), 0);
+            shopPanel.hide(); // Ẩn shop lúc mới vào game
         }
     }
 
@@ -166,6 +167,23 @@ public class Arena extends Node2D {
     public void _on_upgrade_selected() {
         if (upgradePanel != null) {
             upgradePanel.hide();
+        }
+        
+        // Sau khi chọn xong Nâng cấp -> Mở Shop
+        if (shopPanel != null) {
+            int currentWave = 1;
+            if (spawner != null) {
+                currentWave = spawner.waveIndex;
+            }
+            shopPanel.loadShop(currentWave);
+            shopPanel.show();
+        }
+    }
+
+    @RegisterFunction
+    public void _on_shop_next_wave() {
+        if (shopPanel != null) {
+            shopPanel.hide();
         }
         startNewWave();
     }

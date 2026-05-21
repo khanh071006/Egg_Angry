@@ -30,7 +30,7 @@ import kotlin.collections.listOf
   "godot.api.Node2D,godot.api.CanvasItem,godot.api.Node,godot.api.Object,godot.core.KtObject,godot.common.interop.NativeWrapper,godot.common.interop.NativePointer,kotlin.Any",
   "",
   "game.arena.Arena.normalColor,game.arena.Arena.blockColor,game.arena.Arena.critColor,game.arena.Arena.hpColor,game.arena.Arena.player,game.arena.Arena.upgradePanel,game.arena.Arena.shopPanel",
-  "game.arena.Arena._process,game.arena.Arena._ready,game.arena.Arena.show_block_text,game.arena.Arena.show_damage_text,game.arena.Arena.show_heal_text,game.arena.Arena._on_wave_completed,game.arena.Arena.show_upgrades,game.arena.Arena._on_upgrade_selected,game.arena.Arena.startNewWave",
+  "game.arena.Arena._process,game.arena.Arena._ready,game.arena.Arena.show_block_text,game.arena.Arena.show_damage_text,game.arena.Arena.show_heal_text,game.arena.Arena._on_wave_completed,game.arena.Arena.show_upgrades,game.arena.Arena._on_upgrade_selected,game.arena.Arena._on_shop_next_wave,game.arena.Arena.startNewWave",
   true,
 )
 public open class ArenaRegistrar : ClassRegistrar {
@@ -47,6 +47,7 @@ public open class ArenaRegistrar : ClassRegistrar {
         function(Arena::_on_wave_completed, NIL, KtFunctionArgument(NIL, "kotlin.Unit"), KtRpcConfig(DISABLED.id.toInt(), false, RELIABLE.id.toInt(), 0))
         function(Arena::show_upgrades, NIL, KtFunctionArgument(NIL, "kotlin.Unit"), KtRpcConfig(DISABLED.id.toInt(), false, RELIABLE.id.toInt(), 0))
         function(Arena::_on_upgrade_selected, NIL, KtFunctionArgument(NIL, "kotlin.Unit"), KtRpcConfig(DISABLED.id.toInt(), false, RELIABLE.id.toInt(), 0))
+        function(Arena::_on_shop_next_wave, NIL, KtFunctionArgument(NIL, "kotlin.Unit"), KtRpcConfig(DISABLED.id.toInt(), false, RELIABLE.id.toInt(), 0))
         function(Arena::startNewWave, NIL, KtFunctionArgument(NIL, "kotlin.Unit"), KtRpcConfig(DISABLED.id.toInt(), false, RELIABLE.id.toInt(), 0))
         property(Arena::normalColor, COLOR, COLOR, "godot.core.Color", NONE, "", godot.core.PropertyUsageFlags.DEFAULT.flag)
         property(Arena::blockColor, COLOR, COLOR, "godot.core.Color", NONE, "", godot.core.PropertyUsageFlags.DEFAULT.flag)

@@ -27,9 +27,9 @@ import kotlin.collections.listOf
   "gdj/game/ui/ShopPanel.gdj",
   "project-3",
   "godot.api.Panel,godot.api.Control,godot.api.CanvasItem,godot.api.Node,godot.api.Object,godot.core.KtObject,godot.common.interop.NativeWrapper,godot.common.interop.NativePointer,kotlin.Any",
-  "",
+  "game.ui.ShopPanel.onShopNextWave",
   "game.ui.ShopPanel.shopCardScene,game.ui.ShopPanel.shopItems",
-  "game.ui.ShopPanel._ready,game.ui.ShopPanel.loadShop",
+  "game.ui.ShopPanel._ready,game.ui.ShopPanel.loadShop,game.ui.ShopPanel._on_next_wave_button_pressed",
   true,
 )
 public open class ShopPanelRegistrar : ClassRegistrar {
@@ -40,6 +40,8 @@ public open class ShopPanelRegistrar : ClassRegistrar {
         notificationFunctions(listOf())
         function(ShopPanel::_ready, NIL, KtFunctionArgument(NIL, "kotlin.Unit"), KtRpcConfig(DISABLED.id.toInt(), false, RELIABLE.id.toInt(), 0))
         function(ShopPanel::loadShop, NIL, INT, KtFunctionArgument(INT, "kotlin.Int", "currentWave"), KtFunctionArgument(NIL, "kotlin.Unit"), KtRpcConfig(DISABLED.id.toInt(), false, RELIABLE.id.toInt(), 0))
+        function(ShopPanel::_on_next_wave_button_pressed, NIL, KtFunctionArgument(NIL, "kotlin.Unit"), KtRpcConfig(DISABLED.id.toInt(), false, RELIABLE.id.toInt(), 0))
+        signal(ShopPanel::onShopNextWave)
         property(ShopPanel::shopCardScene, OBJECT, OBJECT, "godot.api.PackedScene", RESOURCE_TYPE, "PackedScene", godot.core.PropertyUsageFlags.DEFAULT.flag)
         property(ShopPanel::shopItems, ARRAY, ARRAY, "godot.core.VariantArray", TYPE_STRING, "24/17:Resource", godot.core.PropertyUsageFlags.DEFAULT.flag)
       }

@@ -11,6 +11,8 @@ import godot.api.PackedScene;
 import godot.api.Panel;
 import godot.core.VariantArray;
 import godot.global.GD;
+import godot.annotation.RegisterSignal;
+import godot.core.Signal0;
 
 @RegisterClass
 public class ShopPanel extends Panel {
@@ -22,6 +24,9 @@ public class ShopPanel extends Panel {
     @Export
     @RegisterProperty
     public VariantArray<godot.api.Resource> shopItems = game.Helper.GodotHelper.createResourceArray();
+
+    @RegisterSignal
+    public Signal0 onShopNextWave = Signal0.create(this, "onShopNextWave");
 
     private Node itemsContainer;
     private Node passivesContainer;
@@ -95,5 +100,10 @@ public class ShopPanel extends Panel {
                 GD.printErr("ShopPanel: Node sinh ra không phải là ShopCard!");
             }
         }
+    }
+
+    @RegisterFunction
+    public void _on_next_wave_button_pressed() {
+        onShopNextWave.emit();
     }
 }

@@ -36,5 +36,6 @@ functions = [
 	_on_wave_completed,
 	show_upgrades,
 	_on_upgrade_selected,
+	_on_shop_next_wave,
 	start_new_wave
 ]

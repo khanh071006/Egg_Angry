@@ -17,7 +17,7 @@ supertypes = [
 	kotlin.Any
 ]
 signals = [
-    
+    on_shop_next_wave
 ]
 properties = [
     shop_card_scene,
@@ -25,5 +25,6 @@ properties = [
 ]
 functions = [
     _ready,
-	load_shop
+	load_shop,
+	_on_next_wave_button_pressed
 ]

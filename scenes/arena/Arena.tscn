@@ -22,7 +22,7 @@ font_size = 64
 script = ExtResource("1_etbs0")
 player = NodePath("PlayerWellRounded")
 upgrade_panel = NodePath("GameUI/UpgradePanel")
-shop_panel = NodePath("ShopPanel")
+shop_panel = NodePath("GameUI/ShopPanel")
 
 [node name="BlackBG" type="Sprite2D" parent="."]
 scale = Vector2(2, 2)
@@ -83,7 +83,7 @@ label_settings = SubResource("LabelSettings_g06lh")
 [node name="UpgradePanel" parent="GameUI" instance=ExtResource("10_g06lh")]
 visible = false
 
-[node name="ShopPanel" parent="." instance=ExtResource("11_2ri42")]
+[node name="ShopPanel" parent="GameUI" instance=ExtResource("11_2ri42")]
 
 [connection signal="timeout" from="Spawner/SpawnTimer" to="Spawner" method="_on_spawn_timer_timeout"]
 [connection signal="timeout" from="Spawner/SpawnTimer" to="Spawner" method="spawnEnemy"]

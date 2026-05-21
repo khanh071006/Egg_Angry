@@ -51,6 +51,11 @@ public class ItemWeapon extends ItemBase {
                 "Critical: [color=green]%s%%[/color]\n" +
                 "[/code]";
 
-        return String.format(java.util.Locale.US, format, stats.damage, stats.cooldown, stats.maxRange, stats.critChance * 100);
+        java.text.DecimalFormat df = new java.text.DecimalFormat("0.##");
+        return String.format(java.util.Locale.US, format, 
+                df.format(stats.damage), 
+                df.format(stats.cooldown), 
+                df.format(stats.maxRange), 
+                df.format(stats.critChance * 100));
     }
 }
