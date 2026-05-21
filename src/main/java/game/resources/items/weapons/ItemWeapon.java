@@ -3,6 +3,7 @@ package game.resources.items.weapons;
 import game.resources.items.ItemBase;
 import godot.annotation.Export;
 import godot.annotation.RegisterClass;
+import godot.annotation.RegisterFunction;
 import godot.annotation.RegisterProperty;
 import godot.api.PackedScene;
 import godot.api.Resource;
@@ -37,4 +38,19 @@ public class ItemWeapon extends ItemBase {
     @Export
     @RegisterProperty
     public Resource upgradeTo;
+
+    @RegisterFunction
+    @Override
+    public String getDescription() {
+        if (stats == null) return "";
+
+        String format = "[code]\n" +
+                "Damage: [color=green]%s[/color]\n" +
+                "Cooldown: [color=green]%s[/color]\n" +
+                "Range: [color=green]%s[/color]\n" +
+                "Critical: [color=green]%s%%[/color]\n" +
+                "[/code]";
+
+        return String.format(java.util.Locale.US, format, stats.damage, stats.cooldown, stats.maxRange, stats.critChance * 100);
+    }
 }
