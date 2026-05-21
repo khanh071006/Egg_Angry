@@ -6,7 +6,7 @@ fqName = game.resources.units.PlayerStats
 relativeSourcePath = src/main/java/game/resources/units/PlayerStats.java
 baseType = Resource
 supertypes = [
-	game.resources.units.UnitStats,
+    game.resources.units.UnitStats,
 	godot.api.Resource,
 	godot.api.RefCounted,
 	godot.api.Object,
@@ -16,10 +16,10 @@ supertypes = [
 	kotlin.Any
 ]
 signals = [
-	
+    
 ]
 properties = [
-	luck,
+    luck,
 	unit_name,
 	type,
 	icon,
@@ -34,5 +34,5 @@ properties = [
 	harvesting
 ]
 functions = [
-	
+    
 ]

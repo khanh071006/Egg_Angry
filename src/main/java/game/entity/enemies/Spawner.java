@@ -66,7 +66,6 @@ public class Spawner extends Node2D {
     @RegisterFunction
     @Override
     public void _ready() {
-        GD.print("=== [1] BẮT ĐẦU CHẠY SPAWNER ===");
         // 1. DÙNG GETNODE ĐỂ TỰ BẮT CON (Phân biệt chữ hoa chữ thường sếp nhé!)
         spawnTimer = (Timer) getNode("SpawnTimer");
         waveTimer = (Timer) getNode("WaveTimer");
@@ -82,13 +81,11 @@ public class Spawner extends Node2D {
 
     // --- HÀM TÌM KỊCH BẢN (find_wave_data) ---
     private WaveData findWaveData() {
-        GD.print("- [2] Đang quét kịch bản cho Wave: " + waveIndex);
         for (int i = 0; i < wavesData.size(); i++) {
             WaveData wave = wavesData.get(i);
 
             // THAY VÌ GỌI isValidIndex, JAVA TỰ DÙNG getFrom() VÀ getTo() ĐỂ SO SÁNH!
             if (wave != null && waveIndex >= wave.getFrom() && waveIndex <= wave.getTo()) {
-                GD.print("  -> ĐÃ TÌM THẤY KỊCH BẢN HỢ  P LỆ!");
                 return wave;
             }
         }
@@ -105,7 +102,6 @@ public class Spawner extends Node2D {
             if (waveTimer != null) waveTimer.stop();
             return;
         }
-        GD.print("- [3] Khởi động WaveTimer với: " + currentWaveData.getWaveTime() + " giây");
         // Cài đặt thời gian cho Wave (Mặc định 20s)
         waveTimer.setWaitTime(currentWaveData.getWaveTime());
         waveTimer.start();
@@ -132,7 +128,6 @@ public class Spawner extends Node2D {
         }
 
         spawnTimer.start();
-        GD.print("- [5] ĐỒNG HỒ ĐẺ QUÁI ĐÃ BẤM GIỜ!");
     }
 
     // --- HÀM ĐẺ QUÁI VẬT (spawn_enemy) ---

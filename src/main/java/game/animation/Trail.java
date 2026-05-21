@@ -79,9 +79,6 @@ public class Trail extends Line2D {
 
         if (trailTimer != null) {
             trailTimer.start(trailDuration);
-            GD.print("Đã bật đồng hồ cái đuôi chạy " + trailDuration + " giây!"); // THÊM DÒNG NÀY
-        } else {
-            GD.print("CẢNH BÁO: Không tìm thấy TrailTimer!"); // VÀ DÒNG NÀY
         }
     }
     // Hàm này chạy khi đồng hồ đếm ngược 1 giây kết thúc

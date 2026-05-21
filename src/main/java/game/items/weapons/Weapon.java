@@ -87,15 +87,12 @@ public class Weapon extends Node2D {
 
     @RegisterFunction
     public void _on_range_area_area_entered(Area2D area) {
-        // 1. IN RA THẲNG TÊN CỦA AREA (Tuyệt đối không dùng getOwner ở bước này để chống crash)
-        GD.print("QUÉT TRÚNG RỒI! Tên Area là: " + area.getName());
 
         Node enemy = area.getParent();
         if (enemy == null) return; // Nếu null thì bỏ qua luôn cho khỏi lỗi đỏ
 
         if (!targets.contains(enemy)) {
             targets.add(enemy);
-            GD.print("Đã thêm quái: " + enemy.getName() + " | Số lượng: " + targets.size());
         }
     }
 
@@ -210,26 +207,14 @@ public class Weapon extends Node2D {
         // 2. Không được đang trong trạng thái đánh (isAttacking = false)
         if (cooldownTimer.isStopped() && !isAttacking) {
 
-            GD.print("==== KIỂM TRA TIMER ====");
-
-            // BẰNG CHỨNG 1: Xem Java có đọc đúng file Stats không? (Nhập 10s nó có ra 10s không)
-            GD.print("1. File Stats báo Cooldown là: " + data.stats.cooldown + " giây");
-
             // Ép Timer nhận thông số
             cooldownTimer.setWaitTime(data.stats.cooldown);
-
-            // BẰNG CHỨNG 2: Xem cái Node Timer nó có chịu "nuốt" cái con số 10s kia không?
-            GD.print("2. Timer thực tế đang cài đặt WaitTime là: " + cooldownTimer.getWaitTime() + " giây");
 
             // Thực hiện bắn
             ((WeaponBehavior) weaponBehavior).executeAttack();
 
             // Khởi động đồng hồ
             cooldownTimer.start();
-
-            // BẰNG CHỨNG 3: Xem lúc đang chạy, đồng hồ nó đếm ngược từ số mấy?
-            GD.print("3. Đã bấm Start! Thời gian đếm ngược còn lại: " + cooldownTimer.getTimeLeft() + " giây");
-            GD.print("========================");
         }
     }
 

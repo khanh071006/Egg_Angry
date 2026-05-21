@@ -58,7 +58,7 @@ public class HitBoxComponent extends Area2D {
             onHitHurtbox.emit(hurtbox);
 
             if (area.getOwner() != null) {
-                GD.print("CHÉM TRÚNG: " + area.getOwner().getName());
+                // CHÉM TRÚNG
             }
         }
     }

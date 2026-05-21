@@ -42,7 +42,7 @@ public class Projectile extends Node2D {
 
     @RegisterFunction
     public void _on_visible_on_screen_enabler_2d_screen_exited(){
-        GD.print("Đạn đã bay màu khỏi màn hình!");
+        // Đạn ra khỏi màn hình
         queueFree(); // Hủy viên đạn cho đỡ tốn RAM
     }
 
