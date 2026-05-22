@@ -29,5 +29,6 @@ functions = [
 	_on_next_wave_button_pressed,
 	_on_shop_card_on_item_purchased,
 	_on_item_card_selected,
-	_on_combine_button_pressed
+	_on_combine_button_pressed,
+	_on_sell_button_pressed
 ]

@@ -325,7 +325,7 @@ theme_override_font_sizes/font_size = 48
 theme_override_styles/normal = SubResource("StyleBoxFlat_ws1b3")
 text = "Combine"
 
-[node name="ShellButton" type="Button" parent="MarginContainer/Control/VBoxContainer"]
+[node name="SellButton" type="Button" parent="MarginContainer/Control/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 48
 theme_override_styles/normal = SubResource("StyleBoxFlat_fjhgy")
@@ -341,3 +341,4 @@ offset_bottom = 96.0
 
 [connection signal="pressed" from="MarginContainer/Control/VBoxContainer/NextWaveButton" to="." method="_on_next_wave_button_pressed"]
 [connection signal="pressed" from="MarginContainer/Control/VBoxContainer/CombineButton" to="." method="_on_combine_button_pressed"]
+[connection signal="pressed" from="MarginContainer/Control/VBoxContainer/SellButton" to="." method="_on_sell_button_pressed"]

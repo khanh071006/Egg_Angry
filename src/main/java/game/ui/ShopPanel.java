@@ -32,6 +32,7 @@ public class ShopPanel extends Panel {
     private Node passivesContainer;
     private Node weaponsContainer;
     private godot.api.Button combineButton;
+    private ItemCard contextCard;
 
     @RegisterFunction
     @Override
@@ -156,7 +157,7 @@ public class ShopPanel extends Panel {
 
     @RegisterFunction
     public void _on_item_card_selected(ItemCard card) {
-        ItemCard contextCard = card;
+        this.contextCard = card;
         boolean canMerge = false;
 
         if (card.item != null && card.item.itemType == ItemBase.ItemType.WEAPON) {
@@ -266,8 +267,63 @@ public class ShopPanel extends Panel {
         }
 
         Global.instance.selectedWeapon = null;
+        this.contextCard = null;
         if (combineButton != null) {
             combineButton.setDisabled(true);
         }
+    }
+
+    @RegisterFunction
+    public void _on_sell_button_pressed() {
+        GD.print("Đã bấm nút Sell!");
+        if (contextCard == null) {
+            GD.printErr("contextCard đang null! (Chưa chọn thẻ nào)");
+            return;
+        }
+
+        game.resources.items.weapons.ItemWeapon clickedWeapon = Global.instance.selectedWeapon;
+        if (clickedWeapon == null) {
+            GD.printErr("Global.instance.selectedWeapon đang null!");
+            return;
+        }
+
+        int coins = (int) (clickedWeapon.itemCost * 0.75);
+        GD.print("Giá bán: " + coins);
+
+        game.items.weapons.Weapon weaponToRemove = null;
+        if (Global.player != null && Global.player.getCurrentWeapons() != null) {
+            for (godot.api.Node child : Global.player.getCurrentWeapons()) {
+                if (child instanceof game.items.weapons.Weapon) {
+                    game.items.weapons.Weapon w = (game.items.weapons.Weapon) child;
+                    if (w.data != null && w.data.itemName.equals(clickedWeapon.itemName)) {
+                        GD.print("Tìm thấy vũ khí trên người để xóa: " + w.data.itemName);
+                        weaponToRemove = w;
+                        break;
+                    }
+                }
+            }
+        }
+
+        if (weaponToRemove == null) {
+            GD.printErr("Không tìm thấy vũ khí trên người trùng tên để xóa!");
+        }
+
+        if (weaponToRemove != null) {
+            if (Global.player != null) {
+                Global.player.removeWeapon(weaponToRemove);
+            }
+            Global.instance.equippedWeapons.remove(weaponToRemove.data);
+        }
+
+        contextCard.queueFree();
+        contextCard = null;
+        Global.instance.selectedWeapon = null;
+
+        if (combineButton != null) {
+            combineButton.setDisabled(true);
+        }
+
+        Global.coins += coins;
+        GD.print("Đã bán thành công! Tổng tiền hiện tại: " + Global.coins);
     }
 }
