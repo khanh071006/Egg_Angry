@@ -31,6 +31,7 @@ public class ShopPanel extends Panel {
     private Node itemsContainer;
     private Node passivesContainer;
     private Node weaponsContainer;
+    private godot.api.Button combineButton;
 
     @RegisterFunction
     @Override
@@ -38,6 +39,7 @@ public class ShopPanel extends Panel {
         itemsContainer = getNodeOrNull("%ItemsContainer");
         passivesContainer = getNodeOrNull("%PassivesContainer");
         weaponsContainer = getNodeOrNull("%WeaponsContainer");
+        combineButton = (godot.api.Button) getNodeOrNull("%CombineButton");
 
         if (passivesContainer != null) {
             VariantArray<Node> children = passivesContainer.getChildren();
@@ -154,7 +156,118 @@ public class ShopPanel extends Panel {
 
     @RegisterFunction
     public void _on_item_card_selected(ItemCard card) {
-        // Dùng cho logic ghép vũ khí ở video tiếp theo
-        GD.print("Đã chọn thẻ vũ khí: " + card.item.itemName);
+        ItemCard contextCard = card;
+        boolean canMerge = false;
+
+        if (card.item != null && card.item.itemType == ItemBase.ItemType.WEAPON) {
+            int count = 0;
+            // Đếm số lượng vũ khí cùng tên trong balo
+            for (game.resources.items.weapons.ItemWeapon weapon : Global.instance.equippedWeapons) {
+                if (weapon.itemName.equals(card.item.itemName)) {
+                    count++;
+                }
+            }
+
+            if (count >= 2) {
+                canMerge = true;
+            }
+        }
+
+        // Vô hiệu hoá nút Combine nếu không thể ghép
+        if (combineButton != null) {
+            combineButton.setDisabled(!canMerge);
+        }
+
+        GD.print("Đã chọn thẻ vũ khí: " + card.item.itemName + " | Có thể ghép: " + canMerge);
+    }
+
+    @RegisterFunction
+    public void _on_combine_button_pressed() {
+        game.resources.items.weapons.ItemWeapon clickedWeapon = Global.instance.selectedWeapon;
+        if (clickedWeapon == null) return;
+        if (clickedWeapon.upgradeTo == null) return;
+
+        java.util.List<godot.api.Node> weaponsToRemove = new java.util.ArrayList<>();
+        if (Global.player != null && Global.player.getCurrentWeapons() != null) {
+            for (godot.api.Node child : Global.player.getCurrentWeapons()) {
+                if (child instanceof game.items.weapons.Weapon) {
+                    game.items.weapons.Weapon w = (game.items.weapons.Weapon) child;
+                    if (w.data != null && w.data.itemName.equals(clickedWeapon.itemName)) {
+                        weaponsToRemove.add(child);
+                        if (weaponsToRemove.size() == 2) break;
+                    }
+                }
+            }
+        }
+
+        java.util.List<ItemCard> cardsToRemove = new java.util.ArrayList<>();
+        if (weaponsContainer != null) {
+            godot.core.VariantArray<godot.api.Node> children = weaponsContainer.getChildren();
+            for (int i = 0; i < children.size(); i++) {
+                godot.api.Node child = children.get(i);
+                if (child instanceof ItemCard) {
+                    ItemCard c = (ItemCard) child;
+                    if (c.item != null && c.item.itemName.equals(clickedWeapon.itemName)) {
+                        cardsToRemove.add(c);
+                        if (cardsToRemove.size() == 2) break;
+                    }
+                }
+            }
+        }
+
+        if (weaponsToRemove.size() < 2 || cardsToRemove.size() < 2) {
+            GD.printErr("ShopPanel: Không đủ 2 vũ khí và thẻ để ghép!");
+            return;
+        }
+
+        // Delete weapons
+        for (godot.api.Node wNode : weaponsToRemove) {
+            game.items.weapons.Weapon w = (game.items.weapons.Weapon) wNode;
+            if (Global.player != null) {
+                Global.player.removeWeapon(w);
+            }
+            Global.instance.equippedWeapons.remove(w.data);
+        }
+
+        // Delete cards
+        for (ItemCard c : cardsToRemove) {
+            c.queueFree();
+        }
+
+        // Create new weapon
+        game.resources.items.weapons.ItemWeapon upgradedWeapon = null;
+        try {
+            upgradedWeapon = (game.resources.items.weapons.ItemWeapon) clickedWeapon.upgradeTo;
+        } catch (Exception e) {
+            GD.printErr("Lỗi khi ép kiểu vũ khí nâng cấp: " + e.getMessage());
+        }
+
+        if (upgradedWeapon != null) {
+            if (Global.player != null) {
+                Global.player.addWeapon(upgradedWeapon);
+            }
+            Global.instance.equippedWeapons.add(upgradedWeapon);
+
+            // Create new item card
+            if (Global.instance.itemCardScene != null) {
+                godot.api.Node newCardNode = Global.instance.itemCardScene.instantiate();
+                if (newCardNode instanceof ItemCard) {
+                    ItemCard newCard = (ItemCard) newCardNode;
+                    if (weaponsContainer != null) {
+                        weaponsContainer.addChild(newCard);
+                    }
+                    newCard.setItem(upgradedWeapon);
+                    newCard.onItemCardSelected.connect(
+                        godot.core.Callable.create(this, new godot.core.StringName("_on_item_card_selected")),
+                        0
+                    );
+                }
+            }
+        }
+
+        Global.instance.selectedWeapon = null;
+        if (combineButton != null) {
+            combineButton.setDisabled(true);
+        }
     }
 }

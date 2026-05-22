@@ -41,6 +41,10 @@ public class Player extends BaseUnit {
     // Bể chứa các vũ khí Player đang cầm
     private List<Node> currentWeapons = new ArrayList<>();
 
+    public List<Node> getCurrentWeapons() {
+        return currentWeapons;
+    }
+
 
 	@Export
 	@RegisterProperty
@@ -244,6 +248,15 @@ public class Player extends BaseUnit {
         if (weaponContainer != null) {
             weaponContainer.updateWeaponsPosition(currentWeapons);
         }
+    }
+
+    @RegisterFunction
+    public void removeWeapon(Node weapon) {
+        currentWeapons.remove(weapon);
+        if (weaponContainer != null) {
+            weaponContainer.updateWeaponsPosition(currentWeapons);
+        }
+        weapon.queueFree();
     }
 
     public boolean isFacingRight() {

@@ -49,6 +49,7 @@ public class Global extends Node {
     public PackedScene coinsScene;
 
     public java.util.List<game.resources.items.weapons.ItemWeapon> equippedWeapons = new java.util.ArrayList<>();
+    public game.resources.items.weapons.ItemWeapon selectedWeapon;
 
 
     @RegisterFunction

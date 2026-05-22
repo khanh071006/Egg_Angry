@@ -52,6 +52,7 @@ public class ItemCard extends Button {
     @RegisterFunction
     public void _on_button_pressed() {
         if (item != null && item.itemType == ItemBase.ItemType.WEAPON) {
+            Global.instance.selectedWeapon = (game.resources.items.weapons.ItemWeapon) item;
             onItemCardSelected.emit(this);
         }
     }
