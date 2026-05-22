@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dbc1cru0wxnsf"]
+[gd_scene load_steps=15 format=3 uid="uid://dbc1cru0wxnsf"]
 
 [ext_resource type="Texture2D" uid="uid://cy4xfx762bxgb" path="res://gdj/game/Game+Assets/assets/sprites/BG.png" id="1_dm0lm"]
 [ext_resource type="Script" uid="uid://cbvtm502as2ux" path="res://gdj/game/arena/Arena.gdj" id="1_etbs0"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://cqy82on6oilua" path="res://gdj/game/entity/enemies/Spawner.gdj" id="7_2g53k"]
 [ext_resource type="Script" uid="uid://cjecllwrga6ph" path="res://gdj/game/resources/waves/WaveData.gdj" id="8_g06lh"]
 [ext_resource type="Resource" uid="uid://cyw8lnqs80gun" path="res://resources/waves/wave_1_to_5.tres" id="9_2ri42"]
+[ext_resource type="PackedScene" uid="uid://btrhknbg3yyrh" path="res://scenes/ui/coins_bag/coins_bag.tscn" id="10_cx6kx"]
 [ext_resource type="PackedScene" uid="uid://fk6w23e0taua" path="res://scenes/ui/upgrade_panel/upgrade_panel.tscn" id="10_g06lh"]
 [ext_resource type="PackedScene" uid="uid://ctt2p32oijfgi" path="res://scenes/ui/shop_panel/shop_panel.tscn" id="11_2ri42"]
 
@@ -53,6 +54,9 @@ one_shot = true
 one_shot = true
 
 [node name="GameUI" type="CanvasLayer" parent="."]
+
+[node name="CoinsBag" parent="GameUI" instance=ExtResource("10_cx6kx")]
+unique_name_in_owner = true
 
 [node name="WaveTimeLabel" type="Label" parent="GameUI"]
 unique_name_in_owner = true

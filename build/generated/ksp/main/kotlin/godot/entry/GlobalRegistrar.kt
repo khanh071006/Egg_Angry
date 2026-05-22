@@ -26,7 +26,7 @@ import kotlin.collections.listOf
   "gdj/game/autoloads/Global.gdj",
   "project-3",
   "godot.api.Node,godot.api.Object,godot.core.KtObject,godot.common.interop.NativeWrapper,godot.common.interop.NativePointer,kotlin.Any",
-  "game.autoloads.Global.onCreateBlockText,game.autoloads.Global.onCreateDamageText,game.autoloads.Global.onUpgradeSelected,game.autoloads.Global.onCreateHealText",
+  "game.autoloads.Global.onCreateBlockText,game.autoloads.Global.onCreateDamageText,game.autoloads.Global.onUpgradeSelected,game.autoloads.Global.onCreateHealText,game.autoloads.Global.onEnemyDied",
   "",
   "game.autoloads.Global._ready,game.autoloads.Global.calculateTierProbability,game.autoloads.Global.getHarvestingCoins,game.autoloads.Global.selectItemsForOffer",
   true,
@@ -45,6 +45,7 @@ public open class GlobalRegistrar : ClassRegistrar {
         signal(Global::onCreateDamageText, KtFunctionArgument(OBJECT, "godot.api.Node2D", "p0"), KtFunctionArgument(OBJECT, "game.components.HitBoxComponent", "p1"))
         signal(Global::onUpgradeSelected)
         signal(Global::onCreateHealText, KtFunctionArgument(OBJECT, "godot.api.Node2D", "p0"), KtFunctionArgument(FLOAT, "kotlin.Float", "p1"))
+        signal(Global::onEnemyDied, KtFunctionArgument(OBJECT, "game.entity.enemies.Enemy", "p0"))
       }
     }
   }

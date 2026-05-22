@@ -189,11 +189,18 @@ public class Enemy extends BaseUnit {
         canMove = false;
         canAttack = false;
         animPlayer.play("die");
+        
         deathTimer.start(0.6);
     }
 
     @RegisterFunction
     public void _on_death_timer_timeout() {
         queueFree();
+    }
+
+    @RegisterFunction
+    public void _on_health_component_on_unit_die() {
+        // Hàm này được Godot gọi khi máu quái về 0
+        Global.instance.onEnemyDied.emit(this);
     }
 }

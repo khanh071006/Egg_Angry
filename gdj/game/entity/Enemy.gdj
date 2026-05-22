@@ -36,5 +36,6 @@ functions = [
 	reset_knockback,
 	_on_knockback_timer_timeout,
 	destroy_enemy,
-	_on_death_timer_timeout
+	_on_death_timer_timeout,
+	_on_health_component_on_unit_die
 ]

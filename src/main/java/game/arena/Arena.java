@@ -6,6 +6,7 @@ import game.entity.Player;
 import game.entity.enemies.Spawner;
 import game.ui.FloatingText;
 import godot.api.Label;
+import godot.api.Node;
 import godot.api.Node2D;
 import godot.annotation.RegisterClass;
 import godot.annotation.RegisterFunction;
@@ -52,6 +53,12 @@ public class Arena extends Node2D {
     @RegisterProperty
     public game.ui.ShopPanel shopPanel;
 
+    @Export
+    @RegisterProperty
+    public game.ui.CoinsBag coinsBag;
+
+    private java.util.List<game.items.Coins> goldList = new java.util.ArrayList<>();
+
     @RegisterFunction
     @Override
     public void _ready() {
@@ -72,7 +79,11 @@ public class Arena extends Node2D {
         if (spawner == null) GD.printErr("Arena LỖI: Không tìm thấy Spawner!");
         if (waveIndexLabel == null) GD.printErr("Arena LỖI: Không tìm thấy WaveIndexLabel!");
 
+        // Tìm CoinsBag
+        coinsBag = (game.ui.CoinsBag) getNodeOrNull("%CoinsBag");
+
         Global.instance.onUpgradeSelected.connect(Callable.create(this, new StringName("_on_upgrade_selected")), 0);
+        Global.instance.onEnemyDied.connect(Callable.create(this, new StringName("spawn_coins")), 0);
         
         if (spawner != null) {
             spawner.onWaveCompleted.connect(Callable.create(this, new StringName("_on_wave_completed")), 0);
@@ -143,7 +154,57 @@ public class Arena extends Node2D {
 
     @RegisterFunction
     public void _on_wave_completed() {
+        clean_arena();
+        clean_arena(); 
+        clean_arena(); // Gọi 2 lần như trong video để đề phòng rơi xu sát nút
         getTree().createTimer(1.0).getTimeout().connect(Callable.create(this, new StringName("show_upgrades")), 0);
+    }
+
+    @RegisterFunction
+    public void spawn_coins(game.entity.enemies.Enemy enemy) {
+        if (Global.instance.coinsScene == null) return;
+
+        double randomAngle = GD.randfRange(0, (float) Math.PI * 2);
+        Vector2 offset = new Vector2(1, 0).rotated(randomAngle).times(35);
+        Vector2 spawnPosition = enemy.getGlobalPosition().plus(offset);
+        
+        GD.print("Spawn Coins: Enemy Pos=" + enemy.getGlobalPosition() + ", Spawn Pos=" + spawnPosition);
+
+        Node goldInstanceNode = Global.instance.coinsScene.instantiate();
+        if (goldInstanceNode instanceof game.items.Coins) {
+            game.items.Coins goldInstance = (game.items.Coins) goldInstanceNode;
+            
+            goldList.add(goldInstance);
+
+            if (enemy.stats instanceof game.resources.units.EnemyStats) {
+                goldInstance.value = (int) ((game.resources.units.EnemyStats) enemy.stats).goldDrop;
+            }
+
+            // Gọi hàm bọc (wrapper) để add_child xong mới setGlobalPosition
+            this.callDeferred(new StringName("add_gold_deferred"), goldInstance, spawnPosition);
+        }
+    }
+
+    @RegisterFunction
+    public void add_gold_deferred(game.items.Coins gold, Vector2 pos) {
+        addChild(gold);
+        gold.setGlobalPosition(pos);
+        GD.print("Vị trí của Xu SAU KHI addChild: " + gold.getGlobalPosition());
+    }
+
+    @RegisterFunction
+    public void clean_arena() {
+        if (coinsBag == null) return;
+        if (goldList.size() > 0) {
+            Vector2 targetCenterPosition = coinsBag.getGlobalPosition().plus(coinsBag.getSize().div(2));
+
+            for (game.items.Coins gold : goldList) {
+                if (godot.global.GD.isInstanceValid(gold)) {
+                    gold.setCollectionTarget(targetCenterPosition);
+                }
+            }
+            goldList.clear();
+        }
     }
 
     @RegisterFunction

@@ -25,7 +25,8 @@ properties = [
 	hp_color,
 	player,
 	upgrade_panel,
-	shop_panel
+	shop_panel,
+	coins_bag
 ]
 functions = [
 	_process,
@@ -34,6 +35,9 @@ functions = [
 	show_damage_text,
 	show_heal_text,
 	_on_wave_completed,
+	spawn_coins,
+	add_gold_deferred,
+	clean_arena,
 	show_upgrades,
 	_on_upgrade_selected,
 	_on_shop_next_wave,

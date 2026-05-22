@@ -15,6 +15,7 @@ import game.entity.enemies.ChaserBehavior
 import game.entity.enemies.Enemy
 import game.entity.enemies.ShootingBehavior
 import game.entity.enemies.Spawner
+import game.items.Coins
 import game.items.weapons.Weapon
 import game.items.weapons.WeaponBehavior
 import game.items.weapons.melee.MeleeBehavior
@@ -29,6 +30,7 @@ import game.resources.units.PlayerStats
 import game.resources.units.UnitStats
 import game.resources.waves.WaveData
 import game.resources.waves.WaveUnitData
+import game.ui.CoinsBag
 import game.ui.FloatingText
 import game.ui.HealthBar
 import game.ui.ShopCard
@@ -40,6 +42,8 @@ import godot.entry.ArenaRegistrar
 import godot.entry.BaseUnitRegistrar
 import godot.entry.CameraControllerRegistrar
 import godot.entry.ChaserBehaviorRegistrar
+import godot.entry.CoinsBagRegistrar
+import godot.entry.CoinsRegistrar
 import godot.entry.EnemyRegistrar
 import godot.entry.EnemyStatsRegistrar
 import godot.entry.FloatingTextRegistrar
@@ -84,7 +88,7 @@ import kotlin.collections.listOf
 import kotlin.reflect.KClass
 
 public class Entry : Entry() {
-  public override val classRegistrarCount: Int = 35
+  public override val classRegistrarCount: Int = 37
 
   public override val projectName: String = "project-3"
 
@@ -105,6 +109,7 @@ public class Entry : Entry() {
     SpawnerRegistrar().register(registry)
     PlayerRegistrar().register(registry)
     WeaponContainerRegistrar().register(registry)
+    CoinsRegistrar().register(registry)
     MeleeBehaviorRegistrar().register(registry)
     ProjectileRegistrar().register(registry)
     RangeBehaviorRegistrar().register(registry)
@@ -117,6 +122,7 @@ public class Entry : Entry() {
     EnemyStatsRegistrar().register(registry)
     PlayerStatsRegistrar().register(registry)
     UnitStatsRegistrar().register(registry)
+    CoinsBagRegistrar().register(registry)
     FloatingTextRegistrar().register(registry)
     HealthBarRegistrar().register(registry)
     ShopCardRegistrar().register(registry)
@@ -136,9 +142,10 @@ public class Entry : Entry() {
       WaveUnitData::class, Trail::class, Arena::class, CameraController::class, Global::class,
       HealthComponent::class, HitBoxComponent::class, HurtBoxComponent::class, BaseUnit::class,
       ChaserBehavior::class, Enemy::class, ShootingBehavior::class, Spawner::class, Player::class,
-      WeaponContainer::class, MeleeBehavior::class, Projectile::class, RangeBehavior::class,
-      Weapon::class, WeaponBehavior::class, ItemBase::class, ItemUpgrade::class, ItemWeapon::class,
-      WeaponStats::class, EnemyStats::class, PlayerStats::class, UnitStats::class,
-      FloatingText::class, HealthBar::class, ShopCard::class, ShopPanel::class,
-      StatsContainer::class, UpgradeCard::class, UpgradePanel::class)
+      WeaponContainer::class, Coins::class, MeleeBehavior::class, Projectile::class,
+      RangeBehavior::class, Weapon::class, WeaponBehavior::class, ItemBase::class,
+      ItemUpgrade::class, ItemWeapon::class, WeaponStats::class, EnemyStats::class,
+      PlayerStats::class, UnitStats::class, CoinsBag::class, FloatingText::class, HealthBar::class,
+      ShopCard::class, ShopPanel::class, StatsContainer::class, UpgradeCard::class,
+      UpgradePanel::class)
 }

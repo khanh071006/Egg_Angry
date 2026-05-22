@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=3 uid="uid://ctt2p32oijfgi"]
+[gd_scene load_steps=56 format=3 uid="uid://ctt2p32oijfgi"]
 
 [ext_resource type="PackedScene" uid="uid://bdd8nkexbhhnj" path="res://scenes/ui/shop_card/shop_card.tscn" id="1_chkkr"]
 [ext_resource type="Script" uid="uid://bccla7bggh2ji" path="res://gdj/game/ui/ShopPanel.gdj" id="1_whl1y"]
@@ -48,6 +48,7 @@
 [ext_resource type="Resource" uid="uid://cmxdbqoojx0yr" path="res://resources/items/weapons/range/smg/item_smg_2.tres" id="44_8bxa0"]
 [ext_resource type="Resource" uid="uid://c2aywaq0d13bg" path="res://resources/items/weapons/range/smg/item_smg_3.tres" id="45_bg42t"]
 [ext_resource type="Resource" uid="uid://c0jsbipmhu7rj" path="res://resources/items/weapons/range/smg/item_smg_4.tres" id="46_im8v7"]
+[ext_resource type="PackedScene" uid="uid://btrhknbg3yyrh" path="res://scenes/ui/coins_bag/coins_bag.tscn" id="49_pk1f0"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vr486"]
 bg_color = Color(0.20392157, 0.20392157, 0.20392157, 1)
@@ -328,5 +329,8 @@ theme_override_font_sizes/font_size = 48
 theme_override_styles/normal = SubResource("StyleBoxFlat_fjhgy")
 text = "shell
 "
+
+[node name="CoinsBag" parent="." instance=ExtResource("49_pk1f0")]
+layout_mode = 0
 
 [connection signal="pressed" from="MarginContainer/Control/VBoxContainer/NextWaveButton" to="." method="_on_next_wave_button_pressed"]

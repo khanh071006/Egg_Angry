@@ -41,6 +41,11 @@ public class Global extends Node {
     @RegisterSignal
     public Signal2<Node2D, Float> onCreateHealText = Signal2.create(this, "onCreateHealText");
 
+    @RegisterSignal
+    public Signal1<game.entity.enemies.Enemy> onEnemyDied = Signal1.create(this, "onEnemyDied");
+
+    public PackedScene coinsScene;
+
 
     @RegisterFunction
     @Override
@@ -48,6 +53,7 @@ public class Global extends Node {
         // Load file .tres mà bạn đã tạo từ Shader ở bước 1
         FLASH_MATERIAL = (ShaderMaterial) ResourceLoader.load("res://effects/flash_material.tres");
         floatingTextScene = (PackedScene) ResourceLoader.load("res://effects/floating_text.tscn");
+        coinsScene = (PackedScene) ResourceLoader.load("res://scenes/coins/coins.tscn");
         
         // Tự động load các Style màu thẻ từ thư mục styles (khỏi cần kéo thả tay)
         commonStyle = (godot.api.StyleBoxFlat) ResourceLoader.load("res://styles/common_style.tres");
