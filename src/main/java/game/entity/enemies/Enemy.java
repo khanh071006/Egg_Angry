@@ -102,7 +102,6 @@ public class Enemy extends BaseUnit {
         Vector2 direction = playerPos.minus(myPos).normalized();
 
         if (visionArea != null) {
-            // SỬA LỖI CỦA YOUTUBER: Phải quét Bodies, KHÔNG PHẢI Areas!
             VariantArray<Area2D> overlapping = visionArea.getOverlappingAreas();
 
             for (int i = 0; i < overlapping.size(); i++) {

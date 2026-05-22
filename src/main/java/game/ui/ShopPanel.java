@@ -96,6 +96,12 @@ public class ShopPanel extends Panel {
             if (cardInstanceNode instanceof ShopCard) {
                 ShopCard cardInstance = (ShopCard) cardInstanceNode;
                 cardInstance.setShopItem(eachShopItem);
+
+                // KẾT NỐI TÍN HIỆU KHI MUA HÀNG
+                cardInstance.onItemPurchased.connect(
+                    godot.core.Callable.create(this, new godot.core.StringName("_on_shop_card_on_item_purchased")),
+                    0
+                );
             } else {
                 GD.printErr("ShopPanel: Node sinh ra không phải là ShopCard!");
             }
@@ -105,5 +111,50 @@ public class ShopPanel extends Panel {
     @RegisterFunction
     public void _on_next_wave_button_pressed() {
         onShopNextWave.emit();
+    }
+
+    @RegisterFunction
+    public void _on_shop_card_on_item_purchased(ItemBase purchasedItem) {
+        if (Global.instance.itemCardScene == null) {
+            GD.printErr("ShopPanel: Chưa gán itemCardScene trong Global!");
+            return;
+        }
+
+        Node cardInstanceNode = Global.instance.itemCardScene.instantiate();
+        if (cardInstanceNode instanceof ItemCard) {
+            ItemCard cardInstance = (ItemCard) cardInstanceNode;
+
+            // Kết nối tín hiệu khi click vào thẻ ItemCard (dùng cho video sau)
+            cardInstance.onItemCardSelected.connect(
+                godot.core.Callable.create(this, new godot.core.StringName("_on_item_card_selected")),
+                0
+            );
+
+            // Kiểm tra xem món đồ vừa mua có phải là vũ khí không
+            if (purchasedItem != null && purchasedItem.itemType == ItemBase.ItemType.WEAPON) {
+                if (weaponsContainer != null) {
+                    weaponsContainer.addChild(cardInstance);
+                }
+
+                // Ép kiểu sang ItemWeapon để ném cho Player
+                if (purchasedItem instanceof game.resources.items.weapons.ItemWeapon) {
+                    game.resources.items.weapons.ItemWeapon weapon = (game.resources.items.weapons.ItemWeapon) purchasedItem;
+                    
+                    if (Global.player != null) {
+                        Global.player.addWeapon(weapon);
+                    }
+                    Global.instance.equippedWeapons.add(weapon);
+                }
+
+                // Cập nhật giao diện hình ảnh và khung cho thẻ
+                cardInstance.setItem(purchasedItem);
+            }
+        }
+    }
+
+    @RegisterFunction
+    public void _on_item_card_selected(ItemCard card) {
+        // Dùng cho logic ghép vũ khí ở video tiếp theo
+        GD.print("Đã chọn thẻ vũ khí: " + card.item.itemName);
     }
 }

@@ -44,7 +44,11 @@ public class Global extends Node {
     @RegisterSignal
     public Signal1<game.entity.enemies.Enemy> onEnemyDied = Signal1.create(this, "onEnemyDied");
 
+    public PackedScene itemCardScene;
+
     public PackedScene coinsScene;
+
+    public java.util.List<game.resources.items.weapons.ItemWeapon> equippedWeapons = new java.util.ArrayList<>();
 
 
     @RegisterFunction
@@ -54,6 +58,7 @@ public class Global extends Node {
         FLASH_MATERIAL = (ShaderMaterial) ResourceLoader.load("res://effects/flash_material.tres");
         floatingTextScene = (PackedScene) ResourceLoader.load("res://effects/floating_text.tscn");
         coinsScene = (PackedScene) ResourceLoader.load("res://scenes/coins/coins.tscn");
+        itemCardScene = (PackedScene) ResourceLoader.load("res://scenes/ui/item_card/item_card.tscn");
         
         // Tự động load các Style màu thẻ từ thư mục styles (khỏi cần kéo thả tay)
         commonStyle = (godot.api.StyleBoxFlat) ResourceLoader.load("res://styles/common_style.tres");

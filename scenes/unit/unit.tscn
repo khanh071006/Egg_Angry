@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://3ltab4xt014s"]
+[gd_scene load_steps=13 format=3 uid="uid://3ltab4xt014s"]
 
 [ext_resource type="Script" uid="uid://chn4qdpi4d6kx" path="res://gdj/game/entity/BaseUnit.gdj" id="1_3po7s"]
 [ext_resource type="Texture2D" uid="uid://devt2xbk78rej" path="res://gdj/game/Game+Assets/assets/sprites/shadow.png" id="1_vh40f"]
+[ext_resource type="Texture2D" uid="uid://4mllmwdfhmce" path="res://gdj/game/Game+Assets/assets/sprites/Enemies/Enemy_4.png" id="3_0wuuu"]
 [ext_resource type="PackedScene" uid="uid://bbq6idxk4cpsb" path="res://scenes/component/hurtbox_component.tscn" id="3_vh40f"]
 [ext_resource type="PackedScene" uid="uid://oc25wqt8ykxq" path="res://scenes/component/heath_component.tscn" id="4_bhlit"]
 [ext_resource type="PackedScene" uid="uid://b16t4cqpolric" path="res://scenes/ui/health_bar.tscn" id="5_vgvef"]
@@ -218,6 +219,7 @@ texture = ExtResource("1_vh40f")
 [node name="Sprite" type="Sprite2D" parent="Visuals"]
 unique_name_in_owner = true
 position = Vector2(2, -62)
+texture = ExtResource("3_0wuuu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
