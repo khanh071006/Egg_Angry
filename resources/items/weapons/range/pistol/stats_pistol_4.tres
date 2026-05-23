@@ -5,9 +5,9 @@
 
 [resource]
 script = ExtResource("2_hrw3j")
-damage = 75.0
-accuracy = 1.0
-cooldown = 0.25
+damage = 36.0
+accuracy = 0.9
+cooldown = 0.6
 crit_chance = 0.2
 max_range = 600.0
 knockback = 1.0

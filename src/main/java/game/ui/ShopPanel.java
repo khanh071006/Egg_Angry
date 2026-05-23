@@ -33,6 +33,8 @@ public class ShopPanel extends Panel {
     private Node weaponsContainer;
     private godot.api.Button combineButton;
     private ItemCard contextCard;
+    private int currentWave;
+    private godot.api.Label titleLabel;
 
     @RegisterFunction
     @Override
@@ -41,6 +43,7 @@ public class ShopPanel extends Panel {
         passivesContainer = getNodeOrNull("%PassivesContainer");
         weaponsContainer = getNodeOrNull("%WeaponsContainer");
         combineButton = (godot.api.Button) getNodeOrNull("%CombineButton");
+        titleLabel = (godot.api.Label) getNodeOrNull("%Title");
 
         if (passivesContainer != null) {
             VariantArray<Node> children = passivesContainer.getChildren();
@@ -61,6 +64,12 @@ public class ShopPanel extends Panel {
 
     @RegisterFunction
     public void loadShop(int currentWave) {
+        this.currentWave = currentWave;
+        
+        if (titleLabel != null) {
+            titleLabel.setText("SHOP (WAVE " + currentWave + ")");
+        }
+
         if (itemsContainer != null) {
             VariantArray<Node> children = itemsContainer.getChildren();
             for (int i = 0; i < children.size(); i++) {
@@ -325,5 +334,29 @@ public class ShopPanel extends Panel {
 
         Global.coins += coins;
         GD.print("Đã bán thành công! Tổng tiền hiện tại: " + Global.coins);
+    }
+
+    @RegisterFunction
+    public void _on_roll_button_pressed() {
+        int rollCost = 2; // Bạn có thể thay đổi giá Roll ở đây
+
+        if (Global.coins < rollCost) {
+            GD.print("Không đủ tiền để Roll! Cần " + rollCost + " xu, hiện có " + Global.coins + " xu.");
+            return;
+        }
+
+        // Trừ tiền
+        Global.coins -= rollCost;
+        GD.print("Đã Roll cửa hàng! Bị trừ " + rollCost + " xu. Tiền còn lại: " + Global.coins);
+
+        // Nạp lại các thẻ vào cửa hàng với Wave hiện tại
+        loadShop(this.currentWave);
+
+        // Xóa lựa chọn hiện tại để tránh lỗi
+        this.contextCard = null;
+        Global.instance.selectedWeapon = null;
+        if (combineButton != null) {
+            combineButton.setDisabled(true);
+        }
     }
 }

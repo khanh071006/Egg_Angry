@@ -6,14 +6,15 @@
 script = ExtResource("1_p58lq")
 damage = 3.0
 accuracy = 0.9
-cooldown = 0.25
+cooldown = 0.2
 crit_chance = 0.02
 crit_damage = 1.2
 max_range = 235.0
-knockback = 0.2
+knockback = 0.0
 recoil = 5.0
 recoil_duration = 0.05
 attack_duration = 0.05
 back_duration = 0.1
 projectile_speed = 1600.0
+lifesteal = 0.05
 metadata/_custom_type_script = "uid://bwod6o4yfvkuf"

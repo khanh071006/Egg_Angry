@@ -23,5 +23,5 @@ stats = SubResource("Resource_hfoo1")
 upgrade_to = ExtResource("4_hfoo1")
 item_name = "Punch 1"
 item_icon = ExtResource("1_0ag6p")
-item_cost = 12
+item_cost = 10
 metadata/_custom_type_script = "uid://bql6f74ltjh1f"

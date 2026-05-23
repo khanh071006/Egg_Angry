@@ -4,12 +4,12 @@
 
 [resource]
 script = ExtResource("1_6ht4q")
-damage = 18.0
+damage = 20.0
 accuracy = 0.75
-cooldown = 1.4
-crit_damage = 2.0
+cooldown = 1.2
+crit_damage = 2.5
 max_range = 160.0
-knockback = 2.5
+knockback = 3.0
 recoil_duration = 0.2
 attack_duration = 0.15
 back_duration = 0.4

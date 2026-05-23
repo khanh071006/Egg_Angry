@@ -14,5 +14,5 @@ upgrade_to = ExtResource("4_ayqqp")
 item_name = "Axe 2"
 item_icon = ExtResource("1_wd6yw")
 item_tier = 1
-item_cost = 12
+item_cost = 40
 metadata/_custom_type_script = "uid://bql6f74ltjh1f"

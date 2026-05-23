@@ -6,10 +6,10 @@
 script = ExtResource("1_owe1m")
 damage = 15.0
 accuracy = 0.85
-cooldown = 1.2
-crit_damage = 1.8
+cooldown = 1.0
+crit_damage = 1.5
 max_range = 250.0
-knockback = 2.0
+knockback = 5.0
 recoil = 20.0
 recoil_duration = 0.18
 attack_duration = 0.12

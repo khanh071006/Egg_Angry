@@ -5,9 +5,9 @@
 
 [resource]
 script = ExtResource("2_sd1md")
-damage = 8.0
-accuracy = 0.82
-cooldown = 0.09
+damage = 6.0
+accuracy = 0.7
+cooldown = 0.15
 crit_chance = 0.05
 max_range = 360.0
 knockback = 0.1
@@ -16,5 +16,5 @@ recoil_duration = 0.04
 attack_duration = 0.08
 back_duration = 0.15
 projectile_scene = ExtResource("1_dyw4e")
-projectile_speed = 1100.0
+projectile_speed = 1000.0
 metadata/_custom_type_script = "uid://bwod6o4yfvkuf"

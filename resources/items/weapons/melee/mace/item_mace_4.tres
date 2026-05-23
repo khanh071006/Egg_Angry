@@ -12,5 +12,5 @@ stats = ExtResource("3_oy2qe")
 item_name = "Mace 4"
 item_icon = ExtResource("1_owkuy")
 item_tier = 3
-item_cost = 12
+item_cost = 160
 metadata/_custom_type_script = "uid://bql6f74ltjh1f"

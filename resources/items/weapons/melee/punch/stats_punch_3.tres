@@ -6,8 +6,9 @@
 script = ExtResource("1_jst7l")
 damage = 16.0
 accuracy = 1.0
-cooldown = 0.9
-max_range = 180.0
+cooldown = 0.4
+max_range = 100.0
 knockback = 1.0
 projectile_speed = 1600.0
+crit_damage = 1.5
 metadata/_custom_type_script = "uid://bwod6o4yfvkuf"

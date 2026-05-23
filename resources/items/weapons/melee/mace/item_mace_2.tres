@@ -14,5 +14,5 @@ upgrade_to = ExtResource("4_cfy02")
 item_name = "Mace 2"
 item_icon = ExtResource("1_6yo20")
 item_tier = 1
-item_cost = 12
+item_cost = 40
 metadata/_custom_type_script = "uid://bql6f74ltjh1f"

@@ -17,5 +17,5 @@ upgrade_to = SubResource("Resource_17gfa")
 item_name = "Revolver 4"
 item_icon = ExtResource("1_jqy67")
 item_tier = 3
-item_cost = 12
+item_cost = 200
 metadata/_custom_type_script = "uid://bql6f74ltjh1f"

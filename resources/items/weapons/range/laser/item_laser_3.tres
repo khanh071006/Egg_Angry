@@ -15,5 +15,5 @@ upgrade_to = ExtResource("4_6s16p")
 item_name = "Laser 3"
 item_icon = ExtResource("1_ynpba")
 item_tier = 2
-item_cost = 12
+item_cost = 100
 metadata/_custom_type_script = "uid://bql6f74ltjh1f"

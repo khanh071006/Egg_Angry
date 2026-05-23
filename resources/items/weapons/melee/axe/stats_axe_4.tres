@@ -4,13 +4,13 @@
 
 [resource]
 script = ExtResource("1_ckmnv")
-damage = 55.0
+damage = 60.0
 accuracy = 0.9
-cooldown = 0.9
+cooldown = 1.2
 crit_chance = 0.12
-crit_damage = 3.0
+crit_damage = 2.5
 max_range = 190.0
-knockback = 6.0
+knockback = 3.0
 recoil = 35.0
 recoil_duration = 0.12
 attack_duration = 0.09

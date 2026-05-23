@@ -4,13 +4,13 @@
 
 [resource]
 script = ExtResource("1_t3rae")
-damage = 16.0
+damage = 18.0
 accuracy = 0.97
 cooldown = 0.8
 crit_chance = 0.12
-crit_damage = 1.8
-max_range = 290.0
-knockback = 1.4
+crit_damage = 1.5
+max_range = 180.0
+knockback = 1.5
 recoil = 15.0
 recoil_duration = 0.11
 attack_duration = 0.09

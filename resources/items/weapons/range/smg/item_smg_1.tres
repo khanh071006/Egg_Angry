@@ -14,5 +14,5 @@ stats = ExtResource("3_x1xia")
 upgrade_to = ExtResource("4_x1xia")
 item_name = "SMG 1"
 item_icon = ExtResource("1_x1xia")
-item_cost = 12
+item_cost = 15
 metadata/_custom_type_script = "uid://bql6f74ltjh1f"

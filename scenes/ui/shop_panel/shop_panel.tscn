@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=3 uid="uid://ctt2p32oijfgi"]
+[gd_scene load_steps=59 format=3 uid="uid://ctt2p32oijfgi"]
 
 [ext_resource type="PackedScene" uid="uid://bdd8nkexbhhnj" path="res://scenes/ui/shop_card/shop_card.tscn" id="1_chkkr"]
 [ext_resource type="Script" uid="uid://bccla7bggh2ji" path="res://gdj/game/ui/ShopPanel.gdj" id="1_whl1y"]
@@ -50,6 +50,8 @@
 [ext_resource type="Resource" uid="uid://c0jsbipmhu7rj" path="res://resources/items/weapons/range/smg/item_smg_4.tres" id="46_im8v7"]
 [ext_resource type="PackedScene" uid="uid://4nqrnly4425y" path="res://scenes/ui/item_card/item_card.tscn" id="48_kche8"]
 [ext_resource type="PackedScene" uid="uid://btrhknbg3yyrh" path="res://scenes/ui/coins_bag/coins_bag.tscn" id="49_pk1f0"]
+[ext_resource type="Texture2D" uid="uid://chm4srsn6xd8y" path="res://gdj/game/Game+Assets/assets/sprites/Gold/gold_1.png" id="CoinTex"]
+[ext_resource type="PackedScene" uid="uid://bgrva6i5a6w5t" path="res://scenes/ui/custom_button/custom_button.tscn" id="CustomButton"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vr486"]
 bg_color = Color(0.20392157, 0.20392157, 0.20392157, 1)
@@ -103,18 +105,58 @@ grow_vertical = 2
 [node name="Control" type="Control" parent="MarginContainer"]
 layout_mode = 2
 
-[node name="Title" type="Label" parent="MarginContainer/Control"]
+[node name="TopBar" type="HBoxContainer" parent="MarginContainer/Control"]
 layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -89.5
+offset_left = 20.0
 offset_top = 15.0
-offset_right = 89.5
-offset_bottom = 92.333336
-grow_horizontal = 2
-text = "shop"
+offset_right = 1348.0
+offset_bottom = 111.0
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="Title" type="Label" parent="MarginContainer/Control/TopBar"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "SHOP"
 label_settings = SubResource("LabelSettings_uw7t7")
+
+[node name="Spacer1" type="Control" parent="MarginContainer/Control/TopBar"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CoinsBag" parent="MarginContainer/Control/TopBar" instance=ExtResource("49_pk1f0")]
+layout_mode = 2
+
+[node name="Spacer2" type="Control" parent="MarginContainer/Control/TopBar"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="RollButton" parent="MarginContainer/Control/TopBar" instance=ExtResource("CustomButton")]
+custom_minimum_size = Vector2(320, 70)
+layout_mode = 2
+text = ""
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Control/TopBar/RollButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="LabelRoll" type="Label" parent="MarginContainer/Control/TopBar/RollButton/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Roll 2"
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/Control/TopBar/RollButton/HBoxContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("CoinTex")
+expand_mode = 1
+stretch_mode = 5
 
 [node name="ItemsContainer" type="HBoxContainer" parent="MarginContainer/Control"]
 unique_name_in_owner = true
@@ -329,16 +371,9 @@ text = "Combine"
 layout_mode = 2
 theme_override_font_sizes/font_size = 48
 theme_override_styles/normal = SubResource("StyleBoxFlat_fjhgy")
-text = "shell
-"
+text = "shell"
 
-[node name="CoinsBag" parent="." instance=ExtResource("49_pk1f0")]
-layout_mode = 0
-offset_left = 0.0
-offset_top = 0.0
-offset_right = 149.0
-offset_bottom = 96.0
-
+[connection signal="pressed" from="MarginContainer/Control/TopBar/RollButton" to="." method="_on_roll_button_pressed"]
 [connection signal="pressed" from="MarginContainer/Control/VBoxContainer/NextWaveButton" to="." method="_on_next_wave_button_pressed"]
 [connection signal="pressed" from="MarginContainer/Control/VBoxContainer/CombineButton" to="." method="_on_combine_button_pressed"]
 [connection signal="pressed" from="MarginContainer/Control/VBoxContainer/SellButton" to="." method="_on_sell_button_pressed"]

@@ -4,13 +4,13 @@
 
 [resource]
 script = ExtResource("1_ct6ov")
-damage = 20.0
+damage = 30.0
 accuracy = 1.0
-cooldown = 0.35
-crit_chance = 0.35
-crit_damage = 3.0
+cooldown = 0.9
+crit_chance = 0.2
+crit_damage = 2.0
 max_range = 285.0
-knockback = 1.5
+knockback = 1.0
 recoil = 12.0
 recoil_duration = 0.05
 attack_duration = 0.05
