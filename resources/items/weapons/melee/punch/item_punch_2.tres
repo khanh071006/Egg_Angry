@@ -12,6 +12,7 @@ weapon_scene = ExtResource("5_igce5")
 stats = ExtResource("3_amj6w")
 upgrade_to = ExtResource("4_igce5")
 item_name = "Punch 2"
+item_tier = 1
 item_icon = ExtResource("1_wrw2j")
 item_cost = 20
 metadata/_custom_type_script = "uid://bql6f74ltjh1f"

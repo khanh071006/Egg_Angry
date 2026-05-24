@@ -8,7 +8,11 @@
 [ext_resource type="Resource" uid="uid://dqrt363axanpe" path="res://resources/units/players/stats_player_well_rounded.tres" id="5_jgfk2"]
 [ext_resource type="Script" uid="uid://cqy82on6oilua" path="res://gdj/game/entity/enemies/Spawner.gdj" id="7_2g53k"]
 [ext_resource type="Script" uid="uid://cjecllwrga6ph" path="res://gdj/game/resources/waves/WaveData.gdj" id="8_g06lh"]
-[ext_resource type="Resource" uid="uid://cyw8lnqs80gun" path="res://resources/waves/wave_1_to_5.tres" id="9_2ri42"]
+[ext_resource type="Resource" uid="uid://yz7uk6awscmem" path="res://resources/waves/wave_1_to_3.tres" id="wave_1_3"]
+[ext_resource type="Resource" uid="uid://bwjep82on7ijs" path="res://resources/waves/wave_4_to_6.tres" id="wave_4_6"]
+[ext_resource type="Resource" uid="uid://4rwdwixppe0js" path="res://resources/waves/wave_7_to_10.tres" id="wave_7_10"]
+[ext_resource type="Resource" uid="uid://eeiqe7qom4fwe" path="res://resources/waves/wave_11_to_15.tres" id="wave_11_15"]
+[ext_resource type="Resource" uid="uid://c1toi4ngo4e9c" path="res://resources/waves/wave_16_to_20.tres" id="wave_16_20"]
 [ext_resource type="PackedScene" uid="uid://btrhknbg3yyrh" path="res://scenes/ui/coins_bag/coins_bag.tscn" id="10_cx6kx"]
 [ext_resource type="PackedScene" uid="uid://fk6w23e0taua" path="res://scenes/ui/upgrade_panel/upgrade_panel.tscn" id="10_g06lh"]
 [ext_resource type="PackedScene" uid="uid://ctt2p32oijfgi" path="res://scenes/ui/shop_panel/shop_panel.tscn" id="11_2ri42"]
@@ -45,7 +49,7 @@ script = ExtResource("5_faeup")
 
 [node name="Spawner" type="Node2D" parent="."]
 script = ExtResource("7_2g53k")
-waves_data = Array[ExtResource("8_g06lh")]([ExtResource("9_2ri42")])
+waves_data = Array[ExtResource("8_g06lh")]([ExtResource("wave_1_3"), ExtResource("wave_4_6"), ExtResource("wave_7_10"), ExtResource("wave_11_15"), ExtResource("wave_16_20")])
 
 [node name="SpawnTimer" type="Timer" parent="Spawner"]
 one_shot = true

@@ -161,6 +161,19 @@ public class ShopPanel extends Panel {
                 // Cập nhật giao diện hình ảnh và khung cho thẻ
                 cardInstance.setItem(purchasedItem);
             }
+            // KIỂM TRA NẾU LÀ VẬT PHẨM BỊ ĐỘNG (PASSIVE)
+            else if (purchasedItem != null && purchasedItem.itemType == ItemBase.ItemType.PASSIVE) {
+                if (passivesContainer != null) {
+                    passivesContainer.addChild(cardInstance);
+                }
+
+                if (purchasedItem instanceof game.resources.items.ItemPassive) {
+                    game.resources.items.ItemPassive passive = (game.resources.items.ItemPassive) purchasedItem;
+                    passive.applyPassive();
+                }
+
+                cardInstance.setItem(purchasedItem);
+            }
         }
     }
 

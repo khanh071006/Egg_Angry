@@ -22,6 +22,7 @@ import game.items.weapons.melee.MeleeBehavior
 import game.items.weapons.projectiles.Projectile
 import game.items.weapons.range.RangeBehavior
 import game.resources.items.ItemBase
+import game.resources.items.ItemPassive
 import game.resources.items.upgrades.ItemUpgrade
 import game.resources.items.weapons.ItemWeapon
 import game.resources.items.weapons.WeaponStats
@@ -55,6 +56,7 @@ import godot.entry.HitBoxComponentRegistrar
 import godot.entry.HurtBoxComponentRegistrar
 import godot.entry.ItemBaseRegistrar
 import godot.entry.ItemCardRegistrar
+import godot.entry.ItemPassiveRegistrar
 import godot.entry.ItemUpgradeRegistrar
 import godot.entry.ItemWeaponRegistrar
 import godot.entry.MeleeBehaviorRegistrar
@@ -90,7 +92,7 @@ import kotlin.collections.listOf
 import kotlin.reflect.KClass
 
 public class Entry : Entry() {
-  public override val classRegistrarCount: Int = 38
+  public override val classRegistrarCount: Int = 39
 
   public override val projectName: String = "project-3"
 
@@ -118,6 +120,7 @@ public class Entry : Entry() {
     WeaponRegistrar().register(registry)
     WeaponBehaviorRegistrar().register(registry)
     ItemBaseRegistrar().register(registry)
+    ItemPassiveRegistrar().register(registry)
     ItemUpgradeRegistrar().register(registry)
     ItemWeaponRegistrar().register(registry)
     WeaponStatsRegistrar().register(registry)
@@ -147,8 +150,8 @@ public class Entry : Entry() {
       ChaserBehavior::class, Enemy::class, ShootingBehavior::class, Spawner::class, Player::class,
       WeaponContainer::class, Coins::class, MeleeBehavior::class, Projectile::class,
       RangeBehavior::class, Weapon::class, WeaponBehavior::class, ItemBase::class,
-      ItemUpgrade::class, ItemWeapon::class, WeaponStats::class, EnemyStats::class,
-      PlayerStats::class, UnitStats::class, CoinsBag::class, FloatingText::class, HealthBar::class,
-      ItemCard::class, ShopCard::class, ShopPanel::class, StatsContainer::class, UpgradeCard::class,
-      UpgradePanel::class)
+      ItemPassive::class, ItemUpgrade::class, ItemWeapon::class, WeaponStats::class,
+      EnemyStats::class, PlayerStats::class, UnitStats::class, CoinsBag::class, FloatingText::class,
+      HealthBar::class, ItemCard::class, ShopCard::class, ShopPanel::class, StatsContainer::class,
+      UpgradeCard::class, UpgradePanel::class)
 }

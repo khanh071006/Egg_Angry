@@ -10,6 +10,7 @@ script = ExtResource("2_503wk")
 weapon_scene = ExtResource("4_503wk")
 stats = ExtResource("3_f1uf4")
 item_name = "Punch 4"
+item_tier = 3
 item_icon = ExtResource("1_f1uf4")
 item_cost = 80
 metadata/_custom_type_script = "uid://bql6f74ltjh1f"

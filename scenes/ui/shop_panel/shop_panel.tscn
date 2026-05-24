@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=3 uid="uid://ctt2p32oijfgi"]
+[gd_scene load_steps=63 format=3 uid="uid://ctt2p32oijfgi"]
 
 [ext_resource type="PackedScene" uid="uid://bdd8nkexbhhnj" path="res://scenes/ui/shop_card/shop_card.tscn" id="1_chkkr"]
 [ext_resource type="Script" uid="uid://bccla7bggh2ji" path="res://gdj/game/ui/ShopPanel.gdj" id="1_whl1y"]
@@ -50,6 +50,10 @@
 [ext_resource type="Resource" uid="uid://c0jsbipmhu7rj" path="res://resources/items/weapons/range/smg/item_smg_4.tres" id="46_im8v7"]
 [ext_resource type="PackedScene" uid="uid://4nqrnly4425y" path="res://scenes/ui/item_card/item_card.tscn" id="48_kche8"]
 [ext_resource type="PackedScene" uid="uid://btrhknbg3yyrh" path="res://scenes/ui/coins_bag/coins_bag.tscn" id="49_pk1f0"]
+[ext_resource type="Resource" path="res://resources/items/passives/passive_powerball.tres" id="50_pass"]
+[ext_resource type="Resource" path="res://resources/items/passives/passive_cape.tres" id="51_pass"]
+[ext_resource type="Resource" path="res://resources/items/passives/passive_mighty_sword.tres" id="52_pass"]
+[ext_resource type="Resource" path="res://resources/items/passives/passive_rage.tres" id="53_pass"]
 [ext_resource type="Texture2D" uid="uid://chm4srsn6xd8y" path="res://gdj/game/Game+Assets/assets/sprites/Gold/gold_1.png" id="CoinTex"]
 [ext_resource type="PackedScene" uid="uid://bgrva6i5a6w5t" path="res://scenes/ui/custom_button/custom_button.tscn" id="CustomButton"]
 
@@ -92,7 +96,7 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_vr486")
 script = ExtResource("1_whl1y")
 shop_card_scene = ExtResource("1_chkkr")
-shop_items = Array[Resource]([ExtResource("3_7w8xb"), ExtResource("4_pk1f0"), ExtResource("5_kche8"), ExtResource("6_rqkor"), ExtResource("7_xnsbf"), ExtResource("8_xbu4e"), ExtResource("9_y7i7l"), ExtResource("10_fjngo"), ExtResource("11_5i27n"), ExtResource("12_k3s3w"), ExtResource("13_2vdj1"), ExtResource("14_ihhbf"), ExtResource("15_53gyu"), ExtResource("16_n11x8"), ExtResource("17_lbitd"), ExtResource("18_opy2p"), ExtResource("19_gagqw"), ExtResource("20_g1acl"), ExtResource("21_c0evr"), ExtResource("22_a7jr8"), ExtResource("23_wulif"), ExtResource("24_untf5"), ExtResource("25_krbbd"), ExtResource("26_8ixtr"), ExtResource("27_hqsig"), ExtResource("28_uajrh"), ExtResource("29_v2hjx"), ExtResource("30_x7akd"), ExtResource("31_8rj52"), ExtResource("32_i7qex"), ExtResource("33_5m0on"), ExtResource("34_tgups"), ExtResource("35_6y4td"), ExtResource("36_5x65n"), ExtResource("37_y60t3"), ExtResource("38_2a2sb"), ExtResource("39_0sk5k"), ExtResource("40_nwqyi"), ExtResource("41_jn76n"), ExtResource("42_boajf"), ExtResource("43_egjfh"), ExtResource("44_8bxa0"), ExtResource("45_bg42t"), ExtResource("46_im8v7")])
+shop_items = Array[Resource]([ExtResource("3_7w8xb"), ExtResource("4_pk1f0"), ExtResource("5_kche8"), ExtResource("6_rqkor"), ExtResource("7_xnsbf"), ExtResource("8_xbu4e"), ExtResource("9_y7i7l"), ExtResource("10_fjngo"), ExtResource("11_5i27n"), ExtResource("12_k3s3w"), ExtResource("13_2vdj1"), ExtResource("14_ihhbf"), ExtResource("15_53gyu"), ExtResource("16_n11x8"), ExtResource("17_lbitd"), ExtResource("18_opy2p"), ExtResource("19_gagqw"), ExtResource("20_g1acl"), ExtResource("21_c0evr"), ExtResource("22_a7jr8"), ExtResource("23_wulif"), ExtResource("24_untf5"), ExtResource("25_krbbd"), ExtResource("26_8ixtr"), ExtResource("27_hqsig"), ExtResource("28_uajrh"), ExtResource("29_v2hjx"), ExtResource("30_x7akd"), ExtResource("31_8rj52"), ExtResource("32_i7qex"), ExtResource("33_5m0on"), ExtResource("34_tgups"), ExtResource("35_6y4td"), ExtResource("36_5x65n"), ExtResource("37_y60t3"), ExtResource("38_2a2sb"), ExtResource("39_0sk5k"), ExtResource("40_nwqyi"), ExtResource("41_jn76n"), ExtResource("42_boajf"), ExtResource("43_egjfh"), ExtResource("44_8bxa0"), ExtResource("45_bg42t"), ExtResource("46_im8v7"), ExtResource("50_pass"), ExtResource("51_pass"), ExtResource("52_pass"), ExtResource("53_pass")])
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1

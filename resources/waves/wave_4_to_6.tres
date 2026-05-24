@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="WaveData" load_steps=9 format=3 uid="uid://bwjep82on7ijs"]
+
+[ext_resource type="Script" uid="uid://cjecllwrga6ph" path="res://gdj/game/resources/waves/WaveData.gdj" id="1_script"]
+[ext_resource type="Script" uid="uid://bf8v16a6b8yrh" path="res://gdj/game/resources/waves/WaveUnitData.gdj" id="2_script"]
+[ext_resource type="PackedScene" uid="uid://necfel4mlt5p" path="res://scenes/unit/enemy_chaser.tscn" id="3_scene_chaser"]
+[ext_resource type="Resource" uid="uid://rlcn4ik6vjrh" path="res://resources/units/enemies/stats_enemy_chaser.tres" id="3_stats_chaser"]
+[ext_resource type="PackedScene" uid="uid://csgo4bq2fnuri" path="res://scenes/unit/enemy_chaser_fast.tscn" id="4_scene_fast"]
+[ext_resource type="Resource" uid="uid://05y2amr2nbu7" path="res://resources/units/enemies/stats_enemy_chaser_fast.tres" id="4_stats_fast"]
+
+[sub_resource type="Resource" id="Resource_unit_1"]
+script = ExtResource("2_script")
+unit_scene = ExtResource("3_scene_chaser")
+weight = 7.0
+unit_stats = ExtResource("3_stats_chaser")
+metadata/_custom_type_script = "uid://bf8v16a6b8yrh"
+
+[sub_resource type="Resource" id="Resource_unit_2"]
+script = ExtResource("2_script")
+unit_scene = ExtResource("4_scene_fast")
+weight = 3.0
+unit_stats = ExtResource("4_stats_fast")
+metadata/_custom_type_script = "uid://bf8v16a6b8yrh"
+
+[resource]
+script = ExtResource("1_script")
+from = 4
+to = 6
+wave_time = 30
+units = Array[ExtResource("2_script")]([SubResource("Resource_unit_1"), SubResource("Resource_unit_2")])

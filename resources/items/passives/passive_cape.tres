@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemPassive" load_steps=3 format=3 uid="uid://d1pny6lhsh1vv"]
+
+[ext_resource type="Texture2D" uid="uid://d3p6i6cxnf1sy" path="res://assets/sprites/Upgrades/4.png" id="1_jqmru"]
+[ext_resource type="Script" uid="uid://dei327lfm0ybu" path="res://gdj/game/resources/items/ItemPassive.gdj" id="2_script"]
+
+[resource]
+script = ExtResource("2_script")
+add_value = 5.0
+add_stat = "lifesteal"
+remove_value = 2.0
+remove_stat = "health"
+item_name = "Cape Quick Load"
+item_icon = ExtResource("1_jqmru")
+item_cost = 22
