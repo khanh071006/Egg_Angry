@@ -17,6 +17,7 @@ public class Global extends Node {
     // ĐÂY LÀ BIẾN TOÀN CẦU! Ai cũng có thể truy cập nó!
     public static Player player;
     public static ShaderMaterial FLASH_MATERIAL;
+    public static ShaderMaterial OUTLINE_MATERIAL;
     public static Global instance;
     public static PackedScene floatingTextScene;
     public static boolean isAttack = true;
@@ -57,6 +58,7 @@ public class Global extends Node {
     public void _ready() {
         // Load file .tres mà bạn đã tạo từ Shader ở bước 1
         FLASH_MATERIAL = (ShaderMaterial) ResourceLoader.load("res://effects/flash_material.tres");
+        OUTLINE_MATERIAL = (ShaderMaterial) ResourceLoader.load("res://shaders/outline_material.tres");
         floatingTextScene = (PackedScene) ResourceLoader.load("res://effects/floating_text.tscn");
         coinsScene = (PackedScene) ResourceLoader.load("res://scenes/coins/coins.tscn");
         itemCardScene = (PackedScene) ResourceLoader.load("res://scenes/ui/item_card/item_card.tscn");
@@ -193,6 +195,21 @@ public class Global extends Node {
                 return epicStyle;
             default:
                 return legendaryStyle;
+        }
+    }
+
+    // --- HÀM LẤY MÀU VIỀN DỰA TRÊN ĐỘ HIẾM (TIER) ---
+    public godot.core.Color getTierColor(UpgradeTier tier) {
+        if (tier == null) return new godot.core.Color(1.0f, 1.0f, 1.0f, 1.0f); // Default white
+        switch (tier) {
+            case RARE:
+                return new godot.core.Color(0.0f, 0.557f, 0.741f, 1.0f);
+            case EPIC:
+                return new godot.core.Color(0.478f, 0.251f, 0.71f, 1.0f);
+            case LEGENDARY:
+                return new godot.core.Color(0.906f, 0.212f, 0.212f, 1.0f);
+            default:
+                return new godot.core.Color(1.0f, 1.0f, 1.0f, 1.0f);
         }
     }
 

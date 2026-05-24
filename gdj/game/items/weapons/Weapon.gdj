@@ -26,6 +26,7 @@ functions = [
 	_process,
 	_ready,
 	setup_weapon,
+	apply_tier_outline,
 	can_use_weapon,
 	_on_range_area_area_entered,
 	_on_range_area_area_exited,

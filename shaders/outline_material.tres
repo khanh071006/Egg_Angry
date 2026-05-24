@@ -1,0 +1,10 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://ta1p0trwbexy"]
+
+[ext_resource type="Shader" uid="uid://dsb5vuhemmd8e" path="res://shaders/outline.gdshader" id="1_x"]
+
+[resource]
+resource_local_to_scene = true
+shader = ExtResource("1_x")
+shader_parameter/outline_color = Color(1, 1, 1, 1)
+shader_parameter/outline_width = 8.00000038
+shader_parameter/glow_intensity = 5.0

@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://b4wkibpbsncdl"]
+[gd_scene load_steps=6 format=3 uid="uid://b4wkibpbsncdl"]
 
 [ext_resource type="Script" uid="uid://b0ihn8io4xc7o" path="res://gdj/game/items/weapons/Weapon.gdj" id="1_v4xn6"]
+[ext_resource type="Material" uid="uid://ta1p0trwbexy" path="res://shaders/outline_material.tres" id="2_cs7wt"]
 [ext_resource type="Script" uid="uid://gjf3rjhy2031" path="res://gdj/game/items/weapons/WeaponBehavior.gdj" id="2_uvw4m"]
+[ext_resource type="Texture2D" uid="uid://bbw1axlomamnl" path="res://assets/sprites/Weapons/Melee/Weapon_axe.png" id="3_no4jq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vffjk"]
 radius = 150.0
@@ -11,7 +13,9 @@ script = ExtResource("1_v4xn6")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 unique_name_in_owner = true
+material = ExtResource("2_cs7wt")
 scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_no4jq")
 
 [node name="RangeArea" type="Area2D" parent="."]
 collision_layer = 0

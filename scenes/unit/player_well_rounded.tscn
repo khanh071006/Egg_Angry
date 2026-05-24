@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://3ltab4xt014s" path="res://scenes/unit/unit.tscn" id="1_7pj5n"]
 [ext_resource type="Script" uid="uid://ceteilad77rgr" path="res://gdj/game/entity/Player.gdj" id="2_pn14a"]
 [ext_resource type="Resource" uid="uid://c7seiylrx3igi" path="res://resources/units/players/stats_player_crazy.tres" id="3_33ukp"]
-[ext_resource type="Texture2D" uid="uid://cproxhccob85g" path="res://gdj/game/Game+Assets/assets/sprites/Players/Player_1.png" id="3_fnkm0"]
+[ext_resource type="Texture2D" path="res://assets/sprites/Player/player_8.png" id="3_fnkm0"]
 [ext_resource type="Script" uid="uid://bh6x7q48mxnpg" path="res://gdj/game/animation/Trail.gdj" id="4_5i5rg"]
 [ext_resource type="Script" uid="uid://kxyeh3emxcab" path="res://gdj/game/entity/WeaponContainer.gdj" id="6_cnynf"]
 
@@ -41,6 +41,7 @@ player = NodePath("../..")
 [node name="Sprite" parent="Visuals" index="2"]
 z_index = 1
 texture = ExtResource("3_fnkm0")
+flip_h = true
 
 [node name="CollisionShape2D" parent="." index="1"]
 position = Vector2(2, -64)

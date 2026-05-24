@@ -73,6 +73,29 @@ public class Weapon extends Node2D {
             newShape.setRadius((float) data.stats.maxRange); // Cài tầm đánh
             collision.setShape(newShape); // Lắp vòng tròn mới vào vũ khí
         }
+        applyTierOutline();
+    }
+
+    @RegisterFunction
+    public void applyTierOutline() {
+        if (data == null || data.itemTier == Global.UpgradeTier.COMMON) {
+            if (sprite != null) {
+                sprite.setMaterial(null);
+            }
+            return;
+        }
+
+        godot.core.Color outlineColor = Global.instance.getTierColor(data.itemTier);
+
+        if (sprite != null && Global.OUTLINE_MATERIAL != null) {
+            ShaderMaterial material = (ShaderMaterial) Global.OUTLINE_MATERIAL.duplicate(false);
+            
+            // Chỉ ghi đè màu sắc theo Tier, các thông số khác (độ dày, glow)
+            // sẽ lấy tự động từ file outline_material.tres được chỉnh trong Godot Editor
+            material.setShaderParameter(new godot.core.StringName("outline_color"), outlineColor);
+            
+            sprite.setMaterial(material);
+        }
     }
 
     @RegisterFunction
