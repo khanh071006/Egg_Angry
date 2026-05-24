@@ -23,7 +23,8 @@ properties = [
     shop_item
 ]
 functions = [
-    _ready,
+    _process,
+	_ready,
 	set_shop_item,
 	_on_buy_button_pressed
 ]

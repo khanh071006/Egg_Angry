@@ -28,6 +28,7 @@ public class ShopCard extends Panel {
     private Label itemType;
     private RichTextLabel itemDescription;
     private Label coinsLabel;
+    private godot.api.Button buyButton;
 
     @RegisterFunction
     @Override
@@ -37,6 +38,9 @@ public class ShopCard extends Panel {
         itemType = (Label) getNodeOrNull("%ItemType");
         itemDescription = (RichTextLabel) getNodeOrNull("%ItemDescription");
         coinsLabel = (Label) getNodeOrNull("%CoinsLabel");
+        buyButton = (godot.api.Button) getNodeOrNull("MarginContainer/Control/BuyButton");
+        
+        setProcess(true);
     }
 
     @RegisterFunction
@@ -58,6 +62,11 @@ public class ShopCard extends Panel {
         }
         if (coinsLabel != null) {
             coinsLabel.setText(String.valueOf(value.itemCost));
+            // Tạo bản sao của LabelSettings để đổi màu không bị dính sang các thẻ khác
+            if (coinsLabel.getLabelSettings() != null) {
+                godot.api.LabelSettings newSettings = (godot.api.LabelSettings) coinsLabel.getLabelSettings().duplicate(false);
+                coinsLabel.setLabelSettings(newSettings);
+            }
         }
 
         godot.api.StyleBoxFlat style = Global.instance.getTierStyle(value.itemTier);
@@ -72,6 +81,27 @@ public class ShopCard extends Panel {
             onItemPurchased.emit(shopItem);
             Global.coins -= shopItem.itemCost;
             queueFree();
+        }
+    }
+
+    @RegisterFunction
+    @Override
+    public void _process(double delta) {
+        if (shopItem == null || coinsLabel == null) return;
+        
+        boolean notEnoughMoney = Global.coins < shopItem.itemCost;
+
+        godot.api.LabelSettings settings = coinsLabel.getLabelSettings();
+        if (settings != null) {
+            if (notEnoughMoney) {
+                settings.setFontColor(new godot.core.Color(1.0f, 0.0f, 0.0f, 1.0f));
+            } else {
+                settings.setFontColor(new godot.core.Color(1.0f, 1.0f, 1.0f, 1.0f));
+            }
+        }
+        
+        if (buyButton != null) {
+            buyButton.setDisabled(notEnoughMoney);
         }
     }
 }

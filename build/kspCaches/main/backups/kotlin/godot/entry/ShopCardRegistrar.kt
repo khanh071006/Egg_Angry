@@ -8,6 +8,7 @@ import godot.api.MultiplayerPeer.TransferMode.RELIABLE
 import godot.core.KtConstructor0
 import godot.core.KtRpcConfig
 import godot.core.PropertyHint.RESOURCE_TYPE
+import godot.core.VariantParser.DOUBLE
 import godot.core.VariantParser.NIL
 import godot.core.VariantParser.OBJECT
 import godot.registration.ClassRegistrar
@@ -26,7 +27,7 @@ import kotlin.collections.listOf
   "godot.api.Panel,godot.api.Control,godot.api.CanvasItem,godot.api.Node,godot.api.Object,godot.core.KtObject,godot.common.interop.NativeWrapper,godot.common.interop.NativePointer,kotlin.Any",
   "game.ui.ShopCard.onItemPurchased",
   "game.ui.ShopCard.shopItem",
-  "game.ui.ShopCard._ready,game.ui.ShopCard.setShopItem,game.ui.ShopCard._on_buy_button_pressed",
+  "game.ui.ShopCard._process,game.ui.ShopCard._ready,game.ui.ShopCard.setShopItem,game.ui.ShopCard._on_buy_button_pressed",
   true,
 )
 public open class ShopCardRegistrar : ClassRegistrar {
@@ -35,6 +36,7 @@ public open class ShopCardRegistrar : ClassRegistrar {
       registerClass<ShopCard>(listOf(), ShopCard::class, false, "Panel", "ShopCard", "src/main/java/game/ui/ShopCard.java", "gdj/game/ui/ShopCard.gdj") {
         constructor(KtConstructor0(::ShopCard))
         notificationFunctions(listOf())
+        function(ShopCard::_process, NIL, DOUBLE, KtFunctionArgument(DOUBLE, "kotlin.Double", "delta"), KtFunctionArgument(NIL, "kotlin.Unit"), KtRpcConfig(DISABLED.id.toInt(), false, RELIABLE.id.toInt(), 0))
         function(ShopCard::_ready, NIL, KtFunctionArgument(NIL, "kotlin.Unit"), KtRpcConfig(DISABLED.id.toInt(), false, RELIABLE.id.toInt(), 0))
         function(ShopCard::setShopItem, NIL, OBJECT, KtFunctionArgument(OBJECT, "game.resources.items.ItemBase", "value"), KtFunctionArgument(NIL, "kotlin.Unit"), KtRpcConfig(DISABLED.id.toInt(), false, RELIABLE.id.toInt(), 0))
         function(ShopCard::_on_buy_button_pressed, NIL, KtFunctionArgument(NIL, "kotlin.Unit"), KtRpcConfig(DISABLED.id.toInt(), false, RELIABLE.id.toInt(), 0))

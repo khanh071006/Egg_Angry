@@ -24,7 +24,8 @@ properties = [
 	shop_items
 ]
 functions = [
-    _ready,
+    _process,
+	_ready,
 	load_shop,
 	_on_next_wave_button_pressed,
 	_on_shop_card_on_item_purchased,

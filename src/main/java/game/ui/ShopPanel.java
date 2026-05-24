@@ -35,6 +35,9 @@ public class ShopPanel extends Panel {
     private ItemCard contextCard;
     private int currentWave;
     private godot.api.Label titleLabel;
+    private int currentRollCost = 1;
+    private godot.api.Label rollCostLabel;
+    private godot.api.Button rollButton;
 
     @RegisterFunction
     @Override
@@ -60,10 +63,25 @@ public class ShopPanel extends Panel {
                 if (child != null) child.queueFree();
             }
         }
+
+        rollCostLabel = (godot.api.Label) getNodeOrNull("MarginContainer/Control/TopBar/RollButton/HBoxContainer/LabelRoll");
+        rollButton = (godot.api.Button) getNodeOrNull("MarginContainer/Control/TopBar/RollButton");
+        if (rollCostLabel != null) {
+            rollCostLabel.setText("Roll " + currentRollCost);
+        }
+        
+        setProcess(true);
     }
 
     @RegisterFunction
     public void loadShop(int currentWave) {
+        if (this.currentWave != currentWave) {
+            this.currentRollCost = 1; // Reset giá khi qua wave mới
+            if (rollCostLabel != null) {
+                rollCostLabel.setText("Roll " + currentRollCost);
+            }
+        }
+
         this.currentWave = currentWave;
         
         if (titleLabel != null) {
@@ -351,16 +369,20 @@ public class ShopPanel extends Panel {
 
     @RegisterFunction
     public void _on_roll_button_pressed() {
-        int rollCost = 2; // Bạn có thể thay đổi giá Roll ở đây
-
-        if (Global.coins < rollCost) {
-            GD.print("Không đủ tiền để Roll! Cần " + rollCost + " xu, hiện có " + Global.coins + " xu.");
+        if (Global.coins < currentRollCost) {
+            GD.print("Không đủ tiền để Roll! Cần " + currentRollCost + " xu, hiện có " + Global.coins + " xu.");
             return;
         }
 
         // Trừ tiền
-        Global.coins -= rollCost;
-        GD.print("Đã Roll cửa hàng! Bị trừ " + rollCost + " xu. Tiền còn lại: " + Global.coins);
+        Global.coins -= currentRollCost;
+        GD.print("Đã Roll cửa hàng! Bị trừ " + currentRollCost + " xu. Tiền còn lại: " + Global.coins);
+
+        // Tăng giá cho lần roll tiếp theo
+        currentRollCost++;
+        if (rollCostLabel != null) {
+            rollCostLabel.setText("Roll " + currentRollCost);
+        }
 
         // Nạp lại các thẻ vào cửa hàng với Wave hiện tại
         loadShop(this.currentWave);
@@ -370,6 +392,24 @@ public class ShopPanel extends Panel {
         Global.instance.selectedWeapon = null;
         if (combineButton != null) {
             combineButton.setDisabled(true);
+        }
+    }
+
+    @RegisterFunction
+    @Override
+    public void _process(double delta) {
+        if (rollCostLabel == null) return;
+        
+        boolean notEnoughMoney = Global.coins < currentRollCost;
+        
+        if (notEnoughMoney) {
+            rollCostLabel.setModulate(new godot.core.Color(1.0f, 0.0f, 0.0f, 1.0f));
+        } else {
+            rollCostLabel.setModulate(new godot.core.Color(1.0f, 1.0f, 1.0f, 1.0f));
+        }
+        
+        if (rollButton != null) {
+            rollButton.setDisabled(notEnoughMoney);
         }
     }
 }

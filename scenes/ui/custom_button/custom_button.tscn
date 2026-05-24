@@ -28,4 +28,5 @@ grow_vertical = 0
 theme_override_font_sizes/font_size = 48
 theme_override_styles/normal = SubResource("StyleBoxFlat_qf0dw")
 theme_override_styles/hover = SubResource("StyleBoxFlat_iq67i")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_qf0dw")
 text = "select"
