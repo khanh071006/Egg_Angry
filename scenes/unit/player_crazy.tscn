@@ -1,9 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://diouvrrj5r4pj"]
+[gd_scene load_steps=4 format=3 uid="uid://diouvrrj5r4pj"]
 
 [ext_resource type="PackedScene" uid="uid://lty2nxmp27i0" path="res://scenes/unit/player_well_rounded.tscn" id="1_y4f2c"]
 [ext_resource type="Texture2D" uid="uid://dq63ocnu3lset" path="res://gdj/game/Game+Assets/assets/sprites/Players/Player_3}.png" id="2_7n2ge"]
+[ext_resource type="PackedScene" uid="uid://bpntj0ciaqbqs" path="res://scenes/weapons/melee/weapon_axe.tscn" id="3_7n2ge"]
 
 [node name="PlayerCrazy" instance=ExtResource("1_y4f2c")]
 
 [node name="Sprite" parent="Visuals" index="2"]
 texture = ExtResource("2_7n2ge")
+
+[node name="WeaponAxe" parent="WeaponContainer/4/Marker2D" index="0" instance=ExtResource("3_7n2ge")]

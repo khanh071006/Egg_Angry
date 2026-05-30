@@ -1,11 +1,25 @@
-[gd_scene load_steps=4 format=3 uid="uid://biol47wkdkcvu"]
+[gd_scene load_steps=8 format=3 uid="uid://biol47wkdkcvu"]
 
 [ext_resource type="PackedScene" uid="uid://lty2nxmp27i0" path="res://scenes/unit/player_well_rounded.tscn" id="1_pptme"]
 [ext_resource type="Resource" uid="uid://b3418dxjryuen" path="res://resources/units/players/stats_player_brawler.tres" id="2_gyel1"]
 [ext_resource type="Texture2D" uid="uid://dpxw8tsbgrfse" path="res://gdj/game/Game+Assets/assets/sprites/Players/Player_2.png" id="2_pptme"]
+[ext_resource type="PackedScene" uid="uid://bpntj0ciaqbqs" path="res://scenes/weapons/melee/weapon_axe.tscn" id="4_2p3of"]
+[ext_resource type="PackedScene" uid="uid://mv3kvbtonvfo" path="res://scenes/weapons/melee/weapon_mace.tscn" id="5_ymsjk"]
+[ext_resource type="PackedScene" uid="uid://cbjt4py75k30r" path="res://scenes/weapons/melee/weapon_wand.tscn" id="6_rosbo"]
+[ext_resource type="PackedScene" uid="uid://d0c5ne05f8x2i" path="res://scenes/weapons/melee/weapon_punch.tscn" id="7_7lpqf"]
 
 [node name="PlayerBrawler" instance=ExtResource("1_pptme")]
 stats = ExtResource("2_gyel1")
 
 [node name="Sprite" parent="Visuals" index="2"]
 texture = ExtResource("2_pptme")
+
+[node name="WeaponAxe" parent="WeaponContainer/6/Marker2D" index="0" instance=ExtResource("4_2p3of")]
+
+[node name="WeaponMace" parent="WeaponContainer/6/Marker2D2" index="0" instance=ExtResource("5_ymsjk")]
+
+[node name="WeaponWand" parent="WeaponContainer/6/Marker2D3" index="0" instance=ExtResource("6_rosbo")]
+
+[node name="WeaponAxe" parent="WeaponContainer/6/Marker2D4" index="0" instance=ExtResource("4_2p3of")]
+
+[node name="WeaponPunch" parent="WeaponContainer/6/Marker2D5" index="0" instance=ExtResource("7_7lpqf")]

@@ -63,7 +63,7 @@ collision_mask = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent" index="0"]
 z_index = 1
-position = Vector2(0, -58)
+position = Vector2(0, -24)
 shape = SubResource("CircleShape2D_5i5rg")
 debug_color = Color(0.8624754, 0.33731166, 0.33926293, 0.41960785)
 

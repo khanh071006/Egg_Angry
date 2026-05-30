@@ -6,7 +6,7 @@ fqName = game.components.HealthComponent
 relativeSourcePath = src/main/java/game/components/HealthComponent.java
 baseType = Node
 supertypes = [
-	godot.api.Node,
+    godot.api.Node,
 	godot.api.Object,
 	godot.core.KtObject,
 	godot.common.interop.NativeWrapper,
@@ -14,15 +14,15 @@ supertypes = [
 	kotlin.Any
 ]
 signals = [
-	on_unit_hit,
+    on_unit_hit,
 	on_unit_die,
 	on_health_changed
 ]
 properties = [
-	
+    
 ]
 functions = [
-	setup,
+    setup,
 	take_damage,
 	die,
 	heal

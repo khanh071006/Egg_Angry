@@ -6,7 +6,7 @@ fqName = game.entity.enemies.Spawner
 relativeSourcePath = src/main/java/game/entity/enemies/Spawner.java
 baseType = Node2D
 supertypes = [
-	godot.api.Node2D,
+    godot.api.Node2D,
 	godot.api.CanvasItem,
 	godot.api.Node,
 	godot.api.Object,
@@ -16,13 +16,13 @@ supertypes = [
 	kotlin.Any
 ]
 signals = [
-	
+    
 ]
 properties = [
-	waves_data,
+    waves_data,
 	spawn_area_size
 ]
 functions = [
-	_ready,
+    _ready,
 	_on_spawn_timer_timeout
 ]

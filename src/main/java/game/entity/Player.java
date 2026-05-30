@@ -34,12 +34,12 @@ public class Player extends BaseUnit {
 	private CollisionShape2D collision;
 	private Trail trail;
 
-    // Weapon
-    // Tham chiếu đến cái Container sếp vừa làm ở video trước
-    private WeaponContainer weaponContainer;
+	// Weapon
+	// Tham chiếu đến cái Container sếp vừa làm ở video trước
+	private WeaponContainer weaponContainer;
 
-    // Bể chứa các vũ khí Player đang cầm
-    private List<Node> currentWeapons = new ArrayList<>();
+	// Bể chứa các vũ khí Player đang cầm
+	private List<Node> currentWeapons = new ArrayList<>();
 
 
 	@Export
@@ -58,8 +58,8 @@ public class Player extends BaseUnit {
 	@RegisterFunction
 	@Override
 	public void _ready() {
-        //Run parent constructor
-        super._ready();
+		//Run parent constructor
+		super._ready();
 
 		// Tìm các Node cơ bản
 		visuals = (Node2D) getNode("%Visuals");
@@ -77,40 +77,40 @@ public class Player extends BaseUnit {
 		if (dashTimer != null) dashTimer.setWaitTime(dashDuration);
 		if (dashCooldownTimer != null) dashCooldownTimer.setWaitTime(dashCooldown);
 
-        weaponContainer = (WeaponContainer) getNode("%WeaponContainer");
-        // 2. TEST GAME: Tải file dữ liệu của Punch LV1 (Thay đường dẫn cho đúng máy sếp)
-        String weaponPath = "res://resources/items/weapons/melee/wand/item_wand_1.tres";
-        String weaponPath2 = "res://resources/items/weapons/melee/mace/item_mace_1.tres";
-        String weaponPath5 = "res://resources/items/weapons/melee/chainsaw/item_chainsaw_1.tres";
-        String weaponPath6 = "res://resources/items/weapons/melee/punch/item_punch_1.tres";
-        String weaponPath3 = "res://resources/items/weapons/melee/sword/item_sword_1.tres";
-        String weaponPath4 = "res://resources/items/weapons/range/smg/item_smg_1.tres";
-        String weaponPath7 = "res://resources/items/weapons/range/pistol/item_pistol_1.tres";
-        String weaponPath8 = "res://resources/items/weapons/range/shotgun/item_shotgun_1.tres";
-        String weaponPath9 = "res://resources/items/weapons/range/revolver/item_revolver_1.tres";
-        String weaponPath10 = "res://resources/items/weapons/range/laser/item_laser_1.tres";
-        ItemWeapon testWeapon = (ItemWeapon) ResourceLoader.load(weaponPath);
-        ItemWeapon testWeapon2 = (ItemWeapon) ResourceLoader.load(weaponPath2);
-        ItemWeapon testWeapon3 = (ItemWeapon) ResourceLoader.load(weaponPath3);
-        ItemWeapon testWeapon4 = (ItemWeapon) ResourceLoader.load(weaponPath4);
-        ItemWeapon testWeapon5 = (ItemWeapon) ResourceLoader.load(weaponPath5);
-        ItemWeapon testWeapon6 = (ItemWeapon) ResourceLoader.load(weaponPath6);
-        ItemWeapon testWeapon7 = (ItemWeapon) ResourceLoader.load(weaponPath7);
-        ItemWeapon testWeapon8 = (ItemWeapon) ResourceLoader.load(weaponPath8);
-        ItemWeapon testWeapon9 = (ItemWeapon) ResourceLoader.load(weaponPath9);
-        ItemWeapon testWeapon10 = (ItemWeapon) ResourceLoader.load(weaponPath10);
+		weaponContainer = (WeaponContainer) getNode("%WeaponContainer");
+		// 2. TEST GAME: Tải file dữ liệu của Punch LV1 (Thay đường dẫn cho đúng máy sếp)
+		String weaponPath = "res://resources/items/weapons/melee/wand/item_wand_1.tres";
+		String weaponPath2 = "res://resources/items/weapons/melee/mace/item_mace_1.tres";
+		String weaponPath5 = "res://resources/items/weapons/melee/chainsaw/item_chainsaw_1.tres";
+		String weaponPath6 = "res://resources/items/weapons/melee/punch/item_punch_1.tres";
+		String weaponPath3 = "res://resources/items/weapons/melee/sword/item_sword_1.tres";
+		String weaponPath4 = "res://resources/items/weapons/range/smg/item_smg_1.tres";
+		String weaponPath7 = "res://resources/items/weapons/range/pistol/item_pistol_1.tres";
+		String weaponPath8 = "res://resources/items/weapons/range/shotgun/item_shotgun_1.tres";
+		String weaponPath9 = "res://resources/items/weapons/range/revolver/item_revolver_1.tres";
+		String weaponPath10 = "res://resources/items/weapons/range/laser/item_laser_1.tres";
+		ItemWeapon testWeapon = (ItemWeapon) ResourceLoader.load(weaponPath);
+		ItemWeapon testWeapon2 = (ItemWeapon) ResourceLoader.load(weaponPath2);
+		ItemWeapon testWeapon3 = (ItemWeapon) ResourceLoader.load(weaponPath3);
+		ItemWeapon testWeapon4 = (ItemWeapon) ResourceLoader.load(weaponPath4);
+		ItemWeapon testWeapon5 = (ItemWeapon) ResourceLoader.load(weaponPath5);
+		ItemWeapon testWeapon6 = (ItemWeapon) ResourceLoader.load(weaponPath6);
+		ItemWeapon testWeapon7 = (ItemWeapon) ResourceLoader.load(weaponPath7);
+		ItemWeapon testWeapon8 = (ItemWeapon) ResourceLoader.load(weaponPath8);
+		ItemWeapon testWeapon9 = (ItemWeapon) ResourceLoader.load(weaponPath9);
+		ItemWeapon testWeapon10 = (ItemWeapon) ResourceLoader.load(weaponPath10);
 
-        if (testWeapon != null) {
-            // Test thử add 6 cái vũ khí xem nó có xếp thành hình tròn không
-            addWeapon(testWeapon4);
-            addWeapon(testWeapon3);
-            addWeapon(testWeapon2);
-            addWeapon(testWeapon8);
-            //addWeapon(testWeapon4);
+		if (testWeapon != null) {
+			// Test thử add 6 cái vũ khí xem nó có xếp thành hình tròn không
+			addWeapon(testWeapon4);
+			addWeapon(testWeapon3);
+			addWeapon(testWeapon2);
+			addWeapon(testWeapon8);
+			//addWeapon(testWeapon4);
 
 
 
-        }
+		}
 	}
 
 	@RegisterFunction
@@ -199,7 +199,7 @@ public class Player extends BaseUnit {
 			collision.setDeferred(new StringName("disabled"), false);
 		}
 
-        //Sử dụng vũ khí
+		//Sử dụng vũ khí
 
 	}
 
@@ -224,29 +224,29 @@ public class Player extends BaseUnit {
 		}
 	}
 
-    @RegisterFunction
-    public void addWeapon(ItemWeapon data){
-        // 1. Lấy "Bản thiết kế" (.tscn) từ Data và đúc nó thành "Đồ thật"
-        Node instance = data.weaponScene.instantiate();
+	@RegisterFunction
+	public void addWeapon(ItemWeapon data){
+		// 1. Lấy "Bản thiết kế" (.tscn) từ Data và đúc nó thành "Đồ thật"
+		Node instance = data.weaponScene.instantiate();
 
-        // 2. Ép kiểu nó về class Weapon của sếp
-        Weapon weapon = (Weapon) instance;
+		// 2. Ép kiểu nó về class Weapon của sếp
+		Weapon weapon = (Weapon) instance;
 
-        // 3. Gắn nó làm con của Player (để nó di chuyển theo Player)
-        this.addChild(weapon);
+		// 3. Gắn nó làm con của Player (để nó di chuyển theo Player)
+		this.addChild(weapon);
 
-        // 4. "Đổ xăng" - Truyền thông số từ ItemWeapon vào Vũ khí thực tế
-        weapon.setupWeapon(data);
+		// 4. "Đổ xăng" - Truyền thông số từ ItemWeapon vào Vũ khí thực tế
+		weapon.setupWeapon(data);
 
-        // 5. Thêm vào balo và cập nhật vị trí đội hình
-        currentWeapons.add(weapon);
-        if (weaponContainer != null) {
-            weaponContainer.updateWeaponsPosition(currentWeapons);
-        }
-    }
+		// 5. Thêm vào balo và cập nhật vị trí đội hình
+		currentWeapons.add(weapon);
+		if (weaponContainer != null) {
+			weaponContainer.updateWeaponsPosition(currentWeapons);
+		}
+	}
 
-    public boolean isFacingRight() {
-        // Nếu Scale X dương (thường là -1.0) thì là bên phải
-        return this.visuals.getScale().getX() < 0;
-    }
+	public boolean isFacingRight() {
+		// Nếu Scale X dương (thường là -1.0) thì là bên phải
+		return this.visuals.getScale().getX() < 0;
+	}
 }

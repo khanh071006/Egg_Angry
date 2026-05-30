@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://cjeuh7r5ynvdo"]
+
+[ext_resource type="PackedScene" uid="uid://lty2nxmp27i0" path="res://scenes/unit/player_well_rounded.tscn" id="1_x2qul"]
+[ext_resource type="Resource" uid="uid://c37n0kek61aph" path="res://resources/units/players/stats_player_aph.tres" id="2_e4jmh"]
+[ext_resource type="Texture2D" uid="uid://wh8j7fo64w1p" path="res://assets/sprites/Players/Player_aph.png" id="3_cnyo0"]
+[ext_resource type="Script" uid="uid://ceteilad77rgr" path="res://gdj/game/entity/Player.gdj" id="4_cjl3e"]
+[ext_resource type="PackedScene" uid="uid://y417pcresfam" path="res://scenes/weapons/range/weapon_shotgun.tscn" id="4_cnyo0"]
+[ext_resource type="PackedScene" uid="uid://c8o8m5jmsdeg8" path="res://scenes/weapons/range/weapon_revolver.tscn" id="5_cjl3e"]
+
+[node name="Player_aph" instance=ExtResource("1_x2qul")]
+stats = ExtResource("2_e4jmh")
+
+[node name="Sprite" parent="Visuals" index="2"]
+texture = ExtResource("3_cnyo0")
+
+[node name="CollisionShape2D" parent="HurtboxComponent" index="0"]
+position = Vector2(18, -16)
+script = ExtResource("4_cjl3e")
+
+[node name="HealthBar" parent="." index="8"]
+metadata/_edit_use_anchors_ = true
+
+[node name="Marker2D" parent="WeaponContainer/6" index="0"]
+position = Vector2(-242, 138)
+
+[node name="WeaponShotgun" parent="WeaponContainer/6/Marker2D" index="0" instance=ExtResource("4_cnyo0")]
+
+[node name="Marker2D2" parent="WeaponContainer/6" index="1"]
+position = Vector2(244, 148)
+
+[node name="WeaponRevolver" parent="WeaponContainer/6/Marker2D2" index="0" instance=ExtResource("5_cjl3e")]
+
+[node name="Marker2D3" parent="WeaponContainer/6" index="2"]
+position = Vector2(168, -58)
+
+[node name="Marker2D4" parent="WeaponContainer/6" index="3"]
+position = Vector2(-188, -280)
+
+[node name="Marker2D5" parent="WeaponContainer/6" index="4"]
+position = Vector2(-176, -32)
+
+[node name="Marker2D6" parent="WeaponContainer/6" index="5"]
+position = Vector2(170, -282)
