@@ -6,7 +6,7 @@ fqName = game.items.Coins
 relativeSourcePath = src/main/java/game/items/Coins.java
 baseType = Area2D
 supertypes = [
-	godot.api.Area2D,
+    godot.api.Area2D,
 	godot.api.CollisionObject2D,
 	godot.api.Node2D,
 	godot.api.CanvasItem,
@@ -18,15 +18,15 @@ supertypes = [
 	kotlin.Any
 ]
 signals = [
-	
+    
 ]
 properties = [
-	move_speed,
+    move_speed,
 	collect_distance,
 	value
 ]
 functions = [
-	_process,
+    _process,
 	_ready,
 	set_collection_target,
 	play_spawn_animation,

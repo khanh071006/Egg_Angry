@@ -6,7 +6,7 @@ fqName = game.entity.Player
 relativeSourcePath = src/main/java/game/entity/Player.java
 baseType = Area2D
 supertypes = [
-	game.entity.BaseUnit,
+    game.entity.BaseUnit,
 	godot.api.Area2D,
 	godot.api.CollisionObject2D,
 	godot.api.Node2D,
@@ -19,16 +19,16 @@ supertypes = [
 	kotlin.Any
 ]
 signals = [
-	
+    
 ]
 properties = [
-	dash_duration,
+    dash_duration,
 	dash_speed_multi,
 	dash_cooldown,
 	stats
 ]
 functions = [
-	_process,
+    _process,
 	_ready,
 	set_flash_material,
 	_on_hurtbox_component_on_damage,

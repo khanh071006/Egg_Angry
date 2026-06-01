@@ -16,4 +16,8 @@ public class PlayerStats extends UnitStats {
 		super(); // Gọi hàm khởi tạo của Cha
 		this.type = UnitType.PLAYER; // Tự động khóa chặt loại là PLAYER, khỏi sợ điền nhầm!
 	}
+
+	public float getLuck() {
+		return luck;
+	}
 }

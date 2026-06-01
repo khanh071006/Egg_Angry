@@ -4,6 +4,8 @@ package game.Helper // Đổi package theo chỗ sếp đặt file này nhé
 import game.resources.waves.WaveData // Import kịch bản của sếp vào đây
 import game.resources.items.ItemBase
 import game.resources.items.upgrades.ItemUpgrade
+import game.resources.units.UnitStats
+import game.resources.items.weapons.ItemWeapon
 import godot.api.Resource
 import godot.core.VariantArray
 
@@ -23,4 +25,12 @@ fun createItemBaseArray(): VariantArray<ItemBase> {
 
 fun createResourceArray(): VariantArray<Resource> {
     return VariantArray()
+}
+
+fun createUnitStatsArray(): VariantArray<UnitStats> {
+    return VariantArray<Any?>() as VariantArray<UnitStats>
+}
+
+fun createItemWeaponArray(): VariantArray<ItemWeapon> {
+    return VariantArray<Any?>() as VariantArray<ItemWeapon>
 }

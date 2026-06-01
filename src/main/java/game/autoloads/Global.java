@@ -24,6 +24,9 @@ public class Global extends Node {
     public static boolean gamePaused = false;
     public static int coins = 0;
 
+    public static game.resources.units.UnitStats mainPlayerSelected;
+    public static game.resources.items.weapons.ItemWeapon mainWeaponSelected;
+
     // --- CÁC STYLE CHO THẺ NÂNG CẤP ---
     public godot.api.StyleBoxFlat commonStyle;
     public godot.api.StyleBoxFlat rareStyle;

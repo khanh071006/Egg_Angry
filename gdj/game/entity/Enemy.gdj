@@ -6,7 +6,7 @@ fqName = game.entity.enemies.Enemy
 relativeSourcePath = src/main/java/game/entity/enemies/Enemy.java
 baseType = Area2D
 supertypes = [
-	game.entity.BaseUnit,
+    game.entity.BaseUnit,
 	godot.api.Area2D,
 	godot.api.CollisionObject2D,
 	godot.api.Node2D,
@@ -19,15 +19,15 @@ supertypes = [
 	kotlin.Any
 ]
 signals = [
-	
+    
 ]
 properties = [
-	flock_push,
+    flock_push,
 	knockback_timer,
 	stats
 ]
 functions = [
-	_physics_process,
+    _physics_process,
 	_ready,
 	set_flash_material,
 	_on_hurtbox_component_on_damage,

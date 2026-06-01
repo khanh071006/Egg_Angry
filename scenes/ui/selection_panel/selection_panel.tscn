@@ -1,0 +1,241 @@
+[gd_scene load_steps=11 format=3 uid="uid://cxab321jklmno"]
+
+[ext_resource type="Script" uid="uid://euqvfmyikjeo" path="res://gdj/game/ui/SelectionPanel.gdj" id="1_8wgut"]
+[ext_resource type="StyleBox" uid="uid://wmyqnve45qmn" path="res://styles/common_style.tres" id="1_csty"]
+[ext_resource type="Texture2D" uid="uid://cu0lb5i7ucano" path="res://icon.svg" id="2_icon"]
+[ext_resource type="Resource" uid="uid://b3418dxjryuen" path="res://resources/units/players/stats_player_brawler.tres" id="2_rbokc"]
+[ext_resource type="PackedScene" uid="uid://bgrva6i5a6w5t" path="res://scenes/ui/custom_button/custom_button.tscn" id="3_cbtn"]
+[ext_resource type="Resource" uid="uid://c37n0kek61t1c" path="res://resources/units/players/stats_player_bunny.tres" id="3_dh0xd"]
+[ext_resource type="Resource" uid="uid://c7seiylrx3igi" path="res://resources/units/players/stats_player_crazy.tres" id="4_m67jx"]
+[ext_resource type="Resource" uid="uid://v5ba7gqet5u7" path="res://resources/units/players/stats_player_knight.tres" id="5_5ne7w"]
+[ext_resource type="Resource" uid="uid://dqrt363axanpe" path="res://resources/units/players/stats_player_well_rounded.tres" id="6_6e6br"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_0u7kx"]
+font_size = 24
+
+[node name="SelectionPanel" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+script = ExtResource("1_8wgut")
+players = Array[Resource]([ExtResource("2_rbokc"), ExtResource("3_dh0xd"), ExtResource("4_m67jx"), ExtResource("5_5ne7w"), ExtResource("6_6e6br")])
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 64
+
+[node name="Preview" type="Control" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 550)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Panel" type="Panel" parent="VBoxContainer/Preview"]
+custom_minimum_size = Vector2(380, 550)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -190.0
+offset_top = -275.0
+offset_right = 190.0
+offset_bottom = 275.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("1_csty")
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/Preview/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="Control" type="Control" parent="VBoxContainer/Preview/Panel/MarginContainer"]
+layout_mode = 2
+
+[node name="PlayerIcon" type="TextureRect" parent="VBoxContainer/Preview/Panel/MarginContainer/Control"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 0
+offset_right = 128.0
+offset_bottom = 128.0
+texture = ExtResource("2_icon")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="PlayerName" type="Label" parent="VBoxContainer/Preview/Panel/MarginContainer/Control"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 150.0
+offset_top = 30.0
+offset_right = 332.0
+offset_bottom = 60.0
+scale = Vector2(1.5, 1.5)
+text = "player name"
+label_settings = SubResource("LabelSettings_0u7kx")
+
+[node name="PlayerTitle" type="Label" parent="VBoxContainer/Preview/Panel/MarginContainer/Control"]
+unique_name_in_owner = true
+modulate = Color(0.854902, 0.819608, 0.035294, 1)
+layout_mode = 0
+offset_left = 150.0
+offset_top = 75.0
+offset_right = 332.0
+offset_bottom = 100.0
+scale = Vector2(1.5, 1.5)
+text = "player"
+
+[node name="PlayerDescription" type="RichTextLabel" parent="VBoxContainer/Preview/Panel/MarginContainer/Control"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(332, 353)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -166.0
+offset_top = -353.0
+offset_right = 166.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/normal_font_size = 24
+theme_override_font_sizes/mono_font_size = 24
+bbcode_enabled = true
+text = "description"
+
+[node name="ContinueButton" parent="VBoxContainer/Preview" instance=ExtResource("3_cbtn")]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 0.0
+offset_left = -150.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 50.0
+grow_horizontal = 0
+grow_vertical = 1
+text = "continue"
+
+[node name="Items" type="Control" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 400)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Items"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 64
+
+[node name="PlayerContainer" type="HBoxContainer" parent="VBoxContainer/Items/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 128)
+layout_mode = 2
+theme_override_constants/separation = 24
+alignment = 1
+
+[node name="SelectionCard" type="Button" parent="VBoxContainer/Items/VBoxContainer/PlayerContainer"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+theme_override_styles/normal = ExtResource("1_csty")
+
+[node name="SelectionCard2" type="Button" parent="VBoxContainer/Items/VBoxContainer/PlayerContainer"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+theme_override_styles/normal = ExtResource("1_csty")
+
+[node name="SelectionCard3" type="Button" parent="VBoxContainer/Items/VBoxContainer/PlayerContainer"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+theme_override_styles/normal = ExtResource("1_csty")
+
+[node name="SelectionCard4" type="Button" parent="VBoxContainer/Items/VBoxContainer/PlayerContainer"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+theme_override_styles/normal = ExtResource("1_csty")
+
+[node name="SelectionCard5" type="Button" parent="VBoxContainer/Items/VBoxContainer/PlayerContainer"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+theme_override_styles/normal = ExtResource("1_csty")
+
+[node name="WeaponContainer" type="HBoxContainer" parent="VBoxContainer/Items/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 128)
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="SelectionCard" type="Button" parent="VBoxContainer/Items/VBoxContainer/WeaponContainer"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+theme_override_styles/normal = ExtResource("1_csty")
+
+[node name="SelectionCard2" type="Button" parent="VBoxContainer/Items/VBoxContainer/WeaponContainer"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+theme_override_styles/normal = ExtResource("1_csty")
+
+[node name="SelectionCard3" type="Button" parent="VBoxContainer/Items/VBoxContainer/WeaponContainer"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+theme_override_styles/normal = ExtResource("1_csty")
+
+[node name="SelectionCard4" type="Button" parent="VBoxContainer/Items/VBoxContainer/WeaponContainer"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+theme_override_styles/normal = ExtResource("1_csty")
+
+[node name="SelectionCard5" type="Button" parent="VBoxContainer/Items/VBoxContainer/WeaponContainer"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+theme_override_styles/normal = ExtResource("1_csty")
+
+[node name="SelectionCard6" type="Button" parent="VBoxContainer/Items/VBoxContainer/WeaponContainer"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+theme_override_styles/normal = ExtResource("1_csty")
+
+[node name="SelectionCard7" type="Button" parent="VBoxContainer/Items/VBoxContainer/WeaponContainer"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+theme_override_styles/normal = ExtResource("1_csty")
+
+[node name="SelectionCard8" type="Button" parent="VBoxContainer/Items/VBoxContainer/WeaponContainer"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+theme_override_styles/normal = ExtResource("1_csty")
+
+[node name="SelectionCard9" type="Button" parent="VBoxContainer/Items/VBoxContainer/WeaponContainer"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+theme_override_styles/normal = ExtResource("1_csty")
+
+[node name="SelectionCard10" type="Button" parent="VBoxContainer/Items/VBoxContainer/WeaponContainer"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+theme_override_styles/normal = ExtResource("1_csty")
+
+[node name="SelectionCard11" type="Button" parent="VBoxContainer/Items/VBoxContainer/WeaponContainer"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+theme_override_styles/normal = ExtResource("1_csty")

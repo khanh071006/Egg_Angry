@@ -6,7 +6,7 @@ fqName = game.ui.ShopPanel
 relativeSourcePath = src/main/java/game/ui/ShopPanel.java
 baseType = Panel
 supertypes = [
-	godot.api.Panel,
+    godot.api.Panel,
 	godot.api.Control,
 	godot.api.CanvasItem,
 	godot.api.Node,
@@ -17,14 +17,14 @@ supertypes = [
 	kotlin.Any
 ]
 signals = [
-	on_shop_next_wave
+    on_shop_next_wave
 ]
 properties = [
-	shop_card_scene,
+    shop_card_scene,
 	shop_items
 ]
 functions = [
-	_process,
+    _process,
 	_ready,
 	load_shop,
 	_on_next_wave_button_pressed,
