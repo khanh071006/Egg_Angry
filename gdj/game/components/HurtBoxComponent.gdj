@@ -6,7 +6,7 @@ fqName = game.components.HurtBoxComponent
 relativeSourcePath = src/main/java/game/components/HurtBoxComponent.java
 baseType = Area2D
 supertypes = [
-    godot.api.Area2D,
+	godot.api.Area2D,
 	godot.api.CollisionObject2D,
 	godot.api.Node2D,
 	godot.api.CanvasItem,
@@ -18,11 +18,11 @@ supertypes = [
 	kotlin.Any
 ]
 signals = [
-    on_damage
+	on_damage
 ]
 properties = [
-    
+	
 ]
 functions = [
-    _on_area_entered
+	_on_area_entered
 ]

@@ -44,6 +44,7 @@ one_shot = true
 
 [node name="PlayerBrawler" parent="." instance=ExtResource("8_xxbvj")]
 position = Vector2(-546, 990)
+bomb_scene = null
 
 [node name="WeaponAxe" parent="." instance=ExtResource("9_8kchn")]
 position = Vector2(-583, 972)

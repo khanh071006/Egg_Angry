@@ -13,11 +13,14 @@ import godot.global.GD;
 
 import java.util.Random;
 
+import game.arena.CameraController;
+
 @RegisterClass
 public class Global extends Node {
 
     // ĐÂY LÀ BIẾN TOÀN CẦU! Ai cũng có thể truy cập nó!
     public static Player player;
+    public static CameraController camera;
     public static ShaderMaterial FLASH_MATERIAL;
     public static Global instance;
     public static PackedScene floatingTextScene;

@@ -79,6 +79,11 @@ public class BaseUnit extends Area2D { // Đổi tên class ở đây
 		healthComponent.takeDamage(hitbox.damage);
 		Global.instance.onCreateDamageText.emit(this,hitbox);
 
+		// Rung màn hình khi Player bị quái cắn (Độ mạnh = 2.5f)
+		if (this instanceof Player && Global.camera != null) {
+			Global.camera.addShake(2.5f);
+		}
+
 		// Gọi hiệu ứng chớp trắng
 		setFlashMaterial();
 

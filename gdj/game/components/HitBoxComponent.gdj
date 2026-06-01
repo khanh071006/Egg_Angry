@@ -6,7 +6,7 @@ fqName = game.components.HitBoxComponent
 relativeSourcePath = src/main/java/game/components/HitBoxComponent.java
 baseType = Area2D
 supertypes = [
-    godot.api.Area2D,
+	godot.api.Area2D,
 	godot.api.CollisionObject2D,
 	godot.api.Node2D,
 	godot.api.CanvasItem,
@@ -18,15 +18,15 @@ supertypes = [
 	kotlin.Any
 ]
 signals = [
-    on_hit_hurtbox
+	on_hit_hurtbox
 ]
 properties = [
-    damage,
+	damage,
 	critical,
 	knockback_power
 ]
 functions = [
-    enable,
+	enable,
 	disable,
 	setup,
 	_on_area_entered

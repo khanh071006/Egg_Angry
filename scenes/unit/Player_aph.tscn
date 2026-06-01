@@ -1,13 +1,15 @@
 [gd_scene load_steps=7 format=3 uid="uid://cjeuh7r5ynvdo"]
 
 [ext_resource type="PackedScene" uid="uid://lty2nxmp27i0" path="res://scenes/unit/player_well_rounded.tscn" id="1_x2qul"]
-[ext_resource type="Resource" uid="uid://c37n0kek61aph" path="res://resources/units/players/stats_player_aph.tres" id="2_e4jmh"]
+[ext_resource type="PackedScene" uid="uid://bhj0te8hl246b" path="res://scenes/weapons/range/projectiles/Bomb.tscn" id="2_cjl3e"]
+[ext_resource type="Resource" uid="uid://bfr8qku5x5y46" path="res://resources/units/players/stats_player_aph.tres" id="2_e4jmh"]
 [ext_resource type="Texture2D" uid="uid://wh8j7fo64w1p" path="res://assets/sprites/Players/Player_aph.png" id="3_cnyo0"]
-[ext_resource type="Script" uid="uid://ceteilad77rgr" path="res://gdj/game/entity/Player.gdj" id="4_cjl3e"]
 [ext_resource type="PackedScene" uid="uid://y417pcresfam" path="res://scenes/weapons/range/weapon_shotgun.tscn" id="4_cnyo0"]
 [ext_resource type="PackedScene" uid="uid://c8o8m5jmsdeg8" path="res://scenes/weapons/range/weapon_revolver.tscn" id="5_cjl3e"]
 
 [node name="Player_aph" instance=ExtResource("1_x2qul")]
+scale = Vector2(0.3, 0.3)
+bomb_scene = ExtResource("2_cjl3e")
 stats = ExtResource("2_e4jmh")
 
 [node name="Sprite" parent="Visuals" index="2"]
@@ -15,7 +17,6 @@ texture = ExtResource("3_cnyo0")
 
 [node name="CollisionShape2D" parent="HurtboxComponent" index="0"]
 position = Vector2(18, -16)
-script = ExtResource("4_cjl3e")
 
 [node name="HealthBar" parent="." index="8"]
 metadata/_edit_use_anchors_ = true

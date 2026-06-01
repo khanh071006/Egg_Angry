@@ -41,6 +41,9 @@ public class Player extends BaseUnit {
 	// Bể chứa các vũ khí Player đang cầm
 	private List<Node> currentWeapons = new ArrayList<>();
 
+	@Export
+	@RegisterProperty
+	public PackedScene bombScene;
 
 	@Export
 	@RegisterProperty
@@ -159,7 +162,7 @@ public class Player extends BaseUnit {
 
 		if (dashTimer != null) dashTimer.start(-1.0); // Bắt đầu đếm ngược
 
-		//Vẽ trail
+		// Vẽ trail
 		if (trail != null) {
 			trail.startTrail();
 		}
@@ -174,7 +177,15 @@ public class Player extends BaseUnit {
 			collision.setDeferred(new StringName("disabled"), true);
 		}
 
-
+		// THẢ BOM KHI DASH (Nếu đã cấu hình bombScene)
+		if (bombScene != null) {
+			Node instance = bombScene.instantiate();
+			if (instance instanceof Node2D) {
+				Node2D bombNode = (Node2D) instance;
+				bombNode.setGlobalPosition(this.getGlobalPosition());
+				getParent().addChild(bombNode);
+			}
+		}
 	}
 
 	// Hàm này sẽ được gọi khi DashTimer chạy xong (chạm mức 0)
