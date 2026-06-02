@@ -1,6 +1,7 @@
 package game.entity.enemies;
 
 import game.autoloads.Global;
+import game.entity.PlayerChrono;
 import godot.annotation.Export;
 import godot.annotation.RegisterClass;
 import godot.annotation.RegisterFunction;
@@ -46,6 +47,9 @@ public class ChaserBehavior extends Node2D {
     @RegisterFunction
     @Override
     public void _process(double delta) {
+        if (PlayerChrono.isTimeWarpActive) {
+            delta *= 0.15;
+        }
         if (enemy == null) return;
 
         if (isCharging) {

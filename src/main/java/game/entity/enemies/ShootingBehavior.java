@@ -1,6 +1,7 @@
 package game.entity.enemies; // Đổi đường dẫn cho đúng game của sếp
 
 import game.autoloads.Global;
+import game.entity.PlayerChrono;
 import game.items.weapons.projectiles.Projectile;
 import godot.annotation.Export;
 import godot.annotation.RegisterClass;
@@ -39,6 +40,9 @@ public class ShootingBehavior extends Node2D {
     @RegisterFunction
     @Override
     public void _process(double delta) {
+        if (PlayerChrono.isTimeWarpActive) {
+            delta *= 0.15;
+        }
         if (enemy == null) return;
 
         // TRẠNG THÁI 1: Bắn xong, đứng chờ 1 giây cho ngầu

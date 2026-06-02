@@ -24,7 +24,7 @@ public class Player extends BaseUnit {
 //	public PlayerStats stats;
 
 
-	private Vector2 moveDirection = new Vector2(0.0f, 0.0f);
+	protected Vector2 moveDirection = new Vector2(0.0f, 0.0f);
 
 
 
@@ -56,7 +56,7 @@ public class Player extends BaseUnit {
 	@Export
 	@RegisterProperty
 	public float dashCooldown = 1.5f;
-	private boolean isDashing = false;
+	protected boolean isDashing = false;
 
 	@RegisterFunction
 	@Override
@@ -138,10 +138,10 @@ public class Player extends BaseUnit {
 
 		Vector2 currentPos = getPosition();
 		Vector2 newPos = currentPos.plus(currentVelocity.times(fDelta));
-		// Ép điểm X nằm gọn trong khoảng -1000 đến 1000
-		float clampedX = (float) Math.clamp(newPos.getX(), -1000.0f, 1000.0f);
-		// Ép điểm Y nằm gọn trong khoảng -500 đến 500
-		float clampedY = (float) Math.clamp(newPos.getY(), -500.0f, 500.0f);
+		// Ép điểm X nằm gọn trong bản đồ (Tính toán theo tâm map 826 và chiều rộng 2048)
+		float clampedX = (float) Math.clamp(newPos.getX(), -190.0f, 1840.0f);
+		// Ép điểm Y nằm gọn trong bản đồ (Tính toán theo tâm map 310 và chiều cao 1024)
+		float clampedY = (float) Math.clamp(newPos.getY(), -190.0f, 810.0f);
 
 		// Đặt lại vị trí mới đã bị nhốt
 		setPosition(new Vector2(clampedX, clampedY));

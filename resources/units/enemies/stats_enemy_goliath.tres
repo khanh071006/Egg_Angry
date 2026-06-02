@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="EnemyStats" load_steps=3 format=3 uid="uid://cm6jfxsp0jfie"]
+
+[ext_resource type="Texture2D" uid="uid://emsi6ifyt0vf" path="res://gdj/game/Game+Assets/assets/sprites/Enemies/Enemy_5.png" id="1_4pjva"]
+[ext_resource type="Script" uid="uid://bgy8iaa1dequj" path="res://gdj/game/resources/EnemyStats.gdj" id="2_dq0ad"]
+
+[resource]
+script = ExtResource("2_dq0ad")
+gold_drop = 50.0
+block_chance = 10.0
+unit_name = "Goliath"
+icon = ExtResource("1_4pjva")
+health = 4000.0
+health_increase_per_wave = 50.0
+damage = 15.0
+damage_increase_per_wave = 5.0
+speed = 160.0

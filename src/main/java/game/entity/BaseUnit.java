@@ -67,8 +67,10 @@ public class BaseUnit extends Area2D { // Đổi tên class ở đây
 			return;
 		}
 		//block
-		PlayerStats playerStats;
-		boolean blocked = Global.get_chance_sucess(stats.blockchance / 100);
+		boolean blocked = false;
+		if (stats != null) {
+			blocked = Global.get_chance_sucess(stats.blockchance / 100);
+		}
 		if (blocked){
 			Global.instance.onCreateBlockText.emit(this);
 			GD.print("Blocked");
