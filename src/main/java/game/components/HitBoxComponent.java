@@ -26,7 +26,7 @@ public class HitBoxComponent extends Area2D {
     public Node2D source;
 
     // SỬA CHỖ NÀY: Khai báo Signal1 (vì nó mang theo 1 tham số là HurtboxComponent)
-    // Chữ "hurtbox" trong ngoặc là tên của gói hàng để Godot hiển thị ra ngoài
+    // Chữ "hurtbox" trong ngoặc là tên của Godot hiển thị ra ngoài
     @RegisterSignal
     public Signal1<HurtBoxComponent> onHitHurtbox = Signal1.create(this, "onHitHurtbox");
 

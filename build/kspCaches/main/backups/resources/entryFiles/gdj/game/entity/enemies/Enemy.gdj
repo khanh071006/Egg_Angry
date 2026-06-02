@@ -24,6 +24,7 @@ signals = [
 properties = [
     flock_push,
 	knockback_timer,
+	knockback_immunity_time,
 	stats
 ]
 functions = [

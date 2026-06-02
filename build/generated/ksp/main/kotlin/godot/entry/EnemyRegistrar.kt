@@ -30,7 +30,7 @@ import kotlin.collections.listOf
   "project-3",
   "game.entity.BaseUnit,godot.api.Area2D,godot.api.CollisionObject2D,godot.api.Node2D,godot.api.CanvasItem,godot.api.Node,godot.api.Object,godot.core.KtObject,godot.common.interop.NativeWrapper,godot.common.interop.NativePointer,kotlin.Any",
   "",
-  "game.entity.enemies.Enemy.flockPush,game.entity.enemies.Enemy.knockbackTimer,game.entity.enemies.Enemy.stats",
+  "game.entity.enemies.Enemy.flockPush,game.entity.enemies.Enemy.knockbackTimer,game.entity.enemies.Enemy.knockbackImmunityTime,game.entity.enemies.Enemy.stats",
   "game.entity.enemies.Enemy._physicsProcess,game.entity.enemies.Enemy._ready,game.entity.enemies.Enemy.setFlashMaterial,game.entity.enemies.Enemy._on_hurtbox_component_on_damage,game.entity.enemies.Enemy._on_flash_timer_timeout,game.entity.enemies.Enemy.applyKnockback,game.entity.enemies.Enemy.resetKnockback,game.entity.enemies.Enemy._on_knockback_timer_timeout,game.entity.enemies.Enemy.destroyEnemy,game.entity.enemies.Enemy._on_death_timer_timeout,game.entity.enemies.Enemy._on_health_component_on_unit_die",
   true,
 )
@@ -53,6 +53,7 @@ public open class EnemyRegistrar : ClassRegistrar {
         function(Enemy::_on_health_component_on_unit_die, NIL, KtFunctionArgument(NIL, "kotlin.Unit"), KtRpcConfig(DISABLED.id.toInt(), false, RELIABLE.id.toInt(), 0))
         property(Enemy::flockPush, FLOAT, DOUBLE, "kotlin.Float", NONE, "", godot.core.PropertyUsageFlags.DEFAULT.flag)
         property(Enemy::knockbackTimer, OBJECT, OBJECT, "godot.api.Timer", NODE_TYPE, "Timer", godot.core.PropertyUsageFlags.NONE.flag)
+        property(Enemy::knockbackImmunityTime, DOUBLE, DOUBLE, "kotlin.Double", NONE, "", godot.core.PropertyUsageFlags.DEFAULT.flag)
         property(Enemy::stats, OBJECT, OBJECT, "game.resources.units.UnitStats", RESOURCE_TYPE, "UnitStats", godot.core.PropertyUsageFlags.DEFAULT.flag)
       }
     }

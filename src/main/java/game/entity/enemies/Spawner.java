@@ -94,6 +94,7 @@ public class Spawner extends Node2D {
 
     // --- HÀM BẮT ĐẦU ĐỢT (start_wave) ---
     public void startWave() {
+        Global.isAttack = true;
         currentWaveData = findWaveData();
 
         if (currentWaveData == null) {

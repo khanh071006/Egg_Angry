@@ -15,32 +15,27 @@ import godot.annotation.RegisterProperty;
 import godot.core.*;
 import godot.global.GD;
 
-
-
 @RegisterClass
 public class Arena extends Node2D {
     @Export
     @RegisterProperty
-    public Color normalColor = new Color(1.0f, 1.0f, 1.0f, 1.0f);     // Trắng
+    public Color normalColor = new Color(1.0f, 1.0f, 1.0f, 1.0f); // Trắng
 
     @Export
     @RegisterProperty
-    public Color blockColor = new Color(1.0f, 0.0f, 0.0f, 1.0f);      // Đỏ
+    public Color blockColor = new Color(1.0f, 0.0f, 0.0f, 1.0f); // Đỏ
 
     @Export
     @RegisterProperty
-    public Color critColor = new Color(1.0f, 1.0f, 0.0f, 1.0f);       // Vàng
+    public Color critColor = new Color(1.0f, 1.0f, 0.0f, 1.0f); // Vàng
 
     @Export
     @RegisterProperty
-    public Color hpColor = new Color(0.0f, 1.0f, 0.0f, 1.0f);         // Xanh lá
+    public Color hpColor = new Color(0.0f, 1.0f, 0.0f, 1.0f); // Xanh lá
 
+    // Player is spawned dynamically now
 
-    @Export
-    @RegisterProperty
-    public Player player;
-
-    //Wave Information
+    // Wave Information
     private Label waveIndexLabel;
     private Label waveTimeLabel;
     private Spawner spawner;
@@ -62,32 +57,35 @@ public class Arena extends Node2D {
     @RegisterFunction
     @Override
     public void _ready() {
-        Global.player = this.player;
 
         // BÍ QUYẾT LÀ ĐÂY: Dùng Callable.create(...) và new StringName(...)
-        godot.core.Error errBlock = Global.instance.onCreateBlockText.connect(Callable.create(this, new StringName("show_block_text")), 0);
+        godot.core.Error errBlock = Global.instance.onCreateBlockText
+                .connect(Callable.create(this, new StringName("show_block_text")), 0);
 
-        godot.core.Error errDamage = Global.instance.onCreateDamageText.connect(Callable.create(this, new StringName("show_damage_text")), 0);
+        godot.core.Error errDamage = Global.instance.onCreateDamageText
+                .connect(Callable.create(this, new StringName("show_damage_text")), 0);
 
-        godot.core.Error errHeal = Global.instance.onCreateHealText.connect(Callable.create(this, new StringName("show_heal_text")), 0);
+        godot.core.Error errHeal = Global.instance.onCreateHealText
+                .connect(Callable.create(this, new StringName("show_heal_text")), 0);
 
         // Dùng getNode bắt thẳng mấy cái UI vừa tạo và tóm lấy Spawner
         waveIndexLabel = (Label) getNode("GameUI/WaveIndexLabel");
         waveTimeLabel = (Label) getNode("GameUI/WaveTimeLabel");
         spawner = (Spawner) getNode("Spawner");
 
-        if (spawner == null) GD.printErr("Arena LỖI: Không tìm thấy Spawner!");
-        if (waveIndexLabel == null) GD.printErr("Arena LỖI: Không tìm thấy WaveIndexLabel!");
+        if (spawner == null)
+            GD.printErr("Arena LỖI: Không tìm thấy Spawner!");
+        if (waveIndexLabel == null)
+            GD.printErr("Arena LỖI: Không tìm thấy WaveIndexLabel!");
 
         // Tìm CoinsBag
         coinsBag = (game.ui.CoinsBag) getNodeOrNull("%CoinsBag");
 
         Global.instance.onUpgradeSelected.connect(Callable.create(this, new StringName("_on_upgrade_selected")), 0);
         Global.instance.onEnemyDied.connect(Callable.create(this, new StringName("spawn_coins")), 0);
-        
+
         if (spawner != null) {
             spawner.onWaveCompleted.connect(Callable.create(this, new StringName("_on_wave_completed")), 0);
-            spawner.startWave();
         }
 
         // --- KẾT NỐI SHOP PANEL ---
@@ -97,12 +95,45 @@ public class Arena extends Node2D {
         }
     }
 
+    @RegisterFunction
+    public void _on_selection_panel_selection_completed() {
+        godot.global.GD.print("ARENA: Signal received! Bắt đầu spawn player...");
+        Player p = Global.getSelectedPlayer();
+        
+        if (p != null) {
+            godot.global.GD.print("ARENA: Spawn player thành công! Player: " + p.getName());
+            this.addChild(p);
+            
+            // Đặt player ở giữa tâm bản đồ (0, 0)
+            p.setGlobalPosition(new godot.core.Vector2(0, 0));
+            
+            if (Global.mainWeaponSelected != null) {
+                godot.global.GD.print("ARENA: Đang thêm vũ khí: " + Global.mainWeaponSelected.itemName);
+                p.addWeapon(Global.mainWeaponSelected);
+            } else {
+                godot.global.GD.printErr("ARENA LỖI: mainWeaponSelected bị NULL!");
+            }
+        } else {
+            godot.global.GD.printErr("ARENA LỖI: getSelectedPlayer() trả về NULL! Kiểm tra lại Global.mainPlayerSelected");
+        }
 
+        if (shopPanel != null) {
+            shopPanel.createItemWeapon(Global.mainWeaponSelected);
+        }
+
+        Global.instance.equippedWeapons.add(Global.mainWeaponSelected);
+
+        if (spawner != null) {
+            spawner.startWave();
+        }
+        Global.gamePaused = false;
+    }
 
     @RegisterFunction
     @Override
     public void _process(double delta) {
-        if (Global.gamePaused) return;
+        if (Global.gamePaused)
+            return;
         // Hàm này chạy liên tục mỗi khung hình (60 FPS)
         // Cập nhật text liên tục từ Spawner lên Màn hình
         if (spawner != null) {
@@ -126,7 +157,11 @@ public class Arena extends Node2D {
     public void show_damage_text(Node2D unit, HitBoxComponent hitbox) {
         FloatingText textInstance = spawnTextAroundUnit(unit);
         String damageStr = String.valueOf((int) hitbox.damage);
-        textInstance.setup(damageStr, normalColor);
+        if (hitbox.critical) {
+            textInstance.setup(damageStr, critColor);
+        } else {
+            textInstance.setup(damageStr, normalColor);
+        }
     }
 
     @RegisterFunction
@@ -155,25 +190,26 @@ public class Arena extends Node2D {
     @RegisterFunction
     public void _on_wave_completed() {
         clean_arena();
-        clean_arena(); 
+        clean_arena();
         clean_arena(); // Gọi 2 lần như trong video để đề phòng rơi xu sát nút
         getTree().createTimer(1.0).getTimeout().connect(Callable.create(this, new StringName("show_upgrades")), 0);
     }
 
     @RegisterFunction
     public void spawn_coins(game.entity.enemies.Enemy enemy) {
-        if (Global.instance.coinsScene == null) return;
+        if (Global.instance.coinsScene == null)
+            return;
 
         double randomAngle = GD.randfRange(0, (float) Math.PI * 2);
         Vector2 offset = new Vector2(1, 0).rotated(randomAngle).times(35);
         Vector2 spawnPosition = enemy.getGlobalPosition().plus(offset);
-        
+
         GD.print("Spawn Coins: Enemy Pos=" + enemy.getGlobalPosition() + ", Spawn Pos=" + spawnPosition);
 
         Node goldInstanceNode = Global.instance.coinsScene.instantiate();
         if (goldInstanceNode instanceof game.items.Coins) {
             game.items.Coins goldInstance = (game.items.Coins) goldInstanceNode;
-            
+
             goldList.add(goldInstance);
 
             if (enemy.stats instanceof game.resources.units.EnemyStats) {
@@ -194,7 +230,8 @@ public class Arena extends Node2D {
 
     @RegisterFunction
     public void clean_arena() {
-        if (coinsBag == null) return;
+        if (coinsBag == null)
+            return;
         if (goldList.size() > 0) {
             Vector2 targetCenterPosition = coinsBag.getGlobalPosition().plus(coinsBag.getSize().div(2));
 
@@ -209,7 +246,8 @@ public class Arena extends Node2D {
 
     @RegisterFunction
     public void show_upgrades() {
-        if (!godot.global.GD.isInstanceValid(Global.player)) return;
+        if (!godot.global.GD.isInstanceValid(Global.player))
+            return;
 
         // --- GỌI HÀM TÍNH XÁC SUẤT ĐỂ IN RA DEBUG NHƯ TRONG VIDEO ---
         int currentWave = 1;
@@ -229,7 +267,7 @@ public class Arena extends Node2D {
         if (upgradePanel != null) {
             upgradePanel.hide();
         }
-        
+
         // Sau khi chọn xong Nâng cấp -> Mở Shop
         if (shopPanel != null) {
             int currentWave = 1;

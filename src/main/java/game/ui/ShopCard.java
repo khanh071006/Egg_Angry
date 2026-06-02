@@ -77,6 +77,14 @@ public class ShopCard extends Panel {
 
     @RegisterFunction
     public void _on_buy_button_pressed() {
+        if (shopItem != null && shopItem.itemType == ItemBase.ItemType.WEAPON) {
+            
+            if (Global.instance.equippedWeapons.size() >= 6) {
+                godot.global.GD.print("Không thể mua thêm vũ khí, đã đạt tối đa 6!");
+                return;
+            }
+        }
+        
         if (shopItem != null && Global.coins >= shopItem.itemCost) {
             onItemPurchased.emit(shopItem);
             Global.coins -= shopItem.itemCost;

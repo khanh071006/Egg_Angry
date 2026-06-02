@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cxab321jklmno"]
+[gd_scene load_steps=23 format=3 uid="uid://cxab321jklmno"]
 
 [ext_resource type="Script" uid="uid://euqvfmyikjeo" path="res://gdj/game/ui/SelectionPanel.gdj" id="1_8wgut"]
 [ext_resource type="StyleBox" uid="uid://wmyqnve45qmn" path="res://styles/common_style.tres" id="1_csty"]
@@ -9,11 +9,37 @@
 [ext_resource type="Resource" uid="uid://c7seiylrx3igi" path="res://resources/units/players/stats_player_crazy.tres" id="4_m67jx"]
 [ext_resource type="Resource" uid="uid://v5ba7gqet5u7" path="res://resources/units/players/stats_player_knight.tres" id="5_5ne7w"]
 [ext_resource type="Resource" uid="uid://dqrt363axanpe" path="res://resources/units/players/stats_player_well_rounded.tres" id="6_6e6br"]
+[ext_resource type="Resource" uid="uid://cs44f4o6cr27l" path="res://resources/items/weapons/melee/axe/item_axe_1.tres" id="w_axe"]
+[ext_resource type="Resource" uid="uid://23kf60mfq0ru" path="res://resources/items/weapons/melee/chainsaw/item_chainsaw_1.tres" id="w_chain"]
+[ext_resource type="Resource" uid="uid://bnh4s0k24el82" path="res://resources/items/weapons/range/laser/item_laser_1.tres" id="w_laser"]
+[ext_resource type="Resource" uid="uid://d2bgjqevvurpm" path="res://resources/items/weapons/melee/mace/item_mace_1.tres" id="w_mace"]
+[ext_resource type="Resource" uid="uid://byn5a3a7hg26r" path="res://resources/items/weapons/range/pistol/item_pistol_1.tres" id="w_pistol"]
+[ext_resource type="Resource" uid="uid://c5t7t8hr2bmaw" path="res://resources/items/weapons/melee/punch/item_punch_1.tres" id="w_punch"]
+[ext_resource type="Resource" uid="uid://3t640tbn6bs2" path="res://resources/items/weapons/range/revolver/item_revolver_1.tres" id="w_revolver"]
+[ext_resource type="Resource" uid="uid://cjwlyhsblvj0e" path="res://resources/items/weapons/range/shotgun/item_shotgun_1.tres" id="w_shotgun"]
+[ext_resource type="Resource" uid="uid://dmyacvejh2apd" path="res://resources/items/weapons/range/smg/item_smg_1.tres" id="w_smg"]
+[ext_resource type="Resource" uid="uid://655xje12rlbq" path="res://resources/items/weapons/melee/sword/item_sword_1.tres" id="w_sword"]
+[ext_resource type="Resource" uid="uid://cqjb3w3he2ll1" path="res://resources/items/weapons/melee/wand/item_wand_1.tres" id="w_wand"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bg"]
+bg_color = Color(0.20392157, 0.20392157, 0.20392157, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_0u7kx"]
 font_size = 24
 
-[node name="SelectionPanel" type="MarginContainer"]
+[node name="SelectionPanel" type="Panel"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_bg")
+script = ExtResource("1_8wgut")
+players = Array[Resource]([ExtResource("2_rbokc"), ExtResource("3_dh0xd"), ExtResource("4_m67jx"), ExtResource("5_5ne7w"), ExtResource("6_6e6br")])
+start_weapons = Array[Resource]([ExtResource("w_axe"), ExtResource("w_chain"), ExtResource("w_mace"), ExtResource("w_punch"), ExtResource("w_sword"), ExtResource("w_wand"), ExtResource("w_laser"), ExtResource("w_pistol"), ExtResource("w_revolver"), ExtResource("w_shotgun"), ExtResource("w_smg")])
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -23,35 +49,37 @@ theme_override_constants/margin_left = 32
 theme_override_constants/margin_top = 32
 theme_override_constants/margin_right = 32
 theme_override_constants/margin_bottom = 32
-script = ExtResource("1_8wgut")
-players = Array[Resource]([ExtResource("2_rbokc"), ExtResource("3_dh0xd"), ExtResource("4_m67jx"), ExtResource("5_5ne7w"), ExtResource("6_6e6br")])
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 theme_override_constants/separation = 64
 
-[node name="Preview" type="Control" parent="VBoxContainer"]
+[node name="Preview" type="Control" parent="MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 550)
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Panel" type="Panel" parent="VBoxContainer/Preview"]
-custom_minimum_size = Vector2(380, 550)
+[node name="InfoPanels" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Preview"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -190.0
+offset_left = -405.0
 offset_top = -275.0
-offset_right = 190.0
+offset_right = 405.0
 offset_bottom = 275.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 50
+
+[node name="PlayerPanel" type="Panel" parent="MarginContainer/VBoxContainer/Preview/InfoPanels"]
+custom_minimum_size = Vector2(380, 550)
+layout_mode = 2
 theme_override_styles/panel = ExtResource("1_csty")
 
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/Preview/Panel"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/Preview/InfoPanels/PlayerPanel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -63,10 +91,10 @@ theme_override_constants/margin_top = 24
 theme_override_constants/margin_right = 24
 theme_override_constants/margin_bottom = 24
 
-[node name="Control" type="Control" parent="VBoxContainer/Preview/Panel/MarginContainer"]
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/Preview/InfoPanels/PlayerPanel/MarginContainer"]
 layout_mode = 2
 
-[node name="PlayerIcon" type="TextureRect" parent="VBoxContainer/Preview/Panel/MarginContainer/Control"]
+[node name="PlayerIcon" type="TextureRect" parent="MarginContainer/VBoxContainer/Preview/InfoPanels/PlayerPanel/MarginContainer/Control"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 0
@@ -76,7 +104,7 @@ texture = ExtResource("2_icon")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="PlayerName" type="Label" parent="VBoxContainer/Preview/Panel/MarginContainer/Control"]
+[node name="PlayerName" type="Label" parent="MarginContainer/VBoxContainer/Preview/InfoPanels/PlayerPanel/MarginContainer/Control"]
 unique_name_in_owner = true
 layout_mode = 0
 offset_left = 150.0
@@ -87,7 +115,7 @@ scale = Vector2(1.5, 1.5)
 text = "player name"
 label_settings = SubResource("LabelSettings_0u7kx")
 
-[node name="PlayerTitle" type="Label" parent="VBoxContainer/Preview/Panel/MarginContainer/Control"]
+[node name="PlayerTitle" type="Label" parent="MarginContainer/VBoxContainer/Preview/InfoPanels/PlayerPanel/MarginContainer/Control"]
 unique_name_in_owner = true
 modulate = Color(0.854902, 0.819608, 0.035294, 1)
 layout_mode = 0
@@ -98,7 +126,7 @@ offset_bottom = 100.0
 scale = Vector2(1.5, 1.5)
 text = "player"
 
-[node name="PlayerDescription" type="RichTextLabel" parent="VBoxContainer/Preview/Panel/MarginContainer/Control"]
+[node name="PlayerDescription" type="RichTextLabel" parent="MarginContainer/VBoxContainer/Preview/InfoPanels/PlayerPanel/MarginContainer/Control"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(332, 353)
 layout_mode = 1
@@ -117,7 +145,78 @@ theme_override_font_sizes/mono_font_size = 24
 bbcode_enabled = true
 text = "description"
 
-[node name="ContinueButton" parent="VBoxContainer/Preview" instance=ExtResource("3_cbtn")]
+[node name="WeaponPanel" type="Panel" parent="MarginContainer/VBoxContainer/Preview/InfoPanels"]
+custom_minimum_size = Vector2(380, 550)
+layout_mode = 2
+theme_override_styles/panel = ExtResource("1_csty")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/Preview/InfoPanels/WeaponPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/Preview/InfoPanels/WeaponPanel/MarginContainer"]
+layout_mode = 2
+
+[node name="WeaponIconPanel" type="TextureRect" parent="MarginContainer/VBoxContainer/Preview/InfoPanels/WeaponPanel/MarginContainer/Control"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 0
+offset_right = 128.0
+offset_bottom = 128.0
+texture = ExtResource("2_icon")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="WeaponName" type="Label" parent="MarginContainer/VBoxContainer/Preview/InfoPanels/WeaponPanel/MarginContainer/Control"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 150.0
+offset_top = 30.0
+offset_right = 332.0
+offset_bottom = 60.0
+scale = Vector2(1.5, 1.5)
+text = "weapon name"
+label_settings = SubResource("LabelSettings_0u7kx")
+
+[node name="WeaponTitle" type="Label" parent="MarginContainer/VBoxContainer/Preview/InfoPanels/WeaponPanel/MarginContainer/Control"]
+unique_name_in_owner = true
+modulate = Color(0.854902, 0.819608, 0.035294, 1)
+layout_mode = 0
+offset_left = 150.0
+offset_top = 75.0
+offset_right = 332.0
+offset_bottom = 100.0
+scale = Vector2(1.5, 1.5)
+text = "weapon"
+
+[node name="WeaponDescription" type="RichTextLabel" parent="MarginContainer/VBoxContainer/Preview/InfoPanels/WeaponPanel/MarginContainer/Control"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(332, 353)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -166.0
+offset_top = -353.0
+offset_right = 166.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/normal_font_size = 24
+theme_override_font_sizes/mono_font_size = 24
+bbcode_enabled = true
+text = "weapon description"
+
+[node name="ContinueButton" parent="MarginContainer/VBoxContainer/Preview" instance=ExtResource("3_cbtn")]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -132,12 +231,12 @@ grow_horizontal = 0
 grow_vertical = 1
 text = "continue"
 
-[node name="Items" type="Control" parent="VBoxContainer"]
+[node name="Items" type="Control" parent="MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 400)
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Items"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Items"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -146,96 +245,98 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 64
 
-[node name="PlayerContainer" type="HBoxContainer" parent="VBoxContainer/Items/VBoxContainer"]
+[node name="PlayerContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Items/VBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 128)
 layout_mode = 2
 theme_override_constants/separation = 24
 alignment = 1
 
-[node name="SelectionCard" type="Button" parent="VBoxContainer/Items/VBoxContainer/PlayerContainer"]
+[node name="SelectionCard" type="Button" parent="MarginContainer/VBoxContainer/Items/VBoxContainer/PlayerContainer"]
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 theme_override_styles/normal = ExtResource("1_csty")
 
-[node name="SelectionCard2" type="Button" parent="VBoxContainer/Items/VBoxContainer/PlayerContainer"]
+[node name="SelectionCard2" type="Button" parent="MarginContainer/VBoxContainer/Items/VBoxContainer/PlayerContainer"]
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 theme_override_styles/normal = ExtResource("1_csty")
 
-[node name="SelectionCard3" type="Button" parent="VBoxContainer/Items/VBoxContainer/PlayerContainer"]
+[node name="SelectionCard3" type="Button" parent="MarginContainer/VBoxContainer/Items/VBoxContainer/PlayerContainer"]
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 theme_override_styles/normal = ExtResource("1_csty")
 
-[node name="SelectionCard4" type="Button" parent="VBoxContainer/Items/VBoxContainer/PlayerContainer"]
+[node name="SelectionCard4" type="Button" parent="MarginContainer/VBoxContainer/Items/VBoxContainer/PlayerContainer"]
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 theme_override_styles/normal = ExtResource("1_csty")
 
-[node name="SelectionCard5" type="Button" parent="VBoxContainer/Items/VBoxContainer/PlayerContainer"]
+[node name="SelectionCard5" type="Button" parent="MarginContainer/VBoxContainer/Items/VBoxContainer/PlayerContainer"]
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 theme_override_styles/normal = ExtResource("1_csty")
 
-[node name="WeaponContainer" type="HBoxContainer" parent="VBoxContainer/Items/VBoxContainer"]
+[node name="WeaponContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Items/VBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 128)
 layout_mode = 2
 theme_override_constants/separation = 20
 alignment = 1
 
-[node name="SelectionCard" type="Button" parent="VBoxContainer/Items/VBoxContainer/WeaponContainer"]
+[node name="SelectionCard" type="Button" parent="MarginContainer/VBoxContainer/Items/VBoxContainer/WeaponContainer"]
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 theme_override_styles/normal = ExtResource("1_csty")
 
-[node name="SelectionCard2" type="Button" parent="VBoxContainer/Items/VBoxContainer/WeaponContainer"]
+[node name="SelectionCard2" type="Button" parent="MarginContainer/VBoxContainer/Items/VBoxContainer/WeaponContainer"]
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 theme_override_styles/normal = ExtResource("1_csty")
 
-[node name="SelectionCard3" type="Button" parent="VBoxContainer/Items/VBoxContainer/WeaponContainer"]
+[node name="SelectionCard3" type="Button" parent="MarginContainer/VBoxContainer/Items/VBoxContainer/WeaponContainer"]
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 theme_override_styles/normal = ExtResource("1_csty")
 
-[node name="SelectionCard4" type="Button" parent="VBoxContainer/Items/VBoxContainer/WeaponContainer"]
+[node name="SelectionCard4" type="Button" parent="MarginContainer/VBoxContainer/Items/VBoxContainer/WeaponContainer"]
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 theme_override_styles/normal = ExtResource("1_csty")
 
-[node name="SelectionCard5" type="Button" parent="VBoxContainer/Items/VBoxContainer/WeaponContainer"]
+[node name="SelectionCard5" type="Button" parent="MarginContainer/VBoxContainer/Items/VBoxContainer/WeaponContainer"]
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 theme_override_styles/normal = ExtResource("1_csty")
 
-[node name="SelectionCard6" type="Button" parent="VBoxContainer/Items/VBoxContainer/WeaponContainer"]
+[node name="SelectionCard6" type="Button" parent="MarginContainer/VBoxContainer/Items/VBoxContainer/WeaponContainer"]
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 theme_override_styles/normal = ExtResource("1_csty")
 
-[node name="SelectionCard7" type="Button" parent="VBoxContainer/Items/VBoxContainer/WeaponContainer"]
+[node name="SelectionCard7" type="Button" parent="MarginContainer/VBoxContainer/Items/VBoxContainer/WeaponContainer"]
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 theme_override_styles/normal = ExtResource("1_csty")
 
-[node name="SelectionCard8" type="Button" parent="VBoxContainer/Items/VBoxContainer/WeaponContainer"]
+[node name="SelectionCard8" type="Button" parent="MarginContainer/VBoxContainer/Items/VBoxContainer/WeaponContainer"]
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 theme_override_styles/normal = ExtResource("1_csty")
 
-[node name="SelectionCard9" type="Button" parent="VBoxContainer/Items/VBoxContainer/WeaponContainer"]
+[node name="SelectionCard9" type="Button" parent="MarginContainer/VBoxContainer/Items/VBoxContainer/WeaponContainer"]
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 theme_override_styles/normal = ExtResource("1_csty")
 
-[node name="SelectionCard10" type="Button" parent="VBoxContainer/Items/VBoxContainer/WeaponContainer"]
+[node name="SelectionCard10" type="Button" parent="MarginContainer/VBoxContainer/Items/VBoxContainer/WeaponContainer"]
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 theme_override_styles/normal = ExtResource("1_csty")
 
-[node name="SelectionCard11" type="Button" parent="VBoxContainer/Items/VBoxContainer/WeaponContainer"]
+[node name="SelectionCard11" type="Button" parent="MarginContainer/VBoxContainer/Items/VBoxContainer/WeaponContainer"]
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 theme_override_styles/normal = ExtResource("1_csty")
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Preview/ContinueButton" to="." method="_on_continue_button_pressed"]

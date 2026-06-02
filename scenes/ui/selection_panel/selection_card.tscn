@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://b2qe3cm25tnyy" path="res://gdj/game/ui/SelectionCard.gdj" id="2_61x6i"]
 
 [node name="SelectionCard" type="Button"]
-custom_minimum_size = Vector2(128, 128)
+custom_minimum_size = Vector2(100, 100)
 theme_override_styles/normal = ExtResource("1_csty")
 icon_alignment = 1
 expand_icon = true

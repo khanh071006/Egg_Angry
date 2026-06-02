@@ -137,6 +137,29 @@ public class ShopPanel extends Panel {
             }
         }
     }
+    @RegisterFunction
+    public void createItemWeapon(game.resources.items.weapons.ItemWeapon weapon) {
+        if (Global.instance.itemCardScene == null) {
+            GD.printErr("ShopPanel: Chưa gán itemCardScene trong Global!");
+            return;
+        }
+
+        Node cardInstanceNode = Global.instance.itemCardScene.instantiate();
+        
+        if (cardInstanceNode instanceof ItemCard) {
+            ItemCard cardInstance = (ItemCard) cardInstanceNode;
+            
+            if (weaponsContainer != null) {
+                weaponsContainer.addChild(cardInstance);
+            }
+            
+            cardInstance.setItem(weapon);
+            cardInstance.onItemCardSelected.connect(
+                godot.core.Callable.create(this, new godot.core.StringName("_on_item_card_selected")),
+                0
+            );
+        }
+    }
 
     @RegisterFunction
     public void _on_next_wave_button_pressed() {

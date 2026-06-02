@@ -22,21 +22,21 @@ import kotlin.collections.listOf
 
 @RegisteredClassMetadata(
   "SelectionPanel",
-  "Node",
+  "Panel",
   "game.ui.SelectionPanel",
   "src/main/java/game/ui/SelectionPanel.java",
   "gdj/game/ui/SelectionPanel.gdj",
   "project-3",
-  "godot.api.Node,godot.api.Object,godot.core.KtObject,godot.common.interop.NativeWrapper,godot.common.interop.NativePointer,kotlin.Any",
-  "",
+  "godot.api.Panel,godot.api.Control,godot.api.CanvasItem,godot.api.Node,godot.api.Object,godot.core.KtObject,godot.common.interop.NativeWrapper,godot.common.interop.NativePointer,kotlin.Any",
+  "game.ui.SelectionPanel.selectionCompleted",
   "game.ui.SelectionPanel.players,game.ui.SelectionPanel.startWeapons,game.ui.SelectionPanel.selectionCardScene",
-  "game.ui.SelectionPanel._ready,game.ui.SelectionPanel.showPlayerInfo,game.ui.SelectionPanel.loadPlayers,game.ui.SelectionPanel.on_player_selected_index,game.ui.SelectionPanel.onPlayerSelected",
+  "game.ui.SelectionPanel._ready,game.ui.SelectionPanel.showPlayerInfo,game.ui.SelectionPanel.loadPlayers,game.ui.SelectionPanel.on_player_selected_index,game.ui.SelectionPanel.onPlayerSelected,game.ui.SelectionPanel.showWeaponInfo,game.ui.SelectionPanel.loadWeapons,game.ui.SelectionPanel.on_weapon_selected_index,game.ui.SelectionPanel.onWeaponSelected,game.ui.SelectionPanel._on_continue_button_pressed",
   true,
 )
 public open class SelectionPanelRegistrar : ClassRegistrar {
   public override fun register(registry: ClassRegistry): Unit {
     with(registry) {
-      registerClass<SelectionPanel>(listOf(), SelectionPanel::class, false, "Node", "SelectionPanel", "src/main/java/game/ui/SelectionPanel.java", "gdj/game/ui/SelectionPanel.gdj") {
+      registerClass<SelectionPanel>(listOf(), SelectionPanel::class, false, "Panel", "SelectionPanel", "src/main/java/game/ui/SelectionPanel.java", "gdj/game/ui/SelectionPanel.gdj") {
         constructor(KtConstructor0(::SelectionPanel))
         notificationFunctions(listOf())
         function(SelectionPanel::_ready, NIL, KtFunctionArgument(NIL, "kotlin.Unit"), KtRpcConfig(DISABLED.id.toInt(), false, RELIABLE.id.toInt(), 0))
@@ -44,6 +44,12 @@ public open class SelectionPanelRegistrar : ClassRegistrar {
         function(SelectionPanel::loadPlayers, NIL, KtFunctionArgument(NIL, "kotlin.Unit"), KtRpcConfig(DISABLED.id.toInt(), false, RELIABLE.id.toInt(), 0))
         function(SelectionPanel::on_player_selected_index, NIL, INT, KtFunctionArgument(INT, "kotlin.Int", "index"), KtFunctionArgument(NIL, "kotlin.Unit"), KtRpcConfig(DISABLED.id.toInt(), false, RELIABLE.id.toInt(), 0))
         function(SelectionPanel::onPlayerSelected, NIL, OBJECT, KtFunctionArgument(OBJECT, "game.resources.units.UnitStats", "player"), KtFunctionArgument(NIL, "kotlin.Unit"), KtRpcConfig(DISABLED.id.toInt(), false, RELIABLE.id.toInt(), 0))
+        function(SelectionPanel::showWeaponInfo, NIL, BOOL, KtFunctionArgument(BOOL, "kotlin.Boolean", "visible"), KtFunctionArgument(NIL, "kotlin.Unit"), KtRpcConfig(DISABLED.id.toInt(), false, RELIABLE.id.toInt(), 0))
+        function(SelectionPanel::loadWeapons, NIL, KtFunctionArgument(NIL, "kotlin.Unit"), KtRpcConfig(DISABLED.id.toInt(), false, RELIABLE.id.toInt(), 0))
+        function(SelectionPanel::on_weapon_selected_index, NIL, INT, KtFunctionArgument(INT, "kotlin.Int", "index"), KtFunctionArgument(NIL, "kotlin.Unit"), KtRpcConfig(DISABLED.id.toInt(), false, RELIABLE.id.toInt(), 0))
+        function(SelectionPanel::onWeaponSelected, NIL, OBJECT, KtFunctionArgument(OBJECT, "game.resources.items.weapons.ItemWeapon", "weapon"), KtFunctionArgument(NIL, "kotlin.Unit"), KtRpcConfig(DISABLED.id.toInt(), false, RELIABLE.id.toInt(), 0))
+        function(SelectionPanel::_on_continue_button_pressed, NIL, KtFunctionArgument(NIL, "kotlin.Unit"), KtRpcConfig(DISABLED.id.toInt(), false, RELIABLE.id.toInt(), 0))
+        signal(SelectionPanel::selectionCompleted)
         property(SelectionPanel::players, ARRAY, ARRAY, "godot.core.VariantArray", TYPE_STRING, "24/17:Resource", godot.core.PropertyUsageFlags.DEFAULT.flag)
         property(SelectionPanel::startWeapons, ARRAY, ARRAY, "godot.core.VariantArray", TYPE_STRING, "24/17:Resource", godot.core.PropertyUsageFlags.DEFAULT.flag)
         property(SelectionPanel::selectionCardScene, OBJECT, OBJECT, "godot.api.PackedScene", RESOURCE_TYPE, "PackedScene", godot.core.PropertyUsageFlags.DEFAULT.flag)

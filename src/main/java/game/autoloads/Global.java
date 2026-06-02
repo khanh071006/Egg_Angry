@@ -27,6 +27,31 @@ public class Global extends Node {
     public static game.resources.units.UnitStats mainPlayerSelected;
     public static game.resources.items.weapons.ItemWeapon mainWeaponSelected;
 
+    public static java.util.Map<String, String> availablePlayers = new java.util.HashMap<>();
+    
+    static {
+        availablePlayers.put("Brawler", "res://scenes/unit/player_brawler.tscn");
+        availablePlayers.put("Bunny", "res://scenes/unit/player_bunny.tscn");
+        availablePlayers.put("Crazy", "res://scenes/unit/player_crazy.tscn");
+        availablePlayers.put("Knight", "res://scenes/unit/player_knight.tscn");
+        availablePlayers.put("Well Rounded", "res://scenes/unit/player_well_rounded.tscn");
+    }
+
+    @RegisterFunction
+    public static Player getSelectedPlayer() {
+        if (mainPlayerSelected == null) return null;
+        String path = availablePlayers.get(mainPlayerSelected.getUnitName());
+        if (path == null) {
+            godot.global.GD.printErr("Global: Không tìm thấy path cho player " + mainPlayerSelected.getUnitName());
+            return null;
+        }
+        PackedScene scene = (PackedScene) ResourceLoader.load(path);
+        if (scene == null) return null;
+        Player playerInstance = (Player) scene.instantiate();
+        Global.player = playerInstance;
+        return playerInstance;
+    }
+
     // --- CÁC STYLE CHO THẺ NÂNG CẤP ---
     public godot.api.StyleBoxFlat commonStyle;
     public godot.api.StyleBoxFlat rareStyle;

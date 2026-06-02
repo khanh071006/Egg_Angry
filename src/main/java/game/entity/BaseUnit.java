@@ -14,7 +14,7 @@ import godot.global.GD;
 
 @RegisterClass
 public class BaseUnit extends Area2D { // Đổi tên class ở đây
-    //add stat
+    // add stat
     @Export
     @RegisterProperty
     public UnitStats stats;
@@ -22,20 +22,19 @@ public class BaseUnit extends Area2D { // Đổi tên class ở đây
     // --- CÁC BIẾN CHO FlashEffects ---
     private Timer flashTimer;
 
-	protected Node2D visuals;
-	protected Sprite2D sprite;
-	protected AnimationPlayer animPlayer;
+    protected Node2D visuals;
+    protected Sprite2D sprite;
+    protected AnimationPlayer animPlayer;
     public HealthComponent healthComponent;
-	@RegisterFunction
-	@Override
-	public void _ready() {
-		visuals = (Node2D) getNode("%Visuals");
-		sprite = (Sprite2D) getNode("%Sprite");
-		animPlayer = (AnimationPlayer) getNode("AnimationPlayer");
 
+    @RegisterFunction
+    @Override
+    public void _ready() {
+        visuals = (Node2D) getNode("%Visuals");
+        sprite = (Sprite2D) getNode("%Sprite");
+        animPlayer = (AnimationPlayer) getNode("AnimationPlayer");
 
         healthComponent = (HealthComponent) getNode("HealthComponent");
-
 
         // Gọi setup và truyền biến stats của Unit vào (như video)
         if (healthComponent != null && this.stats != null) {
@@ -47,7 +46,7 @@ public class BaseUnit extends Area2D { // Đổi tên class ở đây
         flashTimer.setWaitTime(0.2);
         flashTimer.setOneShot(true);
 
-	}
+    }
 
     @RegisterFunction
     public void setFlashMaterial() {
@@ -66,26 +65,36 @@ public class BaseUnit extends Area2D { // Đổi tên class ở đây
         if (healthComponent.currentHealth <= 0) {
             return;
         }
-        //block
+        // block
         PlayerStats playerStats;
         boolean blocked = Global.get_chance_sucess(stats.blockchance / 100);
-        if (blocked){
+        if (blocked) {
             Global.instance.onCreateBlockText.emit(this);
             return;
         }
 
-
         healthComponent.takeDamage(hitbox.damage);
-        Global.instance.onCreateDamageText.emit(this,hitbox);
+        Global.instance.onCreateDamageText.emit(this, hitbox);
 
         // Gọi hiệu ứng chớp trắng
         setFlashMaterial();
 
-        // GD.print(getName()+" "+ healthComponent.currentHealth);
+        // Đẩy lùi đối phương ra xa (để hitbox thoái lui rồi đâm lại, trừ máu liên tục)
+        godot.api.Node sourceNode = hitbox.source;
+        if (sourceNode == null) {
+            sourceNode = hitbox.getOwner();
+        }
+
+        if (sourceNode instanceof game.entity.enemies.Enemy) {
+            game.entity.enemies.Enemy enemy = (game.entity.enemies.Enemy) sourceNode;
+            // Vector hướng từ Player chỉ ra Enemy
+            godot.core.Vector2 pushDir = enemy.getGlobalPosition().minus(this.getGlobalPosition()).normalized();
+            enemy.applyKnockbackAdvanced(pushDir, 30.0, false); // false = không phải lực đẩy vũ khí
+        }
     }
 
     @RegisterFunction
-    public void _on_flash_timer_timeout(){
+    public void _on_flash_timer_timeout() {
         if (sprite != null) {
             sprite.setMaterial(null);
         }

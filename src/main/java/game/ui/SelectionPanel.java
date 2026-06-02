@@ -9,10 +9,13 @@ import godot.annotation.RegisterFunction;
 import godot.annotation.RegisterProperty;
 import godot.api.*;
 import godot.core.Callable;
+import godot.core.Signal0;
 import godot.core.VariantArray;
+import godot.core.Signal1;
+import godot.annotation.RegisterSignal;
 
 @RegisterClass
-public class SelectionPanel extends Node {
+public class SelectionPanel extends Panel {
 
     @Export
     @RegisterProperty
@@ -34,6 +37,11 @@ public class SelectionPanel extends Node {
     private Label playerTitle;
     private RichTextLabel playerDescription;
 
+    private TextureRect weaponIconPanel;
+    private Label weaponName;
+    private Label weaponTitle;
+    private RichTextLabel weaponDescription;
+
     public SelectionPanel() {
         super();
     }
@@ -47,6 +55,11 @@ public class SelectionPanel extends Node {
         playerName = (Label) getNodeOrNull("%PlayerName");
         playerTitle = (Label) getNodeOrNull("%PlayerTitle");
         playerDescription = (RichTextLabel) getNodeOrNull("%PlayerDescription");
+
+        weaponIconPanel = (TextureRect) getNodeOrNull("%WeaponIconPanel");
+        weaponName = (Label) getNodeOrNull("%WeaponName");
+        weaponTitle = (Label) getNodeOrNull("%WeaponTitle");
+        weaponDescription = (RichTextLabel) getNodeOrNull("%WeaponDescription");
 
         // Clear existing children
         if (playerContainer != null) {
@@ -66,7 +79,9 @@ public class SelectionPanel extends Node {
         }
 
         showPlayerInfo(false);
+        showWeaponInfo(false);
         loadPlayers();
+        loadWeapons();
     }
 
     @RegisterFunction
@@ -142,5 +157,80 @@ public class SelectionPanel extends Node {
                     "[/code]";
             playerDescription.setText(bbcode);
         }
+    }
+
+    @RegisterFunction
+    public void showWeaponInfo(boolean visible) {
+        if (weaponIconPanel != null)
+            weaponIconPanel.setVisible(visible);
+        if (weaponName != null)
+            weaponName.setVisible(visible);
+        if (weaponTitle != null)
+            weaponTitle.setVisible(visible);
+        if (weaponDescription != null)
+            weaponDescription.setVisible(visible);
+    }
+
+    @RegisterFunction
+    public void loadWeapons() {
+        if (startWeapons == null || startWeapons.isEmpty()) {
+            return;
+        }
+
+        if (selectionCardScene != null && weaponContainer != null) {
+            for (int i = 0; i < startWeapons.size(); i++) {
+                Resource res = startWeapons.get(i);
+                if (res instanceof ItemWeapon) {
+                    ItemWeapon weapon = (ItemWeapon) res;
+                    SelectionCard card = (SelectionCard) selectionCardScene.instantiate();
+                    if (card != null) {
+                        weaponContainer.addChild(card);
+                        card.setIconTexture(weapon.itemIcon);
+                        
+                        card.playerIndex = i; // Reuse playerIndex for weapon index
+                        card.onCardSelected.connect(
+                                godot.core.Callable.create(this, new godot.core.StringName("on_weapon_selected_index")),
+                                0);
+                    }
+                }
+            }
+        }
+    }
+
+    @RegisterFunction
+    public void on_weapon_selected_index(int index) {
+        if (startWeapons != null && index >= 0 && index < startWeapons.size()) {
+            Resource res = startWeapons.get(index);
+            if (res instanceof ItemWeapon) {
+                onWeaponSelected((ItemWeapon) res);
+            }
+        }
+    }
+
+    @RegisterFunction
+    public void onWeaponSelected(ItemWeapon weapon) {
+        Global.mainWeaponSelected = weapon;
+        showWeaponInfo(true);
+        
+        if (weaponIconPanel != null)
+            weaponIconPanel.setTexture(weapon.itemIcon);
+        if (weaponName != null)
+            weaponName.setText(weapon.itemName);
+        if (weaponDescription != null) {
+            weaponDescription.setText(weapon.getDescription());
+        }
+    }
+
+    @RegisterSignal
+    public Signal0 selectionCompleted = Signal0.create(this, "selection_completed");
+
+    @RegisterFunction
+    public void _on_continue_button_pressed() {
+        if (Global.mainPlayerSelected == null || Global.mainWeaponSelected == null) {
+            return;
+        }
+
+        selectionCompleted.emit();
+        this.hide();
     }
 }

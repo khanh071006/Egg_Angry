@@ -4,9 +4,12 @@
 registeredName = SelectionPanel
 fqName = game.ui.SelectionPanel
 relativeSourcePath = src/main/java/game/ui/SelectionPanel.java
-baseType = Node
+baseType = Panel
 supertypes = [
-    godot.api.Node,
+    godot.api.Panel,
+	godot.api.Control,
+	godot.api.CanvasItem,
+	godot.api.Node,
 	godot.api.Object,
 	godot.core.KtObject,
 	godot.common.interop.NativeWrapper,
@@ -14,7 +17,7 @@ supertypes = [
 	kotlin.Any
 ]
 signals = [
-    
+    selection_completed
 ]
 properties = [
     players,
@@ -26,5 +29,10 @@ functions = [
 	show_player_info,
 	load_players,
 	on_player_selected_index,
-	on_player_selected
+	on_player_selected,
+	show_weapon_info,
+	load_weapons,
+	on_weapon_selected_index,
+	on_weapon_selected,
+	_on_continue_button_pressed
 ]

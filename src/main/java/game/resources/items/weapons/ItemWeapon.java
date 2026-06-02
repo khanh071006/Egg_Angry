@@ -44,11 +44,11 @@ public class ItemWeapon extends ItemBase {
     public String getDescription() {
         if (stats == null) return "";
 
-        String format = "[code]\n" +
-                "Damage: [color=green]%s[/color]\n" +
-                "Cooldown: [color=green]%s[/color]\n" +
-                "Range: [color=green]%s[/color]\n" +
-                "Critical: [color=green]%s%%[/color]\n" +
+        String format = "[code]\n\n" +
+                "Damage: [color=green]%s[/color]\n\n" +
+                "Cooldown: [color=green]%s[/color]\n\n" +
+                "Range: [color=green]%s[/color]\n\n" +
+                "Critical: [color=green]%s%%[/color]\n\n" +
                 "[/code]";
 
         java.text.DecimalFormat df = new java.text.DecimalFormat("0.##");

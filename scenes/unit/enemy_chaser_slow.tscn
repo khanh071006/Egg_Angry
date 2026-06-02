@@ -22,6 +22,7 @@ radius = 76.105194
 collision_layer = 0
 script = ExtResource("2_yf04y")
 flock_push = 20.0
+knockback_immunity_time = 0.3
 stats = ExtResource("3_yf04y")
 
 [node name="Sprite" parent="Visuals" index="1"]
@@ -63,6 +64,7 @@ back_color = Color(0.015686275, 0.05490196, 0.16862746, 1)
 fill_color = Color(0.37254903, 0.5372549, 0.75686276, 1)
 
 [node name="KnockbackTimer" type="Timer" parent="." index="9"]
+wait_time = 0.5
 
 [connection signal="on_unit_die" from="HealthComponent" to="." method="_on_health_component_on_unit_die"]
 [connection signal="timeout" from="KnockbackTimer" to="." method="_on_knockback_timer_timeout"]
