@@ -123,7 +123,7 @@ public class Player extends BaseUnit {
 		return !isDashing &&
 				dashCooldownTimer != null && dashCooldownTimer.isStopped() &&
 				Input.INSTANCE.isActionJustPressed("dash", false) &&
-				moveDirection.length() > 0.0f;
+				moveDirection.length()  > 0.0f;
 	}
 
 	private void startDash() {

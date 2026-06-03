@@ -15,5 +15,4 @@ metadata/_custom_type_script = "uid://bf8v16a6b8yrh"
 [resource]
 script = ExtResource("1_script")
 to = 3
-fixed_spawn_time = 2.0
 units = Array[ExtResource("2_script")]([SubResource("Resource_unit_1")])
