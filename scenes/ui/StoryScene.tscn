@@ -1,8 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://bhqyiy31vlfs7"]
+[gd_scene load_steps=12 format=3 uid="uid://bhqyiy31vlfs7"]
 
 [ext_resource type="Script" uid="uid://dtwrlrju67n6i" path="res://gdj/game/ui/StoryMenu.gdj" id="1_script"]
 [ext_resource type="FontFile" uid="uid://kfh6ooeul77g" path="res://gdj/game/Game+Assets/assets/font/Bake Soda.otf" id="2_font"]
 [ext_resource type="Texture2D" uid="uid://duopnjcoou164" path="res://scenes/ui/plot.jpg" id="3_plot_img"]
+[ext_resource type="Texture2D" uid="uid://rm0wqigcklpg" path="res://scenes/ui/intro_player.png" id="4_intro_player"]
+[ext_resource type="Texture2D" uid="uid://u6ve5jr4uaia" path="res://scenes/ui/intro_enemy.png" id="5_intro_enemy"]
+[ext_resource type="Texture2D" uid="uid://dfa2tsbcdoihi" path="res://scenes/ui/intro_wave.png" id="6_intro_wave"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_story"]
 
@@ -102,20 +105,31 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.05, 0.03, 0.02, 1)
 
-[node name="PlotImagePanel" type="PanelContainer" parent="."]
+[node name="ClipContainer" type="Control" parent="."]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -469.0
+offset_right = 469.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PlotImagePanel" type="PanelContainer" parent="ClipContainer"]
 layout_mode = 0
-offset_left = 491.0
-offset_right = 1429.0
+offset_right = 938.0
 offset_bottom = 1080.0
 theme_override_styles/panel = SubResource("StyleBoxEmpty_story")
 
-[node name="PlotImage" type="TextureRect" parent="PlotImagePanel"]
+[node name="PlotImage" type="TextureRect" parent="ClipContainer/PlotImagePanel"]
 layout_mode = 2
 texture = ExtResource("3_plot_img")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Panel" type="PanelContainer" parent="PlotImagePanel/PlotImage"]
+[node name="Panel" type="PanelContainer" parent="ClipContainer/PlotImagePanel/PlotImage"]
 layout_mode = 0
 offset_left = 117.0
 offset_top = 140.0
@@ -123,14 +137,14 @@ offset_right = 821.0
 offset_bottom = 520.0
 theme_override_styles/panel = SubResource("StyleBoxEmpty_story")
 
-[node name="MarginContainer" type="MarginContainer" parent="PlotImagePanel/PlotImage/Panel"]
+[node name="MarginContainer" type="MarginContainer" parent="ClipContainer/PlotImagePanel/PlotImage/Panel"]
 layout_mode = 2
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 10
 
-[node name="StoryLabel" type="RichTextLabel" parent="PlotImagePanel/PlotImage/Panel/MarginContainer"]
+[node name="StoryLabel" type="RichTextLabel" parent="ClipContainer/PlotImagePanel/PlotImage/Panel/MarginContainer"]
 layout_mode = 2
 theme_override_colors/default_color = Color(0.18, 0.1, 0.05, 1)
 theme_override_constants/line_separation = 8
@@ -140,7 +154,7 @@ bbcode_enabled = true
 text = "Loading Chronicles..."
 scroll_following = true
 
-[node name="BackButton" type="Button" parent="PlotImagePanel/PlotImage"]
+[node name="BackButton" type="Button" parent="ClipContainer/PlotImagePanel/PlotImage"]
 layout_mode = 0
 offset_left = 60.0
 offset_top = 960.0
@@ -159,6 +173,278 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
 theme_override_styles/focus = SubResource("StyleBoxFlat_btn_focus")
 text = "BACK"
 
-[connection signal="mouse_entered" from="PlotImagePanel/PlotImage/BackButton" to="." method="_on_back_mouse_entered"]
-[connection signal="mouse_exited" from="PlotImagePanel/PlotImage/BackButton" to="." method="_on_back_mouse_exited"]
-[connection signal="pressed" from="PlotImagePanel/PlotImage/BackButton" to="." method="_on_back_pressed"]
+[node name="NextButton" type="Button" parent="ClipContainer/PlotImagePanel/PlotImage"]
+visible = false
+layout_mode = 0
+offset_left = 698.0
+offset_top = 960.0
+offset_right = 878.0
+offset_bottom = 1030.0
+theme_override_colors/font_color = Color(0.92, 0.88, 0.78, 1)
+theme_override_colors/font_pressed_color = Color(0.82, 0.72, 0.5, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 0.92, 1)
+theme_override_colors/font_outline_color = Color(0.05, 0.03, 0.01, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn_normal")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_btn_pressed")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+theme_override_styles/focus = SubResource("StyleBoxFlat_btn_focus")
+text = "NEXT >"
+
+[node name="PlayerIntroPanel" type="PanelContainer" parent="ClipContainer"]
+layout_mode = 0
+offset_left = 938.0
+offset_right = 1876.0
+offset_bottom = 1080.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_story")
+
+[node name="PlayerIntroImage" type="TextureRect" parent="ClipContainer/PlayerIntroPanel"]
+layout_mode = 2
+texture = ExtResource("4_intro_player")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Panel" type="PanelContainer" parent="ClipContainer/PlayerIntroPanel/PlayerIntroImage"]
+layout_mode = 0
+offset_left = 117.0
+offset_top = 140.0
+offset_right = 821.0
+offset_bottom = 520.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_story")
+
+[node name="MarginContainer" type="MarginContainer" parent="ClipContainer/PlayerIntroPanel/PlayerIntroImage/Panel"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 10
+
+[node name="PlayerIntroLabel" type="RichTextLabel" parent="ClipContainer/PlayerIntroPanel/PlayerIntroImage/Panel/MarginContainer"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0.18, 0.1, 0.05, 1)
+theme_override_constants/line_separation = 8
+theme_override_fonts/normal_font = ExtResource("2_font")
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "Loading Player Chronicles..."
+scroll_following = true
+
+[node name="PrevButton" type="Button" parent="ClipContainer/PlayerIntroPanel/PlayerIntroImage"]
+layout_mode = 0
+offset_left = 60.0
+offset_top = 960.0
+offset_right = 240.0
+offset_bottom = 1030.0
+theme_override_colors/font_color = Color(0.92, 0.88, 0.78, 1)
+theme_override_colors/font_pressed_color = Color(0.82, 0.72, 0.5, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 0.92, 1)
+theme_override_colors/font_outline_color = Color(0.05, 0.03, 0.01, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn_normal")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_btn_pressed")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+theme_override_styles/focus = SubResource("StyleBoxFlat_btn_focus")
+text = "< STORY"
+
+[node name="NextButton" type="Button" parent="ClipContainer/PlayerIntroPanel/PlayerIntroImage"]
+visible = false
+layout_mode = 0
+offset_left = 698.0
+offset_top = 960.0
+offset_right = 878.0
+offset_bottom = 1030.0
+theme_override_colors/font_color = Color(0.92, 0.88, 0.78, 1)
+theme_override_colors/font_pressed_color = Color(0.82, 0.72, 0.5, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 0.92, 1)
+theme_override_colors/font_outline_color = Color(0.05, 0.03, 0.01, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn_normal")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_btn_pressed")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+theme_override_styles/focus = SubResource("StyleBoxFlat_btn_focus")
+text = "NEXT >"
+
+[node name="EnemyIntroPanel" type="PanelContainer" parent="ClipContainer"]
+layout_mode = 0
+offset_left = 1876.0
+offset_right = 2814.0
+offset_bottom = 1080.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_story")
+
+[node name="EnemyIntroImage" type="TextureRect" parent="ClipContainer/EnemyIntroPanel"]
+layout_mode = 2
+texture = ExtResource("5_intro_enemy")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Panel" type="PanelContainer" parent="ClipContainer/EnemyIntroPanel/EnemyIntroImage"]
+layout_mode = 0
+offset_left = 117.0
+offset_top = 140.0
+offset_right = 821.0
+offset_bottom = 520.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_story")
+
+[node name="MarginContainer" type="MarginContainer" parent="ClipContainer/EnemyIntroPanel/EnemyIntroImage/Panel"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 10
+
+[node name="EnemyIntroLabel" type="RichTextLabel" parent="ClipContainer/EnemyIntroPanel/EnemyIntroImage/Panel/MarginContainer"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0.18, 0.1, 0.05, 1)
+theme_override_constants/line_separation = 8
+theme_override_fonts/normal_font = ExtResource("2_font")
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "Loading Enemy Chronicles..."
+scroll_following = true
+
+[node name="PrevButton" type="Button" parent="ClipContainer/EnemyIntroPanel/EnemyIntroImage"]
+layout_mode = 0
+offset_left = 60.0
+offset_top = 960.0
+offset_right = 240.0
+offset_bottom = 1030.0
+theme_override_colors/font_color = Color(0.92, 0.88, 0.78, 1)
+theme_override_colors/font_pressed_color = Color(0.82, 0.72, 0.5, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 0.92, 1)
+theme_override_colors/font_outline_color = Color(0.05, 0.03, 0.01, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn_normal")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_btn_pressed")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+theme_override_styles/focus = SubResource("StyleBoxFlat_btn_focus")
+text = "< PLAYER"
+
+[node name="NextButton" type="Button" parent="ClipContainer/EnemyIntroPanel/EnemyIntroImage"]
+visible = false
+layout_mode = 0
+offset_left = 698.0
+offset_top = 960.0
+offset_right = 878.0
+offset_bottom = 1030.0
+theme_override_colors/font_color = Color(0.92, 0.88, 0.78, 1)
+theme_override_colors/font_pressed_color = Color(0.82, 0.72, 0.5, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 0.92, 1)
+theme_override_colors/font_outline_color = Color(0.05, 0.03, 0.01, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn_normal")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_btn_pressed")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+theme_override_styles/focus = SubResource("StyleBoxFlat_btn_focus")
+text = "NEXT >"
+
+[node name="WaveIntroPanel" type="PanelContainer" parent="ClipContainer"]
+layout_mode = 0
+offset_left = 2814.0
+offset_right = 3752.0
+offset_bottom = 1080.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_story")
+
+[node name="WaveIntroImage" type="TextureRect" parent="ClipContainer/WaveIntroPanel"]
+layout_mode = 2
+texture = ExtResource("6_intro_wave")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Panel" type="PanelContainer" parent="ClipContainer/WaveIntroPanel/WaveIntroImage"]
+layout_mode = 0
+offset_left = 117.0
+offset_top = 140.0
+offset_right = 821.0
+offset_bottom = 520.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_story")
+
+[node name="MarginContainer" type="MarginContainer" parent="ClipContainer/WaveIntroPanel/WaveIntroImage/Panel"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 10
+
+[node name="WaveIntroLabel" type="RichTextLabel" parent="ClipContainer/WaveIntroPanel/WaveIntroImage/Panel/MarginContainer"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0.18, 0.1, 0.05, 1)
+theme_override_constants/line_separation = 8
+theme_override_fonts/normal_font = ExtResource("2_font")
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "Loading Wave Chronicles..."
+scroll_following = true
+
+[node name="PrevButton" type="Button" parent="ClipContainer/WaveIntroPanel/WaveIntroImage"]
+layout_mode = 0
+offset_left = 60.0
+offset_top = 960.0
+offset_right = 240.0
+offset_bottom = 1030.0
+theme_override_colors/font_color = Color(0.92, 0.88, 0.78, 1)
+theme_override_colors/font_pressed_color = Color(0.82, 0.72, 0.5, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 0.92, 1)
+theme_override_colors/font_outline_color = Color(0.05, 0.03, 0.01, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn_normal")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_btn_pressed")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+theme_override_styles/focus = SubResource("StyleBoxFlat_btn_focus")
+text = "< ENEMY"
+
+[node name="PlayButton" type="Button" parent="ClipContainer/WaveIntroPanel/WaveIntroImage"]
+visible = false
+layout_mode = 0
+offset_left = 698.0
+offset_top = 960.0
+offset_right = 878.0
+offset_bottom = 1030.0
+theme_override_colors/font_color = Color(0.92, 0.88, 0.78, 1)
+theme_override_colors/font_pressed_color = Color(0.82, 0.72, 0.5, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 0.92, 1)
+theme_override_colors/font_outline_color = Color(0.05, 0.03, 0.01, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn_normal")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_btn_pressed")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+theme_override_styles/focus = SubResource("StyleBoxFlat_btn_focus")
+text = "PLAY"
+
+[connection signal="mouse_entered" from="ClipContainer/PlotImagePanel/PlotImage/BackButton" to="." method="_on_back_mouse_entered"]
+[connection signal="mouse_exited" from="ClipContainer/PlotImagePanel/PlotImage/BackButton" to="." method="_on_back_mouse_exited"]
+[connection signal="pressed" from="ClipContainer/PlotImagePanel/PlotImage/BackButton" to="." method="_on_back_pressed"]
+[connection signal="mouse_entered" from="ClipContainer/PlotImagePanel/PlotImage/NextButton" to="." method="_on_next_mouse_entered"]
+[connection signal="mouse_exited" from="ClipContainer/PlotImagePanel/PlotImage/NextButton" to="." method="_on_next_mouse_exited"]
+[connection signal="pressed" from="ClipContainer/PlotImagePanel/PlotImage/NextButton" to="." method="_on_next_pressed"]
+[connection signal="mouse_entered" from="ClipContainer/PlayerIntroPanel/PlayerIntroImage/PrevButton" to="." method="_on_prev_mouse_entered"]
+[connection signal="mouse_exited" from="ClipContainer/PlayerIntroPanel/PlayerIntroImage/PrevButton" to="." method="_on_prev_mouse_exited"]
+[connection signal="pressed" from="ClipContainer/PlayerIntroPanel/PlayerIntroImage/PrevButton" to="." method="_on_prev_pressed"]
+[connection signal="mouse_entered" from="ClipContainer/PlayerIntroPanel/PlayerIntroImage/NextButton" to="." method="_on_player_next_mouse_entered"]
+[connection signal="mouse_exited" from="ClipContainer/PlayerIntroPanel/PlayerIntroImage/NextButton" to="." method="_on_player_next_mouse_exited"]
+[connection signal="pressed" from="ClipContainer/PlayerIntroPanel/PlayerIntroImage/NextButton" to="." method="_on_player_next_pressed"]
+[connection signal="mouse_entered" from="ClipContainer/EnemyIntroPanel/EnemyIntroImage/PrevButton" to="." method="_on_enemy_prev_mouse_entered"]
+[connection signal="mouse_exited" from="ClipContainer/EnemyIntroPanel/EnemyIntroImage/PrevButton" to="." method="_on_enemy_prev_mouse_exited"]
+[connection signal="pressed" from="ClipContainer/EnemyIntroPanel/EnemyIntroImage/PrevButton" to="." method="_on_enemy_prev_pressed"]
+[connection signal="mouse_entered" from="ClipContainer/EnemyIntroPanel/EnemyIntroImage/NextButton" to="." method="_on_enemy_next_mouse_entered"]
+[connection signal="mouse_exited" from="ClipContainer/EnemyIntroPanel/EnemyIntroImage/NextButton" to="." method="_on_enemy_next_mouse_exited"]
+[connection signal="pressed" from="ClipContainer/EnemyIntroPanel/EnemyIntroImage/NextButton" to="." method="_on_enemy_next_pressed"]
+[connection signal="mouse_entered" from="ClipContainer/WaveIntroPanel/WaveIntroImage/PrevButton" to="." method="_on_wave_prev_mouse_entered"]
+[connection signal="mouse_exited" from="ClipContainer/WaveIntroPanel/WaveIntroImage/PrevButton" to="." method="_on_wave_prev_mouse_exited"]
+[connection signal="pressed" from="ClipContainer/WaveIntroPanel/WaveIntroImage/PrevButton" to="." method="_on_wave_prev_pressed"]
+[connection signal="mouse_entered" from="ClipContainer/WaveIntroPanel/WaveIntroImage/PlayButton" to="." method="_on_play_mouse_entered"]
+[connection signal="mouse_exited" from="ClipContainer/WaveIntroPanel/WaveIntroImage/PlayButton" to="." method="_on_play_mouse_exited"]
+[connection signal="pressed" from="ClipContainer/WaveIntroPanel/WaveIntroImage/PlayButton" to="." method="_on_play_pressed"]
