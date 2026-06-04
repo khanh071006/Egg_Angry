@@ -1,0 +1,773 @@
+[gd_scene load_steps=17 format=3 uid="uid://clj3r3c2s3iyc"]
+
+[ext_resource type="Script" uid="uid://bmlbj6v1ywpgf" path="res://gdj/game/ui/TutorialMenu.gdj" id="1_script"]
+[ext_resource type="FontFile" uid="uid://kfh6ooeul77g" path="res://gdj/game/Game+Assets/assets/font/Bake Soda.otf" id="2_font"]
+[ext_resource type="Texture2D" uid="uid://ccg077tqxj0yh" path="res://assets/sprites/Projectiles/Gemini_Generated_Image_2qwq6s2qwq6s2qwq.png" id="2_ftoej"]
+[ext_resource type="Script" uid="uid://w5a40bhwsrt1" path="res://gdj/game/ui/TutorialDummy.gdj" id="4_dummy_script"]
+[ext_resource type="Texture2D" uid="uid://cproxhccob85g" path="res://gdj/game/Game+Assets/assets/sprites/Players/Player_1.png" id="5_player_tex"]
+[ext_resource type="Texture2D" uid="uid://devt2xbk78rej" path="res://gdj/game/Game+Assets/assets/sprites/shadow.png" id="6_shadow_tex"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_normal"]
+content_margin_left = 20.0
+content_margin_top = 8.0
+content_margin_right = 20.0
+content_margin_bottom = 8.0
+bg_color = Color(0.1, 0.06, 0.04, 0.88)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.85, 0.65, 0.25, 0.9)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+shadow_color = Color(0, 0, 0, 0.5)
+shadow_size = 5
+shadow_offset = Vector2(0, 3)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_pressed"]
+content_margin_left = 20.0
+content_margin_top = 8.0
+content_margin_right = 20.0
+content_margin_bottom = 8.0
+bg_color = Color(0.6, 0.3, 0.08, 0.95)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.8, 0.5, 0.18, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+shadow_color = Color(0, 0, 0, 0.4)
+shadow_size = 2
+shadow_offset = Vector2(0, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_hover"]
+content_margin_left = 20.0
+content_margin_top = 8.0
+content_margin_right = 20.0
+content_margin_bottom = 8.0
+bg_color = Color(0.88, 0.52, 0.12, 0.92)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 0.85, 0.35, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+shadow_color = Color(0.95, 0.5, 0.1, 0.3)
+shadow_size = 10
+shadow_offset = Vector2(0, 5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_focus"]
+content_margin_left = 20.0
+content_margin_top = 8.0
+content_margin_right = 20.0
+content_margin_bottom = 8.0
+bg_color = Color(0.1, 0.06, 0.04, 0.88)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 0.85, 0.35, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+shadow_color = Color(0.95, 0.5, 0.1, 0.2)
+shadow_size = 6
+shadow_offset = Vector2(0, 3)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_panel_border"]
+bg_color = Color(0, 0, 0, 0)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.85, 0.65, 0.25, 0.95)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="Animation" id="Animation_baxm0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visuals/Sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2, -62)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Visuals/Sprite:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Visuals/Sprite:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Visuals/Shadow:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.8, 0.8)]
+}
+
+[sub_resource type="Animation" id="Animation_davkp"]
+resource_name = "idle"
+length = 0.6
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visuals/Sprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3, 0.45000002),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0.8, 1), Vector2(1, 1), Vector2(0.8, 1), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Visuals/Sprite:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_5wnup"]
+resource_name = "move"
+length = 0.6
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visuals/Sprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3, 0.45000002),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0.8, 1.1), Vector2(1, 1), Vector2(0.8, 1.1), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Visuals/Sprite:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3, 0.45000002),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.261799, 0.0, -0.261799, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Visuals/Sprite:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3, 0.45000002),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(2, -62), Vector2(2, -75), Vector2(2, -62), Vector2(2, -75)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Visuals/Shadow:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3, 0.45000002),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0.8, 0.8), Vector2(0.6, 0.8), Vector2(0.8, 0.8), Vector2(0.6, 0.8)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_of1k5"]
+_data = {
+&"RESET": SubResource("Animation_baxm0"),
+&"idle": SubResource("Animation_davkp"),
+&"move": SubResource("Animation_5wnup")
+}
+
+[sub_resource type="Curve" id="Curve_trail"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="TutorialMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_script")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_ftoej")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="BackButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 50.0
+offset_right = 230.0
+offset_bottom = 120.0
+theme_override_colors/font_color = Color(0.92, 0.88, 0.78, 1)
+theme_override_colors/font_pressed_color = Color(0.82, 0.72, 0.5, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 0.92, 1)
+theme_override_colors/font_outline_color = Color(0.05, 0.03, 0.01, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn_normal")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_btn_pressed")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+theme_override_styles/focus = SubResource("StyleBoxFlat_btn_focus")
+text = "BACK"
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -300.0
+offset_top = 45.0
+offset_right = 300.0
+offset_bottom = 150.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.95, 0.5, 0.15, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 90
+text = "TUTORIAL"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBox" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -840.0
+offset_top = -180.0
+offset_right = 840.0
+offset_bottom = 370.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 40
+alignment = 1
+
+[node name="ColW" type="VBoxContainer" parent="HBox"]
+custom_minimum_size = Vector2(280, 500)
+layout_mode = 2
+
+[node name="ViewportPanel" type="PanelContainer" parent="HBox/ColW"]
+custom_minimum_size = Vector2(266, 266)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_panel_border")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="HBox/ColW/ViewportPanel"]
+layout_mode = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="HBox/ColW/ViewportPanel/SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(258, 258)
+render_target_update_mode = 4
+
+[node name="Camera2D" type="Camera2D" parent="HBox/ColW/ViewportPanel/SubViewportContainer/SubViewport"]
+position = Vector2(0, -20)
+
+[node name="ColorRect" type="ColorRect" parent="HBox/ColW/ViewportPanel/SubViewportContainer/SubViewport"]
+offset_left = -130.0
+offset_top = -130.0
+offset_right = 130.0
+offset_bottom = 130.0
+color = Color(0.08, 0.05, 0.03, 0.65)
+
+[node name="TutorialDummy" type="Node2D" parent="HBox/ColW/ViewportPanel/SubViewportContainer/SubViewport"]
+script = ExtResource("4_dummy_script")
+speed = 100.0
+
+[node name="Visuals" type="Node2D" parent="HBox/ColW/ViewportPanel/SubViewportContainer/SubViewport/TutorialDummy"]
+scale = Vector2(-1, 1)
+
+[node name="Shadow" type="Sprite2D" parent="HBox/ColW/ViewportPanel/SubViewportContainer/SubViewport/TutorialDummy/Visuals"]
+modulate = Color(0.101961, 0.101961, 0.101961, 0.615686)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("6_shadow_tex")
+
+[node name="Sprite" type="Sprite2D" parent="HBox/ColW/ViewportPanel/SubViewportContainer/SubViewport/TutorialDummy/Visuals"]
+z_index = 1
+position = Vector2(2, -62)
+texture = ExtResource("5_player_tex")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="HBox/ColW/ViewportPanel/SubViewportContainer/SubViewport/TutorialDummy"]
+libraries = {
+&"": SubResource("AnimationLibrary_of1k5")
+}
+
+[node name="Trail" type="Line2D" parent="HBox/ColW/ViewportPanel/SubViewportContainer/SubViewport/TutorialDummy"]
+width = 25.0
+width_curve = SubResource("Curve_trail")
+default_color = Color(1, 1, 1, 0.4)
+
+[node name="SpaceGap" type="Control" parent="HBox/ColW"]
+custom_minimum_size = Vector2(0, 15)
+layout_mode = 2
+
+[node name="DescLabel" type="Label" parent="HBox/ColW"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.85, 0.75, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 28
+text = "MOVE UP"
+horizontal_alignment = 1
+
+[node name="SpaceGap2" type="Control" parent="HBox/ColW"]
+custom_minimum_size = Vector2(0, 15)
+layout_mode = 2
+
+[node name="KeyButton" type="Button" parent="HBox/ColW"]
+custom_minimum_size = Vector2(110, 110)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.92, 0.88, 0.78, 1)
+theme_override_colors/font_pressed_color = Color(0.82, 0.72, 0.5, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 0.92, 1)
+theme_override_colors/font_outline_color = Color(0.05, 0.03, 0.01, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn_normal")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_btn_pressed")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+theme_override_styles/focus = SubResource("StyleBoxFlat_btn_focus")
+text = "W"
+
+[node name="ColA" type="VBoxContainer" parent="HBox"]
+custom_minimum_size = Vector2(280, 500)
+layout_mode = 2
+
+[node name="ViewportPanel" type="PanelContainer" parent="HBox/ColA"]
+custom_minimum_size = Vector2(266, 266)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_panel_border")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="HBox/ColA/ViewportPanel"]
+layout_mode = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="HBox/ColA/ViewportPanel/SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(258, 258)
+render_target_update_mode = 4
+
+[node name="Camera2D" type="Camera2D" parent="HBox/ColA/ViewportPanel/SubViewportContainer/SubViewport"]
+position = Vector2(0, -20)
+
+[node name="ColorRect" type="ColorRect" parent="HBox/ColA/ViewportPanel/SubViewportContainer/SubViewport"]
+offset_left = -130.0
+offset_top = -130.0
+offset_right = 130.0
+offset_bottom = 130.0
+color = Color(0.08, 0.05, 0.03, 0.65)
+
+[node name="TutorialDummy" type="Node2D" parent="HBox/ColA/ViewportPanel/SubViewportContainer/SubViewport"]
+script = ExtResource("4_dummy_script")
+action_type = 1
+speed = 100.0
+
+[node name="Visuals" type="Node2D" parent="HBox/ColA/ViewportPanel/SubViewportContainer/SubViewport/TutorialDummy"]
+
+[node name="Shadow" type="Sprite2D" parent="HBox/ColA/ViewportPanel/SubViewportContainer/SubViewport/TutorialDummy/Visuals"]
+modulate = Color(0.101961, 0.101961, 0.101961, 0.615686)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("6_shadow_tex")
+
+[node name="Sprite" type="Sprite2D" parent="HBox/ColA/ViewportPanel/SubViewportContainer/SubViewport/TutorialDummy/Visuals"]
+z_index = 1
+position = Vector2(2, -62)
+texture = ExtResource("5_player_tex")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="HBox/ColA/ViewportPanel/SubViewportContainer/SubViewport/TutorialDummy"]
+libraries = {
+&"": SubResource("AnimationLibrary_of1k5")
+}
+
+[node name="Trail" type="Line2D" parent="HBox/ColA/ViewportPanel/SubViewportContainer/SubViewport/TutorialDummy"]
+width = 25.0
+width_curve = SubResource("Curve_trail")
+default_color = Color(1, 1, 1, 0.4)
+
+[node name="SpaceGap" type="Control" parent="HBox/ColA"]
+custom_minimum_size = Vector2(0, 15)
+layout_mode = 2
+
+[node name="DescLabel" type="Label" parent="HBox/ColA"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.85, 0.75, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 28
+text = "MOVE LEFT"
+horizontal_alignment = 1
+
+[node name="SpaceGap2" type="Control" parent="HBox/ColA"]
+custom_minimum_size = Vector2(0, 15)
+layout_mode = 2
+
+[node name="KeyButton" type="Button" parent="HBox/ColA"]
+custom_minimum_size = Vector2(110, 110)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.92, 0.88, 0.78, 1)
+theme_override_colors/font_pressed_color = Color(0.82, 0.72, 0.5, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 0.92, 1)
+theme_override_colors/font_outline_color = Color(0.05, 0.03, 0.01, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn_normal")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_btn_pressed")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+theme_override_styles/focus = SubResource("StyleBoxFlat_btn_focus")
+text = "A"
+
+[node name="ColS" type="VBoxContainer" parent="HBox"]
+custom_minimum_size = Vector2(280, 500)
+layout_mode = 2
+
+[node name="ViewportPanel" type="PanelContainer" parent="HBox/ColS"]
+custom_minimum_size = Vector2(266, 266)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_panel_border")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="HBox/ColS/ViewportPanel"]
+layout_mode = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="HBox/ColS/ViewportPanel/SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(258, 258)
+render_target_update_mode = 4
+
+[node name="Camera2D" type="Camera2D" parent="HBox/ColS/ViewportPanel/SubViewportContainer/SubViewport"]
+position = Vector2(0, -20)
+
+[node name="ColorRect" type="ColorRect" parent="HBox/ColS/ViewportPanel/SubViewportContainer/SubViewport"]
+offset_left = -130.0
+offset_top = -130.0
+offset_right = 130.0
+offset_bottom = 130.0
+color = Color(0.08, 0.05, 0.03, 0.65)
+
+[node name="TutorialDummy" type="Node2D" parent="HBox/ColS/ViewportPanel/SubViewportContainer/SubViewport"]
+script = ExtResource("4_dummy_script")
+action_type = 2
+speed = 100.0
+
+[node name="Visuals" type="Node2D" parent="HBox/ColS/ViewportPanel/SubViewportContainer/SubViewport/TutorialDummy"]
+
+[node name="Shadow" type="Sprite2D" parent="HBox/ColS/ViewportPanel/SubViewportContainer/SubViewport/TutorialDummy/Visuals"]
+modulate = Color(0.101961, 0.101961, 0.101961, 0.615686)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("6_shadow_tex")
+
+[node name="Sprite" type="Sprite2D" parent="HBox/ColS/ViewportPanel/SubViewportContainer/SubViewport/TutorialDummy/Visuals"]
+z_index = 1
+position = Vector2(2, -62)
+texture = ExtResource("5_player_tex")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="HBox/ColS/ViewportPanel/SubViewportContainer/SubViewport/TutorialDummy"]
+libraries = {
+&"": SubResource("AnimationLibrary_of1k5")
+}
+
+[node name="Trail" type="Line2D" parent="HBox/ColS/ViewportPanel/SubViewportContainer/SubViewport/TutorialDummy"]
+width = 25.0
+width_curve = SubResource("Curve_trail")
+default_color = Color(1, 1, 1, 0.4)
+
+[node name="SpaceGap" type="Control" parent="HBox/ColS"]
+custom_minimum_size = Vector2(0, 15)
+layout_mode = 2
+
+[node name="DescLabel" type="Label" parent="HBox/ColS"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.85, 0.75, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 28
+text = "MOVE DOWN"
+horizontal_alignment = 1
+
+[node name="SpaceGap2" type="Control" parent="HBox/ColS"]
+custom_minimum_size = Vector2(0, 15)
+layout_mode = 2
+
+[node name="KeyButton" type="Button" parent="HBox/ColS"]
+custom_minimum_size = Vector2(110, 110)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.92, 0.88, 0.78, 1)
+theme_override_colors/font_pressed_color = Color(0.82, 0.72, 0.5, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 0.92, 1)
+theme_override_colors/font_outline_color = Color(0.05, 0.03, 0.01, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn_normal")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_btn_pressed")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+theme_override_styles/focus = SubResource("StyleBoxFlat_btn_focus")
+text = "S"
+
+[node name="ColD" type="VBoxContainer" parent="HBox"]
+custom_minimum_size = Vector2(280, 500)
+layout_mode = 2
+
+[node name="ViewportPanel" type="PanelContainer" parent="HBox/ColD"]
+custom_minimum_size = Vector2(266, 266)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_panel_border")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="HBox/ColD/ViewportPanel"]
+layout_mode = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="HBox/ColD/ViewportPanel/SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(258, 258)
+render_target_update_mode = 4
+
+[node name="Camera2D" type="Camera2D" parent="HBox/ColD/ViewportPanel/SubViewportContainer/SubViewport"]
+position = Vector2(0, -20)
+
+[node name="ColorRect" type="ColorRect" parent="HBox/ColD/ViewportPanel/SubViewportContainer/SubViewport"]
+offset_left = -130.0
+offset_top = -130.0
+offset_right = 130.0
+offset_bottom = 130.0
+color = Color(0.08, 0.05, 0.03, 0.65)
+
+[node name="TutorialDummy" type="Node2D" parent="HBox/ColD/ViewportPanel/SubViewportContainer/SubViewport"]
+script = ExtResource("4_dummy_script")
+action_type = 3
+speed = 100.0
+
+[node name="Visuals" type="Node2D" parent="HBox/ColD/ViewportPanel/SubViewportContainer/SubViewport/TutorialDummy"]
+
+[node name="Shadow" type="Sprite2D" parent="HBox/ColD/ViewportPanel/SubViewportContainer/SubViewport/TutorialDummy/Visuals"]
+modulate = Color(0.101961, 0.101961, 0.101961, 0.615686)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("6_shadow_tex")
+
+[node name="Sprite" type="Sprite2D" parent="HBox/ColD/ViewportPanel/SubViewportContainer/SubViewport/TutorialDummy/Visuals"]
+z_index = 1
+position = Vector2(2, -62)
+texture = ExtResource("5_player_tex")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="HBox/ColD/ViewportPanel/SubViewportContainer/SubViewport/TutorialDummy"]
+libraries = {
+&"": SubResource("AnimationLibrary_of1k5")
+}
+
+[node name="Trail" type="Line2D" parent="HBox/ColD/ViewportPanel/SubViewportContainer/SubViewport/TutorialDummy"]
+width = 25.0
+width_curve = SubResource("Curve_trail")
+default_color = Color(1, 1, 1, 0.4)
+
+[node name="SpaceGap" type="Control" parent="HBox/ColD"]
+custom_minimum_size = Vector2(0, 15)
+layout_mode = 2
+
+[node name="DescLabel" type="Label" parent="HBox/ColD"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.85, 0.75, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 28
+text = "MOVE RIGHT"
+horizontal_alignment = 1
+
+[node name="SpaceGap2" type="Control" parent="HBox/ColD"]
+custom_minimum_size = Vector2(0, 15)
+layout_mode = 2
+
+[node name="KeyButton" type="Button" parent="HBox/ColD"]
+custom_minimum_size = Vector2(110, 110)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.92, 0.88, 0.78, 1)
+theme_override_colors/font_pressed_color = Color(0.82, 0.72, 0.5, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 0.92, 1)
+theme_override_colors/font_outline_color = Color(0.05, 0.03, 0.01, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn_normal")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_btn_pressed")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+theme_override_styles/focus = SubResource("StyleBoxFlat_btn_focus")
+text = "D"
+
+[node name="ColSpace" type="VBoxContainer" parent="HBox"]
+custom_minimum_size = Vector2(280, 500)
+layout_mode = 2
+
+[node name="ViewportPanel" type="PanelContainer" parent="HBox/ColSpace"]
+custom_minimum_size = Vector2(266, 266)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_panel_border")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="HBox/ColSpace/ViewportPanel"]
+layout_mode = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="HBox/ColSpace/ViewportPanel/SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(258, 258)
+render_target_update_mode = 4
+
+[node name="Camera2D" type="Camera2D" parent="HBox/ColSpace/ViewportPanel/SubViewportContainer/SubViewport"]
+position = Vector2(0, -20)
+
+[node name="ColorRect" type="ColorRect" parent="HBox/ColSpace/ViewportPanel/SubViewportContainer/SubViewport"]
+offset_left = -130.0
+offset_top = -130.0
+offset_right = 130.0
+offset_bottom = 130.0
+color = Color(0.08, 0.05, 0.03, 0.65)
+
+[node name="TutorialDummy" type="Node2D" parent="HBox/ColSpace/ViewportPanel/SubViewportContainer/SubViewport"]
+script = ExtResource("4_dummy_script")
+action_type = 4
+speed = 100.0
+
+[node name="Visuals" type="Node2D" parent="HBox/ColSpace/ViewportPanel/SubViewportContainer/SubViewport/TutorialDummy"]
+
+[node name="Shadow" type="Sprite2D" parent="HBox/ColSpace/ViewportPanel/SubViewportContainer/SubViewport/TutorialDummy/Visuals"]
+modulate = Color(0.101961, 0.101961, 0.101961, 0.615686)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("6_shadow_tex")
+
+[node name="Sprite" type="Sprite2D" parent="HBox/ColSpace/ViewportPanel/SubViewportContainer/SubViewport/TutorialDummy/Visuals"]
+z_index = 1
+position = Vector2(2, -62)
+texture = ExtResource("5_player_tex")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="HBox/ColSpace/ViewportPanel/SubViewportContainer/SubViewport/TutorialDummy"]
+libraries = {
+&"": SubResource("AnimationLibrary_of1k5")
+}
+
+[node name="Trail" type="Line2D" parent="HBox/ColSpace/ViewportPanel/SubViewportContainer/SubViewport/TutorialDummy"]
+width = 25.0
+width_curve = SubResource("Curve_trail")
+default_color = Color(1, 1, 1, 0.4)
+
+[node name="SpaceGap" type="Control" parent="HBox/ColSpace"]
+custom_minimum_size = Vector2(0, 15)
+layout_mode = 2
+
+[node name="DescLabel" type="Label" parent="HBox/ColSpace"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.85, 0.75, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 28
+text = "SPECIAL SKILL"
+horizontal_alignment = 1
+
+[node name="SpaceGap2" type="Control" parent="HBox/ColSpace"]
+custom_minimum_size = Vector2(0, 15)
+layout_mode = 2
+
+[node name="KeyButton" type="Button" parent="HBox/ColSpace"]
+custom_minimum_size = Vector2(260, 110)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.92, 0.88, 0.78, 1)
+theme_override_colors/font_pressed_color = Color(0.82, 0.72, 0.5, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 0.92, 1)
+theme_override_colors/font_outline_color = Color(0.05, 0.03, 0.01, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn_normal")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_btn_pressed")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+theme_override_styles/focus = SubResource("StyleBoxFlat_btn_focus")
+text = "SPACE"
+
+[connection signal="pressed" from="BackButton" to="." method="_on_back_pressed"]
