@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="EnemyStats" load_steps=3 format=3 uid="uid://dpspoavsadn7y"]
+
+[ext_resource type="Texture2D" uid="uid://4mllmwdfhmce" path="res://gdj/game/Game+Assets/assets/sprites/Enemies/Enemy_4.png" id="1_sprite"]
+[ext_resource type="Script" uid="uid://bgy8iaa1dequj" path="res://gdj/game/resources/EnemyStats.gdj" id="2_script"]
+
+[resource]
+script = ExtResource("2_script")
+gold_drop = 6.0
+unit_name = "Splitter Bomber"
+icon = ExtResource("1_sprite")
+health = 35.0
+health_increase_per_wave = 10.0
+damage = 15.0
+damage_increase_per_wave = 4.0
+speed = 220.0

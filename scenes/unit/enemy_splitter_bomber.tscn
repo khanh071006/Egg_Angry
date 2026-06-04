@@ -1,0 +1,20 @@
+[gd_scene load_steps=6 format=3 uid="uid://1tfpndswfrsq"]
+
+[ext_resource type="PackedScene" uid="uid://bw6b5kktpiof3" path="res://scenes/unit/enemy_chaser_slow.tscn" id="1_base"]
+[ext_resource type="Texture2D" uid="uid://bu24f5auoqo5p" path="res://assets/sprites/Enemies/Enemy_9.png" id="3_b7en6"]
+[ext_resource type="Resource" uid="uid://dpspoavsadn7y" path="res://resources/units/enemies/stats_enemy_splitter_bomber.tres" id="3_stats"]
+[ext_resource type="Script" path="res://gdj/game/entity/enemies/SplitterBomberBehavior.gdj" id="4_script"]
+[ext_resource type="PackedScene" uid="uid://biq7m6codw6am" path="res://scenes/weapons/range/projectiles/projectile_enemy.tscn" id="5_projectile"]
+
+[node name="EnemySplitterBomber" instance=ExtResource("1_base")]
+stats = ExtResource("3_stats")
+
+[node name="Sprite" parent="Visuals" index="1"]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("3_b7en6")
+
+[node name="SplitterBomberBehavior" type="Node2D" parent="." index="10" node_paths=PackedStringArray("enemy")]
+script = ExtResource("4_script")
+enemy = NodePath("..")
+projectile_scene = ExtResource("5_projectile")
+trigger_range = 350.0

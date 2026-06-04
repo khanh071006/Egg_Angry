@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://dljrpeoqfo2k5"]
+
+[ext_resource type="PackedScene" uid="uid://bw6b5kktpiof3" path="res://scenes/unit/enemy_chaser_slow.tscn" id="1_base"]
+[ext_resource type="Resource" path="res://resources/units/enemies/stats_enemy_blink.tres" id="3_stats"]
+[ext_resource type="Texture2D" path="res://assets/sprites/Enemies/Enemy_6.png" id="3_xweqn"]
+[ext_resource type="Script" uid="uid://dg684hauwipma" path="res://gdj/game/entity/enemies/BlinkBehavior.gdj" id="4_script"]
+[ext_resource type="PackedScene" uid="uid://biq7m6codw6am" path="res://scenes/weapons/range/projectiles/projectile_enemy.tscn" id="5_projectile"]
+
+[node name="EnemyBlink" instance=ExtResource("1_base")]
+stats = ExtResource("3_stats")
+
+[node name="Sprite" parent="Visuals" index="1"]
+texture = ExtResource("3_xweqn")
+
+[node name="BlinkBehavior" type="Node2D" parent="." index="10" node_paths=PackedStringArray("enemy", "strike_hitbox")]
+script = ExtResource("4_script")
+enemy = NodePath("..")
+strike_hitbox = NodePath("../HitboxComponent")
+projectile_scene = ExtResource("5_projectile")
+projectile_count = null
+projectile_speed = null
+cooldown = 3.0
+prep_time = null
+strike_time = null
+damage = null
+knockback_power = null
+strike_range = 90.0
+blink_offset = null

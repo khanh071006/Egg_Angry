@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://cdd3gkqqk5u33"]
+
+[ext_resource type="PackedScene" uid="uid://bw6b5kktpiof3" path="res://scenes/unit/enemy_chaser_slow.tscn" id="1_base"]
+[ext_resource type="Texture2D" uid="uid://bf4ls8ho3cuqa" path="res://gdj/game/Game+Assets/assets/sprites/Enemies/Enemy_2.png" id="2_sprite"]
+[ext_resource type="Resource" uid="uid://df2s7lstattaa" path="res://resources/units/enemies/stats_enemy_laser_spinner.tres" id="3_stats"]
+[ext_resource type="Script" uid="uid://b4p4rnpo311jq" path="res://gdj/game/entity/enemies/LaserSpinnerBehavior.gdj" id="4_script"]
+
+[node name="EnemyLaserSpinner" instance=ExtResource("1_base")]
+stats = ExtResource("3_stats")
+
+[node name="Sprite" parent="Visuals" index="1"]
+texture = ExtResource("2_sprite")
+
+[node name="CollisionShape2D" parent="VisionArea" index="0"]
+scale = Vector2(1.3, 1.3)
+
+[node name="LaserSpinnerBehavior" type="Node2D" parent="." index="10" node_paths=PackedStringArray("enemy", "laser_hitbox")]
+script = ExtResource("4_script")
+enemy = NodePath("..")
+laser_hitbox = NodePath("../HitboxComponent")
+damage = 20.0
+cooldown = 3.0
+prep_time = 0.6
+rotation_speed = 90.0

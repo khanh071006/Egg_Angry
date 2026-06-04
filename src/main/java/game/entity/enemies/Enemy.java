@@ -45,6 +45,12 @@ public class Enemy extends BaseUnit {
 
         //KnockbackTimer init
         knockbackTimer = (Timer) getNode("KnockbackTimer");
+
+        // Tự động cấu hình sát thương cho HitboxComponent dựa trên stats của quái
+        HitBoxComponent hitbox = (HitBoxComponent) getNode("HitboxComponent");
+        if (hitbox != null && stats != null) {
+            hitbox.setup(stats.damage, false, 2.0f, this);
+        }
     }
 
     // Dùng _physics_process để đồng bộ chuẩn với hệ thống quét Radar của Godot

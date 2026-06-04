@@ -1,10 +1,13 @@
-[gd_resource type="Resource" script_class="WaveData" load_steps=9 format=3 uid="uid://cyw8lnqs80gun"]
+[gd_resource type="Resource" script_class="WaveData" load_steps=17 format=3 uid="uid://cyw8lnqs80gun"]
 
 [ext_resource type="Script" uid="uid://cjecllwrga6ph" path="res://gdj/game/resources/waves/WaveData.gdj" id="1_mlfpo"]
 [ext_resource type="Script" uid="uid://bf8v16a6b8yrh" path="res://gdj/game/resources/waves/WaveUnitData.gdj" id="2_k285s"]
 [ext_resource type="PackedScene" uid="uid://bw6b5kktpiof3" path="res://scenes/unit/enemy_chaser_slow.tscn" id="3_f3aph"]
 [ext_resource type="PackedScene" uid="uid://bl7mlior4yl6o" path="res://scenes/unit/enemy_chaser_shooter1.tscn" id="4_k285s"]
 [ext_resource type="PackedScene" uid="uid://necfel4mlt5p" path="res://scenes/unit/enemy_chaser.tscn" id="5_f3aph"]
+[ext_resource type="PackedScene" uid="uid://c8xxg21arjp06" path="res://scenes/unit/enemy_splitter.tscn" id="6_splitter"]
+[ext_resource type="PackedScene" uid="uid://dgwu4biwd5kkx" path="res://scenes/unit/enemy_cross_laser.tscn" id="7_cross_laser"]
+[ext_resource type="PackedScene" uid="uid://1tfpndswfrsq" path="res://scenes/unit/enemy_splitter_bomber.tscn" id="8_splitter_bomber"]
 
 [sub_resource type="Resource" id="Resource_o3xoa"]
 script = ExtResource("2_k285s")
@@ -24,6 +27,33 @@ unit_scene = ExtResource("5_f3aph")
 weight = 9.0
 metadata/_custom_type_script = "uid://bf8v16a6b8yrh"
 
+[sub_resource type="Resource" id="Resource_ssncx"]
+metadata/__load_path__ = "res://scenes/unit/enemy_laser_spinner.tscn"
+
+[sub_resource type="Resource" id="Resource_laser_spinner"]
+script = ExtResource("2_k285s")
+unit_scene = SubResource("Resource_ssncx")
+weight = 5.0
+metadata/_custom_type_script = "uid://bf8v16a6b8yrh"
+
+[sub_resource type="Resource" id="Resource_splitter"]
+script = ExtResource("2_k285s")
+unit_scene = ExtResource("6_splitter")
+weight = 4.0
+metadata/_custom_type_script = "uid://bf8v16a6b8yrh"
+
+[sub_resource type="Resource" id="Resource_cross_laser"]
+script = ExtResource("2_k285s")
+unit_scene = ExtResource("7_cross_laser")
+weight = 12.0
+metadata/_custom_type_script = "uid://bf8v16a6b8yrh"
+
+[sub_resource type="Resource" id="Resource_splitter_bomber"]
+script = ExtResource("2_k285s")
+unit_scene = ExtResource("8_splitter_bomber")
+weight = 15.0
+metadata/_custom_type_script = "uid://bf8v16a6b8yrh"
+
 [resource]
 script = ExtResource("1_mlfpo")
-units = Array[ExtResource("2_k285s")]([SubResource("Resource_o3xoa"), SubResource("Resource_47o53"), SubResource("Resource_8c4he")])
+units = Array[ExtResource("2_k285s")]([SubResource("Resource_o3xoa"), SubResource("Resource_47o53"), SubResource("Resource_8c4he"), SubResource("Resource_laser_spinner"), SubResource("Resource_splitter"), SubResource("Resource_cross_laser"), SubResource("Resource_splitter_bomber")])

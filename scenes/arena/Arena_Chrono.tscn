@@ -1,0 +1,54 @@
+[gd_scene load_steps=11 format=3 uid="uid://bmak6joq80yw1"]
+
+[ext_resource type="Texture2D" uid="uid://cy4xfx762bxgb" path="res://gdj/game/Game+Assets/assets/sprites/BG.png" id="1_dm0lm"]
+[ext_resource type="Script" uid="uid://cbvtm502as2ux" path="res://gdj/game/arena/Arena.gdj" id="1_etbs0"]
+[ext_resource type="Texture2D" uid="uid://ov4fmsbglo55" path="res://gdj/game/Game+Assets/assets/sprites/Map.png" id="2_etbs0"]
+[ext_resource type="PackedScene" uid="uid://mruna4dx7oqx" path="res://scenes/unit/player_chrono.tscn" id="3_faeup"]
+[ext_resource type="Script" uid="uid://dr32cptk08mq0" path="res://gdj/game/arena/CameraController.gdj" id="5_faeup"]
+[ext_resource type="Script" uid="uid://cqy82on6oilua" path="res://gdj/game/entity/enemies/Spawner.gdj" id="7_2g53k"]
+[ext_resource type="Script" uid="uid://cjecllwrga6ph" path="res://gdj/game/resources/waves/WaveData.gdj" id="8_g06lh"]
+[ext_resource type="Resource" uid="uid://cyw8lnqs80gun" path="res://resources/waves/wave_1_to_5.tres" id="9_2ri42"]
+[ext_resource type="PackedScene" uid="uid://biol47wkdkcvu" path="res://scenes/unit/player_brawler.tscn" id="10_g06lh"]
+[ext_resource type="PackedScene" uid="uid://bpntj0ciaqbqs" path="res://scenes/weapons/melee/weapon_axe.tscn" id="11_2ri42"]
+
+[node name="Arena" type="Node2D" node_paths=PackedStringArray("player")]
+scale = Vector2(0.8, 0.8)
+script = ExtResource("1_etbs0")
+player = NodePath("PlayerChrono")
+
+[node name="BlackBG" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("1_dm0lm")
+
+[node name="GrassBG" type="Sprite2D" parent="."]
+position = Vector2(826, 310)
+scale = Vector2(2, 2)
+texture = ExtResource("2_etbs0")
+
+[node name="PlayerChrono" parent="." instance=ExtResource("3_faeup")]
+position = Vector2(91.25, 167.5)
+collision_mask = 0
+dash_speed_multi = 2.7
+
+[node name="Camera2D" type="Camera2D" parent="."]
+script = ExtResource("5_faeup")
+
+[node name="Spawner" type="Node2D" parent="."]
+script = ExtResource("7_2g53k")
+waves_data = Array[ExtResource("8_g06lh")]([ExtResource("9_2ri42")])
+
+[node name="SpawnTimer" type="Timer" parent="Spawner"]
+one_shot = true
+
+[node name="WaveTimer" type="Timer" parent="Spawner"]
+one_shot = true
+
+[node name="PlayerBrawler" parent="." instance=ExtResource("10_g06lh")]
+position = Vector2(-546, 990)
+bomb_scene = null
+
+[node name="WeaponAxe" parent="." instance=ExtResource("11_2ri42")]
+position = Vector2(-583, 972)
+
+[connection signal="timeout" from="Spawner/SpawnTimer" to="Spawner" method="_on_spawn_timer_timeout"]
+[connection signal="timeout" from="Spawner/SpawnTimer" to="Spawner" method="spawnEnemy"]
