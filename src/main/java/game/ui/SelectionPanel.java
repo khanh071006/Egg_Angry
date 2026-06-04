@@ -149,10 +149,10 @@ public class SelectionPanel extends Panel {
             }
 
             String bbcode = "[code]\n\n" +
-                    "Health: [color=green]" + player.getHealth() + "[/color]\n\n" +
-                    "Damage: [color=green]" + player.getDamage() + "[/color]\n\n" +
-                    "Speed: [color=green]" + player.getSpeed() + "[/color]\n\n" +
-                    "Luck: [color=green]" + luckVal + "[/color]\n\n" +
+                    "Health: [color=green]" + player.getHealth() + "[/color]\n" +
+                    "Damage: [color=green]" + player.getDamage() + "[/color]\n" +
+                    "Speed: [color=green]" + player.getSpeed() + "[/color]\n" +
+                    "Luck: [color=green]" + luckVal + "[/color]\n" +
                     "Block Chance: [color=green]" + player.getBlockchance() + "%[/color]\n\n" +
                     "[/code]";
             playerDescription.setText(bbcode);

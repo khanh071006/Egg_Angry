@@ -1,0 +1,174 @@
+Godot Engine v4.5.1.stable.jvm.0.14.3.gh.f62fdbde1 (2025-10-13 19:05:40 UTC) - https://godotengine.org
+
+Godot-JVM: You are running on desktop. VM automatically set to JVM
+WARNING: Godot-JVM: Godot-JVM: You really should embed a JRE in your project with jlink! See the documentation if you don't know how to do that
+   at: GDKotlin::load_dynamic_lib (modules\kotlin_jvm\src\gd_kotlin.cpp:41)
+ERROR: res://resources/items/passives/passive_14.tres:1 - Parse Error: Expected '['.
+   at: ResourceLoaderText::_printerr (scene\resources\resource_format_text.cpp:40)
+ERROR: Failed loading resource: res://resources/items/passives/passive_14.tres.
+   at: ResourceLoader::_load (core\io\resource_loader.cpp:343)
+ERROR: res://resources/items/passives/passive_15.tres:1 - Parse Error: Expected '['.
+   at: ResourceLoaderText::_printerr (scene\resources\resource_format_text.cpp:40)
+ERROR: Failed loading resource: res://resources/items/passives/passive_15.tres.
+   at: ResourceLoader::_load (core\io\resource_loader.cpp:343)
+ERROR: res://resources/items/passives/passive_16.tres:1 - Parse Error: Expected '['.
+   at: ResourceLoaderText::_printerr (scene\resources\resource_format_text.cpp:40)
+ERROR: Failed loading resource: res://resources/items/passives/passive_16.tres.
+   at: ResourceLoader::_load (core\io\resource_loader.cpp:343)
+ERROR: res://resources/items/passives/passive_17.tres:1 - Parse Error: Expected '['.
+   at: ResourceLoaderText::_printerr (scene\resources\resource_format_text.cpp:40)
+ERROR: Failed loading resource: res://resources/items/passives/passive_17.tres.
+   at: ResourceLoader::_load (core\io\resource_loader.cpp:343)
+ERROR: res://resources/items/passives/passive_18.tres:1 - Parse Error: Expected '['.
+   at: ResourceLoaderText::_printerr (scene\resources\resource_format_text.cpp:40)
+ERROR: Failed loading resource: res://resources/items/passives/passive_18.tres.
+   at: ResourceLoader::_load (core\io\resource_loader.cpp:343)
+ERROR: res://resources/items/passives/passive_19.tres:1 - Parse Error: Expected '['.
+   at: ResourceLoaderText::_printerr (scene\resources\resource_format_text.cpp:40)
+ERROR: Failed loading resource: res://resources/items/passives/passive_19.tres.
+   at: ResourceLoader::_load (core\io\resource_loader.cpp:343)
+ERROR: res://resources/items/passives/passive_20.tres:1 - Parse Error: Expected '['.
+   at: ResourceLoaderText::_printerr (scene\resources\resource_format_text.cpp:40)
+ERROR: Failed loading resource: res://resources/items/passives/passive_20.tres.
+   at: ResourceLoader::_load (core\io\resource_loader.cpp:343)
+ERROR: res://resources/items/passives/passive_21.tres:1 - Parse Error: Expected '['.
+   at: ResourceLoaderText::_printerr (scene\resources\resource_format_text.cpp:40)
+ERROR: Failed loading resource: res://resources/items/passives/passive_21.tres.
+   at: ResourceLoader::_load (core\io\resource_loader.cpp:343)
+ERROR: res://resources/items/passives/passive_22.tres:1 - Parse Error: Expected '['.
+   at: ResourceLoaderText::_printerr (scene\resources\resource_format_text.cpp:40)
+ERROR: Failed loading resource: res://resources/items/passives/passive_22.tres.
+   at: ResourceLoader::_load (core\io\resource_loader.cpp:343)
+ERROR: res://resources/items/passives/passive_23.tres:1 - Parse Error: Expected '['.
+   at: ResourceLoaderText::_printerr (scene\resources\resource_format_text.cpp:40)
+ERROR: Failed loading resource: res://resources/items/passives/passive_23.tres.
+   at: ResourceLoader::_load (core\io\resource_loader.cpp:343)
+ERROR: res://resources/items/passives/passive_24.tres:1 - Parse Error: Expected '['.
+   at: ResourceLoaderText::_printerr (scene\resources\resource_format_text.cpp:40)
+ERROR: Failed loading resource: res://resources/items/passives/passive_24.tres.
+   at: ResourceLoader::_load (core\io\resource_loader.cpp:343)
+ERROR: res://resources/items/passives/passive_25.tres:1 - Parse Error: Expected '['.
+   at: ResourceLoaderText::_printerr (scene\resources\resource_format_text.cpp:40)
+ERROR: Failed loading resource: res://resources/items/passives/passive_25.tres.
+   at: ResourceLoader::_load (core\io\resource_loader.cpp:343)
+ERROR: res://resources/items/passives/passive_26.tres:1 - Parse Error: Expected '['.
+   at: ResourceLoaderText::_printerr (scene\resources\resource_format_text.cpp:40)
+ERROR: Failed loading resource: res://resources/items/passives/passive_26.tres.
+   at: ResourceLoader::_load (core\io\resource_loader.cpp:343)
+ERROR: res://resources/items/passives/passive_27.tres:1 - Parse Error: Expected '['.
+   at: ResourceLoaderText::_printerr (scene\resources\resource_format_text.cpp:40)
+ERROR: Failed loading resource: res://resources/items/passives/passive_27.tres.
+   at: ResourceLoader::_load (core\io\resource_loader.cpp:343)
+ERROR: res://resources/items/passives/passive_28.tres:1 - Parse Error: Expected '['.
+   at: ResourceLoaderText::_printerr (scene\resources\resource_format_text.cpp:40)
+ERROR: Failed loading resource: res://resources/items/passives/passive_28.tres.
+   at: ResourceLoader::_load (core\io\resource_loader.cpp:343)
+ERROR: res://resources/items/passives/passive_29.tres:1 - Parse Error: Expected '['.
+   at: ResourceLoaderText::_printerr (scene\resources\resource_format_text.cpp:40)
+ERROR: Failed loading resource: res://resources/items/passives/passive_29.tres.
+   at: ResourceLoader::_load (core\io\resource_loader.cpp:343)
+ERROR: res://scenes/ui/shop_panel/shop_panel.tscn:115 - Parse Error: [ext_resource] referenced non-existent resource at: res://resources/items/passives/passive_14.tres.
+   at: ResourceLoaderText::_printerr (scene\resources\resource_format_text.cpp:40)
+WARNING: Parent path './MarginContainer' for node 'Control' has vanished when instantiating: 'res://scenes/ui/shop_panel/shop_panel.tscn'.
+   at: SceneState::instantiate (scene\resources\packed_scene.cpp:179)
+WARNING: Parent path './MarginContainer/Control' for node 'TopBar' has vanished when instantiating: 'res://scenes/ui/shop_panel/shop_panel.tscn'.
+   at: SceneState::instantiate (scene\resources\packed_scene.cpp:179)
+WARNING: Parent path './MarginContainer/Control/TopBar' for node 'Title' has vanished when instantiating: 'res://scenes/ui/shop_panel/shop_panel.tscn'.
+   at: SceneState::instantiate (scene\resources\packed_scene.cpp:179)
+WARNING: Parent path './MarginContainer/Control/TopBar' for node 'Spacer1' has vanished when instantiating: 'res://scenes/ui/shop_panel/shop_panel.tscn'.
+   at: SceneState::instantiate (scene\resources\packed_scene.cpp:179)
+WARNING: Parent path './MarginContainer/Control/TopBar' for node 'CoinsBag' has vanished when instantiating: 'res://scenes/ui/shop_panel/shop_panel.tscn'.
+   at: SceneState::instantiate (scene\resources\packed_scene.cpp:179)
+ERROR: Godot-JVM: kotlin.TypeCastException: Shared Buffer Error: JVM expected a ARRAY but received a NIL.
+	at godot.core.VariantParser.toKotlin(Variant.kt:484)
+	at godot.internal.memory.TransferContext.readSingleArgument(TransferContext.kt:50)
+	at godot.core.KtProperty.extractSetterArgument(Properties.kt:52)
+	at godot.core.KtProperty.callSet(Properties.kt:42)
+
+   at: bridges::GodotPrintBridge::print_exception_stacktrace (modules\kotlin_jvm\src\jvm_wrapper\bridge\godot_print_bridge.cpp:46)
+WARNING: Parent path './MarginContainer/Control/TopBar' for node 'Spacer2' has vanished when instantiating: 'res://scenes/ui/shop_panel/shop_panel.tscn'.
+   at: SceneState::instantiate (scene\resources\packed_scene.cpp:179)
+WARNING: Parent path './MarginContainer/Control/TopBar' for node 'RollButton' has vanished when instantiating: 'res://scenes/ui/shop_panel/shop_panel.tscn'.
+   at: SceneState::instantiate (scene\resources\packed_scene.cpp:179)
+WARNING: Parent path './MarginContainer/Control/TopBar/RollButton' for node 'HBoxContainer' has vanished when instantiating: 'res://scenes/ui/shop_panel/shop_panel.tscn'.
+   at: SceneState::instantiate (scene\resources\packed_scene.cpp:179)
+WARNING: Parent path './MarginContainer/Control/TopBar/RollButton/HBoxContainer' for node 'LabelRoll' has vanished when instantiating: 'res://scenes/ui/shop_panel/shop_panel.tscn'.
+   at: SceneState::instantiate (scene\resources\packed_scene.cpp:179)
+WARNING: Parent path './MarginContainer/Control/TopBar/RollButton/HBoxContainer' for node 'TextureRect' has vanished when instantiating: 'res://scenes/ui/shop_panel/shop_panel.tscn'.
+   at: SceneState::instantiate (scene\resources\packed_scene.cpp:179)
+WARNING: Parent path './MarginContainer/Control' for node 'ItemsContainer' has vanished when instantiating: 'res://scenes/ui/shop_panel/shop_panel.tscn'.
+   at: SceneState::instantiate (scene\resources\packed_scene.cpp:179)
+WARNING: Parent path './MarginContainer/Control/ItemsContainer' for node 'ShopCard' has vanished when instantiating: 'res://scenes/ui/shop_panel/shop_panel.tscn'.
+   at: SceneState::instantiate (scene\resources\packed_scene.cpp:179)
+WARNING: Parent path './MarginContainer/Control/ItemsContainer' for node 'ShopCard2' has vanished when instantiating: 'res://scenes/ui/shop_panel/shop_panel.tscn'.
+   at: SceneState::instantiate (scene\resources\packed_scene.cpp:179)
+WARNING: Parent path './MarginContainer/Control/ItemsContainer' for node 'ShopCard3' has vanished when instantiating: 'res://scenes/ui/shop_panel/shop_panel.tscn'.
+   at: SceneState::instantiate (scene\resources\packed_scene.cpp:179)
+WARNING: Parent path './MarginContainer/Control/ItemsContainer' for node 'ShopCard4' has vanished when instantiating: 'res://scenes/ui/shop_panel/shop_panel.tscn'.
+   at: SceneState::instantiate (scene\resources\packed_scene.cpp:179)
+WARNING: Parent path './MarginContainer/Control' for node 'StatsContainer' has vanished when instantiating: 'res://scenes/ui/shop_panel/shop_panel.tscn'.
+   at: SceneState::instantiate (scene\resources\packed_scene.cpp:179)
+WARNING: Parent path './MarginContainer/Control' for node 'Passives' has vanished when instantiating: 'res://scenes/ui/shop_panel/shop_panel.tscn'.
+   at: SceneState::instantiate (scene\resources\packed_scene.cpp:179)
+WARNING: Parent path './MarginContainer/Control/Passives' for node 'Label' has vanished when instantiating: 'res://scenes/ui/shop_panel/shop_panel.tscn'.
+   at: SceneState::instantiate (scene\resources\packed_scene.cpp:179)
+WARNING: Parent path './MarginContainer/Control/Passives' for node 'PassivesContainer' has vanished when instantiating: 'res://scenes/ui/shop_panel/shop_panel.tscn'.
+   at: SceneState::instantiate (scene\resources\packed_scene.cpp:179)
+WARNING: Parent path './MarginContainer/Control/Passives/PassivesContainer' for node 'ItemCard' has vanished when instantiating: 'res://scenes/ui/shop_panel/shop_panel.tscn'.
+   at: SceneState::instantiate (scene\resources\packed_scene.cpp:179)
+WARNING: Parent path './MarginContainer/Control/Passives/PassivesContainer' for node 'ItemCard2' has vanished when instantiating: 'res://scenes/ui/shop_panel/shop_panel.tscn'.
+   at: SceneState::instantiate (scene\resources\packed_scene.cpp:179)
+WARNING: Parent path './MarginContainer/Control/Passives/PassivesContainer' for node 'ItemCard3' has vanished when instantiating: 'res://scenes/ui/shop_panel/shop_panel.tscn'.
+   at: SceneState::instantiate (scene\resources\packed_scene.cpp:179)
+WARNING: Parent path './MarginContainer/Control/Passives/PassivesContainer' for node 'ItemCard4' has vanished when instantiating: 'res://scenes/ui/shop_panel/shop_panel.tscn'.
+   at: SceneState::instantiate (scene\resources\packed_scene.cpp:179)
+WARNING: Parent path './MarginContainer/Control/Passives/PassivesContainer' for node 'ItemCard5' has vanished when instantiating: 'res://scenes/ui/shop_panel/shop_panel.tscn'.
+   at: SceneState::instantiate (scene\resources\packed_scene.cpp:179)
+WARNING: Parent path './MarginContainer/Control/Passives/PassivesContainer' for node 'ItemCard6' has vanished when instantiating: 'res://scenes/ui/shop_panel/shop_panel.tscn'.
+   at: SceneState::instantiate (scene\resources\packed_scene.cpp:179)
+WARNING: Parent path './MarginContainer/Control/Passives/PassivesContainer' for node 'ItemCard7' has vanished when instantiating: 'res://scenes/ui/shop_panel/shop_panel.tscn'.
+   at: SceneState::instantiate (scene\resources\packed_scene.cpp:179)
+WARNING: Parent path './MarginContainer/Control/Passives/PassivesContainer' for node 'ItemCard8' has vanished when instantiating: 'res://scenes/ui/shop_panel/shop_panel.tscn'.
+   at: SceneState::instantiate (scene\resources\packed_scene.cpp:179)
+WARNING: Parent path './MarginContainer/Control/Passives/PassivesContainer' for node 'ItemCard9' has vanished when instantiating: 'res://scenes/ui/shop_panel/shop_panel.tscn'.
+   at: SceneState::instantiate (scene\resources\packed_scene.cpp:179)
+WARNING: Parent path './MarginContainer/Control/Passives/PassivesContainer' for node 'ItemCard10' has vanished when instantiating: 'res://scenes/ui/shop_panel/shop_panel.tscn'.
+   at: SceneState::instantiate (scene\resources\packed_scene.cpp:179)
+WARNING: Parent path './MarginContainer/Control/Passives/PassivesContainer' for node 'ItemCard11' has vanished when instantiating: 'res://scenes/ui/shop_panel/shop_panel.tscn'.
+   at: SceneState::instantiate (scene\resources\packed_scene.cpp:179)
+WARNING: Parent path './MarginContainer/Control/Passives/PassivesContainer' for node 'ItemCard12' has vanished when instantiating: 'res://scenes/ui/shop_panel/shop_panel.tscn'.
+   at: SceneState::instantiate (scene\resources\packed_scene.cpp:179)
+WARNING: Parent path './MarginContainer/Control/Passives/PassivesContainer' for node 'ItemCard13' has vanished when instantiating: 'res://scenes/ui/shop_panel/shop_panel.tscn'.
+   at: SceneState::instantiate (scene\resources\packed_scene.cpp:179)
+WARNING: Parent path './MarginContainer/Control/Passives/PassivesContainer' for node 'ItemCard14' has vanished when instantiating: 'res://scenes/ui/shop_panel/shop_panel.tscn'.
+   at: SceneState::instantiate (scene\resources\packed_scene.cpp:179)
+WARNING: Parent path './MarginContainer/Control/Passives/PassivesContainer' for node 'ItemCard15' has vanished when instantiating: 'res://scenes/ui/shop_panel/shop_panel.tscn'.
+   at: SceneState::instantiate (scene\resources\packed_scene.cpp:179)
+WARNING: Parent path './MarginContainer/Control/Passives/PassivesContainer' for node 'ItemCard16' has vanished when instantiating: 'res://scenes/ui/shop_panel/shop_panel.tscn'.
+   at: SceneState::instantiate (scene\resources\packed_scene.cpp:179)
+WARNING: Parent path './MarginContainer/Control' for node 'Weapon' has vanished when instantiating: 'res://scenes/ui/shop_panel/shop_panel.tscn'.
+   at: SceneState::instantiate (scene\resources\packed_scene.cpp:179)
+WARNING: Parent path './MarginContainer/Control/Weapon' for node 'Label' has vanished when instantiating: 'res://scenes/ui/shop_panel/shop_panel.tscn'.
+   at: SceneState::instantiate (scene\resources\packed_scene.cpp:179)
+WARNING: Parent path './MarginContainer/Control/Weapon' for node 'WeaponsContainer' has vanished when instantiating: 'res://scenes/ui/shop_panel/shop_panel.tscn'.
+   at: SceneState::instantiate (scene\resources\packed_scene.cpp:179)
+WARNING: Parent path './MarginContainer/Control/Weapon/WeaponsContainer' for node 'ItemCard' has vanished when instantiating: 'res://scenes/ui/shop_panel/shop_panel.tscn'.
+   at: SceneState::instantiate (scene\resources\packed_scene.cpp:179)
+WARNING: Parent path './MarginContainer/Control/Weapon/WeaponsContainer' for node 'ItemCard2' has vanished when instantiating: 'res://scenes/ui/shop_panel/shop_panel.tscn'.
+   at: SceneState::instantiate (scene\resources\packed_scene.cpp:179)
+WARNING: Parent path './MarginContainer/Control/Weapon/WeaponsContainer' for node 'ItemCard3' has vanished when instantiating: 'res://scenes/ui/shop_panel/shop_panel.tscn'.
+   at: SceneState::instantiate (scene\resources\packed_scene.cpp:179)
+WARNING: Parent path './MarginContainer/Control/Weapon/WeaponsContainer' for node 'ItemCard4' has vanished when instantiating: 'res://scenes/ui/shop_panel/shop_panel.tscn'.
+   at: SceneState::instantiate (scene\resources\packed_scene.cpp:179)
+WARNING: Parent path './MarginContainer/Control/Weapon/WeaponsContainer' for node 'ItemCard5' has vanished when instantiating: 'res://scenes/ui/shop_panel/shop_panel.tscn'.
+   at: SceneState::instantiate (scene\resources\packed_scene.cpp:179)
+WARNING: Parent path './MarginContainer/Control/Weapon/WeaponsContainer' for node 'ItemCard6' has vanished when instantiating: 'res://scenes/ui/shop_panel/shop_panel.tscn'.
+   at: SceneState::instantiate (scene\resources\packed_scene.cpp:179)
+WARNING: Parent path './MarginContainer/Control' for node 'VBoxContainer' has vanished when instantiating: 'res://scenes/ui/shop_panel/shop_panel.tscn'.
+   at: SceneState::instantiate (scene\resources\packed_scene.cpp:179)
+WARNING: Parent path './MarginContainer/Control/VBoxContainer' for node 'NextWaveButton' has vanished when instantiating: 'res://scenes/ui/shop_panel/shop_panel.tscn'.
+   at: SceneState::instantiate (scene\resources\packed_scene.cpp:179)
+WARNING: Parent path './MarginContainer/Control/VBoxContainer' for node 'CombineButton' has vanished when instantiating: 'res://scenes/ui/shop_panel/shop_panel.tscn'.
+   at: SceneState::instantiate (scene\resources\packed_scene.cpp:179)
+WARNING: Parent path './MarginContainer/Control/VBoxContainer' for node 'SellButton' has vanished when instantiating: 'res://scenes/ui/shop_panel/shop_panel.tscn'.
+   at: SceneState::instantiate (scene\resources\packed_scene.cpp:179)

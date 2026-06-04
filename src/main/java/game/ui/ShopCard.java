@@ -39,15 +39,16 @@ public class ShopCard extends Panel {
         itemDescription = (RichTextLabel) getNodeOrNull("%ItemDescription");
         coinsLabel = (Label) getNodeOrNull("%CoinsLabel");
         buyButton = (godot.api.Button) getNodeOrNull("MarginContainer/Control/BuyButton");
-        
+
         setProcess(true);
     }
 
     @RegisterFunction
     public void setShopItem(ItemBase value) {
         this.shopItem = value;
-        if (value == null) return;
-        
+        if (value == null)
+            return;
+
         if (itemIcon != null && value.itemIcon != null) {
             itemIcon.setTexture(value.itemIcon);
         }
@@ -64,7 +65,8 @@ public class ShopCard extends Panel {
             coinsLabel.setText(String.valueOf(value.itemCost));
             // Tạo bản sao của LabelSettings để đổi màu không bị dính sang các thẻ khác
             if (coinsLabel.getLabelSettings() != null) {
-                godot.api.LabelSettings newSettings = (godot.api.LabelSettings) coinsLabel.getLabelSettings().duplicate(false);
+                godot.api.LabelSettings newSettings = (godot.api.LabelSettings) coinsLabel.getLabelSettings()
+                        .duplicate(false);
                 coinsLabel.setLabelSettings(newSettings);
             }
         }
@@ -78,13 +80,13 @@ public class ShopCard extends Panel {
     @RegisterFunction
     public void _on_buy_button_pressed() {
         if (shopItem != null && shopItem.itemType == ItemBase.ItemType.WEAPON) {
-            
+
             if (Global.instance.equippedWeapons.size() >= 6) {
                 godot.global.GD.print("Không thể mua thêm vũ khí, đã đạt tối đa 6!");
                 return;
             }
         }
-        
+
         if (shopItem != null && Global.coins >= shopItem.itemCost) {
             onItemPurchased.emit(shopItem);
             Global.coins -= shopItem.itemCost;
@@ -95,8 +97,9 @@ public class ShopCard extends Panel {
     @RegisterFunction
     @Override
     public void _process(double delta) {
-        if (shopItem == null || coinsLabel == null) return;
-        
+        if (shopItem == null || coinsLabel == null)
+            return;
+
         boolean notEnoughMoney = Global.coins < shopItem.itemCost;
 
         godot.api.LabelSettings settings = coinsLabel.getLabelSettings();
@@ -107,7 +110,7 @@ public class ShopCard extends Panel {
                 settings.setFontColor(new godot.core.Color(1.0f, 1.0f, 1.0f, 1.0f));
             }
         }
-        
+
         if (buyButton != null) {
             buyButton.setDisabled(notEnoughMoney);
         }

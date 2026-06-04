@@ -43,6 +43,21 @@ public class Spawner extends Node2D {
     // Lưu quái vật đang sống bằng ArrayList của Java cho tốc độ bàn thờ
     private ArrayList<Node> spawnedEnemies = new ArrayList<>();
 
+    // Lớp nội bộ để lưu trữ quái đang chờ spawn
+    private static class PendingSpawn {
+        public Node spawnAnim;
+        public Node enemy;
+        public double timeLeft;
+
+        public PendingSpawn(Node spawnAnim, Node enemy, double timeLeft) {
+            this.spawnAnim = spawnAnim;
+            this.enemy = enemy;
+            this.timeLeft = timeLeft;
+        }
+    }
+    // Danh sách chờ đẻ quái
+    private ArrayList<PendingSpawn> pendingSpawns = new ArrayList<>();
+
     public String getWaveText() {
         return "Wave " + waveIndex;
     }
@@ -162,17 +177,71 @@ public class Spawner extends Node2D {
 
             if (enemyInstanceNode instanceof Node2D) {
                 ((Node2D) enemyInstanceNode).setGlobalPosition(spawn_pos);
+                // Ẩn quái và vô hiệu hóa tạm thời trong lúc chờ animation
+                ((Node2D) enemyInstanceNode).setVisible(false);
             }
+            enemyInstanceNode.setProcessMode(Node.ProcessMode.DISABLED);
 
             // Gắn vào Arena (Node cha của Spawner)
             getParent().addChild(enemyInstanceNode);
 
             // Thêm vào danh sách quản lý
             spawnedEnemies.add(enemyInstanceNode);
+
+            // --- SPAWN ANIMATION EFFECT ---
+            PackedScene spawnEffectScene = (PackedScene) godot.api.ResourceLoader.load("res://scenes/effects/enemy_spawn_effect.tscn");
+            if (spawnEffectScene != null) {
+                Node spawnAnim = spawnEffectScene.instantiate();
+                if (spawnAnim instanceof Node2D) {
+                    ((Node2D) spawnAnim).setGlobalPosition(spawn_pos);
+                }
+                getParent().addChild(spawnAnim);
+                
+                // Thêm vào danh sách chờ xử lý (0.8 giây là thời gian của animation spawn)
+                pendingSpawns.add(new PendingSpawn(spawnAnim, enemyInstanceNode, 0.8));
+            } else {
+                enemyInstanceNode.setProcessMode(Node.ProcessMode.INHERIT);
+                if (enemyInstanceNode instanceof Node2D) ((Node2D) enemyInstanceNode).setVisible(true);
+            }
+        }
+    }
+    
+    @RegisterFunction
+    @Override
+    public void _process(double delta) {
+        if (Global.gamePaused) return;
+
+        // Xử lý đếm ngược spawn
+        for (int i = pendingSpawns.size() - 1; i >= 0; i--) {
+            PendingSpawn p = pendingSpawns.get(i);
+            p.timeLeft -= delta;
+            
+            if (p.timeLeft <= 0) {
+                if (godot.global.GD.isInstanceValid(p.spawnAnim)) {
+                    p.spawnAnim.queueFree();
+                }
+                if (godot.global.GD.isInstanceValid(p.enemy)) {
+                    if (p.enemy instanceof Node2D) ((Node2D) p.enemy).setVisible(true);
+                    p.enemy.setProcessMode(Node.ProcessMode.INHERIT);
+                }
+                pendingSpawns.remove(i);
+            }
         }
     }
 
-    private void clearEnemies() {
+    public void clearEnemies() {
+        // Dọn dẹp các quái đang chờ spawn (dấu X chưa ra quái)
+        for (PendingSpawn p : pendingSpawns) {
+            if (GD.isInstanceValid(p.spawnAnim)) {
+                p.spawnAnim.queueFree();
+            }
+            if (GD.isInstanceValid(p.enemy)) {
+                p.enemy.queueFree();
+                spawnedEnemies.remove(p.enemy); // Xóa khỏi danh sách để tránh gọi destroyEnemy
+            }
+        }
+        pendingSpawns.clear();
+
         if (spawnedEnemies.size() == 0) {
             return;
         }

@@ -10,6 +10,7 @@ import godot.core.KtRpcConfig
 import godot.core.PropertyHint.NONE
 import godot.core.PropertyHint.TYPE_STRING
 import godot.core.VariantParser.ARRAY
+import godot.core.VariantParser.DOUBLE
 import godot.core.VariantParser.NIL
 import godot.core.VariantParser.VECTOR2
 import godot.registration.ClassRegistrar
@@ -28,7 +29,7 @@ import kotlin.collections.listOf
   "godot.api.Node2D,godot.api.CanvasItem,godot.api.Node,godot.api.Object,godot.core.KtObject,godot.common.interop.NativeWrapper,godot.common.interop.NativePointer,kotlin.Any",
   "game.entity.enemies.Spawner.onWaveCompleted",
   "game.entity.enemies.Spawner.wavesData,game.entity.enemies.Spawner.spawnAreaSize",
-  "game.entity.enemies.Spawner._ready,game.entity.enemies.Spawner._on_spawn_timer_timeout,game.entity.enemies.Spawner._on_wave_timer_timeout",
+  "game.entity.enemies.Spawner._process,game.entity.enemies.Spawner._ready,game.entity.enemies.Spawner._on_spawn_timer_timeout,game.entity.enemies.Spawner._on_wave_timer_timeout",
   true,
 )
 public open class SpawnerRegistrar : ClassRegistrar {
@@ -37,6 +38,7 @@ public open class SpawnerRegistrar : ClassRegistrar {
       registerClass<Spawner>(listOf(), Spawner::class, false, "Node2D", "Spawner", "src/main/java/game/entity/enemies/Spawner.java", "gdj/game/entity/enemies/Spawner.gdj") {
         constructor(KtConstructor0(::Spawner))
         notificationFunctions(listOf())
+        function(Spawner::_process, NIL, DOUBLE, KtFunctionArgument(DOUBLE, "kotlin.Double", "delta"), KtFunctionArgument(NIL, "kotlin.Unit"), KtRpcConfig(DISABLED.id.toInt(), false, RELIABLE.id.toInt(), 0))
         function(Spawner::_ready, NIL, KtFunctionArgument(NIL, "kotlin.Unit"), KtRpcConfig(DISABLED.id.toInt(), false, RELIABLE.id.toInt(), 0))
         function(Spawner::_on_spawn_timer_timeout, NIL, KtFunctionArgument(NIL, "kotlin.Unit"), KtRpcConfig(DISABLED.id.toInt(), false, RELIABLE.id.toInt(), 0))
         function(Spawner::_on_wave_timer_timeout, NIL, KtFunctionArgument(NIL, "kotlin.Unit"), KtRpcConfig(DISABLED.id.toInt(), false, RELIABLE.id.toInt(), 0))

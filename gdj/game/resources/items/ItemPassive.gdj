@@ -21,8 +21,12 @@ signals = [
 properties = [
     add_value,
 	add_stat,
+	add_value2,
+	add_stat2,
 	remove_value,
 	remove_stat,
+	remove_value2,
+	remove_stat2,
 	item_name,
 	item_icon,
 	item_tier,

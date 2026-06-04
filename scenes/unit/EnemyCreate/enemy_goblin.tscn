@@ -1,0 +1,91 @@
+[gd_scene load_steps=18 format=3 uid="uid://fkulh8ufnef"]
+
+[ext_resource type="PackedScene" uid="uid://bw6b5kktpiof3" path="res://scenes/unit/enemy_chaser_slow.tscn" id="1_ydex1"]
+[ext_resource type="Texture2D" uid="uid://bsigbm0aatro6" path="res://assets/Enemy_Generate/Enemy_7/Enemy_7/1.png" id="2_k7kls"]
+[ext_resource type="Texture2D" uid="uid://bha1eq7mkpqsy" path="res://assets/Enemy_Generate/Enemy_7/Enemy_7/2.png" id="3_62pi8"]
+[ext_resource type="Texture2D" uid="uid://bttqt3irw0pf5" path="res://assets/Enemy_Generate/Enemy_7/Enemy_7/3.png" id="4_yebsw"]
+[ext_resource type="Texture2D" uid="uid://bselyp3vr4oip" path="res://assets/Enemy_Generate/Enemy_7/Enemy_7/4.png" id="5_l4x8t"]
+[ext_resource type="Texture2D" uid="uid://cvq7e1hv47h0e" path="res://assets/Enemy_Generate/Enemy_7/Enemy_7_ef/1.png" id="6_tg3fx"]
+[ext_resource type="Texture2D" uid="uid://dur2raqxulqgf" path="res://assets/Enemy_Generate/Enemy_7/Enemy_7_ef/2.png" id="7_qqo3j"]
+[ext_resource type="Texture2D" uid="uid://xejcxu5inb6l" path="res://assets/Enemy_Generate/Enemy_7/Enemy_7_ef/3.png" id="8_mk5qi"]
+[ext_resource type="Texture2D" uid="uid://c63or6lboq6d8" path="res://assets/Enemy_Generate/Enemy_7/Enemy_7_ef/4.png" id="9_l7umn"]
+[ext_resource type="Texture2D" uid="uid://cuwgspsj8kjgf" path="res://assets/Enemy_Generate/Enemy_7/Enemy_7/dc1.png" id="10_did4y"]
+[ext_resource type="Texture2D" uid="uid://c0ue65rj3fhcm" path="res://assets/Enemy_Generate/Enemy_7/Enemy_7/dc2.png" id="11_urqxw"]
+[ext_resource type="Texture2D" uid="uid://fo7nl5enyy1r" path="res://assets/Enemy_Generate/Enemy_7/Enemy_7/dc3.png" id="12_hu0d8"]
+[ext_resource type="Texture2D" uid="uid://d10mdh1xdm4qr" path="res://assets/Enemy_Generate/Enemy_7/Enemy_7/dc4.png" id="13_h6f6x"]
+[ext_resource type="Texture2D" uid="uid://b7lvibsgqrhv" path="res://assets/Enemy_Generate/Enemy_7/Enemy_7/dc5.png" id="14_krbr2"]
+[ext_resource type="Texture2D" uid="uid://cigs7ng0jcyg1" path="res://assets/Enemy_Generate/Enemy_7/Enemy_7/dc6.png" id="15_vflrh"]
+[ext_resource type="Texture2D" uid="uid://doi5xl6oorxwi" path="res://assets/Enemy_Generate/Enemy_7/Enemy_7/dc7.png" id="16_i8hl5"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2r40n"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_k7kls")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_62pi8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_yebsw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_l4x8t")
+}],
+"loop": true,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_tg3fx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_qqo3j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_mk5qi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_l7umn")
+}],
+"loop": true,
+"name": &"effect",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_did4y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_urqxw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_hu0d8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_h6f6x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_krbr2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_vflrh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_i8hl5")
+}],
+"loop": true,
+"name": &"move",
+"speed": 5.0
+}]
+
+[node name="EnemyGoblin" instance=ExtResource("1_ydex1")]
+
+[node name="GoblinAnimation" type="AnimatedSprite2D" parent="." index="10"]
+position = Vector2(0, -50)
+scale = Vector2(0.6, 0.6)
+sprite_frames = SubResource("SpriteFrames_2r40n")
+animation = &"effect"
+frame = 2
+frame_progress = 0.9491298

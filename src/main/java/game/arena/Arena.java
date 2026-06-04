@@ -230,6 +230,10 @@ public class Arena extends Node2D {
 
     @RegisterFunction
     public void clean_arena() {
+        if (spawner != null) {
+            spawner.clearEnemies();
+        }
+
         if (coinsBag == null)
             return;
         if (goldList.size() > 0) {

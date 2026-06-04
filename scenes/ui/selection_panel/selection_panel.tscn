@@ -25,7 +25,7 @@
 bg_color = Color(0.20392157, 0.20392157, 0.20392157, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_0u7kx"]
-font_size = 24
+font_size = 18
 
 [node name="SelectionPanel" type="Panel"]
 anchors_preset = 15

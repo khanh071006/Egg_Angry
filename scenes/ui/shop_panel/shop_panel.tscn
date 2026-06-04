@@ -55,6 +55,22 @@
 [ext_resource type="Resource" path="res://resources/items/passives/passive_mighty_sword.tres" id="52_pass"]
 [ext_resource type="Resource" path="res://resources/items/passives/passive_rage.tres" id="53_pass"]
 [ext_resource type="Texture2D" uid="uid://chm4srsn6xd8y" path="res://gdj/game/Game+Assets/assets/sprites/Gold/gold_1.png" id="CoinTex"]
+[ext_resource type="Resource" path="res://resources/items/passives/passive_14.tres" id="passive_14"]
+[ext_resource type="Resource" path="res://resources/items/passives/passive_15.tres" id="passive_15"]
+[ext_resource type="Resource" path="res://resources/items/passives/passive_16.tres" id="passive_16"]
+[ext_resource type="Resource" path="res://resources/items/passives/passive_17.tres" id="passive_17"]
+[ext_resource type="Resource" path="res://resources/items/passives/passive_18.tres" id="passive_18"]
+[ext_resource type="Resource" path="res://resources/items/passives/passive_19.tres" id="passive_19"]
+[ext_resource type="Resource" path="res://resources/items/passives/passive_20.tres" id="passive_20"]
+[ext_resource type="Resource" path="res://resources/items/passives/passive_21.tres" id="passive_21"]
+[ext_resource type="Resource" path="res://resources/items/passives/passive_22.tres" id="passive_22"]
+[ext_resource type="Resource" path="res://resources/items/passives/passive_23.tres" id="passive_23"]
+[ext_resource type="Resource" path="res://resources/items/passives/passive_24.tres" id="passive_24"]
+[ext_resource type="Resource" path="res://resources/items/passives/passive_25.tres" id="passive_25"]
+[ext_resource type="Resource" path="res://resources/items/passives/passive_26.tres" id="passive_26"]
+[ext_resource type="Resource" path="res://resources/items/passives/passive_27.tres" id="passive_27"]
+[ext_resource type="Resource" path="res://resources/items/passives/passive_28.tres" id="passive_28"]
+[ext_resource type="Resource" path="res://resources/items/passives/passive_29.tres" id="passive_29"]
 [ext_resource type="PackedScene" uid="uid://bgrva6i5a6w5t" path="res://scenes/ui/custom_button/custom_button.tscn" id="CustomButton"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vr486"]
@@ -96,7 +112,7 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_vr486")
 script = ExtResource("1_whl1y")
 shop_card_scene = ExtResource("1_chkkr")
-shop_items = Array[Resource]([ExtResource("3_7w8xb"), ExtResource("4_pk1f0"), ExtResource("5_kche8"), ExtResource("6_rqkor"), ExtResource("7_xnsbf"), ExtResource("8_xbu4e"), ExtResource("9_y7i7l"), ExtResource("10_fjngo"), ExtResource("11_5i27n"), ExtResource("12_k3s3w"), ExtResource("13_2vdj1"), ExtResource("14_ihhbf"), ExtResource("15_53gyu"), ExtResource("16_n11x8"), ExtResource("17_lbitd"), ExtResource("18_opy2p"), ExtResource("19_gagqw"), ExtResource("20_g1acl"), ExtResource("21_c0evr"), ExtResource("22_a7jr8"), ExtResource("23_wulif"), ExtResource("24_untf5"), ExtResource("25_krbbd"), ExtResource("26_8ixtr"), ExtResource("27_hqsig"), ExtResource("28_uajrh"), ExtResource("29_v2hjx"), ExtResource("30_x7akd"), ExtResource("31_8rj52"), ExtResource("32_i7qex"), ExtResource("33_5m0on"), ExtResource("34_tgups"), ExtResource("35_6y4td"), ExtResource("36_5x65n"), ExtResource("37_y60t3"), ExtResource("38_2a2sb"), ExtResource("39_0sk5k"), ExtResource("40_nwqyi"), ExtResource("41_jn76n"), ExtResource("42_boajf"), ExtResource("43_egjfh"), ExtResource("44_8bxa0"), ExtResource("45_bg42t"), ExtResource("46_im8v7"), ExtResource("50_pass"), ExtResource("51_pass"), ExtResource("52_pass"), ExtResource("53_pass")])
+shop_items = Array[Resource]([ExtResource("3_7w8xb"), ExtResource("4_pk1f0"), ExtResource("5_kche8"), ExtResource("6_rqkor"), ExtResource("7_xnsbf"), ExtResource("8_xbu4e"), ExtResource("9_y7i7l"), ExtResource("10_fjngo"), ExtResource("11_5i27n"), ExtResource("12_k3s3w"), ExtResource("13_2vdj1"), ExtResource("14_ihhbf"), ExtResource("15_53gyu"), ExtResource("16_n11x8"), ExtResource("17_lbitd"), ExtResource("18_opy2p"), ExtResource("19_gagqw"), ExtResource("20_g1acl"), ExtResource("21_c0evr"), ExtResource("22_a7jr8"), ExtResource("23_wulif"), ExtResource("24_untf5"), ExtResource("25_krbbd"), ExtResource("26_8ixtr"), ExtResource("27_hqsig"), ExtResource("28_uajrh"), ExtResource("29_v2hjx"), ExtResource("30_x7akd"), ExtResource("31_8rj52"), ExtResource("32_i7qex"), ExtResource("33_5m0on"), ExtResource("34_tgups"), ExtResource("35_6y4td"), ExtResource("36_5x65n"), ExtResource("37_y60t3"), ExtResource("38_2a2sb"), ExtResource("39_0sk5k"), ExtResource("40_nwqyi"), ExtResource("41_jn76n"), ExtResource("42_boajf"), ExtResource("43_egjfh"), ExtResource("44_8bxa0"), ExtResource("45_bg42t"), ExtResource("46_im8v7"), ExtResource("50_pass"), ExtResource("51_pass"), ExtResource("52_pass"), ExtResource("53_pass"), ExtResource("passive_14"), ExtResource("passive_15"), ExtResource("passive_16"), ExtResource("passive_17"), ExtResource("passive_18"), ExtResource("passive_19"), ExtResource("passive_20"), ExtResource("passive_21"), ExtResource("passive_22"), ExtResource("passive_23"), ExtResource("passive_24"), ExtResource("passive_25"), ExtResource("passive_26"), ExtResource("passive_27"), ExtResource("passive_28"), ExtResource("passive_29")])
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -193,14 +209,13 @@ offset_bottom = 728.0
 
 [node name="Passives" type="VBoxContainer" parent="MarginContainer/Control"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(752, 250)
+custom_minimum_size = Vector2(780, 250)
 layout_mode = 0
 offset_left = 20.0
 offset_top = 768.0
-offset_right = 772.0
+offset_right = 800.0
 offset_bottom = 1018.0
 theme_override_constants/separation = 16
-alignment = 1
 
 [node name="Label" type="Label" parent="MarginContainer/Control/Passives"]
 layout_mode = 2
@@ -208,90 +223,22 @@ text = "items"
 label_settings = SubResource("LabelSettings_o7w7v")
 horizontal_alignment = 1
 
-[node name="PassivesContainer" type="GridContainer" parent="MarginContainer/Control/Passives"]
+[node name="PassivesScroll" type="ScrollContainer" parent="MarginContainer/Control/Passives"]
+custom_minimum_size = Vector2(0, 192)
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Control/Passives/PassivesScroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="PassivesContainer" type="GridContainer" parent="MarginContainer/Control/Passives/PassivesScroll/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_constants/h_separation = 16
 theme_override_constants/v_separation = 16
 columns = 8
-
-[node name="ItemCard" parent="MarginContainer/Control/Passives/PassivesContainer" instance=ExtResource("48_kche8")]
-layout_mode = 2
-
-[node name="ItemCard2" type="Button" parent="MarginContainer/Control/Passives/PassivesContainer"]
-custom_minimum_size = Vector2(80, 80)
-layout_mode = 2
-theme_override_styles/normal = ExtResource("3_whl1y")
-
-[node name="ItemCard3" type="Button" parent="MarginContainer/Control/Passives/PassivesContainer"]
-custom_minimum_size = Vector2(80, 80)
-layout_mode = 2
-theme_override_styles/normal = ExtResource("3_whl1y")
-
-[node name="ItemCard4" type="Button" parent="MarginContainer/Control/Passives/PassivesContainer"]
-custom_minimum_size = Vector2(80, 80)
-layout_mode = 2
-theme_override_styles/normal = ExtResource("3_whl1y")
-
-[node name="ItemCard5" type="Button" parent="MarginContainer/Control/Passives/PassivesContainer"]
-custom_minimum_size = Vector2(80, 80)
-layout_mode = 2
-theme_override_styles/normal = ExtResource("3_whl1y")
-
-[node name="ItemCard6" type="Button" parent="MarginContainer/Control/Passives/PassivesContainer"]
-custom_minimum_size = Vector2(80, 80)
-layout_mode = 2
-theme_override_styles/normal = ExtResource("3_whl1y")
-
-[node name="ItemCard7" type="Button" parent="MarginContainer/Control/Passives/PassivesContainer"]
-custom_minimum_size = Vector2(80, 80)
-layout_mode = 2
-theme_override_styles/normal = ExtResource("3_whl1y")
-
-[node name="ItemCard8" type="Button" parent="MarginContainer/Control/Passives/PassivesContainer"]
-custom_minimum_size = Vector2(80, 80)
-layout_mode = 2
-theme_override_styles/normal = ExtResource("3_whl1y")
-
-[node name="ItemCard9" type="Button" parent="MarginContainer/Control/Passives/PassivesContainer"]
-custom_minimum_size = Vector2(80, 80)
-layout_mode = 2
-theme_override_styles/normal = ExtResource("3_whl1y")
-
-[node name="ItemCard10" type="Button" parent="MarginContainer/Control/Passives/PassivesContainer"]
-custom_minimum_size = Vector2(80, 80)
-layout_mode = 2
-theme_override_styles/normal = ExtResource("3_whl1y")
-
-[node name="ItemCard11" type="Button" parent="MarginContainer/Control/Passives/PassivesContainer"]
-custom_minimum_size = Vector2(80, 80)
-layout_mode = 2
-theme_override_styles/normal = ExtResource("3_whl1y")
-
-[node name="ItemCard12" type="Button" parent="MarginContainer/Control/Passives/PassivesContainer"]
-custom_minimum_size = Vector2(80, 80)
-layout_mode = 2
-theme_override_styles/normal = ExtResource("3_whl1y")
-
-[node name="ItemCard13" type="Button" parent="MarginContainer/Control/Passives/PassivesContainer"]
-custom_minimum_size = Vector2(80, 80)
-layout_mode = 2
-theme_override_styles/normal = ExtResource("3_whl1y")
-
-[node name="ItemCard14" type="Button" parent="MarginContainer/Control/Passives/PassivesContainer"]
-custom_minimum_size = Vector2(80, 80)
-layout_mode = 2
-theme_override_styles/normal = ExtResource("3_whl1y")
-
-[node name="ItemCard15" type="Button" parent="MarginContainer/Control/Passives/PassivesContainer"]
-custom_minimum_size = Vector2(80, 80)
-layout_mode = 2
-theme_override_styles/normal = ExtResource("3_whl1y")
-
-[node name="ItemCard16" type="Button" parent="MarginContainer/Control/Passives/PassivesContainer"]
-custom_minimum_size = Vector2(80, 80)
-layout_mode = 2
-theme_override_styles/normal = ExtResource("3_whl1y")
 
 [node name="Weapon" type="VBoxContainer" parent="MarginContainer/Control"]
 unique_name_in_owner = true
@@ -302,7 +249,6 @@ offset_top = 768.0
 offset_right = 1348.0
 offset_bottom = 1018.0
 theme_override_constants/separation = 16
-alignment = 1
 
 [node name="Label" type="Label" parent="MarginContainer/Control/Weapon"]
 layout_mode = 2

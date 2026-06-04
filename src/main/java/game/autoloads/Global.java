@@ -28,7 +28,7 @@ public class Global extends Node {
     public static game.resources.items.weapons.ItemWeapon mainWeaponSelected;
 
     public static java.util.Map<String, String> availablePlayers = new java.util.HashMap<>();
-    
+
     static {
         availablePlayers.put("Brawler", "res://scenes/unit/player_brawler.tscn");
         availablePlayers.put("Bunny", "res://scenes/unit/player_bunny.tscn");
@@ -39,14 +39,16 @@ public class Global extends Node {
 
     @RegisterFunction
     public static Player getSelectedPlayer() {
-        if (mainPlayerSelected == null) return null;
+        if (mainPlayerSelected == null)
+            return null;
         String path = availablePlayers.get(mainPlayerSelected.getUnitName());
         if (path == null) {
             godot.global.GD.printErr("Global: Không tìm thấy path cho player " + mainPlayerSelected.getUnitName());
             return null;
         }
         PackedScene scene = (PackedScene) ResourceLoader.load(path);
-        if (scene == null) return null;
+        if (scene == null)
+            return null;
         Player playerInstance = (Player) scene.instantiate();
         Global.player = playerInstance;
         return playerInstance;
@@ -80,7 +82,6 @@ public class Global extends Node {
     public java.util.List<game.resources.items.weapons.ItemWeapon> equippedWeapons = new java.util.ArrayList<>();
     public game.resources.items.weapons.ItemWeapon selectedWeapon;
 
-
     @RegisterFunction
     @Override
     public void _ready() {
@@ -90,7 +91,7 @@ public class Global extends Node {
         floatingTextScene = (PackedScene) ResourceLoader.load("res://effects/floating_text.tscn");
         coinsScene = (PackedScene) ResourceLoader.load("res://scenes/coins/coins.tscn");
         itemCardScene = (PackedScene) ResourceLoader.load("res://scenes/ui/item_card/item_card.tscn");
-        
+
         // Tự động load các Style màu thẻ từ thư mục styles (khỏi cần kéo thả tay)
         commonStyle = (godot.api.StyleBoxFlat) ResourceLoader.load("res://styles/common_style.tres");
         rareStyle = (godot.api.StyleBoxFlat) ResourceLoader.load("res://styles/rare_style.tres");
@@ -100,16 +101,16 @@ public class Global extends Node {
         isAttack = true;
         gamePaused = false;
 
-
         get_chance_sucess(0.5f);
         instance = this;
     }
 
     @RegisterFunction
-    public static boolean get_chance_sucess(double chance){
+    public static boolean get_chance_sucess(double chance) {
         Random random = new Random();
         double randomFloat = random.nextFloat();
-        if (randomFloat <= chance) return true;
+        if (randomFloat <= chance)
+            return true;
         return false;
     }
 
@@ -174,7 +175,7 @@ public class Global extends Node {
         if (player != null && player.stats instanceof game.resources.units.PlayerStats) {
             playerLuck = ((game.resources.units.PlayerStats) player.stats).luck;
         }
-        
+
         // Ví dụ: Luck = 10 -> luckFactor = 1.1 (Tăng 10% cơ hội)
         float luckFactor = 1.0f + (playerLuck / 100.0f);
 
@@ -196,9 +197,9 @@ public class Global extends Node {
         commonChance = 1.0f - totalNonCommonChances;
 
         // --- DEBUG RA CONSOLE (In kết quả ra giống trong video) ---
-        String message = String.format(java.util.Locale.US, 
-            "Wave: %d | Luck: %.1f | Chances -> Common: %.2f | Rare: %.2f | Epic: %.2f | Legendary: %.4f",
-            currentWave, playerLuck, commonChance, rareChance, epicChance, legendaryChance);
+        String message = String.format(java.util.Locale.US,
+                "Wave: %d | Luck: %.1f | Chances -> Common: %.2f | Rare: %.2f | Epic: %.2f | Legendary: %.4f",
+                currentWave, playerLuck, commonChance, rareChance, epicChance, legendaryChance);
         GD.print(message);
 
         // Trả về mảng 4 giá trị tỉ lệ
@@ -212,7 +213,8 @@ public class Global extends Node {
 
     // --- HÀM LẤY STYLE DỰA TRÊN ĐỘ HIẾM (TIER) ---
     public godot.api.StyleBoxFlat getTierStyle(UpgradeTier itemTier) {
-        if (itemTier == null) return legendaryStyle;
+        if (itemTier == null)
+            return legendaryStyle;
 
         switch (itemTier) {
             case COMMON:
@@ -228,7 +230,8 @@ public class Global extends Node {
 
     // --- HÀM LẤY MÀU VIỀN DỰA TRÊN ĐỘ HIẾM (TIER) ---
     public godot.core.Color getTierColor(UpgradeTier tier) {
-        if (tier == null) return new godot.core.Color(1.0f, 1.0f, 1.0f, 1.0f); // Default white
+        if (tier == null)
+            return new godot.core.Color(1.0f, 1.0f, 1.0f, 1.0f); // Default white
         switch (tier) {
             case RARE:
                 return new godot.core.Color(0.0f, 0.557f, 0.741f, 1.0f);
@@ -246,13 +249,13 @@ public class Global extends Node {
     public void getHarvestingCoins() {
         if (player != null && player.stats != null) {
             coins += (int) player.stats.harvesting;
-            GD.print("Đã thu thập: " + (int)player.stats.harvesting + " xu. Tổng xu: " + coins);
+            GD.print("Đã thu thập: " + (int) player.stats.harvesting + " xu. Tổng xu: " + coins);
         }
     }
 
     @RegisterFunction
     public godot.core.VariantArray<game.resources.items.ItemBase> selectItemsForOffer(
-            godot.core.VariantArray<? extends game.resources.items.ItemBase> itemPool, 
+            godot.core.VariantArray<? extends game.resources.items.ItemBase> itemPool,
             int currentWave,
             java.util.Map<String, TierConfig> config) {
 
@@ -288,6 +291,14 @@ public class Global extends Node {
                 for (int i = 0; i < itemPool.size(); i++) {
                     game.resources.items.ItemBase item = itemPool.get(i);
                     if (item != null && item.itemTier != null && item.itemTier.ordinal() == currentSearchTierIndex) {
+
+                        // Kiểm tra nếu là thẻ Passive thì xem người chơi có gánh được Penalty không
+                        if (item instanceof game.resources.items.ItemPassive) {
+                            if (!((game.resources.items.ItemPassive) item).canAffordPenalty()) {
+                                continue; // Bỏ qua thẻ này
+                            }
+                        }
+
                         potentialItemsList.add(item);
                     }
                 }
@@ -312,16 +323,17 @@ public class Global extends Node {
         }
 
         // Chuyển List thành VariantArray để Godot dùng
-        godot.core.VariantArray<game.resources.items.ItemBase> finalArray = game.Helper.GodotHelper.createItemBaseArray();
-        
+        godot.core.VariantArray<game.resources.items.ItemBase> finalArray = game.Helper.GodotHelper
+                .createItemBaseArray();
+
         GD.print("Debug: Vòng lặp kết thúc, offerItemsList size = " + offerItemsList.size());
-        
+
         for (game.resources.items.ItemBase item : offerItemsList) {
             finalArray.append(item);
         }
-        
+
         GD.print("Debug: Sau khi copy sang finalArray, size = " + finalArray.size());
-        
+
         return finalArray;
     }
 }

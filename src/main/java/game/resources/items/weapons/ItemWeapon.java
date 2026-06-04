@@ -10,13 +10,13 @@ import godot.api.Resource;
 
 @RegisterClass
 public class ItemWeapon extends ItemBase {
-    public ItemWeapon(){
+    public ItemWeapon() {
         super();
     }
 
     public enum WeaponType {
         MELEE, // 0
-        RANGE  // 1
+        RANGE // 1
     }
 
     @Export
@@ -42,20 +42,21 @@ public class ItemWeapon extends ItemBase {
     @RegisterFunction
     @Override
     public String getDescription() {
-        if (stats == null) return "";
+        if (stats == null)
+            return "";
 
         String format = "[code]\n\n" +
-                "Damage: [color=green]%s[/color]\n\n" +
-                "Cooldown: [color=green]%s[/color]\n\n" +
-                "Range: [color=green]%s[/color]\n\n" +
-                "Critical: [color=green]%s%%[/color]\n\n" +
+                "Damage: [color=green]%s[/color]\n" +
+                "Cooldown: [color=green]%s[/color]\n" +
+                "Range: [color=green]%s[/color]\n" +
+                "Critical: [color=green]%s%%[/color]\n" +
                 "[/code]";
 
         java.text.DecimalFormat df = new java.text.DecimalFormat("0.##");
-        return String.format(java.util.Locale.US, format, 
-                df.format(stats.damage), 
-                df.format(stats.cooldown), 
-                df.format(stats.maxRange), 
+        return String.format(java.util.Locale.US, format,
+                df.format(stats.damage),
+                df.format(stats.cooldown),
+                df.format(stats.maxRange),
                 df.format(stats.critChance * 100));
     }
 }
