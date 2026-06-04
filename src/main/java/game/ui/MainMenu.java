@@ -83,19 +83,7 @@ public class MainMenu extends Control {
 
     @RegisterFunction
     public void _on_credits_pressed() {
-        if (creditsPanel != null) {
-            creditsPanel.setVisible(true);
-        }
-        if (optionPanel != null) {
-            optionPanel.setVisible(false);
-        }
-    }
-
-    @RegisterFunction
-    public void _on_close_credits_pressed() {
-        if (creditsPanel != null) {
-            creditsPanel.setVisible(false);
-        }
+        getTree().changeSceneToFile("res://scenes/ui/StoryScene.tscn");
     }
 
     @RegisterFunction

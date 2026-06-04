@@ -329,7 +329,7 @@ theme_override_font_sizes/font_size = 26
 theme_override_styles/normal = SubResource("StyleBoxFlat_secondary_normal")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_secondary_pressed")
 theme_override_styles/hover = SubResource("StyleBoxFlat_secondary_hover")
-text = "CREDITS"
+text = "CHRONICLES"
 
 [node name="QuitButton" type="Button" parent="BottomRightHBox"]
 layout_mode = 2

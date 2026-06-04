@@ -1,0 +1,164 @@
+[gd_scene load_steps=9 format=3 uid="uid://bhqyiy31vlfs7"]
+
+[ext_resource type="Script" uid="uid://dtwrlrju67n6i" path="res://gdj/game/ui/StoryMenu.gdj" id="1_script"]
+[ext_resource type="FontFile" uid="uid://kfh6ooeul77g" path="res://gdj/game/Game+Assets/assets/font/Bake Soda.otf" id="2_font"]
+[ext_resource type="Texture2D" uid="uid://duopnjcoou164" path="res://scenes/ui/plot.jpg" id="3_plot_img"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_story"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_normal"]
+content_margin_left = 20.0
+content_margin_top = 8.0
+content_margin_right = 20.0
+content_margin_bottom = 8.0
+bg_color = Color(0.1, 0.06, 0.04, 0.88)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.85, 0.65, 0.25, 0.9)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+shadow_color = Color(0, 0, 0, 0.5)
+shadow_size = 5
+shadow_offset = Vector2(0, 3)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_pressed"]
+content_margin_left = 20.0
+content_margin_top = 8.0
+content_margin_right = 20.0
+content_margin_bottom = 8.0
+bg_color = Color(0.6, 0.3, 0.08, 0.95)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.8, 0.5, 0.18, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+shadow_color = Color(0, 0, 0, 0.4)
+shadow_size = 2
+shadow_offset = Vector2(0, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_hover"]
+content_margin_left = 20.0
+content_margin_top = 8.0
+content_margin_right = 20.0
+content_margin_bottom = 8.0
+bg_color = Color(0.88, 0.52, 0.12, 0.92)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 0.85, 0.35, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+shadow_color = Color(0.95, 0.5, 0.1, 0.3)
+shadow_size = 10
+shadow_offset = Vector2(0, 5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_focus"]
+content_margin_left = 20.0
+content_margin_top = 8.0
+content_margin_right = 20.0
+content_margin_bottom = 8.0
+bg_color = Color(0.1, 0.06, 0.04, 0.88)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 0.85, 0.35, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+shadow_color = Color(0.95, 0.5, 0.1, 0.2)
+shadow_size = 6
+shadow_offset = Vector2(0, 3)
+
+[node name="StoryScene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_script")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 500.0
+offset_right = -500.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.05, 0.03, 0.02, 1)
+
+[node name="PlotImagePanel" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_left = 491.0
+offset_right = 1429.0
+offset_bottom = 1080.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_story")
+
+[node name="PlotImage" type="TextureRect" parent="PlotImagePanel"]
+layout_mode = 2
+texture = ExtResource("3_plot_img")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Panel" type="PanelContainer" parent="PlotImagePanel/PlotImage"]
+layout_mode = 0
+offset_left = 117.0
+offset_top = 140.0
+offset_right = 821.0
+offset_bottom = 520.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_story")
+
+[node name="MarginContainer" type="MarginContainer" parent="PlotImagePanel/PlotImage/Panel"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 10
+
+[node name="StoryLabel" type="RichTextLabel" parent="PlotImagePanel/PlotImage/Panel/MarginContainer"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0.18, 0.1, 0.05, 1)
+theme_override_constants/line_separation = 8
+theme_override_fonts/normal_font = ExtResource("2_font")
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "Loading Chronicles..."
+scroll_following = true
+
+[node name="BackButton" type="Button" parent="PlotImagePanel/PlotImage"]
+layout_mode = 0
+offset_left = 60.0
+offset_top = 960.0
+offset_right = 240.0
+offset_bottom = 1030.0
+theme_override_colors/font_color = Color(0.92, 0.88, 0.78, 1)
+theme_override_colors/font_pressed_color = Color(0.82, 0.72, 0.5, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 0.92, 1)
+theme_override_colors/font_outline_color = Color(0.05, 0.03, 0.01, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn_normal")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_btn_pressed")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+theme_override_styles/focus = SubResource("StyleBoxFlat_btn_focus")
+text = "BACK"
+
+[connection signal="mouse_entered" from="PlotImagePanel/PlotImage/BackButton" to="." method="_on_back_mouse_entered"]
+[connection signal="mouse_exited" from="PlotImagePanel/PlotImage/BackButton" to="." method="_on_back_mouse_exited"]
+[connection signal="pressed" from="PlotImagePanel/PlotImage/BackButton" to="." method="_on_back_pressed"]

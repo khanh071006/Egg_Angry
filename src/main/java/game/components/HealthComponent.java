@@ -1,5 +1,6 @@
 package game.components;
 
+import game.entity.Player;
 import game.resources.units.UnitStats;
 import godot.annotation.RegisterClass;
 import godot.annotation.RegisterFunction;
@@ -57,6 +58,10 @@ public class HealthComponent extends Node {
 	public void Die(){
 		Node parent = getParent();
 		if (parent != null){
+			if (parent instanceof Player) {
+				parent.getTree().changeSceneToFile("res://scenes/ui/GameOverScene.tscn");
+				return;
+			}
 
 			// 1. ĐÓNG BĂNG MỌI HOẠT ĐỘNG (Tương đương ProcessMode = PROCESS_MODE_DISABLED)
 			// Lệnh này ép con quái ngừng chạy _process, ngừng AI, ngừng tính toán vật lý

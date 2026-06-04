@@ -1,9 +1,9 @@
 // THIS FILE IS GENERATED! DO NOT EDIT OR DELETE IT. EDIT OR DELETE THE ASSOCIATED SOURCE CODE FILE INSTEAD
 // Note: You can however freely move this file inside your godot project if you want. Keep in mind however, that if you rename the originating source code file, this file will be deleted and regenerated as a new file instead of being updated! Other modifications to the source file however, will result in this file being updated.
 
-registeredName = MainMenu
-fqName = game.ui.MainMenu
-relativeSourcePath = src/main/java/game/ui/MainMenu.java
+registeredName = StoryMenu
+fqName = game.ui.StoryMenu
+relativeSourcePath = src/main/java/game/ui/StoryMenu.java
 baseType = Control
 supertypes = [
     godot.api.Control,
@@ -22,21 +22,9 @@ properties = [
     
 ]
 functions = [
-    _ready,
-	_on_battle_pressed,
-	_on_tutorial_pressed,
-	_on_option_pressed,
-	_on_close_option_pressed,
-	_on_credits_pressed,
-	_on_quit_pressed,
-	_on_battle_mouse_entered,
-	_on_battle_mouse_exited,
-	_on_tutorial_mouse_entered,
-	_on_tutorial_mouse_exited,
-	_on_option_mouse_entered,
-	_on_option_mouse_exited,
-	_on_credits_mouse_entered,
-	_on_credits_mouse_exited,
-	_on_quit_mouse_entered,
-	_on_quit_mouse_exited
+    _process,
+	_ready,
+	_on_back_pressed,
+	_on_back_mouse_entered,
+	_on_back_mouse_exited
 ]
