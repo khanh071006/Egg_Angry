@@ -74,8 +74,8 @@ public class ChaserBehavior extends Node2D {
         else if (currentCooldown > 0.0f) {
             currentCooldown -= delta;
         }
-        else{
-            if (Global.isAttack && Global.player != null && !Global.player.isQueuedForDeletion()) {
+        else {
+            if (Global.isAttack && Global.player != null && godot.global.GD.isInstanceValid(Global.player) && !Global.player.isQueuedForDeletion()) {
                 // CHỐT TỌA ĐỘ: Lấy vị trí của Player ngay khoảnh khắc này
                 chargeTargetPosition = Global.player.getGlobalPosition();
                 startCharge();

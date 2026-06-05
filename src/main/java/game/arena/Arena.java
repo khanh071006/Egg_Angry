@@ -150,12 +150,16 @@ public class Arena extends Node2D {
     @RegisterFunction
     public void show_block_text(Node2D unit) {
         FloatingText textInstance = spawnTextAroundUnit(unit);
-        textInstance.setup("Blocked", blockColor);
+        if (textInstance != null) {
+            textInstance.setup("Blocked", blockColor);
+        }
     }
 
     @RegisterFunction
     public void show_damage_text(Node2D unit, HitBoxComponent hitbox) {
         FloatingText textInstance = spawnTextAroundUnit(unit);
+        if (textInstance == null) return;
+        
         String damageStr = String.valueOf((int) hitbox.damage);
         if (hitbox.critical) {
             textInstance.setup(damageStr, critColor);
@@ -167,12 +171,18 @@ public class Arena extends Node2D {
     @RegisterFunction
     public void show_heal_text(Node2D unit, Float heal) {
         FloatingText textInstance = spawnTextAroundUnit(unit);
-        String healStr = "+" + String.valueOf((int) (float) heal);
-        textInstance.setup(healStr, hpColor);
+        if (textInstance != null) {
+            String healStr = "+" + String.valueOf((int) (float) heal);
+            textInstance.setup(healStr, hpColor);
+        }
     }
 
     // HÀM HỖ TRỢ: Tính toán vị trí văng ra để số không đè lên nhau
     private FloatingText spawnTextAroundUnit(Node2D unit) {
+        if (!isInsideTree() || getTree() == null || getTree().getRoot() == null) {
+            return null;
+        }
+
         // Đúc chữ từ khuôn
         FloatingText instance = (FloatingText) Global.instance.floatingTextScene.instantiate();
 

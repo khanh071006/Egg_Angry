@@ -34,6 +34,7 @@ functions = [
 	_on_hurtbox_component_on_damage,
 	_on_flash_timer_timeout,
 	_on_dash_timer_timeout,
+	stop_movement,
 	add_weapon,
 	remove_weapon,
 	update_player_new_wave,

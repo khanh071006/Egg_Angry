@@ -26,7 +26,7 @@ import kotlin.collections.listOf
   "godot.api.Node,godot.api.Object,godot.core.KtObject,godot.common.interop.NativeWrapper,godot.common.interop.NativePointer,kotlin.Any",
   "game.components.HealthComponent.onUnitHit,game.components.HealthComponent.onUnitDie,game.components.HealthComponent.onHealthChanged",
   "",
-  "game.components.HealthComponent.setup,game.components.HealthComponent.takeDamage,game.components.HealthComponent.Die,game.components.HealthComponent.heal",
+  "game.components.HealthComponent.setup,game.components.HealthComponent.takeDamage,game.components.HealthComponent.Die,game.components.HealthComponent.heal,game.components.HealthComponent.goToGameOver",
   true,
 )
 public open class HealthComponentRegistrar : ClassRegistrar {
@@ -39,6 +39,7 @@ public open class HealthComponentRegistrar : ClassRegistrar {
         function(HealthComponent::takeDamage, NIL, FLOAT, KtFunctionArgument(FLOAT, "kotlin.Float", "value"), KtFunctionArgument(NIL, "kotlin.Unit"), KtRpcConfig(DISABLED.id.toInt(), false, RELIABLE.id.toInt(), 0))
         function(HealthComponent::Die, NIL, KtFunctionArgument(NIL, "kotlin.Unit"), KtRpcConfig(DISABLED.id.toInt(), false, RELIABLE.id.toInt(), 0))
         function(HealthComponent::heal, NIL, FLOAT, KtFunctionArgument(FLOAT, "kotlin.Float", "amount"), KtFunctionArgument(NIL, "kotlin.Unit"), KtRpcConfig(DISABLED.id.toInt(), false, RELIABLE.id.toInt(), 0))
+        function(HealthComponent::goToGameOver, NIL, KtFunctionArgument(NIL, "kotlin.Unit"), KtRpcConfig(DISABLED.id.toInt(), false, RELIABLE.id.toInt(), 0))
         signal(HealthComponent::onUnitHit)
         signal(HealthComponent::onUnitDie)
         signal(HealthComponent::onHealthChanged, KtFunctionArgument(FLOAT, "kotlin.Float", "p0"), KtFunctionArgument(FLOAT, "kotlin.Float", "p1"))

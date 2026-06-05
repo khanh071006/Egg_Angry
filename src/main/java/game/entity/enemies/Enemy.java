@@ -108,7 +108,7 @@ public class Enemy extends BaseUnit {
     }
 
     private boolean canMoveTowardsPlayer() {
-        if (!Global.isAttack || Global.player == null || !Global.player.isInsideTree()) {
+        if (!Global.isAttack || Global.player == null || !godot.global.GD.isInstanceValid(Global.player) || !Global.player.isInsideTree()) {
             return false;
         }
         float dist = (float) getGlobalPosition().distanceTo(Global.player.getGlobalPosition());
@@ -116,7 +116,7 @@ public class Enemy extends BaseUnit {
     }
 
     private Vector2 getMoveDirection() {
-        if (!Global.isAttack || Global.player == null || !Global.player.isInsideTree()) {
+        if (!Global.isAttack || Global.player == null || !godot.global.GD.isInstanceValid(Global.player) || !Global.player.isInsideTree()) {
             return new Vector2(0, 0);
         }
 

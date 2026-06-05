@@ -25,5 +25,6 @@ functions = [
     setup,
 	take_damage,
 	die,
-	heal
+	heal,
+	go_to_game_over
 ]

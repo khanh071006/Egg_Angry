@@ -1,0 +1,51 @@
+// THIS FILE IS GENERATED! DO NOT EDIT OR DELETE IT. EDIT OR DELETE THE ASSOCIATED SOURCE CODE FILE INSTEAD
+// Note: You can however freely move this file inside your godot project if you want. Keep in mind however, that if you rename the originating source code file, this file will be deleted and regenerated as a new file instead of being updated! Other modifications to the source file however, will result in this file being updated.
+
+registeredName = StoryMenu
+fqName = game.ui.StoryMenu
+relativeSourcePath = src/main/java/game/ui/StoryMenu.java
+baseType = Control
+supertypes = [
+    godot.api.Control,
+	godot.api.CanvasItem,
+	godot.api.Node,
+	godot.api.Object,
+	godot.core.KtObject,
+	godot.common.interop.NativeWrapper,
+	godot.common.interop.NativePointer,
+	kotlin.Any
+]
+signals = [
+    
+]
+properties = [
+    
+]
+functions = [
+    _process,
+	_ready,
+	_on_back_pressed,
+	_on_next_pressed,
+	_on_prev_pressed,
+	_on_player_next_pressed,
+	_on_enemy_prev_pressed,
+	_on_enemy_next_pressed,
+	_on_wave_prev_pressed,
+	_on_play_pressed,
+	_on_back_mouse_entered,
+	_on_back_mouse_exited,
+	_on_next_mouse_entered,
+	_on_next_mouse_exited,
+	_on_prev_mouse_entered,
+	_on_prev_mouse_exited,
+	_on_player_next_mouse_entered,
+	_on_player_next_mouse_exited,
+	_on_enemy_prev_mouse_entered,
+	_on_enemy_prev_mouse_exited,
+	_on_enemy_next_mouse_entered,
+	_on_enemy_next_mouse_exited,
+	_on_wave_prev_mouse_entered,
+	_on_wave_prev_mouse_exited,
+	_on_play_mouse_entered,
+	_on_play_mouse_exited
+]
