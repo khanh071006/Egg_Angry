@@ -1,7 +1,7 @@
 // THIS FILE IS GENERATED! DO NOT EDIT IT MANUALLY!
 package godot.entry
 
-import game.entity.enemies.Enemy
+import game.entity.enemies.core.Enemy
 import godot.`annotation`.RegisteredClassMetadata
 import godot.api.MultiplayerAPI.RPCMode.DISABLED
 import godot.api.MultiplayerPeer.TransferMode.RELIABLE
@@ -24,20 +24,20 @@ import kotlin.collections.listOf
 @RegisteredClassMetadata(
   "Enemy",
   "Area2D",
-  "game.entity.enemies.Enemy",
-  "src/main/java/game/entity/enemies/Enemy.java",
+  "game.entity.enemies.core.Enemy",
+  "src/main/java/game/entity/enemies/core/Enemy.java",
   "gdj/game/entity/Enemy.gdj",
   "project-3",
   "game.entity.BaseUnit,godot.api.Area2D,godot.api.CollisionObject2D,godot.api.Node2D,godot.api.CanvasItem,godot.api.Node,godot.api.Object,godot.core.KtObject,godot.common.interop.NativeWrapper,godot.common.interop.NativePointer,kotlin.Any",
   "",
-  "game.entity.enemies.Enemy.flockPush,game.entity.enemies.Enemy.knockbackTimer,game.entity.enemies.Enemy.knockbackImmunityTime,game.entity.enemies.Enemy.stats",
-  "game.entity.enemies.Enemy._physicsProcess,game.entity.enemies.Enemy._ready,game.entity.enemies.Enemy.setFlashMaterial,game.entity.enemies.Enemy._on_hurtbox_component_on_damage,game.entity.enemies.Enemy._on_flash_timer_timeout,game.entity.enemies.Enemy.applyKnockback,game.entity.enemies.Enemy.resetKnockback,game.entity.enemies.Enemy._on_knockback_timer_timeout,game.entity.enemies.Enemy.destroyEnemy,game.entity.enemies.Enemy._on_death_timer_timeout,game.entity.enemies.Enemy._on_health_component_on_unit_die",
+  "game.entity.enemies.core.Enemy.flockPush,game.entity.enemies.core.Enemy.knockbackTimer,game.entity.enemies.core.Enemy.knockbackImmunityTime,game.entity.enemies.core.Enemy.stats",
+  "game.entity.enemies.core.Enemy._physicsProcess,game.entity.enemies.core.Enemy._ready,game.entity.enemies.core.Enemy.setFlashMaterial,game.entity.enemies.core.Enemy._on_hurtbox_component_on_damage,game.entity.enemies.core.Enemy._on_flash_timer_timeout,game.entity.enemies.core.Enemy.applyKnockback,game.entity.enemies.core.Enemy.resetKnockback,game.entity.enemies.core.Enemy._on_knockback_timer_timeout,game.entity.enemies.core.Enemy.destroyEnemy,game.entity.enemies.core.Enemy._on_death_timer_timeout,game.entity.enemies.core.Enemy._on_health_component_on_unit_die",
   true,
 )
 public open class EnemyRegistrar : ClassRegistrar {
   public override fun register(registry: ClassRegistry): Unit {
     with(registry) {
-      registerClass<Enemy>(listOf("BaseUnit"), Enemy::class, false, "Area2D", "Enemy", "src/main/java/game/entity/enemies/Enemy.java", "gdj/game/entity/Enemy.gdj") {
+      registerClass<Enemy>(listOf("BaseUnit"), Enemy::class, false, "Area2D", "Enemy", "src/main/java/game/entity/enemies/core/Enemy.java", "gdj/game/entity/Enemy.gdj") {
         constructor(KtConstructor0(::Enemy))
         notificationFunctions(listOf())
         function(Enemy::_physicsProcess, NIL, DOUBLE, KtFunctionArgument(DOUBLE, "kotlin.Double", "delta"), KtFunctionArgument(NIL, "kotlin.Unit"), KtRpcConfig(DISABLED.id.toInt(), false, RELIABLE.id.toInt(), 0))

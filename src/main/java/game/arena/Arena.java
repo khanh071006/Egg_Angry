@@ -3,7 +3,7 @@ package game.arena;
 import game.autoloads.Global;
 import game.components.HitBoxComponent;
 import game.entity.Player;
-import game.entity.enemies.Spawner;
+import game.entity.enemies.spawner.Spawner;
 import game.ui.FloatingText;
 import godot.api.Label;
 import godot.api.Node;
@@ -206,7 +206,7 @@ public class Arena extends Node2D {
     }
 
     @RegisterFunction
-    public void spawn_coins(game.entity.enemies.Enemy enemy) {
+    public void spawn_coins(game.entity.enemies.core.Enemy enemy) {
         if (Global.instance.coinsScene == null)
             return;
 

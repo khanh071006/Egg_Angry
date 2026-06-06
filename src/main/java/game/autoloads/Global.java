@@ -73,7 +73,7 @@ public class Global extends Node {
     public Signal2<Node2D, Float> onCreateHealText = Signal2.create(this, "onCreateHealText");
 
     @RegisterSignal
-    public Signal1<game.entity.enemies.Enemy> onEnemyDied = Signal1.create(this, "onEnemyDied");
+    public Signal1<game.entity.enemies.core.Enemy> onEnemyDied = Signal1.create(this, "onEnemyDied");
 
     public PackedScene itemCardScene;
 

@@ -45,7 +45,7 @@ public open class GlobalRegistrar : ClassRegistrar {
         signal(Global::onCreateDamageText, KtFunctionArgument(OBJECT, "godot.api.Node2D", "p0"), KtFunctionArgument(OBJECT, "game.components.HitBoxComponent", "p1"))
         signal(Global::onUpgradeSelected)
         signal(Global::onCreateHealText, KtFunctionArgument(OBJECT, "godot.api.Node2D", "p0"), KtFunctionArgument(FLOAT, "kotlin.Float", "p1"))
-        signal(Global::onEnemyDied, KtFunctionArgument(OBJECT, "game.entity.enemies.Enemy", "p0"))
+        signal(Global::onEnemyDied, KtFunctionArgument(OBJECT, "game.entity.enemies.core.Enemy", "p0"))
       }
     }
   }

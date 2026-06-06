@@ -1,6 +1,6 @@
 package game.components;
 
-import game.entity.enemies.Enemy;
+import game.entity.enemies.core.Enemy;
 import game.resources.units.UnitStats;
 import godot.annotation.RegisterClass;
 import godot.annotation.RegisterFunction;

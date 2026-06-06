@@ -2,8 +2,8 @@
 // Note: You can however freely move this file inside your godot project if you want. Keep in mind however, that if you rename the originating source code file, this file will be deleted and regenerated as a new file instead of being updated! Other modifications to the source file however, will result in this file being updated.
 
 registeredName = Spawner
-fqName = game.entity.enemies.Spawner
-relativeSourcePath = src/main/java/game/entity/enemies/Spawner.java
+fqName = game.entity.enemies.spawner.Spawner
+relativeSourcePath = src/main/java/game/entity/enemies/spawner/Spawner.java
 baseType = Node2D
 supertypes = [
     godot.api.Node2D,

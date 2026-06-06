@@ -1,0 +1,44 @@
+[gd_scene load_steps=3 format=3 uid="uid://cv527ys0ywwkf"]
+[ext_resource type="Script" path="res://gdj/game/components/HitBoxComponent.gdj" id="hitbox_script"]
+
+[ext_resource type="Texture2D" path="res://assets/Enemy_Generate/Enemy_8/Enemy_8_ef/1.png" id="ef_1"]
+[ext_resource type="Texture2D" path="res://assets/Enemy_Generate/Enemy_8/Enemy_8_ef/2.png" id="ef_2"]
+[ext_resource type="Texture2D" path="res://assets/Enemy_Generate/Enemy_8/Enemy_8_ef/3.png" id="ef_3"]
+[ext_resource type="Texture2D" path="res://assets/Enemy_Generate/Enemy_8/Enemy_8_ef/4.png" id="ef_4"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ef"]
+animations = [{
+"frames": [{"duration": 1.0, "texture": ExtResource("ef_1")}, {"duration": 1.0, "texture": ExtResource("ef_2")}, {"duration": 1.0, "texture": ExtResource("ef_3")}, {"duration": 1.0, "texture": ExtResource("ef_4")}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hit"]
+radius = 60.0
+
+[node name="Enemy8Effect" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -40)
+scale = Vector2(0.12, 0.12)
+sprite_frames = SubResource("SpriteFrames_ef")
+autoplay = "default"
+
+[node name="HitboxComponent" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 8
+script = ExtResource("hitbox_script")
+damage = 25.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
+position = Vector2(0, -40)
+shape = SubResource("CircleShape2D_hit")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.8
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="queue_free"]
+
