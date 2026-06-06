@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="EnemyStats" load_steps=3 format=3 uid="uid://df2s7lstattaa"]
+
+[ext_resource type="Texture2D" uid="uid://bf4ls8ho3cuqa" path="res://gdj/game/Game+Assets/assets/sprites/Enemies/Enemy_2.png" id="1_sprite"]
+[ext_resource type="Script" uid="uid://bgy8iaa1dequj" path="res://gdj/game/resources/EnemyStats.gdj" id="2_script"]
+
+[resource]
+script = ExtResource("2_script")
+gold_drop = 8.0
+block_chance = 5.0
+unit_name = "Laser Spinner"
+icon = ExtResource("1_sprite")
+health = 45.0
+health_increase_per_wave = 15.0
+damage = 8.0
+damage_increase_per_wave = 3.0
+speed = 200.0

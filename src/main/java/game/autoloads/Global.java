@@ -2,6 +2,7 @@ package game.autoloads;
 
 import game.components.HitBoxComponent;
 import game.entity.Player;
+import game.arena.CameraController;
 import godot.annotation.*;
 import godot.api.*;
 import godot.core.Signal0;
@@ -16,6 +17,7 @@ public class Global extends Node {
 
     // ĐÂY LÀ BIẾN TOÀN CẦU! Ai cũng có thể truy cập nó!
     public static Player player;
+    public static CameraController camera;
     public static ShaderMaterial FLASH_MATERIAL;
     public static ShaderMaterial OUTLINE_MATERIAL;
     public static Global instance;

@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://mruna4dx7oqx"]
+
+[ext_resource type="PackedScene" uid="uid://lty2nxmp27i0" path="res://scenes/unit/player_well_rounded.tscn" id="1_well_rounded"]
+[ext_resource type="Script" uid="uid://cu21nlj0iu24e" path="res://gdj/game/entity/PlayerChrono.gdj" id="2_chrono_script"]
+[ext_resource type="Resource" path="res://resources/units/players/stats_player_chrono.tres" id="3_chrono_stats"]
+[ext_resource type="Texture2D" uid="uid://dae0y6efbtvju" path="res://assets/sprites/Players/Player_Chrono.png" id="4_03orh"]
+
+[node name="PlayerChrono" instance=ExtResource("1_well_rounded")]
+script = ExtResource("2_chrono_script")
+bomb_scene = null
+stats = ExtResource("3_chrono_stats")
+
+[node name="Sprite" parent="Visuals" index="2"]
+texture = ExtResource("4_03orh")
+
+[node name="HealthBar" parent="." index="8"]
+offset_left = -28.0
+offset_top = -212.0
+offset_right = 68.0
+offset_bottom = -192.0
