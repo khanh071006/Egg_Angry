@@ -1,4 +1,4 @@
-package game.entity.enemies;
+package game.entity.enemies.core;
 
 import game.autoloads.Global;
 import game.components.HitBoxComponent;

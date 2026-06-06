@@ -1,9 +1,9 @@
 // THIS FILE IS GENERATED! DO NOT EDIT OR DELETE IT. EDIT OR DELETE THE ASSOCIATED SOURCE CODE FILE INSTEAD
 // Note: You can however freely move this file inside your godot project if you want. Keep in mind however, that if you rename the originating source code file, this file will be deleted and regenerated as a new file instead of being updated! Other modifications to the source file however, will result in this file being updated.
 
-registeredName = Spawner
-fqName = game.entity.enemies.spawner.Spawner
-relativeSourcePath = src/main/java/game/entity/enemies/spawner/Spawner.java
+registeredName = ShootingBehavior
+fqName = game.entity.enemies.behaviors.ShootingBehavior
+relativeSourcePath = src/main/java/game/entity/enemies/behaviors/ShootingBehavior.java
 baseType = Node2D
 supertypes = [
     godot.api.Node2D,
@@ -16,15 +16,18 @@ supertypes = [
 	kotlin.Any
 ]
 signals = [
-    on_wave_completed
+    
 ]
 properties = [
-    waves_data,
-	spawn_area_size
+    enemy,
+	fire_position,
+	projectile_scene,
+	cooldown,
+	projectile_count,
+	arc_angle,
+	projectile_speed
 ]
 functions = [
     _process,
-	_ready,
-	_on_spawn_timer_timeout,
-	_on_wave_timer_timeout
+	_ready
 ]
