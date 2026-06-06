@@ -1,0 +1,58 @@
+[gd_scene load_steps=9 format=3 uid="uid://x1y2z3meteor_eff"]
+
+[ext_resource type="Texture2D" uid="uid://x1y2z3meteor_eff_1" path="res://assets/Enemy_Generate/EnemyMeteorMage/effect/1.png" id="1_eff"]
+[ext_resource type="Texture2D" uid="uid://x1y2z3meteor_eff_2" path="res://assets/Enemy_Generate/EnemyMeteorMage/effect/2.png" id="2_eff"]
+[ext_resource type="Texture2D" uid="uid://x1y2z3meteor_eff_3" path="res://assets/Enemy_Generate/EnemyMeteorMage/effect/3.png" id="3_eff"]
+[ext_resource type="Texture2D" uid="uid://x1y2z3meteor_eff_4" path="res://assets/Enemy_Generate/EnemyMeteorMage/effect/4.png" id="4_eff"]
+[ext_resource type="Script" uid="uid://bwrgjtj6t361v" path="res://gdj/game/components/HitBoxComponent.gdj" id="5_hitbox"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_eff"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_eff")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_eff")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_eff")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_eff")
+}],
+"loop": false,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_eff"]
+radius = 80.0
+
+[node name="EnemyMeteorMageEffect" type="Node2D"]
+z_index = 10
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -50)
+scale = Vector2(0.15, 0.15)
+sprite_frames = SubResource("SpriteFrames_eff")
+autoplay = "default"
+
+[node name="HitboxComponent" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 8
+script = ExtResource("5_hitbox")
+damage = 20.0
+knockbackPower = 200.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
+shape = SubResource("CircleShape2D_eff")
+debug_color = Color(0.999719, 0, 0.101736, 0.42)
+
+[node name="AutoCleanupTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="AutoCleanupTimer" to="." method="queue_free"]
+[connection signal="area_entered" from="HitboxComponent" to="HitboxComponent" method="_on_area_entered"]

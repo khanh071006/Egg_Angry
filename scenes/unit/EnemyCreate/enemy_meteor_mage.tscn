@@ -1,0 +1,91 @@
+[gd_scene load_steps=16 format=3 uid="uid://bay5n3f5iwq74"]
+
+[ext_resource type="PackedScene" uid="uid://bw6b5kktpiof3" path="res://scenes/unit/enemy_chaser_slow.tscn" id="1_chaser"]
+[ext_resource type="Script" path="res://gdj/game/entity/enemies/types/EnemyMeteorMage.gdj" id="2_script"]
+[ext_resource type="Texture2D" uid="uid://bmhy32fejgqlg" path="res://assets/Enemy_Generate/EnemyMeteorMage/attack/1.png" id="3_atk1"]
+[ext_resource type="Texture2D" uid="uid://bn1lh58pwqq4i" path="res://assets/Enemy_Generate/EnemyMeteorMage/attack/2.png" id="4_atk2"]
+[ext_resource type="Texture2D" uid="uid://b14f1hdvhicew" path="res://assets/Enemy_Generate/EnemyMeteorMage/attack/3.png" id="5_atk3"]
+[ext_resource type="Texture2D" uid="uid://d2w6imq2pm1pd" path="res://assets/Enemy_Generate/EnemyMeteorMage/attack/4.png" id="6_atk4"]
+[ext_resource type="Texture2D" uid="uid://rkpno8grpart" path="res://assets/Enemy_Generate/EnemyMeteorMage/move/1.png" id="7_mov1"]
+[ext_resource type="Texture2D" uid="uid://d3pu715assg6" path="res://assets/Enemy_Generate/EnemyMeteorMage/move/2.png" id="8_mov2"]
+[ext_resource type="Texture2D" uid="uid://bqvgg2epqikde" path="res://assets/Enemy_Generate/EnemyMeteorMage/move/3.png" id="9_mov3"]
+[ext_resource type="Texture2D" uid="uid://vc1pwfqvlpg4" path="res://assets/Enemy_Generate/EnemyMeteorMage/move/4.png" id="10_mov4"]
+[ext_resource type="Texture2D" uid="uid://87lu33oe62ho" path="res://assets/Enemy_Generate/EnemyMeteorMage/move/5.png" id="11_mov5"]
+[ext_resource type="Texture2D" uid="uid://bwwbmy8ofkpfb" path="res://assets/Enemy_Generate/EnemyMeteorMage/move/6.png" id="12_mov6"]
+[ext_resource type="Texture2D" uid="uid://jfnmayaxa23t" path="res://assets/Enemy_Generate/EnemyMeteorMage/move/7.png" id="13_mov7"]
+[ext_resource type="Texture2D" uid="uid://c6dbdgjyysi13" path="res://assets/Enemy_Generate/EnemyMeteorMage/move/8.png" id="14_mov8"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_anim"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_atk1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_atk2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_atk3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_atk4")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_mov1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_mov2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_mov3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_mov4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_mov5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_mov6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_mov7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_mov8")
+}],
+"loop": true,
+"name": &"move",
+"speed": 10.0
+}]
+
+[node name="EnemyMeteorMage" instance=ExtResource("1_chaser")]
+script = ExtResource("2_script")
+effect_scene = null
+
+[node name="MeteorMageAnimation" type="AnimatedSprite2D" parent="Visuals" index="0"]
+unique_name_in_owner = true
+position = Vector2(0, -60)
+scale = Vector2(0.25, 0.25)
+sprite_frames = SubResource("SpriteFrames_anim")
+animation = &"move"
+autoplay = "move"
+flip_h = true
+
+[node name="Sprite" parent="Visuals" index="2"]
+visible = false
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(0, -20)
+
+[node name="HurtboxComponent" parent="." index="4"]
+position = Vector2(0, -40)
+
+[node name="HealthBar" parent="." index="7"]
+offset_top = -209.99998
+offset_bottom = -189.99998

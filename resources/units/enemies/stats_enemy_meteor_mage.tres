@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="UnitStats" load_steps=2 format=3 uid="uid://x1y203meteor"]
+
+[ext_resource type="Script" uid="uid://b0vyp6men15w6" path="res://gdj/game/resources/units/UnitStats.gdj" id="1_stats"]
+
+[resource]
+script = ExtResource("1_stats")
+unit_name = "MeteorMage"
+health = 300.0
+speed = 60.0

@@ -18,6 +18,7 @@ import game.entity.enemies.core.Enemy
 import game.entity.enemies.spawner.Spawner
 import game.entity.enemies.types.EnemyBomber
 import game.entity.enemies.types.EnemyIceMage
+import game.entity.enemies.types.EnemyMeteorMage
 import game.items.Coins
 import game.items.weapons.Weapon
 import game.items.weapons.WeaponBehavior
@@ -58,6 +59,7 @@ import godot.entry.CoinsBagRegistrar
 import godot.entry.CoinsRegistrar
 import godot.entry.EnemyBomberRegistrar
 import godot.entry.EnemyIceMageRegistrar
+import godot.entry.EnemyMeteorMageRegistrar
 import godot.entry.EnemyRegistrar
 import godot.entry.EnemyStatsRegistrar
 import godot.entry.FloatingTextRegistrar
@@ -112,7 +114,7 @@ import kotlin.collections.listOf
 import kotlin.reflect.KClass
 
 public class Entry : Entry() {
-  public override val classRegistrarCount: Int = 49
+  public override val classRegistrarCount: Int = 50
 
   public override val projectName: String = "project-3"
 
@@ -134,6 +136,7 @@ public class Entry : Entry() {
     SpawnerRegistrar().register(registry)
     EnemyBomberRegistrar().register(registry)
     EnemyIceMageRegistrar().register(registry)
+    EnemyMeteorMageRegistrar().register(registry)
     PlayerRegistrar().register(registry)
     WeaponContainerRegistrar().register(registry)
     CoinsRegistrar().register(registry)
@@ -178,8 +181,8 @@ public class Entry : Entry() {
       WaveUnitData::class, Trail::class, Arena::class, CameraController::class, Global::class,
       HealthComponent::class, HitBoxComponent::class, HurtBoxComponent::class, BaseUnit::class,
       ChaserBehavior::class, ShootingBehavior::class, Enemy::class, IceSpikeEffect::class,
-      Spawner::class, EnemyBomber::class, EnemyIceMage::class, Player::class,
-      WeaponContainer::class, Coins::class, MeleeBehavior::class, Projectile::class,
+      Spawner::class, EnemyBomber::class, EnemyIceMage::class, EnemyMeteorMage::class,
+      Player::class, WeaponContainer::class, Coins::class, MeleeBehavior::class, Projectile::class,
       RangeBehavior::class, Weapon::class, WeaponBehavior::class, ItemBase::class,
       ItemPassive::class, ItemUpgrade::class, ItemWeapon::class, WeaponStats::class,
       EnemyStats::class, PlayerStats::class, UnitStats::class, CoinsBag::class, FloatingText::class,
