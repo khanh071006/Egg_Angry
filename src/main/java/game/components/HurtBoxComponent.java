@@ -16,8 +16,9 @@ public class HurtBoxComponent extends Area2D {
 
     @RegisterFunction
     public void _on_area_entered(Area2D area) {
+        godot.global.GD.print("HURTBOX " + getOwner().getName() + " ENTERED BY: " + area.getName() + " (class: " + area.getClass().getSimpleName() + ")");
         if (area instanceof HitBoxComponent hitbox) {
-
+            godot.global.GD.print("HURTBOX " + getOwner().getName() + " DETECTED HITBOX! Damage = " + hitbox.damage);
             // SỬA CHỖ NÀY: Cầm mic lên và phát tín hiệu!
             onDamage.emit(hitbox);
         }

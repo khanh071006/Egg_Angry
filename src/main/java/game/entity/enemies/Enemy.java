@@ -3,6 +3,7 @@ package game.entity.enemies;
 import game.autoloads.Global;
 import game.components.HitBoxComponent;
 import game.entity.BaseUnit;
+import game.entity.PlayerChrono;
 import godot.annotation.Export;
 import godot.annotation.RegisterClass;
 import godot.annotation.RegisterFunction;

@@ -1,6 +1,7 @@
 package game.entity.enemies; // Đổi đường dẫn cho đúng game của sếp
 
 import game.autoloads.Global;
+import game.entity.PlayerChrono;
 import game.items.weapons.projectiles.Projectile;
 import godot.annotation.Export;
 import godot.annotation.RegisterClass;

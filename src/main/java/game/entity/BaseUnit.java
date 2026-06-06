@@ -19,8 +19,8 @@ public class BaseUnit extends Area2D { // Đổi tên class ở đây
     @RegisterProperty
     public UnitStats stats;
 
-    // --- CÁC BIẾN CHO FlashEffects ---
-    private Timer flashTimer;
+	// --- CÁC BIẾN CHO FlashEffects ---
+	private Timer flashTimer;
 
     protected Node2D visuals;
     protected Sprite2D sprite;
@@ -34,30 +34,30 @@ public class BaseUnit extends Area2D { // Đổi tên class ở đây
         sprite = (Sprite2D) getNode("%Sprite");
         animPlayer = (AnimationPlayer) getNode("AnimationPlayer");
 
-        healthComponent = (HealthComponent) getNode("HealthComponent");
+		healthComponent = (HealthComponent) getNode("HealthComponent");
 
         // Gọi setup và truyền biến stats của Unit vào (như video)
         if (healthComponent != null && this.stats != null) {
             healthComponent.setup(this.stats);
         }
 
-        // Setup Timer bằng code hoặc kéo thả trong Editor
-        flashTimer = (Timer) getNode("FlashTimer");
-        flashTimer.setWaitTime(0.2);
-        flashTimer.setOneShot(true);
+		// Setup Timer bằng code hoặc kéo thả trong Editor
+		flashTimer = (Timer) getNode("FlashTimer");
+		flashTimer.setWaitTime(0.2);
+		flashTimer.setOneShot(true);
 
     }
 
-    @RegisterFunction
-    public void setFlashMaterial() {
-        // 1. Gắn Shader trắng vào Sprite
-        if (sprite != null && Global.FLASH_MATERIAL != null) {
-            sprite.setMaterial(Global.FLASH_MATERIAL);
-        }
+	@RegisterFunction
+	public void setFlashMaterial() {
+		// 1. Gắn Shader trắng vào Sprite
+		if (sprite != null && Global.FLASH_MATERIAL != null) {
+			sprite.setMaterial(Global.FLASH_MATERIAL);
+		}
 
-        // 2. Chạy đồng hồ đếm ngược 0.2 giây
-        flashTimer.start();
-    }
+		// 2. Chạy đồng hồ đếm ngược 0.2 giây
+		flashTimer.start();
+	}
 
     @RegisterFunction
     public void _on_hurtbox_component_on_damage(HitBoxComponent hitbox) {
@@ -76,8 +76,10 @@ public class BaseUnit extends Area2D { // Đổi tên class ở đây
         healthComponent.takeDamage(hitbox.damage);
         Global.instance.onCreateDamageText.emit(this, hitbox);
 
-        // Gọi hiệu ứng chớp trắng
-        setFlashMaterial();
+		// Rung màn hình khi Player bị quái cắn (Độ mạnh = 2.5f)
+		if (this instanceof Player && Global.camera != null) {
+			Global.camera.addShake(2.5f);
+		}
 
         // Đẩy lùi đối phương ra xa (để hitbox thoái lui rồi đâm lại, trừ máu liên tục)
         godot.api.Node sourceNode = hitbox.source;

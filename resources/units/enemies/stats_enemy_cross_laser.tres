@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="EnemyStats" load_steps=3 format=3 uid="uid://df2s7lcrossla"]
+
+[ext_resource type="Texture2D" uid="uid://c6vplmpl4q4jr" path="res://gdj/game/Game+Assets/assets/sprites/Enemies/Enemy_3.png" id="1_sprite"]
+[ext_resource type="Script" uid="uid://bgy8iaa1dequj" path="res://gdj/game/resources/EnemyStats.gdj" id="2_script"]
+
+[resource]
+script = ExtResource("2_script")
+gold_drop = 10.0
+block_chance = 5.0
+unit_name = "Cross Laser Sentry"
+icon = ExtResource("1_sprite")
+health = 60.0
+health_increase_per_wave = 20.0
+damage = 10.0
+damage_increase_per_wave = 4.0
+speed = 180.0

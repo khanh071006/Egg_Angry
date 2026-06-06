@@ -1,0 +1,20 @@
+[gd_scene load_steps=6 format=3 uid="uid://c8xxg21arjp06"]
+
+[ext_resource type="PackedScene" uid="uid://bw6b5kktpiof3" path="res://scenes/unit/enemy_chaser_slow.tscn" id="1_base"]
+[ext_resource type="Resource" path="res://resources/units/enemies/stats_enemy_splitter.tres" id="2_stats"]
+[ext_resource type="Script" uid="uid://cjpcouw2q8vhr" path="res://gdj/game/entity/enemies/SplitterBehavior.gdj" id="3_script"]
+[ext_resource type="Texture2D" uid="uid://bssdy870h3khj" path="res://assets/sprites/Enemies/Enemy_6.png" id="3_w8vmm"]
+[ext_resource type="PackedScene" uid="uid://k7kv46e6byce" path="res://scenes/unit/enemy_micro_chaser.tscn" id="4_micro_chaser"]
+
+[node name="EnemySplitter" instance=ExtResource("1_base")]
+scale = Vector2(1.2, 1.2)
+stats = ExtResource("2_stats")
+
+[node name="Sprite" parent="Visuals" index="1"]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("3_w8vmm")
+
+[node name="SplitterBehavior" type="Node2D" parent="." index="10" node_paths=PackedStringArray("enemy")]
+script = ExtResource("3_script")
+enemy = NodePath("..")
+spawn_scene = ExtResource("4_micro_chaser")

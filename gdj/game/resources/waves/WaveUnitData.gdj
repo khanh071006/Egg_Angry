@@ -3,7 +3,7 @@
 
 registeredName = WaveUnitData
 fqName = game.resources.waves.WaveUnitData
-relativeSourcePath = src/main/java/game/resources/waves/WaveUnitData.kt
+relativeSourcePath = src/main/kotlin/game/resources/waves/WaveUnitData.kt
 baseType = Resource
 supertypes = [
     godot.api.Resource,
