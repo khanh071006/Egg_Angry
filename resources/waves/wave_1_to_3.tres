@@ -4,6 +4,8 @@
 [ext_resource type="Script" uid="uid://bf8v16a6b8yrh" path="res://gdj/game/resources/waves/WaveUnitData.gdj" id="2_script"]
 [ext_resource type="PackedScene" uid="uid://bc123def4567" path="res://scenes/unit/EnemyCreate/enemy_bomber.tscn" id="3_scene_chaser"]
 [ext_resource type="Resource" uid="uid://cd8alwy8owka0" path="res://resources/units/enemies/stats_enemy_bomber.tres" id="3_stats_chaser"]
+[ext_resource type="PackedScene" path="res://scenes/unit/EnemyCreate/enemy_ice_mage.tscn" id="ice_mage_scene"]
+[ext_resource type="Resource" path="res://resources/units/enemies/stats_enemy_ice_mage.tres" id="ice_mage_stats"]
 
 [sub_resource type="Resource" id="Resource_unit_1"]
 script = ExtResource("2_script")
@@ -12,8 +14,15 @@ weight = 10.0
 unit_stats = ExtResource("3_stats_chaser")
 metadata/_custom_type_script = "uid://bf8v16a6b8yrh"
 
+[sub_resource type="Resource" id="Resource_ice_mage"]
+script = ExtResource("2_script")
+unit_scene = ExtResource("ice_mage_scene")
+weight = 10.0
+unit_stats = ExtResource("ice_mage_stats")
+metadata/_custom_type_script = "uid://bf8v16a6b8yrh"
+
 [resource]
 script = ExtResource("1_script")
 to = 3
 fixed_spawn_time = 2.0
-units = Array[ExtResource("2_script")]([SubResource("Resource_unit_1")])
+units = Array[ExtResource("2_script")]([SubResource("Resource_ice_mage")])

@@ -33,6 +33,7 @@ functions = [
 	set_flash_material,
 	_on_hurtbox_component_on_damage,
 	_on_flash_timer_timeout,
+	apply_slow,
 	_on_dash_timer_timeout,
 	stop_movement,
 	add_weapon,

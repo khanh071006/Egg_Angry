@@ -11,11 +11,13 @@ import game.components.HurtBoxComponent
 import game.entity.BaseUnit
 import game.entity.Player
 import game.entity.WeaponContainer
+import game.entity.enemies.IceSpikeEffect
 import game.entity.enemies.behaviors.ChaserBehavior
 import game.entity.enemies.behaviors.ShootingBehavior
 import game.entity.enemies.core.Enemy
 import game.entity.enemies.spawner.Spawner
 import game.entity.enemies.types.EnemyBomber
+import game.entity.enemies.types.EnemyIceMage
 import game.items.Coins
 import game.items.weapons.Weapon
 import game.items.weapons.WeaponBehavior
@@ -55,6 +57,7 @@ import godot.entry.ChaserBehaviorRegistrar
 import godot.entry.CoinsBagRegistrar
 import godot.entry.CoinsRegistrar
 import godot.entry.EnemyBomberRegistrar
+import godot.entry.EnemyIceMageRegistrar
 import godot.entry.EnemyRegistrar
 import godot.entry.EnemyStatsRegistrar
 import godot.entry.FloatingTextRegistrar
@@ -64,6 +67,7 @@ import godot.entry.HealthBarRegistrar
 import godot.entry.HealthComponentRegistrar
 import godot.entry.HitBoxComponentRegistrar
 import godot.entry.HurtBoxComponentRegistrar
+import godot.entry.IceSpikeEffectRegistrar
 import godot.entry.ItemBaseRegistrar
 import godot.entry.ItemCardRegistrar
 import godot.entry.ItemPassiveRegistrar
@@ -108,7 +112,7 @@ import kotlin.collections.listOf
 import kotlin.reflect.KClass
 
 public class Entry : Entry() {
-  public override val classRegistrarCount: Int = 47
+  public override val classRegistrarCount: Int = 49
 
   public override val projectName: String = "project-3"
 
@@ -126,8 +130,10 @@ public class Entry : Entry() {
     ChaserBehaviorRegistrar().register(registry)
     ShootingBehaviorRegistrar().register(registry)
     EnemyRegistrar().register(registry)
+    IceSpikeEffectRegistrar().register(registry)
     SpawnerRegistrar().register(registry)
     EnemyBomberRegistrar().register(registry)
+    EnemyIceMageRegistrar().register(registry)
     PlayerRegistrar().register(registry)
     WeaponContainerRegistrar().register(registry)
     CoinsRegistrar().register(registry)
@@ -171,13 +177,14 @@ public class Entry : Entry() {
   public override fun Context.getRegisteredClasses(): List<KClass<*>> = listOf(WaveData::class,
       WaveUnitData::class, Trail::class, Arena::class, CameraController::class, Global::class,
       HealthComponent::class, HitBoxComponent::class, HurtBoxComponent::class, BaseUnit::class,
-      ChaserBehavior::class, ShootingBehavior::class, Enemy::class, Spawner::class,
-      EnemyBomber::class, Player::class, WeaponContainer::class, Coins::class, MeleeBehavior::class,
-      Projectile::class, RangeBehavior::class, Weapon::class, WeaponBehavior::class,
-      ItemBase::class, ItemPassive::class, ItemUpgrade::class, ItemWeapon::class,
-      WeaponStats::class, EnemyStats::class, PlayerStats::class, UnitStats::class, CoinsBag::class,
-      FloatingText::class, GameOverMenu::class, HealthBar::class, ItemCard::class, MainMenu::class,
-      SelectionCard::class, SelectionPanel::class, ShopCard::class, ShopPanel::class,
-      StatsContainer::class, StoryMenu::class, TutorialDummy::class, TutorialMenu::class,
-      UpgradeCard::class, UpgradePanel::class)
+      ChaserBehavior::class, ShootingBehavior::class, Enemy::class, IceSpikeEffect::class,
+      Spawner::class, EnemyBomber::class, EnemyIceMage::class, Player::class,
+      WeaponContainer::class, Coins::class, MeleeBehavior::class, Projectile::class,
+      RangeBehavior::class, Weapon::class, WeaponBehavior::class, ItemBase::class,
+      ItemPassive::class, ItemUpgrade::class, ItemWeapon::class, WeaponStats::class,
+      EnemyStats::class, PlayerStats::class, UnitStats::class, CoinsBag::class, FloatingText::class,
+      GameOverMenu::class, HealthBar::class, ItemCard::class, MainMenu::class, SelectionCard::class,
+      SelectionPanel::class, ShopCard::class, ShopPanel::class, StatsContainer::class,
+      StoryMenu::class, TutorialDummy::class, TutorialMenu::class, UpgradeCard::class,
+      UpgradePanel::class)
 }

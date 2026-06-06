@@ -59,6 +59,16 @@ public class Player extends BaseUnit {
 	public float dashCooldown = 1.5f;
 	private boolean isDashing = false;
 
+	// Biến làm chậm (Slow)
+	private double slowTimer = 0.0;
+	private float currentSpeedMulti = 1.0f;
+
+	@RegisterFunction
+	public void applySlow(float duration, float multiplier) {
+		slowTimer = duration;
+		currentSpeedMulti = multiplier;
+	}
+
 	@RegisterFunction
 	@Override
 	public void _ready() {
@@ -98,7 +108,16 @@ public class Player extends BaseUnit {
 		}
 
 		float defaultSpeed = (stats != null) ? stats.speed : 300.0f;
-		Vector2 currentVelocity = moveDirection.times(defaultSpeed);
+		
+		// Xử lý làm chậm
+		if (slowTimer > 0.0) {
+			slowTimer -= delta;
+			if (slowTimer <= 0.0) {
+				currentSpeedMulti = 1.0f; // Hết thời gian làm chậm, về lại bình thường
+			}
+		}
+
+		Vector2 currentVelocity = moveDirection.times(defaultSpeed * currentSpeedMulti);
 
 		// Nếu đang Dash, nhân tốc độ lên
 		if (isDashing) {

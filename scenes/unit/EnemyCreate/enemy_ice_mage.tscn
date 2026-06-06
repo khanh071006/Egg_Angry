@@ -1,0 +1,49 @@
+[gd_scene load_steps=3 format=3 uid="uid://32ut2zb0xlrkb"]
+
+[ext_resource type="PackedScene" uid="uid://bw6b5kktpiof3" path="res://scenes/unit/enemy_chaser_slow.tscn" id="1_unit"]
+[ext_resource type="Script" path="res://gdj/game/entity/enemies/types/EnemyIceMage.gdj" id="2_script"]
+[ext_resource type="Resource" path="res://resources/units/enemies/stats_enemy_ice_mage.tres" id="3_stats"]
+[ext_resource type="Texture2D" uid="uid://8a14hstyeuuoa" path="res://assets/Enemy_Generate/EnemyIceMage/move/1.png" id="mv_1"]
+[ext_resource type="Texture2D" uid="uid://w8bfqsfeaiwkd" path="res://assets/Enemy_Generate/EnemyIceMage/move/2.png" id="mv_2"]
+[ext_resource type="Texture2D" uid="uid://1oyi1ozfdg9ra" path="res://assets/Enemy_Generate/EnemyIceMage/move/3.png" id="mv_3"]
+[ext_resource type="Texture2D" uid="uid://26kt0kqwnqug7" path="res://assets/Enemy_Generate/EnemyIceMage/move/4.png" id="mv_4"]
+[ext_resource type="Texture2D" uid="uid://jpeypbvlnwiq4" path="res://assets/Enemy_Generate/EnemyIceMage/move/5.png" id="mv_5"]
+[ext_resource type="Texture2D" uid="uid://v2tx6ftj8iufr" path="res://assets/Enemy_Generate/EnemyIceMage/move/6.png" id="mv_6"]
+[ext_resource type="Texture2D" uid="uid://xjvbioodbkv42" path="res://assets/Enemy_Generate/EnemyIceMage/move/7.png" id="mv_7"]
+[ext_resource type="Texture2D" uid="uid://ayxguj8v33fy2" path="res://assets/Enemy_Generate/EnemyIceMage/move/8.png" id="mv_8"]
+[ext_resource type="Texture2D" uid="uid://y6xobyga6yrqo" path="res://assets/Enemy_Generate/EnemyIceMage/attack/1.png" id="atk_1"]
+[ext_resource type="Texture2D" uid="uid://3kwof6g4cpb0a" path="res://assets/Enemy_Generate/EnemyIceMage/attack/2.png" id="atk_2"]
+[ext_resource type="Texture2D" uid="uid://ez8bzumo8ljqq" path="res://assets/Enemy_Generate/EnemyIceMage/attack/3.png" id="atk_3"]
+[ext_resource type="Texture2D" uid="uid://8wq3ke7dgi9ar" path="res://assets/Enemy_Generate/EnemyIceMage/attack/4.png" id="atk_4"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ice"]
+animations = [{
+"frames": [{"duration": 1.0, "texture": ExtResource("atk_1")}, {"duration": 1.0, "texture": ExtResource("atk_2")}, {"duration": 1.0, "texture": ExtResource("atk_3")}, {"duration": 1.0, "texture": ExtResource("atk_4")}],
+"loop": false,
+"name": &"attack",
+"speed": 8.0
+}, {
+"frames": [{"duration": 1.0, "texture": ExtResource("mv_1")}, {"duration": 1.0, "texture": ExtResource("mv_2")}, {"duration": 1.0, "texture": ExtResource("mv_3")}, {"duration": 1.0, "texture": ExtResource("mv_4")}, {"duration": 1.0, "texture": ExtResource("mv_5")}, {"duration": 1.0, "texture": ExtResource("mv_6")}, {"duration": 1.0, "texture": ExtResource("mv_7")}, {"duration": 1.0, "texture": ExtResource("mv_8")}],
+"loop": true,
+"name": &"move",
+"speed": 8.0
+}]
+
+[node name="EnemyIceMage" instance=ExtResource("1_unit")]
+script = ExtResource("2_script")
+stats = ExtResource("3_stats")
+
+[node name="IceMageAnimation" type="AnimatedSprite2D" parent="Visuals" index="2"]
+unique_name_in_owner = true
+position = Vector2(0, -60)
+scale = Vector2(0.25, 0.25)
+flip_h = true
+sprite_frames = SubResource("SpriteFrames_ice")
+animation = &"move"
+autoplay = "move"
+
+[node name="Sprite" parent="Visuals" index="0"]
+visible = false
+
+[node name="HurtboxComponent" parent="." index="6"]
+health = 25.0

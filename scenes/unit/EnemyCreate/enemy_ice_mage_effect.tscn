@@ -1,0 +1,51 @@
+[gd_scene load_steps=3 format=3 uid="uid://nebbds6026smg"]
+
+[ext_resource type="Script" path="res://gdj/game/components/HitBoxComponent.gdj" id="hitbox_script"]
+[ext_resource type="Script" path="res://gdj/game/entity/enemies/IceSpikeEffect.gdj" id="ice_spike_script"]
+
+[ext_resource type="Texture2D" uid="uid://da0gwhhkouhgt" path="res://assets/Enemy_Generate/EnemyIceMage/effect/1.png" id="ef_1"]
+[ext_resource type="Texture2D" uid="uid://f5xw2mmk9ez6h" path="res://assets/Enemy_Generate/EnemyIceMage/effect/2.png" id="ef_2"]
+[ext_resource type="Texture2D" uid="uid://2bo2g3ea5yf8r" path="res://assets/Enemy_Generate/EnemyIceMage/effect/3.png" id="ef_3"]
+[ext_resource type="Texture2D" uid="uid://byoe0lsbjc449" path="res://assets/Enemy_Generate/EnemyIceMage/effect/4.png" id="ef_4"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ef"]
+animations = [{
+"frames": [{"duration": 1.0, "texture": ExtResource("ef_1")}, {"duration": 1.0, "texture": ExtResource("ef_2")}, {"duration": 1.0, "texture": ExtResource("ef_3")}, {"duration": 1.0, "texture": ExtResource("ef_4")}],
+"loop": false,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hit"]
+radius = 40.0
+
+[node name="EnemyIceMageEffect" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 10
+position = Vector2(0, -20)
+scale = Vector2(0.1, 0.1)
+sprite_frames = SubResource("SpriteFrames_ef")
+autoplay = "default"
+
+[node name="HitboxComponent" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 8
+script = ExtResource("hitbox_script")
+damage = 25.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
+position = Vector2(0, -10)
+shape = SubResource("CircleShape2D_hit")
+
+[node name="AutoCleanupTimer" type="Timer" parent="."]
+wait_time = 0.8
+one_shot = true
+autostart = true
+
+[node name="IceSpikeEffect" type="Node" parent="."]
+script = ExtResource("ice_spike_script")
+
+[connection signal="timeout" from="AutoCleanupTimer" to="." method="queue_free"]
+[connection signal="area_entered" from="HitboxComponent" to="HitboxComponent" method="_on_area_entered"]
+[connection signal="area_entered" from="HitboxComponent" to="IceSpikeEffect" method="onAreaEntered"]
