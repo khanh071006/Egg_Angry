@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://cjecllwrga6ph" path="res://gdj/game/resources/waves/WaveData.gdj" id="1_script"]
 [ext_resource type="Script" uid="uid://bf8v16a6b8yrh" path="res://gdj/game/resources/waves/WaveUnitData.gdj" id="2_script"]
-[ext_resource type="PackedScene" uid="uid://necfel4mlt5p" path="res://scenes/unit/enemy_chaser.tscn" id="3_scene_chaser"]
-[ext_resource type="Resource" uid="uid://rlcn4ik6vjrh" path="res://resources/units/enemies/stats_enemy_chaser.tres" id="3_stats_chaser"]
+[ext_resource type="PackedScene" uid="uid://bc123def4567" path="res://scenes/unit/EnemyCreate/enemy_bomber.tscn" id="3_scene_chaser"]
+[ext_resource type="Resource" uid="uid://cd8alwy8owka0" path="res://resources/units/enemies/stats_enemy_bomber.tres" id="3_stats_chaser"]
 
 [sub_resource type="Resource" id="Resource_unit_1"]
 script = ExtResource("2_script")
@@ -15,4 +15,5 @@ metadata/_custom_type_script = "uid://bf8v16a6b8yrh"
 [resource]
 script = ExtResource("1_script")
 to = 3
+fixed_spawn_time = 2.0
 units = Array[ExtResource("2_script")]([SubResource("Resource_unit_1")])
