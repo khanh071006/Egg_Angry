@@ -6,7 +6,7 @@ fqName = game.ui.SelectionCard
 relativeSourcePath = src/main/java/game/ui/SelectionCard.java
 baseType = Button
 supertypes = [
-    godot.api.Button,
+	godot.api.Button,
 	godot.api.BaseButton,
 	godot.api.Control,
 	godot.api.CanvasItem,
@@ -18,12 +18,12 @@ supertypes = [
 	kotlin.Any
 ]
 signals = [
-    on_card_selected
+	on_card_selected
 ]
 properties = [
-    
+	
 ]
 functions = [
-    _on_pressed,
+	_on_pressed,
 	set_icon_texture
 ]

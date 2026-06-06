@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://fkulh8ufnef"]
+[gd_scene load_steps=19 format=3 uid="uid://fkulh8ufnef"]
 
 [ext_resource type="PackedScene" uid="uid://bw6b5kktpiof3" path="res://scenes/unit/enemy_chaser_slow.tscn" id="1_ydex1"]
 [ext_resource type="Texture2D" uid="uid://bsigbm0aatro6" path="res://assets/Enemy_Generate/Enemy_7/Enemy_7/1.png" id="2_k7kls"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://b7lvibsgqrhv" path="res://assets/Enemy_Generate/Enemy_7/Enemy_7/dc5.png" id="14_krbr2"]
 [ext_resource type="Texture2D" uid="uid://cigs7ng0jcyg1" path="res://assets/Enemy_Generate/Enemy_7/Enemy_7/dc6.png" id="15_vflrh"]
 [ext_resource type="Texture2D" uid="uid://doi5xl6oorxwi" path="res://assets/Enemy_Generate/Enemy_7/Enemy_7/dc7.png" id="16_i8hl5"]
+[ext_resource type="Script" uid="uid://df43ot1a0xj3j" path="res://gdj/game/entity/enemies/EnemyGoblin.gdj" id="100_script"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_2r40n"]
 animations = [{
@@ -81,11 +82,31 @@ animations = [{
 }]
 
 [node name="EnemyGoblin" instance=ExtResource("1_ydex1")]
+script = ExtResource("100_script")
 
-[node name="GoblinAnimation" type="AnimatedSprite2D" parent="." index="10"]
-position = Vector2(0, -50)
-scale = Vector2(0.6, 0.6)
+[node name="Visuals" parent="." index="0"]
+scale = Vector2(0.5, 0.5)
+
+[node name="Sprite" parent="Visuals" index="1"]
+visible = false
+
+[node name="GoblinAnimation" type="AnimatedSprite2D" parent="Visuals" index="2"]
+position = Vector2(0, -100)
+scale = Vector2(0.25, 0.25)
 sprite_frames = SubResource("SpriteFrames_2r40n")
-animation = &"effect"
-frame = 2
+animation = &"move"
 frame_progress = 0.9491298
+flip_h = true
+
+[node name="CollisionShape2D" parent="VisionArea" index="0"]
+position = Vector2(-3.3333333, -43.33333)
+
+[node name="CollisionShape2D" parent="HurtboxComponent" index="0"]
+position = Vector2(-1.6666666, -44.999996)
+
+[node name="CollisionShape2D" parent="HitboxComponent" index="0"]
+position = Vector2(-4.9999995, -43.33333)
+
+[node name="HealthBar" parent="." index="7"]
+offset_top = -154.99998
+offset_bottom = -134.99998
