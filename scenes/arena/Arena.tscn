@@ -80,6 +80,7 @@ text = "Wave 1"
 label_settings = SubResource("LabelSettings_g06lh")
 
 [node name="UpgradePanel" parent="GameUI" instance=ExtResource("10_g06lh")]
+visible = false
 
 [node name="ShopPanel" parent="GameUI" instance=ExtResource("11_2ri42")]
 

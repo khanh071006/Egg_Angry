@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://fk6w23e0taua"]
+[gd_scene load_steps=54 format=3 uid="uid://fk6w23e0taua"]
 
 [ext_resource type="PackedScene" uid="uid://b7fwix0hr7c41" path="res://scenes/ui/stats_container/stats_container.tscn" id="1_6gbsu"]
 [ext_resource type="PackedScene" uid="uid://dbailjkaj25em" path="res://scenes/ui/upgrade_card/upgrade_card.tscn" id="1_52meh"]
@@ -50,9 +50,10 @@
 [ext_resource type="Resource" uid="uid://dxpkkx5b2ggwr" path="res://resources/items/upgrades/data/speed/upgrade_speed_12.tres" id="47_v7mxw"]
 [ext_resource type="Resource" uid="uid://cn1li14kfnd28" path="res://resources/items/upgrades/data/speed/upgrade_speed_15.tres" id="48_eyac8"]
 [ext_resource type="Resource" uid="uid://dp7u6ql1xljep" path="res://resources/items/upgrades/data/speed/upgrade_speed_20.tres" id="49_4hygx"]
+[ext_resource type="Texture2D" uid="uid://dw6s4t044y4vt" path="res://scenes/arena/wave_completed/wave_bgr.png" id="50_l4p84"]
+[ext_resource type="Texture2D" uid="uid://b53bo6w38fc04" path="res://scenes/arena/wave_completed/text.png" id="52_625vb"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_l8hix"]
-font_size = 120
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l4p84"]
 
 [node name="UpgradePanel" type="Panel"]
 anchors_preset = 15
@@ -64,7 +65,17 @@ script = ExtResource("1_aghkh")
 upgrade_card_scene = ExtResource("1_52meh")
 upgrade_list = Array[ExtResource("3_evmld")]([ExtResource("4_oekas"), ExtResource("5_k56t5"), ExtResource("6_l4p84"), ExtResource("7_625vb"), ExtResource("8_rm2kw"), ExtResource("9_kbsgn"), ExtResource("10_a1b4m"), ExtResource("11_5ewdg"), ExtResource("12_u36xe"), ExtResource("13_8rmpg"), ExtResource("14_vmsa8"), ExtResource("15_bppm0"), ExtResource("16_lo8g7"), ExtResource("17_mpu6n"), ExtResource("18_0na6y"), ExtResource("19_nipon"), ExtResource("20_5j17u"), ExtResource("21_0vvts"), ExtResource("22_bir3b"), ExtResource("23_3eupe"), ExtResource("24_5000v"), ExtResource("25_u74v4"), ExtResource("26_p6etl"), ExtResource("27_1tim8"), ExtResource("28_eakci"), ExtResource("29_l6ohj"), ExtResource("30_agreq"), ExtResource("31_7uwbt"), ExtResource("32_e51u4"), ExtResource("33_g7n0k"), ExtResource("34_if5nx"), ExtResource("35_27sma"), ExtResource("36_5x8vq"), ExtResource("37_0mn6i"), ExtResource("38_ibvf6"), ExtResource("39_lfla0"), ExtResource("40_x24kl"), ExtResource("41_qsvnt"), ExtResource("42_2maa3"), ExtResource("43_u7vwi"), ExtResource("44_4dvkj"), ExtResource("45_twlxy"), ExtResource("46_1121e"), ExtResource("47_v7mxw"), ExtResource("48_eyac8"), ExtResource("49_4hygx")])
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("50_l4p84")
+expand_mode = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="TextureRect"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -72,39 +83,63 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="TextureRect/MarginContainer"]
 layout_mode = 2
 theme_override_constants/separation = 32
 alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="TextureRect/MarginContainer"]
 layout_mode = 2
 theme_override_constants/separation = 24
 alignment = 1
 
-[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-text = "wave completed"
-label_settings = SubResource("LabelSettings_l8hix")
-horizontal_alignment = 1
+[node name="StatsContainer" parent="." instance=ExtResource("1_6gbsu")]
+layout_mode = 0
+offset_left = 532.0
+offset_top = 799.0
+offset_right = 1376.0
+offset_bottom = 1352.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxTexture_l4p84")
 
-[node name="ItemsContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -642.0
+offset_top = -110.0
+offset_right = 642.0
+offset_bottom = 110.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ItemsContainer" type="HBoxContainer" parent="CenterContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_constants/separation = 24
+theme_override_constants/separation = 28
+alignment = 1
 
-[node name="UpgradeCard" parent="MarginContainer/HBoxContainer/VBoxContainer/ItemsContainer" instance=ExtResource("1_52meh")]
+[node name="UpgradeCard" parent="CenterContainer/ItemsContainer" instance=ExtResource("1_52meh")]
 layout_mode = 2
 
-[node name="UpgradeCard2" parent="MarginContainer/HBoxContainer/VBoxContainer/ItemsContainer" instance=ExtResource("1_52meh")]
+[node name="UpgradeCard2" parent="CenterContainer/ItemsContainer" instance=ExtResource("1_52meh")]
 layout_mode = 2
 
-[node name="UpgradeCard3" parent="MarginContainer/HBoxContainer/VBoxContainer/ItemsContainer" instance=ExtResource("1_52meh")]
+[node name="UpgradeCard3" parent="CenterContainer/ItemsContainer" instance=ExtResource("1_52meh")]
 layout_mode = 2
 
-[node name="UpgradeCard4" parent="MarginContainer/HBoxContainer/VBoxContainer/ItemsContainer" instance=ExtResource("1_52meh")]
+[node name="UpgradeCard4" parent="CenterContainer/ItemsContainer" instance=ExtResource("1_52meh")]
 layout_mode = 2
 
-[node name="StatsContainer" parent="MarginContainer/HBoxContainer" instance=ExtResource("1_6gbsu")]
-layout_mode = 2
-size_flags_vertical = 4
+[node name="TextureRect2" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 354.0
+offset_top = 93.0
+offset_right = 1572.3596
+offset_bottom = 462.0
+texture = ExtResource("52_625vb")
+expand_mode = 1

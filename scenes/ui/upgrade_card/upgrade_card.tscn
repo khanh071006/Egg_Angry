@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://dbailjkaj25em"]
+[gd_scene load_steps=9 format=3 uid="uid://dbailjkaj25em"]
 
 [ext_resource type="StyleBox" uid="uid://wmyqnve45qmn" path="res://styles/common_style.tres" id="1_p145h"]
 [ext_resource type="Script" uid="uid://b05od7i2vh0te" path="res://gdj/game/ui/UpgradeCard.gdj" id="2_kjnsj"]
 [ext_resource type="Texture2D" uid="uid://dn68qq5evmvwa" path="res://gdj/game/Game+Assets/assets/sprites/Upgrades/12.png" id="2_v41mk"]
 [ext_resource type="PackedScene" uid="uid://bgrva6i5a6w5t" path="res://scenes/ui/custom_button/custom_button.tscn" id="3_kjnsj"]
 [ext_resource type="Script" uid="uid://b8ofl8x8e0fi6" path="res://gdj/game/resources/items/upgrades/ItemUpgrade.gdj" id="3_oy0iu"]
+[ext_resource type="Texture2D" uid="uid://mcokucgub4yr" path="res://scenes/arena/wave_completed/item_box.png" id="4_oy0iu"]
 
 [sub_resource type="Resource" id="Resource_w4p5w"]
 script = ExtResource("3_oy0iu")
@@ -14,12 +15,22 @@ metadata/_custom_type_script = "uid://b8ofl8x8e0fi6"
 font_size = 28
 
 [node name="UpgradeCard" type="Panel"]
-custom_minimum_size = Vector2(300, 220)
-offset_right = 40.0
-offset_bottom = 40.0
+custom_minimum_size = Vector2(300, 380)
+offset_right = 300.0
+offset_bottom = 386.0
 theme_override_styles/panel = ExtResource("1_p145h")
 script = ExtResource("2_kjnsj")
 item_data = SubResource("Resource_w4p5w")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_oy0iu")
+expand_mode = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -40,8 +51,10 @@ layout_mode = 2
 unique_name_in_owner = true
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 35.0
+offset_top = 15.0
+offset_right = 254.35486
+offset_bottom = 215.0
 texture = ExtResource("2_v41mk")
 expand_mode = 1
 stretch_mode = 5
@@ -49,10 +62,11 @@ stretch_mode = 5
 [node name="Name" type="Label" parent="MarginContainer/Control"]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 100.0
-offset_top = 10.0
-offset_right = 289.0
-offset_bottom = 48.666668
+offset_left = 45.0
+offset_top = 226.0
+offset_right = 234.0
+offset_bottom = 264.6667
+theme_override_font_sizes/font_size = 38
 text = "damage"
 label_settings = SubResource("LabelSettings_oy0iu")
 vertical_alignment = 1
@@ -61,10 +75,11 @@ vertical_alignment = 1
 unique_name_in_owner = true
 modulate = Color(0.827451, 0.9098039, 0.17254902, 1)
 layout_mode = 0
-offset_left = 100.0
-offset_top = 54.0
-offset_right = 289.0
-offset_bottom = 92.66667
+offset_left = 189.0
+offset_top = 226.0
+offset_right = 378.0
+offset_bottom = 264.6667
+theme_override_font_sizes/font_size = 38
 text = "+ 1"
 label_settings = SubResource("LabelSettings_oy0iu")
 vertical_alignment = 1
@@ -72,9 +87,15 @@ vertical_alignment = 1
 [node name="CustomButton" parent="MarginContainer/Control" instance=ExtResource("3_kjnsj")]
 custom_minimum_size = Vector2(260, 0)
 layout_mode = 1
-offset_left = -130.0
-offset_top = -58.0
-offset_right = 130.0
+anchors_preset = -1
+anchor_left = 0.49600002
+anchor_top = 0.697
+anchor_right = 0.49600002
+anchor_bottom = 0.697
+offset_left = -129.86401
+offset_top = 19.550995
+offset_right = 130.13599
+offset_bottom = 77.550995
 button_mask = 5
 
 [connection signal="pressed" from="MarginContainer/Control/CustomButton" to="." method="_on_custom_button_pressed"]

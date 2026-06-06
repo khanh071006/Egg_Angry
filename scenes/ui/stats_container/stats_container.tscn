@@ -1,16 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://b7fwix0hr7c41"]
+[gd_scene load_steps=4 format=3 uid="uid://b7fwix0hr7c41"]
 
 [ext_resource type="Script" uid="uid://2xlscrk7to27" path="res://gdj/game/ui/StatsContainer.gdj" id="1_agl2i"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fi8dy"]
-bg_color = Color(0.09803922, 0.09803922, 0.09803922, 1)
-corner_radius_top_left = 16
-corner_radius_top_right = 16
-corner_radius_bottom_right = 16
-corner_radius_bottom_left = 16
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_agl2i"]
-bg_color = Color(0.039215688, 0.7137255, 0.8784314, 0.3137255)
+bg_color = Color(0.64, 0.05759998, 0.06730652, 1)
 corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
@@ -21,9 +14,8 @@ font_size = 24
 
 [node name="StatsContainer" type="Panel"]
 custom_minimum_size = Vector2(480, 550)
-offset_right = 40.0
-offset_bottom = 40.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_fi8dy")
+offset_right = 951.0
+offset_bottom = 550.0
 script = ExtResource("1_agl2i")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
@@ -31,6 +23,8 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = -475.0
+offset_bottom = -302.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 16
@@ -186,12 +180,31 @@ text = "10"
 label_settings = SubResource("LabelSettings_q67w4")
 horizontal_alignment = 2
 
-[node name="StatsLuck" type="Panel" parent="MarginContainer/VBoxContainer"]
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 474.0
+offset_right = -1.0
+offset_bottom = -302.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="StatsLuck" type="Panel" parent="MarginContainer2/VBoxContainer"]
 custom_minimum_size = Vector2(0, 45)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_agl2i")
 
-[node name="Title" type="Label" parent="MarginContainer/VBoxContainer/StatsLuck"]
+[node name="Title" type="Label" parent="MarginContainer2/VBoxContainer/StatsLuck"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -204,8 +217,7 @@ grow_vertical = 2
 text = "luck:"
 label_settings = SubResource("LabelSettings_q67w4")
 
-[node name="LuckLabel" type="Label" parent="MarginContainer/VBoxContainer/StatsLuck"]
-unique_name_in_owner = true
+[node name="LuckLabel" type="Label" parent="MarginContainer2/VBoxContainer/StatsLuck"]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -222,12 +234,12 @@ text = "10"
 label_settings = SubResource("LabelSettings_q67w4")
 horizontal_alignment = 2
 
-[node name="StatsSpeed" type="Panel" parent="MarginContainer/VBoxContainer"]
+[node name="StatsSpeed" type="Panel" parent="MarginContainer2/VBoxContainer"]
 custom_minimum_size = Vector2(0, 45)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_agl2i")
 
-[node name="Title" type="Label" parent="MarginContainer/VBoxContainer/StatsSpeed"]
+[node name="Title" type="Label" parent="MarginContainer2/VBoxContainer/StatsSpeed"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -240,8 +252,7 @@ grow_vertical = 2
 text = "speed:"
 label_settings = SubResource("LabelSettings_q67w4")
 
-[node name="SpeedLabel" type="Label" parent="MarginContainer/VBoxContainer/StatsSpeed"]
-unique_name_in_owner = true
+[node name="SpeedLabel" type="Label" parent="MarginContainer2/VBoxContainer/StatsSpeed"]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -258,12 +269,12 @@ text = "10"
 label_settings = SubResource("LabelSettings_q67w4")
 horizontal_alignment = 2
 
-[node name="StatsBlock" type="Panel" parent="MarginContainer/VBoxContainer"]
+[node name="StatsBlock" type="Panel" parent="MarginContainer2/VBoxContainer"]
 custom_minimum_size = Vector2(0, 45)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_agl2i")
 
-[node name="Title" type="Label" parent="MarginContainer/VBoxContainer/StatsBlock"]
+[node name="Title" type="Label" parent="MarginContainer2/VBoxContainer/StatsBlock"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -276,8 +287,7 @@ grow_vertical = 2
 text = "% block chance:"
 label_settings = SubResource("LabelSettings_q67w4")
 
-[node name="BlockLabel" type="Label" parent="MarginContainer/VBoxContainer/StatsBlock"]
-unique_name_in_owner = true
+[node name="BlockLabel" type="Label" parent="MarginContainer2/VBoxContainer/StatsBlock"]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -294,12 +304,12 @@ text = "10"
 label_settings = SubResource("LabelSettings_q67w4")
 horizontal_alignment = 2
 
-[node name="StatsHarvesting" type="Panel" parent="MarginContainer/VBoxContainer"]
+[node name="StatsHarvesting" type="Panel" parent="MarginContainer2/VBoxContainer"]
 custom_minimum_size = Vector2(0, 45)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_agl2i")
 
-[node name="Title" type="Label" parent="MarginContainer/VBoxContainer/StatsHarvesting"]
+[node name="Title" type="Label" parent="MarginContainer2/VBoxContainer/StatsHarvesting"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -312,8 +322,7 @@ grow_vertical = 2
 text = "harvesting:"
 label_settings = SubResource("LabelSettings_q67w4")
 
-[node name="HarvestingLabel" type="Label" parent="MarginContainer/VBoxContainer/StatsHarvesting"]
-unique_name_in_owner = true
+[node name="HarvestingLabel" type="Label" parent="MarginContainer2/VBoxContainer/StatsHarvesting"]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
