@@ -1,0 +1,156 @@
+[gd_scene load_steps=8 format=3 uid="uid://wia2peanp6el"]
+
+[ext_resource type="Script" uid="uid://dijdbjp6imiux" path="res://gdj/game/ui/GameOverMenu.gdj" id="1_script"]
+[ext_resource type="FontFile" uid="uid://kfh6ooeul77g" path="res://gdj/game/Game+Assets/assets/font/Bake Soda.otf" id="2_font"]
+[ext_resource type="Texture2D" uid="uid://cqpdss7x468xn" path="res://scenes/ui/game_over.png" id="3_go_img"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_normal"]
+content_margin_left = 35.0
+content_margin_top = 8.0
+content_margin_right = 35.0
+content_margin_bottom = 8.0
+bg_color = Color(0.25, 0.05, 0.05, 0.9)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.5, 0.15, 0.15, 0.9)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_color = Color(0, 0, 0, 0.5)
+shadow_size = 8
+shadow_offset = Vector2(0, 5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_pressed"]
+content_margin_left = 35.0
+content_margin_top = 8.0
+content_margin_right = 35.0
+content_margin_bottom = 8.0
+bg_color = Color(0.12, 0.02, 0.02, 0.95)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.3, 0.05, 0.05, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_color = Color(0, 0, 0, 0.4)
+shadow_size = 3
+shadow_offset = Vector2(0, 3)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_hover"]
+content_margin_left = 35.0
+content_margin_top = 8.0
+content_margin_right = 35.0
+content_margin_bottom = 8.0
+bg_color = Color(0.45, 0.1, 0.1, 0.95)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.9, 0.3, 0.2, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_color = Color(0.45, 0.1, 0.1, 0.4)
+shadow_size = 15
+shadow_offset = Vector2(0, 8)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_focus"]
+content_margin_left = 35.0
+content_margin_top = 8.0
+content_margin_right = 35.0
+content_margin_bottom = 8.0
+bg_color = Color(0.25, 0.05, 0.05, 0.9)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.9, 0.3, 0.2, 0.8)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_color = Color(0.45, 0.1, 0.1, 0.2)
+shadow_size = 10
+shadow_offset = Vector2(0, 5)
+
+[node name="GameOverScene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_script")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_go_img")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -60.0
+offset_right = 150.0
+offset_bottom = 75.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 15
+alignment = 1
+
+[node name="RetryButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.95, 0.9, 0.8, 1)
+theme_override_colors/font_pressed_color = Color(0.8, 0.7, 0.5, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 0.95, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn_normal")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_btn_pressed")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+theme_override_styles/focus = SubResource("StyleBoxFlat_btn_focus")
+text = "RETRY"
+
+[node name="QuitButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.95, 0.9, 0.8, 1)
+theme_override_colors/font_pressed_color = Color(0.8, 0.7, 0.5, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 0.95, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn_normal")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_btn_pressed")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+theme_override_styles/focus = SubResource("StyleBoxFlat_btn_focus")
+text = "QUIT"
+
+[connection signal="mouse_entered" from="VBoxContainer/RetryButton" to="." method="_on_retry_mouse_entered"]
+[connection signal="mouse_exited" from="VBoxContainer/RetryButton" to="." method="_on_retry_mouse_exited"]
+[connection signal="pressed" from="VBoxContainer/RetryButton" to="." method="_on_retry_pressed"]
+[connection signal="mouse_entered" from="VBoxContainer/QuitButton" to="." method="_on_quit_mouse_entered"]
+[connection signal="mouse_exited" from="VBoxContainer/QuitButton" to="." method="_on_quit_mouse_exited"]
+[connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_pressed"]

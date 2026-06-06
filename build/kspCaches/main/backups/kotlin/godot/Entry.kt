@@ -33,13 +33,18 @@ import game.resources.waves.WaveData
 import game.resources.waves.WaveUnitData
 import game.ui.CoinsBag
 import game.ui.FloatingText
+import game.ui.GameOverMenu
 import game.ui.HealthBar
 import game.ui.ItemCard
+import game.ui.MainMenu
 import game.ui.SelectionCard
 import game.ui.SelectionPanel
 import game.ui.ShopCard
 import game.ui.ShopPanel
 import game.ui.StatsContainer
+import game.ui.StoryMenu
+import game.ui.TutorialDummy
+import game.ui.TutorialMenu
 import game.ui.UpgradeCard
 import game.ui.UpgradePanel
 import godot.entry.ArenaRegistrar
@@ -51,6 +56,7 @@ import godot.entry.CoinsRegistrar
 import godot.entry.EnemyRegistrar
 import godot.entry.EnemyStatsRegistrar
 import godot.entry.FloatingTextRegistrar
+import godot.entry.GameOverMenuRegistrar
 import godot.entry.GlobalRegistrar
 import godot.entry.HealthBarRegistrar
 import godot.entry.HealthComponentRegistrar
@@ -61,6 +67,7 @@ import godot.entry.ItemCardRegistrar
 import godot.entry.ItemPassiveRegistrar
 import godot.entry.ItemUpgradeRegistrar
 import godot.entry.ItemWeaponRegistrar
+import godot.entry.MainMenuRegistrar
 import godot.entry.MeleeBehaviorRegistrar
 import godot.entry.PlayerRegistrar
 import godot.entry.PlayerStatsRegistrar
@@ -73,7 +80,10 @@ import godot.entry.ShopCardRegistrar
 import godot.entry.ShopPanelRegistrar
 import godot.entry.SpawnerRegistrar
 import godot.entry.StatsContainerRegistrar
+import godot.entry.StoryMenuRegistrar
 import godot.entry.TrailRegistrar
+import godot.entry.TutorialDummyRegistrar
+import godot.entry.TutorialMenuRegistrar
 import godot.entry.UnitStatsRegistrar
 import godot.entry.UpgradeCardRegistrar
 import godot.entry.UpgradePanelRegistrar
@@ -96,7 +106,7 @@ import kotlin.collections.listOf
 import kotlin.reflect.KClass
 
 public class Entry : Entry() {
-  public override val classRegistrarCount: Int = 41
+  public override val classRegistrarCount: Int = 46
 
   public override val projectName: String = "project-3"
 
@@ -133,13 +143,18 @@ public class Entry : Entry() {
     UnitStatsRegistrar().register(registry)
     CoinsBagRegistrar().register(registry)
     FloatingTextRegistrar().register(registry)
+    GameOverMenuRegistrar().register(registry)
     HealthBarRegistrar().register(registry)
     ItemCardRegistrar().register(registry)
+    MainMenuRegistrar().register(registry)
     SelectionCardRegistrar().register(registry)
     SelectionPanelRegistrar().register(registry)
     ShopCardRegistrar().register(registry)
     ShopPanelRegistrar().register(registry)
     StatsContainerRegistrar().register(registry)
+    StoryMenuRegistrar().register(registry)
+    TutorialDummyRegistrar().register(registry)
+    TutorialMenuRegistrar().register(registry)
     UpgradeCardRegistrar().register(registry)
     UpgradePanelRegistrar().register(registry)
   }
@@ -158,7 +173,8 @@ public class Entry : Entry() {
       RangeBehavior::class, Weapon::class, WeaponBehavior::class, ItemBase::class,
       ItemPassive::class, ItemUpgrade::class, ItemWeapon::class, WeaponStats::class,
       EnemyStats::class, PlayerStats::class, UnitStats::class, CoinsBag::class, FloatingText::class,
-      HealthBar::class, ItemCard::class, SelectionCard::class, SelectionPanel::class,
-      ShopCard::class, ShopPanel::class, StatsContainer::class, UpgradeCard::class,
+      GameOverMenu::class, HealthBar::class, ItemCard::class, MainMenu::class, SelectionCard::class,
+      SelectionPanel::class, ShopCard::class, ShopPanel::class, StatsContainer::class,
+      StoryMenu::class, TutorialDummy::class, TutorialMenu::class, UpgradeCard::class,
       UpgradePanel::class)
 }

@@ -185,6 +185,26 @@ public class Player extends BaseUnit {
 		}
 	}
 
+	@RegisterFunction
+	public void stopMovement() {
+		if (animPlayer != null) {
+			animPlayer.play("die", -1.0, 1.0f, false);
+		}
+		
+		if (currentWeapons != null) {
+			for (godot.api.Node weaponNode : currentWeapons) {
+				if (weaponNode instanceof godot.api.CanvasItem) {
+					((godot.api.CanvasItem) weaponNode).setVisible(false);
+				}
+			}
+		}
+		
+		godot.api.Node healthBar = getNodeOrNull("HealthBar");
+		if (healthBar instanceof godot.api.CanvasItem) {
+			((godot.api.CanvasItem) healthBar).setVisible(false);
+		}
+	}
+
 	private void updateRotation() {
 		if (visuals != null) {
 			if (moveDirection.length() == 0.0f) return;
