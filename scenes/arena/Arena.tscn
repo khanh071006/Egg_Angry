@@ -1,0 +1,91 @@
+[gd_scene load_steps=18 format=3 uid="uid://dbc1cru0wxnsf"]
+
+[ext_resource type="Texture2D" uid="uid://cy4xfx762bxgb" path="res://gdj/game/Game+Assets/assets/sprites/BG.png" id="1_dm0lm"]
+[ext_resource type="Script" uid="uid://cbvtm502as2ux" path="res://gdj/game/arena/Arena.gdj" id="1_etbs0"]
+[ext_resource type="Texture2D" uid="uid://ov4fmsbglo55" path="res://gdj/game/Game+Assets/assets/sprites/Map.png" id="2_etbs0"]
+[ext_resource type="Script" uid="uid://dr32cptk08mq0" path="res://gdj/game/arena/CameraController.gdj" id="5_faeup"]
+[ext_resource type="Script" uid="uid://cqy82on6oilua" path="res://gdj/game/entity/enemies/Spawner.gdj" id="7_2g53k"]
+[ext_resource type="Script" uid="uid://cjecllwrga6ph" path="res://gdj/game/resources/waves/WaveData.gdj" id="8_g06lh"]
+[ext_resource type="PackedScene" uid="uid://btrhknbg3yyrh" path="res://scenes/ui/coins_bag/coins_bag.tscn" id="10_cx6kx"]
+[ext_resource type="PackedScene" uid="uid://fk6w23e0taua" path="res://scenes/ui/upgrade_panel/upgrade_panel.tscn" id="10_g06lh"]
+[ext_resource type="PackedScene" uid="uid://ctt2p32oijfgi" path="res://scenes/ui/shop_panel/shop_panel.tscn" id="11_2ri42"]
+[ext_resource type="PackedScene" uid="uid://cxab321jklmno" path="res://scenes/ui/selection_panel/selection_panel.tscn" id="17_dkyfc"]
+[ext_resource type="Resource" uid="uid://btrm1trfe4dt1" path="res://resources/waves/wave_1_to_3.tres" id="wave_1_3"]
+[ext_resource type="Resource" uid="uid://bwjep82on7ijs" path="res://resources/waves/wave_4_to_6.tres" id="wave_4_6"]
+[ext_resource type="Resource" uid="uid://cp2ar4ixqyu8g" path="res://resources/waves/wave_7_to_10.tres" id="wave_7_10"]
+[ext_resource type="Resource" uid="uid://i3us5tf2wj5m" path="res://resources/waves/wave_11_to_15.tres" id="wave_11_15"]
+[ext_resource type="Resource" uid="uid://c1toi4ngo4fac" path="res://resources/waves/wave_16_to_20.tres" id="wave_16_20"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_2g53k"]
+font_size = 64
+
+[sub_resource type="LabelSettings" id="LabelSettings_g06lh"]
+font_size = 64
+
+[node name="Arena" type="Node2D" node_paths=PackedStringArray("upgrade_panel", "shop_panel")]
+script = ExtResource("1_etbs0")
+upgrade_panel = NodePath("GameUI/UpgradePanel")
+shop_panel = NodePath("GameUI/ShopPanel")
+
+[node name="BlackBG" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("1_dm0lm")
+
+[node name="GrassBG" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("2_etbs0")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+script = ExtResource("5_faeup")
+
+[node name="Spawner" type="Node2D" parent="."]
+script = ExtResource("7_2g53k")
+waves_data = Array[ExtResource("8_g06lh")]([ExtResource("wave_1_3"), ExtResource("wave_4_6"), ExtResource("wave_7_10"), ExtResource("wave_11_15"), ExtResource("wave_16_20")])
+
+[node name="SpawnTimer" type="Timer" parent="Spawner"]
+one_shot = true
+
+[node name="WaveTimer" type="Timer" parent="Spawner"]
+one_shot = true
+
+[node name="GameUI" type="CanvasLayer" parent="."]
+
+[node name="CoinsBag" parent="GameUI" instance=ExtResource("10_cx6kx")]
+unique_name_in_owner = true
+
+[node name="WaveTimeLabel" type="Label" parent="GameUI"]
+unique_name_in_owner = true
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -34.0
+offset_top = 100.0
+offset_right = 34.0
+offset_bottom = 177.33334
+grow_horizontal = 2
+text = "10"
+label_settings = SubResource("LabelSettings_2g53k")
+
+[node name="WaveIndexLabel" type="Label" parent="GameUI"]
+unique_name_in_owner = true
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -110.0
+offset_top = 20.0
+offset_right = 110.0
+offset_bottom = 97.333336
+grow_horizontal = 2
+text = "Wave 1"
+label_settings = SubResource("LabelSettings_g06lh")
+
+[node name="UpgradePanel" parent="GameUI" instance=ExtResource("10_g06lh")]
+
+[node name="ShopPanel" parent="GameUI" instance=ExtResource("11_2ri42")]
+
+[node name="SelectionPanel" parent="GameUI" instance=ExtResource("17_dkyfc")]
+
+[connection signal="timeout" from="Spawner/SpawnTimer" to="Spawner" method="_on_spawn_timer_timeout"]
+[connection signal="timeout" from="Spawner/SpawnTimer" to="Spawner" method="spawnEnemy"]
+[connection signal="timeout" from="Spawner/WaveTimer" to="Spawner" method="_on_wave_timer_timeout"]
+[connection signal="selection_completed" from="GameUI/SelectionPanel" to="." method="_on_selection_panel_selection_completed"]

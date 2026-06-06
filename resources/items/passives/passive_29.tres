@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="ItemPassive" load_steps=3 format=3]
+
+[ext_resource type="Texture2D" path="res://assets/sprites/Upgrades/29.png" id="1_icon"]
+[ext_resource type="Script" uid="uid://dei327lfm0ybu" path="res://gdj/game/resources/items/ItemPassive.gdj" id="2_script"]
+
+[resource]
+script = ExtResource("2_script")
+add_value = 12.0
+add_stat = "lifesteal"
+add_value2 = 100.0
+add_stat2 = "health"
+remove_value = 0.0
+remove_stat = ""
+remove_value2 = 0.0
+remove_stat2 = ""
+item_name = "Vampire's Lifesteal Pendant"
+item_icon = ExtResource("1_icon")
+item_tier = 3
+item_type = 2
+item_cost = 160

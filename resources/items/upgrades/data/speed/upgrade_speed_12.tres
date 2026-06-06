@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemUpgrade" load_steps=3 format=3 uid="uid://dxpkkx5b2ggwr"]
+
+[ext_resource type="Texture2D" uid="uid://dac1qxk0rktmg" path="res://gdj/game/Game+Assets/assets/sprites/Upgrades/11.png" id="1_5ldwe"]
+[ext_resource type="Script" uid="uid://b8ofl8x8e0fi6" path="res://gdj/game/resources/items/upgrades/ItemUpgrade.gdj" id="2_i6u1x"]
+
+[resource]
+script = ExtResource("2_i6u1x")
+value = 12.0
+description = "+ 12"
+stat_id = "speed"
+item_name = "Speed"
+item_icon = ExtResource("1_5ldwe")
+item_tier = 1
+metadata/_custom_type_script = "uid://b8ofl8x8e0fi6"

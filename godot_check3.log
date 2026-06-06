@@ -1,0 +1,5 @@
+Godot Engine v4.5.1.stable.jvm.0.14.3.gh.f62fdbde1 (2025-10-13 19:05:40 UTC) - https://godotengine.org
+
+Godot-JVM: You are running on desktop. VM automatically set to JVM
+WARNING: Godot-JVM: Godot-JVM: You really should embed a JRE in your project with jlink! See the documentation if you don't know how to do that
+   at: GDKotlin::load_dynamic_lib (modules\kotlin_jvm\src\gd_kotlin.cpp:41)

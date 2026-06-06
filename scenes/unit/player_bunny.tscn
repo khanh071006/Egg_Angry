@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=3 uid="uid://76oyko8w72h"]
+
+[ext_resource type="PackedScene" uid="uid://lty2nxmp27i0" path="res://scenes/unit/player_well_rounded.tscn" id="1_3f16n"]
+[ext_resource type="Texture2D" uid="uid://dmox6e28kf6ax" path="res://assets/sprites/Players/Player_4.png" id="2_ofq5v"]
+[ext_resource type="Resource" uid="uid://c37n0kek61t1c" path="res://resources/units/players/stats_player_bunny.tres" id="2_pw0mv"]
+
+[node name="PlayerBunny" instance=ExtResource("1_3f16n")]
+stats = ExtResource("2_pw0mv")
+
+[node name="Sprite" parent="Visuals" index="2"]
+texture = ExtResource("2_ofq5v")

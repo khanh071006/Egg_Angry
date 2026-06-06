@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://yqr0vt6npjjv"]
+
+[ext_resource type="PackedScene" uid="uid://dpqr3476rdomq" path="res://scenes/weapons/range/weapon_pistol.tscn" id="1_qwg7t"]
+[ext_resource type="Texture2D" uid="uid://c2y5upwgfl7p4" path="res://assets/sprites/Weapons/Range/WeaponSMG.png" id="2_hnjef"]
+
+[node name="WeaponSMG" instance=ExtResource("1_qwg7t")]
+
+[node name="Sprite2D" parent="." index="0"]
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("2_hnjef")
+
+[node name="Muzzle" parent="Sprite2D" index="0"]
+position = Vector2(120, -20)

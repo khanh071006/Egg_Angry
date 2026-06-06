@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://mv3kvbtonvfo"]
+
+[ext_resource type="PackedScene" uid="uid://d0c5ne05f8x2i" path="res://scenes/weapons/melee/weapon_punch.tscn" id="1_cbxdo"]
+[ext_resource type="Texture2D" uid="uid://cdjcyalbu80fw" path="res://assets/sprites/Weapons/Melee/Weapon_mace.png" id="2_ble37"]
+
+[node name="WeaponMace" instance=ExtResource("1_cbxdo")]
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_ble37")

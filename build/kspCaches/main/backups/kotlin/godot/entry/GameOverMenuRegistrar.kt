@@ -1,0 +1,46 @@
+// THIS FILE IS GENERATED! DO NOT EDIT IT MANUALLY!
+package godot.entry
+
+import game.ui.GameOverMenu
+import godot.`annotation`.RegisteredClassMetadata
+import godot.api.MultiplayerAPI.RPCMode.DISABLED
+import godot.api.MultiplayerPeer.TransferMode.RELIABLE
+import godot.core.KtConstructor0
+import godot.core.KtRpcConfig
+import godot.core.VariantParser.NIL
+import godot.registration.ClassRegistrar
+import godot.registration.ClassRegistry
+import godot.registration.KtFunctionArgument
+import kotlin.Unit
+import kotlin.collections.listOf
+
+@RegisteredClassMetadata(
+  "GameOverMenu",
+  "Control",
+  "game.ui.GameOverMenu",
+  "src/main/java/game/ui/GameOverMenu.java",
+  "gdj/game/ui/GameOverMenu.gdj",
+  "project-3",
+  "godot.api.Control,godot.api.CanvasItem,godot.api.Node,godot.api.Object,godot.core.KtObject,godot.common.interop.NativeWrapper,godot.common.interop.NativePointer,kotlin.Any",
+  "",
+  "",
+  "game.ui.GameOverMenu._ready,game.ui.GameOverMenu._on_retry_pressed,game.ui.GameOverMenu._on_quit_pressed,game.ui.GameOverMenu._on_retry_mouse_entered,game.ui.GameOverMenu._on_retry_mouse_exited,game.ui.GameOverMenu._on_quit_mouse_entered,game.ui.GameOverMenu._on_quit_mouse_exited",
+  true,
+)
+public open class GameOverMenuRegistrar : ClassRegistrar {
+  public override fun register(registry: ClassRegistry): Unit {
+    with(registry) {
+      registerClass<GameOverMenu>(listOf(), GameOverMenu::class, false, "Control", "GameOverMenu", "src/main/java/game/ui/GameOverMenu.java", "gdj/game/ui/GameOverMenu.gdj") {
+        constructor(KtConstructor0(::GameOverMenu))
+        notificationFunctions(listOf())
+        function(GameOverMenu::_ready, NIL, KtFunctionArgument(NIL, "kotlin.Unit"), KtRpcConfig(DISABLED.id.toInt(), false, RELIABLE.id.toInt(), 0))
+        function(GameOverMenu::_on_retry_pressed, NIL, KtFunctionArgument(NIL, "kotlin.Unit"), KtRpcConfig(DISABLED.id.toInt(), false, RELIABLE.id.toInt(), 0))
+        function(GameOverMenu::_on_quit_pressed, NIL, KtFunctionArgument(NIL, "kotlin.Unit"), KtRpcConfig(DISABLED.id.toInt(), false, RELIABLE.id.toInt(), 0))
+        function(GameOverMenu::_on_retry_mouse_entered, NIL, KtFunctionArgument(NIL, "kotlin.Unit"), KtRpcConfig(DISABLED.id.toInt(), false, RELIABLE.id.toInt(), 0))
+        function(GameOverMenu::_on_retry_mouse_exited, NIL, KtFunctionArgument(NIL, "kotlin.Unit"), KtRpcConfig(DISABLED.id.toInt(), false, RELIABLE.id.toInt(), 0))
+        function(GameOverMenu::_on_quit_mouse_entered, NIL, KtFunctionArgument(NIL, "kotlin.Unit"), KtRpcConfig(DISABLED.id.toInt(), false, RELIABLE.id.toInt(), 0))
+        function(GameOverMenu::_on_quit_mouse_exited, NIL, KtFunctionArgument(NIL, "kotlin.Unit"), KtRpcConfig(DISABLED.id.toInt(), false, RELIABLE.id.toInt(), 0))
+      }
+    }
+  }
+}

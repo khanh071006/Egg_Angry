@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://dxoxxtlbebpsm"]
+
+[ext_resource type="PackedScene" uid="uid://cvnvw3c7repi1" path="res://scenes/weapons/range/projectiles/projectile_pistol.tscn" id="1_x5j2y"]
+[ext_resource type="Texture2D" uid="uid://3c2kwaw7powj" path="res://assets/sprites/Projectiles/Projectile_3.png" id="2_f52d6"]
+
+[node name="ProjectileRevolver" instance=ExtResource("1_x5j2y")]
+
+[node name="Sprite2D" parent="." index="0"]
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("2_f52d6")
+
+[node name="HitboxComponent" parent="." index="1"]
+position = Vector2(0, 0)

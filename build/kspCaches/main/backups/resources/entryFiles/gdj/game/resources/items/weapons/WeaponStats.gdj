@@ -1,0 +1,38 @@
+// THIS FILE IS GENERATED! DO NOT EDIT OR DELETE IT. EDIT OR DELETE THE ASSOCIATED SOURCE CODE FILE INSTEAD
+// Note: You can however freely move this file inside your godot project if you want. Keep in mind however, that if you rename the originating source code file, this file will be deleted and regenerated as a new file instead of being updated! Other modifications to the source file however, will result in this file being updated.
+
+registeredName = WeaponStats
+fqName = game.resources.items.weapons.WeaponStats
+relativeSourcePath = src/main/java/game/resources/items/weapons/WeaponStats.java
+baseType = Resource
+supertypes = [
+    godot.api.Resource,
+	godot.api.RefCounted,
+	godot.api.Object,
+	godot.core.KtObject,
+	godot.common.interop.NativeWrapper,
+	godot.common.interop.NativePointer,
+	kotlin.Any
+]
+signals = [
+    
+]
+properties = [
+    damage,
+	accuracy,
+	cooldown,
+	crit_chance,
+	crit_damage,
+	max_range,
+	knockback,
+	lifesteal,
+	recoil,
+	recoil_duration,
+	attack_duration,
+	back_duration,
+	projectile_scene,
+	projectile_speed
+]
+functions = [
+    
+]
