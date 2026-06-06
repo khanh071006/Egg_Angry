@@ -1,9 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://b7fwix0hr7c41"]
+[gd_scene load_steps=5 format=3 uid="uid://b7fwix0hr7c41"]
 
 [ext_resource type="Script" uid="uid://2xlscrk7to27" path="res://gdj/game/ui/StatsContainer.gdj" id="1_agl2i"]
+[ext_resource type="Texture2D" uid="uid://ce64k5rl8xus" path="res://scenes/arena/wave_completed/stastcontainer.png" id="2_q67w4"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_agl2i"]
-bg_color = Color(0.64, 0.05759998, 0.06730652, 1)
+bg_color = Color(0.08235294, 0.08235294, 0.101960786, 1)
 corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
@@ -13,18 +14,29 @@ corner_radius_bottom_left = 8
 font_size = 24
 
 [node name="StatsContainer" type="Panel"]
-custom_minimum_size = Vector2(480, 550)
+custom_minimum_size = Vector2(950, 250)
 offset_right = 951.0
-offset_bottom = 550.0
+offset_bottom = 251.0
 script = ExtResource("1_agl2i")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_q67w4")
+expand_mode = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = 4.5
 offset_right = -475.0
-offset_bottom = -302.0
+offset_bottom = 1.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 16
@@ -186,8 +198,9 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 474.0
+offset_top = 4.5
 offset_right = -1.0
-offset_bottom = -302.0
+offset_bottom = 1.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 16
