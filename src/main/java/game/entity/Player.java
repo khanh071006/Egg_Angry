@@ -41,9 +41,9 @@ public class Player extends BaseUnit {
 	// Bể chứa các vũ khí Player đang cầm
 	private List<Node> currentWeapons = new ArrayList<>();
 
-    public List<Node> getCurrentWeapons() {
-        return currentWeapons;
-    }
+	public List<Node> getCurrentWeapons() {
+		return currentWeapons;
+	}
 
 
 	@Export
@@ -81,13 +81,13 @@ public class Player extends BaseUnit {
 		if (dashTimer != null) dashTimer.setWaitTime(dashDuration);
 		if (dashCooldownTimer != null) dashCooldownTimer.setWaitTime(dashCooldown);
 
-        weaponContainer = (WeaponContainer) getNode("%WeaponContainer");
+		weaponContainer = (WeaponContainer) getNode("%WeaponContainer");
 	}
 
 	@RegisterFunction
 	@Override
 	public void _process(double delta) {
-        if (Global.gamePaused) return;
+		if (Global.gamePaused) return;
 		float fDelta = (float) delta;
 
 		moveDirection = Input.INSTANCE.getVector("move_left", "move_right", "move_up", "move_down", 0.5f);
@@ -245,45 +245,45 @@ public class Player extends BaseUnit {
 		}
 	}
 
-    @RegisterFunction
-    public void removeWeapon(Node weapon) {
-        currentWeapons.remove(weapon);
-        if (weaponContainer != null) {
-            weaponContainer.updateWeaponsPosition(currentWeapons);
-        }
-        weapon.queueFree();
-    }
+	@RegisterFunction
+	public void removeWeapon(Node weapon) {
+		currentWeapons.remove(weapon);
+		if (weaponContainer != null) {
+			weaponContainer.updateWeaponsPosition(currentWeapons);
+		}
+		weapon.queueFree();
+	}
 
-    public boolean isFacingRight() {
-        // Nếu Scale X dương (thường là -1.0) thì là bên phải
-        return this.visuals.getScale().getX() < 0;
-    }
+	public boolean isFacingRight() {
+		// Nếu Scale X dương (thường là -1.0) thì là bên phải
+		return this.visuals.getScale().getX() < 0;
+	}
 
-    @RegisterFunction
-    public void updatePlayerNewWave() {
-        if (stats == null) return;
-        stats.health += stats.healthIncreasePerWave;
-        if (healthComponent != null) {
-            healthComponent.setup(stats);
-        }
-    }
+	@RegisterFunction
+	public void updatePlayerNewWave() {
+		if (stats == null) return;
+		stats.health += stats.healthIncreasePerWave;
+		if (healthComponent != null) {
+			healthComponent.setup(stats);
+		}
+	}
 
-    @RegisterFunction
-    public void _on_hp_regen_timer_timeout() {
-        if (healthComponent == null || stats == null) return;
+	@RegisterFunction
+	public void _on_hp_regen_timer_timeout() {
+		if (healthComponent == null || stats == null) return;
 
-        // Nếu máu đã hết (bằng 0) thì không hồi máu nữa
-        if (healthComponent.currentHealth <= 0) return;
+		// Nếu máu đã hết (bằng 0) thì không hồi máu nữa
+		if (healthComponent.currentHealth <= 0) return;
 
-        // Chỉ hồi máu nếu máu hiện tại nhỏ hơn máu tối đa
-        if (healthComponent.currentHealth < stats.health) {
-            float healValue = stats.hpRegen;
-            
-            // Nếu chỉ số hồi máu bằng 0 thì không làm gì cả
-            if (healValue <= 0) return;
+		// Chỉ hồi máu nếu máu hiện tại nhỏ hơn máu tối đa
+		if (healthComponent.currentHealth < stats.health) {
+			float healValue = stats.hpRegen;
+			
+			// Nếu chỉ số hồi máu bằng 0 thì không làm gì cả
+			if (healValue <= 0) return;
 
-            healthComponent.heal(healValue);
-            Global.instance.onCreateHealText.emit(this, healValue);
-        }
-    }
+			healthComponent.heal(healValue);
+			Global.instance.onCreateHealText.emit(this, healValue);
+		}
+	}
 }
