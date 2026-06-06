@@ -1,0 +1,1964 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x000000002e747069, pid=19236, tid=13432
+#
+# JRE version: Java(TM) SE Runtime Environment (21.0.9+7) (build 21.0.9+7-LTS-338)
+# Java VM: Java HotSpot(TM) 64-Bit Server VM (21.0.9+7-LTS-338, mixed mode, sharing, tiered, compressed oops, compressed class ptrs, g1 gc, windows-amd64)
+# Problematic frame:
+# C  [godot.windows.editor.x86_64.jvm.0.14.3.exe+0x3420607]  Node2D::get_global_position+0x187
+#
+# No core dump will be written. Minidumps are not enabled by default on client versions of Windows
+#
+# If you would like to submit a bug report, please visit:
+#   https://bugreport.java.com/bugreport/crash.jsp
+# The crash happened outside the Java Virtual Machine in native code.
+# See problematic frame for where to report the bug.
+#
+
+---------------  S U M M A R Y ------------
+
+Command Line: 
+
+Host: 13th Gen Intel(R) Core(TM) i7-13620H, 16 cores, 15G,  Windows 11 , 64 bit Build 26100 (10.0.26100.8553)
+Time: Fri Jun  5 00:26:21 2026 SE Asia Standard Time elapsed time: 20.017785 seconds (0d 0h 0m 20s)
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x00000167d5eddec0):  JavaThread "main"             [_thread_in_native, id=13432, stack(0x00000064e3000000,0x00000064e3800000) (8192K)]
+
+Stack: [0x00000064e3000000,0x00000064e3800000],  sp=0x00000064e37fe700,  free space=8185k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+C  0x000000002e747069
+
+Java frames: (J=compiled Java code, j=interpreted, Vv=VM code)
+J 1095  godot.internal.memory.TransferContext.icall(JJI)V (0 bytes) @ 0x00000167e71342f8 [0x00000167e71342a0+0x0000000000000058]
+J 1521 c2 godot.api.Node2D.getGlobalPosition()Lgodot/core/Vector2; (54 bytes) @ 0x00000167e7161044 [0x00000167e7160ee0+0x0000000000000164]
+J 1784 c1 game.items.weapons.Weapon.getClosestTarget()Lgodot/api/Node2D; (115 bytes) @ 0x00000167df87151c [0x00000167df871180+0x000000000000039c]
+J 1783 c1 game.items.weapons.Weapon.updateClosestTarget()V (9 bytes) @ 0x00000167df87374c [0x00000167df8736c0+0x000000000000008c]
+J 1501 c2 godot.entry.WeaponRegistrar$register$1$1$2.invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object; (19 bytes) @ 0x00000167e7154fc0 [0x00000167e7154060+0x0000000000000f60]
+J 1760 c2 godot.core.KtFunction.invoke(Lgodot/core/KtObject;)V (79 bytes) @ 0x00000167e719fab4 [0x00000167e719f5e0+0x00000000000004d4]
+v  ~StubRoutines::call_stub 0x00000167e696100d
+
+siginfo: EXCEPTION_ACCESS_VIOLATION (0xc0000005), data execution prevention violation at address 0x000000002e747069
+
+
+Registers:
+RAX=0x00007ff75812e758, RBX=0x000001683c37f710, RCX=0x000001683c37f710, RDX=0x00000064e37fe758
+RSP=0x00000064e37fe6f8, RBP=0x00000064e37fe809, RSI=0x00000167b5d09980, RDI=0x00000064e37fe7e0
+R8 =0x0000000000000000, R9 =0x00007ff752ff0480, R10=0x00007ffdc12987c0, R11=0x00000064e37feb88
+R12=0x000001683c37f710, R13=0x00000167ce5106f0, R14=0x0000000000000000, R15=0x00000064e37fe8c8
+RIP=0x000000002e747069, EFLAGS=0x0000000000010202
+
+
+Register to memory mapping:
+
+RAX=0x00007ff75812e758 godot.windows.editor.x86_64.jvm.0.14.3.exe::Object::`vftable' + 0x0
+RBX=0x000001683c37f710 points into unknown readable memory: 0x0000697200052a64 | 64 2a 05 00 72 69 00 00
+RCX=0x000001683c37f710 points into unknown readable memory: 0x0000697200052a64 | 64 2a 05 00 72 69 00 00
+RDX=0x00000064e37fe758 is pointing into the stack for thread: 0x00000167d5eddec0
+RSP=0x00000064e37fe6f8 is pointing into the stack for thread: 0x00000167d5eddec0
+RBP=0x00000064e37fe809 is pointing into the stack for thread: 0x00000167d5eddec0
+RSI=0x00000167b5d09980 points into unknown readable memory: 0x0000000000000000 | 00 00 00 00 00 00 00 00
+RDI=0x00000064e37fe7e0 is pointing into the stack for thread: 0x00000167d5eddec0
+R8 =0x0 is null
+R9 =0x00007ff752ff0480 godot.windows.editor.x86_64.jvm.0.14.3.exe::Node2D::get_global_position + 0x0
+R10=0x00007ffdc12987c0 jvm.dll
+R11=0x00000064e37feb88 is pointing into the stack for thread: 0x00000167d5eddec0
+R12=0x000001683c37f710 points into unknown readable memory: 0x0000697200052a64 | 64 2a 05 00 72 69 00 00
+R13=0x00000167ce5106f0 points into unknown readable memory: 0x00007ff757bcf998 | 98 f9 bc 57 f7 7f 00 00
+R14=0x0 is null
+R15=0x00000064e37fe8c8 is pointing into the stack for thread: 0x00000167d5eddec0
+
+Top of Stack: (sp=0x00000064e37fe6f8)
+0x00000064e37fe6f8:   00007ff752ff0607 0000000000000000
+0x00000064e37fe708:   000001683e9cfcf4 00000167d6d07890
+0x00000064e37fe718:   0000000713e3a220 00000167d5eddec0
+0x00000064e37fe728:   00007ffdc0cce104 0000000000000000
+0x00000064e37fe738:   00000167df7fcb94 00007ff74fbd0000
+0x00000064e37fe748:   0000000000000001 00000064e37fe7b0
+0x00000064e37fe758:   3e11a73f3ebf69fc 3ebf69fcbe11a73f
+0x00000064e37fe768:   437cae2c445a976a 00006caf5190d322
+0x00000064e37fe778:   00000167d5edde00 00000064e37fe8e0
+0x00000064e37fe788:   00007ff752feff02 00000167d5eddec0
+0x00000064e37fe798:   00000167f8016638 00007ff7555a4498
+0x00000064e37fe7a8:   0000000000000000 000002860000005b
+0x00000064e37fe7b8:   00000167b5d09980 00000167c08f3c80
+0x00000064e37fe7c8:   00000167e7134393 0000010100000000
+0x00000064e37fe7d8:   00000167f71c0b78 437cae2c445a976a
+0x00000064e37fe7e8:   00007ff752fee6b2 000001683f17a0b0
+0x00000064e37fe7f8:   0000000000000000 00000064e37fe8e0
+0x00000064e37fe808:   00007ff750a1dc77 00006caf5190d3b2
+0x00000064e37fe818:   0000000000000000 00000000000001c0
+0x00000064e37fe828:   00007ff74fbd0000 0000000000000000
+0x00000064e37fe838:   0000000000000000 00000167ce5106f0
+0x00000064e37fe848:   00000167b5d0ab50 00000064e37fe960
+0x00000064e37fe858:   00007ff750a20a38 0000000704a07028
+0x00000064e37fe868:   0000000705a63da0 00000064e37fe8f8
+0x00000064e37fe878:   00000167b5d09f50 0000000000000000
+0x00000064e37fe888:   00000064e37fe8c8 0000000000000000
+0x00000064e37fe898:   00007ff752feff75 0000000800000000
+0x00000064e37fe8a8:   0000001800000010 0000006400000000
+0x00000064e37fe8b8:   00000167ce5106f0 000001683c37f710
+0x00000064e37fe8c8:   0000000000000000 0000016700000000
+0x00000064e37fe8d8:   00000167d5ede280 0000006400000000
+0x00000064e37fe8e8:   0000000000000000 0000000000000000 
+
+Instructions: (pc=0x00007ff752ff0607)
+0x00007ff752ff0507:   44 24 60 80 00 00 00 48 8d 05 0b 53 ac 04 33 f6
+0x00007ff752ff0517:   48 8d 54 24 58 48 89 44 24 58 48 8d 4c 24 40 48
+0x00007ff752ff0527:   89 74 24 40 e8 70 a5 a4 01 4c 8b c3 48 8d 54 24
+0x00007ff752ff0537:   40 48 8d 4c 24 48 e8 3e 99 bf fc 89 74 24 30 4c
+0x00007ff752ff0547:   8d 0d 03 2b b5 04 40 88 74 24 28 48 8d 15 2f ee
+0x00007ff752ff0557:   bd 04 41 b8 22 01 00 00 48 89 44 24 20 48 8d 0d
+0x00007ff752ff0567:   fd ef bd 04 e8 80 33 a4 01 48 8d 4c 24 48 e8 86
+0x00007ff752ff0577:   8e bf fc 48 8b 44 24 40 48 85 c0 74 6d 48 8d 48
+0x00007ff752ff0587:   f0 8b d6 48 0f 45 d1 48 c7 c0 ff ff ff ff f0 48
+0x00007ff752ff0597:   0f c1 02 48 83 f8 01 75 51 48 8b 4c 24 40 33 d2
+0x00007ff752ff05a7:   48 83 c1 f0 48 89 74 24 40 e8 7b 43 a4 01 48 39
+0x00007ff752ff05b7:   74 24 40 74 35 89 74 24 30 48 8d 05 09 30 5b 02
+0x00007ff752ff05c7:   40 88 74 24 28 4c 8d 0d 45 30 5b 02 41 b8 0e 01
+0x00007ff752ff05d7:   00 00 48 89 44 24 20 48 8d 15 eb 2e 5b 02 48 8d
+0x00007ff752ff05e7:   0d 54 30 5b 02 e8 3f 30 a4 01 48 89 37 eb 18 48
+0x00007ff752ff05f7:   8b 03 48 8d 54 24 58 48 8b cb ff 90 b8 02 00 00
+0x00007ff752ff0607:   48 8b 40 10 48 89 07 48 8b c7 48 8b 4c 24 70 48
+0x00007ff752ff0617:   33 cc e8 c2 f2 50 02 4c 8d 9c 24 80 00 00 00 49
+0x00007ff752ff0627:   8b 5b 20 49 8b 73 28 49 8b e3 5f c3 cc cc cc cc
+0x00007ff752ff0637:   cc cc cc cc cc cc cc cc cc 48 89 5c 24 10 57 48
+0x00007ff752ff0647:   81 ec 80 00 00 00 48 8b 05 ac 8e a7 05 48 33 c4
+0x00007ff752ff0657:   48 89 44 24 70 65 48 8b 04 25 58 00 00 00 48 8b
+0x00007ff752ff0667:   d9 8b 0d 5a 24 e1 05 48 8b 3c c8 b8 1c 19 00 00
+0x00007ff752ff0677:   80 3c 38 00 75 05 e8 4e f3 50 02 b8 f0 12 00 00
+0x00007ff752ff0687:   48 83 3c 38 00 0f 85 1c 01 00 00 e8 f9 15 cc 01
+0x00007ff752ff0697:   84 c0 0f 85 0f 01 00 00 48 83 bb 48 02 00 00 00
+0x00007ff752ff06a7:   0f 84 01 01 00 00 48 8d 54 24 50 48 8b cb e8 b6
+0x00007ff752ff06b7:   e2 55 ff 48 8b d8 48 c7 44 24 60 80 00 00 00 48
+0x00007ff752ff06c7:   8d 05 53 51 ac 04 33 ff 48 8d 54 24 58 48 89 44
+0x00007ff752ff06d7:   24 58 48 8d 4c 24 40 48 89 7c 24 40 e8 b8 a3 a4
+0x00007ff752ff06e7:   01 4c 8b c3 48 8d 54 24 40 48 8d 4c 24 48 e8 86
+0x00007ff752ff06f7:   97 bf fc 89 7c 24 30 4c 8d 0d 3b df ac 04 40 88 
+
+
+Stack slot to memory mapping:
+
+stack at sp + 0 slots: 0x0 is null
+stack at sp + 1 slots: 0x000001683e9cfcf4 points into unknown readable memory: 6a 97 5a 44
+stack at sp + 2 slots: 0x00000167d6d07890 points into unknown readable memory: 0x00007ff75606adf8 | f8 ad 06 56 f7 7f 00 00
+stack at sp + 3 slots: 0x0000000713e3a220 is an oop: [Lkotlin.Pair; 
+{0x0000000713e3a220} - klass: 'kotlin/Pair'[]
+ - length: 1
+stack at sp + 4 slots: 0x00000167d5eddec0 is a thread
+stack at sp + 5 slots: 0x00007ffdc0cce104 jvm.dll
+stack at sp + 6 slots: 0x0 is null
+stack at sp + 7 slots: 0x00000167df7fcb94 is at entry_point+1780 in (nmethod*)0x00000167df7fc210
+Compiled method (c1)   20114 1550       3       godot.core.VariantParser$OBJECT::toUnsafeGodot (46 bytes)
+ total in heap  [0x00000167df7fc210,0x00000167df7fd360] = 4432
+ relocation     [0x00000167df7fc370,0x00000167df7fc488] = 280
+ main code      [0x00000167df7fc4a0,0x00000167df7fcf78] = 2776
+ stub code      [0x00000167df7fcf78,0x00000167df7fd008] = 144
+ oops           [0x00000167df7fd008,0x00000167df7fd028] = 32
+ metadata       [0x00000167df7fd028,0x00000167df7fd068] = 64
+ scopes data    [0x00000167df7fd068,0x00000167df7fd190] = 296
+ scopes pcs     [0x00000167df7fd190,0x00000167df7fd330] = 416
+ dependencies   [0x00000167df7fd330,0x00000167df7fd338] = 8
+ nul chk table  [0x00000167df7fd338,0x00000167df7fd360] = 40
+
+
+Compiled method (n/a)   20115 1095     n 0       godot.internal.memory.TransferContext::icall (native)
+ total in heap  [0x00000167e7134110,0x00000167e71344c0] = 944
+ relocation     [0x00000167e7134270,0x00000167e71342a0] = 48
+ main code      [0x00000167e71342a0,0x00000167e71344b7] = 535
+ stub code      [0x00000167e71344b7,0x00000167e71344b8] = 1
+ oops           [0x00000167e71344b8,0x00000167e71344c0] = 8
+
+[Constant Pool (empty)]
+
+[MachCode]
+[Entry Point]
+  # {method} {0x000001683846c0b8} 'icall' '(JJI)V' in 'godot/internal/memory/TransferContext'
+  # this:     rdx:rdx   = 'godot/internal/memory/TransferContext'
+  # parm0:    r8:r8     = long
+  # parm1:    r9:r9     = long
+  # parm2:    rdi       = int
+  #           [sp+0x70]  (sp of caller)
+  0x00000167e71342a0: 448b 5208 | 49bb 0000 | 00f7 6701 | 0000 4d03 | d349 3bc2 | 0f84 0600 
+
+  0x00000167e71342b8: ;   {runtime_call ic_miss_stub}
+  0x00000167e71342b8: 0000 e9c1 | a487 ff90 
+[Verified Entry Point]
+  0x00000167e71342c0: 8984 2400 | 80ff ff55 | 488b ec48 | 83ec 6090 | 4181 7f20 | 0300 0000 
+
+  0x00000167e71342d8: ;   {runtime_call StubRoutines (final stubs)}
+  0x00000167e71342d8: 7405 e881 | 0a86 ff48 | 897c 2420 | 4889 5424 | 2848 83fa | 0048 8d54 | 2428 480f | 4454 2428 
+  0x00000167e71342f8: ;   {internal_word}
+  0x00000167e71342f8: c5f8 7749 | baf8 4213 | e767 0100 | 004d 8997 | a803 0000 | 4989 a7a0 
+
+  0x00000167e7134310: ;   {external_word}
+  0x00000167e7134310: 0300 0049 | bac0 8729 | c1fd 7f00 | 0041 803a | 000f 844e | 0000 0052 | 4150 4151 
+
+  0x00000167e713432c: ;   {metadata({method} {0x000001683846c0b8} 'icall' '(JJI)V' in 'godot/internal/memory/TransferContext')}
+  0x00000167e713432c: 48ba b0c0 | 4638 6801 | 0000 498b | cf48 83ec | 2040 f6c4 | 0f0f 8419 | 0000 0048 
+
+  0x00000167e7134348: ;   {runtime_call}
+  0x00000167e7134348: 83ec 0848 | b890 1eda | c0fd 7f00 | 00ff d048 | 83c4 08e9 | 0c00 0000 
+
+  0x00000167e7134360: ;   {runtime_call}
+  0x00000167e7134360: 48b8 901e | dac0 fd7f | 0000 ffd0 | 4883 c420 | 4159 4158 | 5a49 8d8f | c003 0000 | 41c7 874c 
+  0x00000167e7134380: 0400 0004 
+
+  0x00000167e7134384: ;   {runtime_call TransferContext::icall}
+  0x00000167e7134384: 0000 0048 | b870 04a2 | 50f7 7f00 | 00ff d0c5 | f877 41c7 | 874c 0400 | 0005 0000 | 00f0 8344 
+  0x00000167e71343a4: 24c0 0049 | 3baf 5004 | 0000 0f87 | 0e00 0000 | 4183 bf48 | 0400 0000 | 0f84 2300 | 0000 c5f8 
+  0x00000167e71343c4: 7749 8bcf | 4c8b e448 | 83ec 2048 
+
+  0x00000167e71343d0: ;   {runtime_call}
+  0x00000167e71343d0: 83e4 f048 | b860 cba5 | c0fd 7f00 | 00ff d049 | 8be4 4d33 | e441 c787 | 4c04 0000 | 0800 0000 
+  0x00000167e71343f0: 4183 bfc8 | 0400 0002 | 0f84 9400 
+
+  0x00000167e71343fc: ;   {external_word}
+  0x00000167e71343fc: 0000 49ba | c087 29c1 | fd7f 0000 | 4180 3a00 | 0f84 4400 
+
+  0x00000167e7134410: ;   {metadata({method} {0x000001683846c0b8} 'icall' '(JJI)V' in 'godot/internal/memory/TransferContext')}
+  0x00000167e7134410: 0000 48ba | b0c0 4638 | 6801 0000 | 498b cf48 | 83ec 2040 | f6c4 0f0f | 8419 0000 | 0048 83ec 
+  0x00000167e7134430: ;   {runtime_call}
+  0x00000167e7134430: 0848 b890 | 1eda c0fd | 7f00 00ff | d048 83c4 | 08e9 0c00 
+
+  0x00000167e7134444: ;   {runtime_call}
+  0x00000167e7134444: 0000 48b8 | 901e dac0 | fd7f 0000 | ffd0 4883 | c420 49c7 | 87a0 0300 | 0000 0000 | 0049 c787 
+  0x00000167e7134464: a803 0000 | 0000 0000 | c5f8 7749 | 8b8f 3004 | 0000 c781 | 0001 0000 | 0000 0000 | c949 837f 
+  0x00000167e7134484: 0800 0f85 | 0100 0000 
+
+  0x00000167e713448c: ;   {runtime_call StubRoutines (initial stubs)}
+  0x00000167e713448c: c3e9 6eca | 82ff c5f8 | 774c 8be4 | 4883 ec20 | 4883 e4f0 
+
+  0x00000167e71344a0: ;   {runtime_call}
+  0x00000167e71344a0: 48b8 4056 | dac0 fd7f | 0000 ffd0 | 498b e44d | 33e4 e947 | ffff fff4 
+[/MachCode]
+
+
+Compiled method (c2)   20126 1521       4       godot.api.Node2D::getGlobalPosition (54 bytes)
+ total in heap  [0x00000167e7160c90,0x00000167e7162208] = 5496
+ relocation     [0x00000167e7160df0,0x00000167e7160ed8] = 232
+ main code      [0x00000167e7160ee0,0x00000167e7161630] = 1872
+ stub code      [0x00000167e7161630,0x00000167e7161678] = 72
+ oops           [0x00000167e7161678,0x00000167e71616b0] = 56
+ metadata       [0x00000167e71616b0,0x00000167e7161870] = 448
+ scopes data    [0x00000167e7161870,0x00000167e7161ec8] = 1624
+ scopes pcs     [0x00000167e7161ec8,0x00000167e71620f8] = 560
+ dependencies   [0x00000167e71620f8,0x00000167e7162130] = 56
+ handler table  [0x00000167e7162130,0x00000167e71621c0] = 144
+ nul chk table  [0x00000167e71621c0,0x00000167e7162208] = 72
+
+[Constant Pool (empty)]
+
+[MachCode]
+[Entry Point]
+  # {method} {0x0000016838718a58} 'getGlobalPosition' '()Lgodot/core/Vector2;' in 'godot/api/Node2D'
+  #           [sp+0x50]  (sp of caller)
+  0x00000167e7160ee0: 448b 5208 | 49bb 0000 | 00f7 6701 | 0000 4d03 | d349 3bc2 
+
+  0x00000167e7160ef4: ;   {runtime_call ic_miss_stub}
+  0x00000167e7160ef4: 0f85 86d8 | 84ff 6690 | 0f1f 4000 
+[Verified Entry Point]
+  0x00000167e7160f00: 8984 2400 | 80ff ff55 | 4883 ec40 | 4181 7f20 | 0300 0000 | 0f85 0c07 | 0000 4889 
+
+  0x00000167e7160f1c: ;   {oop(a 'kotlin/reflect/KProperty'[1] {0x0000000704a009e0})}
+  0x00000167e7160f1c: 1424 49ba | e009 a004 | 0700 0000 | 458b 5210 | 4585 d20f | 84e7 0400 
+
+  0x00000167e7160f34: ;   {oop(a 'godot/common/util/ThreadLocalDelegate'{0x0000000704a009f8})}
+  0x00000167e7160f34: 0049 baf8 | 09a0 0407 | 0000 0041 | 8b6a 1045 | 8b54 ec08 
+
+  0x00000167e7160f48: ;   {metadata('java/lang/ThreadLocal$SuppliedThreadLocal')}
+  0x00000167e7160f48: 4181 fa68 | 3f04 010f | 8554 0300 | 0049 8d1c | ec4d 8b97 | 8803 0000 | 4d8b 0a41 | 8b49 4c41 
+  0x00000167e7160f68: 8b6c cc14 
+
+  0x00000167e7160f6c: ; implicit exception: dispatches to 0x00000167e7161544
+  0x00000167e7160f6c: 458b 44ec | 0c45 8d50 | ff44 2353 | 0c45 85c0 | 0f86 3a03 | 0000 4d8d | 1cec 478b | 5c93 1045 
+  0x00000167e7160f8c: 85db 0f84 | 7502 0000 | 438b 7cdc | 0c4c 8bc7 | 49c1 e003 | 4c3b c30f | 85bf 0300 | 004b 8d04 
+  0x00000167e7160fac: dc44 8b58 | 1c4d 8bd3 | 49c1 e203 
+
+  0x00000167e7160fb8: ; implicit exception: dispatches to 0x00000167e7161558
+  0x00000167e7160fb8: 458b 5a08 
+
+  0x00000167e7160fbc: ;   {metadata('java/nio/DirectByteBuffer')}
+  0x00000167e7160fbc: 4181 fb78 | 0b1c 000f | 8534 0500 | 0041 8b6a | 1c41 c742 | 0cff ffff | ff45 8962 | 1883 fd04 
+  0x00000167e7160fdc: 0f8c 5604 | 0000 41c7 | 4218 0400 | 0000 458b | 5a24 498b | 4a10 4585 | db0f 85e9 | 0200 0041 
+  0x00000167e7160ffc: 0fb6 6a2d | 85ed 0f85 | b403 0000 | 4c89 4c24 | 084c 8b14 | 244d 8b42 | 104c 8bd1 
+
+  0x00000167e7161018: ;   {oop(a 'godot/core/VariantParser$VECTOR2'{0x0000000704b2fc80})}
+  0x00000167e7161018: 4589 2249 | ba80 fcb2 | 0407 0000 | 0041 8b7a | 1849 b9f0 | 0651 ce67 
+
+  0x00000167e7161030: ;   {oop(a 'godot/internal/memory/TransferContext'{0x0000000704a00a10})}
+  0x00000167e7161030: 0100 0048 | ba10 0aa0 | 0407 0000 
+
+  0x00000167e716103c: ;   {optimized virtual_call}
+  0x00000167e716103c: 0066 90e8 
+
+  0x00000167e7161040: ; ImmutableOopMap {[8]=Oop }
+                      ;*invokespecial icall {reexecute=0 rethrow=0 return_oop=0}
+                      ; - godot.internal.memory.TransferContext::callMethod@17 (line 79)
+                      ; - godot.api.Node2D::getGlobalPosition@29 (line 476)
+  0x00000167e7161040: 7c32 fdff 
+
+  0x00000167e7161044: ;   {other}
+  0x00000167e7161044: 0f1f 8400 | b403 0000 
+
+  0x00000167e716104c: ;   {oop(a 'kotlin/reflect/KProperty'[1] {0x0000000704a009e0})}
+  0x00000167e716104c: 49ba e009 | a004 0700 | 0000 418b | 6a10 85ed | 0f84 f203 
+
+  0x00000167e7161060: ;   {oop(a 'godot/common/util/ThreadLocalDelegate'{0x0000000704a009f8})}
+  0x00000167e7161060: 0000 49ba | f809 a004 | 0700 0000 | 458b 4210 
+
+  0x00000167e7161070: ; implicit exception: dispatches to 0x00000167e7161570
+  0x00000167e7161070: 478b 5cc4 
+
+  0x00000167e7161074: ;   {metadata('java/lang/ThreadLocal$SuppliedThreadLocal')}
+  0x00000167e7161074: 0841 81fb | 683f 0401 | 0f85 8e02 | 0000 4c8b | 5424 0841 | 8b4a 4c49 | c1e0 0341 | 8b6c cc14 
+  0x00000167e7161094: ; implicit exception: dispatches to 0x00000167e7161584
+  0x00000167e7161094: 458b 54ec | 0c45 8d5a | ff45 2358 | 0c45 85d2 | 0f86 7e02 | 0000 4d8d | 14ec 438b | 6c9a 1085 
+  0x00000167e71610b4: ed0f 8484 | 0100 0045 | 8b54 ec0c | 49c1 e203 | 4d3b d00f | 85cf 0200 | 0049 8d04 | ec44 8b50 
+  0x00000167e71610d4: 1c4d 8bc2 | 49c1 e003 
+
+  0x00000167e71610dc: ; implicit exception: dispatches to 0x00000167e7161598
+  0x00000167e71610dc: 458b 5008 
+
+  0x00000167e71610e0: ;   {metadata('java/nio/DirectByteBuffer')}
+  0x00000167e71610e0: 4181 fa78 | 0b1c 000f | 852b 0400 | 0045 8b50 | 1c44 8954 | 2418 41c7 | 400c ffff | ffff 4589 
+  0x00000167e7161100: 6018 4183 | fa04 0f8c | 5c03 0000 | 41c7 4018 | 0400 0000 | 458b 5824 | 4d8b 5010 | 4c89 5424 
+  0x00000167e7161120: 1045 85db | 0f85 1e02 | 0000 450f | b658 2d41 | 8b0a 4585 | db0f 85a5 
+
+  0x00000167e7161138: ;   {oop(a 'godot/core/VariantParser$VECTOR2'{0x0000000704b2fc80})}
+  0x00000167e7161138: 0200 0049 | ba80 fcb2 | 0407 0000 | 0041 8b6a | 183b cd0f | 85b3 0200 | 0049 8b87 | b801 0000 
+  0x00000167e7161158: 4c8b d049 | 83c2 204d | 3b97 c801 | 0000 0f83 | 1801 0000 | 4d89 97b8 | 0100 0041 | 0f0d 8ac0 
+  0x00000167e7161178: 0000 0048 | c700 0100 
+
+  0x00000167e7161180: ;   {metadata('godot/core/Vector2')}
+  0x00000167e7161180: 0000 c740 | 0810 8402 | 0144 8960 | 0c4c 8960 | 104c 8960 | 188b 6c24 | 1883 c5fc | 83fd 040f 
+  0x00000167e71611a0: 8cdf 0200 | 004c 8b54 | 2410 458b | 5204 41c7 | 4018 0800 | 0000 448b | 5c24 1841 | 83c3 f8c4 
+  0x00000167e71611c0: c179 6ec2 | c5fa 5ac0 | 4183 fb04 | 0f8c d602 | 0000 c5fb | 1140 1041 | c740 180c | 0000 004c 
+  0x00000167e71611e0: 8b54 2410 | 458b 5208 | c4c1 796e | cac5 fa5a | c1c5 fb11 | 4018 4883 
+
+  0x00000167e71611f8: ;   {poll_return}
+  0x00000167e71611f8: c440 5d49 | 3ba7 5004 | 0000 0f87 | 0804 0000 | c34c 894c | 2408 488b | eb49 8d14 | cc4c 8bc3 
+  0x00000167e7161218: 458b ca33 
+
+  0x00000167e716121c: ;   {optimized virtual_call}
+  0x00000167e716121c: ff66 90e8 
+
+  0x00000167e7161220: ; ImmutableOopMap {rbp=Oop [0]=Oop [8]=Oop }
+                      ;*invokevirtual getEntryAfterMiss {reexecute=0 rethrow=0 return_oop=1}
+                      ; - java.lang.ThreadLocal$ThreadLocalMap::getEntry@38 (line 504)
+                      ; - java.lang.ThreadLocal::get@12 (line 187)
+                      ; - java.lang.ThreadLocal::get@4 (line 172)
+                      ; - godot.common.util.ThreadLocalDelegate::getValue@10 (line 7)
+                      ; - godot.internal.memory.TransferContext::getBuffer@9 (line 28)
+                      ; - godot.internal.memory.TransferContext::writeArguments@7 (line 34)
+                      ; - godot.api.Node2D::getGlobalPosition@7 (line 475)
+  0x00000167e7161220: 5cd8 84ff 
+
+  0x00000167e7161224: ;   {other}
+  0x00000167e7161224: 0f1f 8400 | 9405 0001 | 4885 c00f | 849f 0200 | 004c 8b4c | 2408 e96e | fdff ff49 | 8d14 cc45 
+  0x00000167e7161244: 8bcb 33ff | 4c89 4424 
+
+  0x00000167e716124c: ;   {optimized virtual_call}
+  0x00000167e716124c: 1066 90e8 
+
+  0x00000167e7161250: ; ImmutableOopMap {[8]=Oop [16]=Oop }
+                      ;*invokevirtual getEntryAfterMiss {reexecute=0 rethrow=0 return_oop=1}
+                      ; - java.lang.ThreadLocal$ThreadLocalMap::getEntry@38 (line 504)
+                      ; - java.lang.ThreadLocal::get@12 (line 187)
+                      ; - java.lang.ThreadLocal::get@4 (line 172)
+                      ; - godot.common.util.ThreadLocalDelegate::getValue@10 (line 7)
+                      ; - godot.internal.memory.TransferContext::getBuffer@9 (line 28)
+                      ; - godot.internal.memory.TransferContext::readReturnValue@7 (line 73)
+                      ; - godot.api.Node2D::getGlobalPosition@41 (line 477)
+  0x00000167e7161250: 2cd8 84ff 
+
+  0x00000167e7161254: ;   {other}
+  0x00000167e7161254: 0f1f 8400 | c405 0002 | 4885 c00f | 856c feff | ff48 8b54 | 2410 4c8b 
+
+  0x00000167e716126c: ;   {optimized virtual_call}
+  0x00000167e716126c: 4424 08e8 
+
+  0x00000167e7161270: ; ImmutableOopMap {}
+                      ;*invokevirtual setInitialValue {reexecute=0 rethrow=0 return_oop=1}
+                      ; - java.lang.ThreadLocal::get@31 (line 194)
+                      ; - java.lang.ThreadLocal::get@4 (line 172)
+                      ; - godot.common.util.ThreadLocalDelegate::getValue@10 (line 7)
+                      ; - godot.internal.memory.TransferContext::getBuffer@9 (line 28)
+                      ; - godot.internal.memory.TransferContext::readReturnValue@7 (line 73)
+                      ; - godot.api.Node2D::getGlobalPosition@41 (line 477)
+  0x00000167e7161270: 0cd8 84ff 
+
+  0x00000167e7161274: ;   {other}
+  0x00000167e7161274: 0f1f 8400 | e405 0003 | 4c8b c0e9 | 58fe ffff 
+
+  0x00000167e7161284: ;   {metadata('godot/core/Vector2')}
+  0x00000167e7161284: 48ba 1084 | 02f8 6701 | 0000 4c89 
+
+  0x00000167e7161290: ;   {runtime_call _new_instance_Java}
+  0x00000167e7161290: 0424 90e8 
+
+  0x00000167e7161294: ; ImmutableOopMap {[0]=Oop }
+                      ;*new {reexecute=0 rethrow=0 return_oop=1}
+                      ; - godot.core.VariantKt::getVector2@0 (line 19)
+                      ; - godot.core.VariantKt::access$getVector2@1 (line 1)
+                      ; - godot.core.VariantParser$VECTOR2::toUnsafeKotlin@7 (line 176)
+                      ; - godot.core.VariantParser$VECTOR2::toUnsafeKotlin@2 (line 175)
+                      ; - godot.core.VariantParser::toKotlin@21 (line 479)
+                      ; - godot.internal.memory.TransferContext::readReturnValue@20 (line 75)
+                      ; - godot.api.Node2D::getGlobalPosition@41 (line 477)
+  0x00000167e7161294: 68ab 91ff 
+
+  0x00000167e7161298: ;   {other}
+  0x00000167e7161298: 0f1f 8400 | 0806 0004 | 4c8b 0424 | e9ec feff | ffba deff 
+
+  0x00000167e71612ac: ;   {runtime_call UncommonTrapBlob}
+  0x00000167e71612ac: ffff 90e8 
+
+  0x00000167e71612b0: ; ImmutableOopMap {rbp=NarrowOop [0]=Oop }
+                      ;*invokevirtual get {reexecute=0 rethrow=0 return_oop=0}
+                      ; - godot.common.util.ThreadLocalDelegate::getValue@10 (line 7)
+                      ; - godot.internal.memory.TransferContext::getBuffer@9 (line 28)
+                      ; - godot.internal.memory.TransferContext::writeArguments@7 (line 34)
+                      ; - godot.api.Node2D::getGlobalPosition@7 (line 475)
+  0x00000167e71612b0: 4c33 85ff 
+
+  0x00000167e71612b4: ;   {other}
+  0x00000167e71612b4: 0f1f 8400 | 2406 0005 | bae4 ffff | ff4c 894c | 2410 894c | 2418 4889 | 5c24 2044 | 8954 2428 
+  0x00000167e71612d4: ;   {runtime_call UncommonTrapBlob}
+  0x00000167e71612d4: 6666 90e8 
+
+  0x00000167e71612d8: ; ImmutableOopMap {rbp=NarrowOop [0]=Oop [16]=Oop [24]=NarrowOop [32]=Oop }
+                      ;*aaload {reexecute=0 rethrow=0 return_oop=0}
+                      ; - java.lang.ThreadLocal$ThreadLocalMap::getEntry@18 (line 500)
+                      ; - java.lang.ThreadLocal::get@12 (line 187)
+                      ; - java.lang.ThreadLocal::get@4 (line 172)
+                      ; - godot.common.util.ThreadLocalDelegate::getValue@10 (line 7)
+                      ; - godot.internal.memory.TransferContext::getBuffer@9 (line 28)
+                      ; - godot.internal.memory.TransferContext::writeArguments@7 (line 34)
+                      ; - godot.api.Node2D::getGlobalPosition@7 (line 475)
+  0x00000167e71612d8: 2433 85ff 
+
+  0x00000167e71612dc: ;   {other}
+  0x00000167e71612dc: 0f1f 8400 | 4c06 0006 | baec ffff | ff48 8b2c | 244c 8954 | 2408 4c89 | 5424 1048 | 894c 2418 
+  0x00000167e71612fc: 4489 5c24 
+
+  0x00000167e7161300: ;   {runtime_call UncommonTrapBlob}
+  0x00000167e7161300: 2866 90e8 
+
+  0x00000167e7161304: ; ImmutableOopMap {rbp=Oop [8]=Oop [16]=Oop [40]=NarrowOop }
+                      ;*ifnull {reexecute=1 rethrow=0 return_oop=0}
+                      ; - (reexecute) java.nio.Buffer::session@4 (line 792)
+                      ; - java.nio.DirectByteBuffer::putInt@7 (line 773)
+                      ; - java.nio.DirectByteBuffer::putInt@11 (line 785)
+                      ; - godot.internal.memory.TransferContext::writeArguments@21 (line 36)
+                      ; - godot.api.Node2D::getGlobalPosition@7 (line 475)
+  0x00000167e7161304: f832 85ff 
+
+  0x00000167e7161308: ;   {other}
+  0x00000167e7161308: 0f1f 8400 | 7806 0007 | bade ffff | ff41 8be8 
+
+  0x00000167e7161318: ;   {runtime_call UncommonTrapBlob}
+  0x00000167e7161318: 6666 90e8 
+
+  0x00000167e716131c: ; ImmutableOopMap {rbp=NarrowOop }
+                      ;*invokevirtual get {reexecute=0 rethrow=0 return_oop=0}
+                      ; - godot.common.util.ThreadLocalDelegate::getValue@10 (line 7)
+                      ; - godot.internal.memory.TransferContext::getBuffer@9 (line 28)
+                      ; - godot.internal.memory.TransferContext::readReturnValue@7 (line 73)
+                      ; - godot.api.Node2D::getGlobalPosition@41 (line 477)
+  0x00000167e716131c: e032 85ff 
+
+  0x00000167e7161320: ;   {other}
+  0x00000167e7161320: 0f1f 8400 | 9006 0008 | bae4 ffff | ff89 4c24 | 104c 8944 | 2418 4489 
+
+  0x00000167e7161338: ;   {runtime_call UncommonTrapBlob}
+  0x00000167e7161338: 5c24 20e8 
+
+  0x00000167e716133c: ; ImmutableOopMap {rbp=NarrowOop [8]=Oop [16]=NarrowOop [24]=Oop }
+                      ;*aaload {reexecute=0 rethrow=0 return_oop=0}
+                      ; - java.lang.ThreadLocal$ThreadLocalMap::getEntry@18 (line 500)
+                      ; - java.lang.ThreadLocal::get@12 (line 187)
+                      ; - java.lang.ThreadLocal::get@4 (line 172)
+                      ; - godot.common.util.ThreadLocalDelegate::getValue@10 (line 7)
+                      ; - godot.internal.memory.TransferContext::getBuffer@9 (line 28)
+                      ; - godot.internal.memory.TransferContext::readReturnValue@7 (line 73)
+                      ; - godot.api.Node2D::getGlobalPosition@41 (line 477)
+  0x00000167e716133c: c032 85ff 
+
+  0x00000167e7161340: ;   {other}
+  0x00000167e7161340: 0f1f 8400 | b006 0009 | baec ffff | ff4c 8904 | 244c 8944 | 2408 4489 
+
+  0x00000167e7161358: ;   {runtime_call UncommonTrapBlob}
+  0x00000167e7161358: 5c24 20e8 
+
+  0x00000167e716135c: ; ImmutableOopMap {[0]=Oop [8]=Oop [32]=NarrowOop }
+                      ;*ifnull {reexecute=1 rethrow=0 return_oop=0}
+                      ; - (reexecute) java.nio.Buffer::session@4 (line 792)
+                      ; - java.nio.DirectByteBuffer::getInt@4 (line 744)
+                      ; - java.nio.DirectByteBuffer::getInt@10 (line 753)
+                      ; - godot.core.VariantKt::getVariantType@1 (line 104)
+                      ; - godot.core.VariantKt::access$getVariantType@1 (line 1)
+                      ; - godot.core.VariantParser::toKotlin@7 (line 477)
+                      ; - godot.internal.memory.TransferContext::readReturnValue@20 (line 75)
+                      ; - godot.api.Node2D::getGlobalPosition@41 (line 477)
+  0x00000167e716135c: a032 85ff 
+
+  0x00000167e7161360: ;   {other}
+  0x00000167e7161360: 0f1f 8400 | d006 000a | ba45 ffff | ff33 ed4c | 3bc3 400f | 94c5 4c89 | 4c24 1089 | 4c24 1848 
+  0x00000167e7161380: 895c 2420 | 4489 5424 | 1c44 895c 
+
+  0x00000167e716138c: ;   {runtime_call UncommonTrapBlob}
+  0x00000167e716138c: 2428 90e8 
+
+  0x00000167e7161390: ; ImmutableOopMap {[0]=Oop [16]=Oop [24]=NarrowOop [32]=Oop [40]=NarrowOop }
+                      ;*ifeq {reexecute=1 rethrow=0 return_oop=0}
+                      ; - (reexecute) java.lang.ThreadLocal$ThreadLocalMap::getEntry@29 (line 501)
+                      ; - java.lang.ThreadLocal::get@12 (line 187)
+                      ; - java.lang.ThreadLocal::get@4 (line 172)
+                      ; - godot.common.util.ThreadLocalDelegate::getValue@10 (line 7)
+                      ; - godot.internal.memory.TransferContext::getBuffer@9 (line 28)
+                      ; - godot.internal.memory.TransferContext::writeArguments@7 (line 34)
+                      ; - godot.api.Node2D::getGlobalPosition@7 (line 475)
+  0x00000167e7161390: 6c32 85ff 
+
+  0x00000167e7161394: ;   {other}
+  0x00000167e7161394: 0f1f 8400 | 0407 000b | ba45 ffff | ff89 4c24 | 104c 8944 | 2418 4489 
+
+  0x00000167e71613ac: ;   {runtime_call UncommonTrapBlob}
+  0x00000167e71613ac: 5c24 14e8 
+
+  0x00000167e71613b0: ; ImmutableOopMap {rbp=NarrowOop [8]=Oop [16]=NarrowOop [24]=Oop }
+                      ;*ifeq {reexecute=1 rethrow=0 return_oop=0}
+                      ; - (reexecute) java.lang.ThreadLocal$ThreadLocalMap::getEntry@29 (line 501)
+                      ; - java.lang.ThreadLocal::get@12 (line 187)
+                      ; - java.lang.ThreadLocal::get@4 (line 172)
+                      ; - godot.common.util.ThreadLocalDelegate::getValue@10 (line 7)
+                      ; - godot.internal.memory.TransferContext::getBuffer@9 (line 28)
+                      ; - godot.internal.memory.TransferContext::readReturnValue@7 (line 73)
+                      ; - godot.api.Node2D::getGlobalPosition@41 (line 477)
+  0x00000167e71613b0: 4c32 85ff 
+
+  0x00000167e71613b4: ;   {other}
+  0x00000167e71613b4: 0f1f 8400 | 2407 000c | ba45 ffff | ff4c 8954 | 2410 4c89 | 5424 1848 | 894c 2420 
+
+  0x00000167e71613d0: ;   {runtime_call UncommonTrapBlob}
+  0x00000167e71613d0: 6666 90e8 
+
+  0x00000167e71613d4: ; ImmutableOopMap {[0]=Oop [16]=Oop [24]=Oop }
+                      ;*if_icmpne {reexecute=1 rethrow=0 return_oop=0}
+                      ; - (reexecute) jdk.internal.misc.Unsafe::convEndian@4 (line 3818)
+                      ; - jdk.internal.misc.Unsafe::putIntUnaligned@7 (line 3698)
+                      ; - jdk.internal.misc.ScopedMemoryAccess::putIntUnalignedInternal@17 (line 1930)
+                      ; - jdk.internal.misc.ScopedMemoryAccess::putIntUnaligned@8 (line 1918)
+                      ; - java.nio.DirectByteBuffer::putInt@18 (line 773)
+                      ; - java.nio.DirectByteBuffer::putInt@11 (line 785)
+                      ; - godot.internal.memory.TransferContext::writeArguments@21 (line 36)
+                      ; - godot.api.Node2D::getGlobalPosition@7 (line 475)
+  0x00000167e71613d4: 2832 85ff 
+
+  0x00000167e71613d8: ;   {other}
+  0x00000167e71613d8: 0f1f 8400 | 4807 000d | ba45 ffff | ff4c 8904 | 244c 8944 | 2408 894c | 2410 4489 
+
+  0x00000167e71613f4: ;   {runtime_call UncommonTrapBlob}
+  0x00000167e71613f4: 5c24 14e8 
+
+  0x00000167e71613f8: ; ImmutableOopMap {[0]=Oop [8]=Oop }
+                      ;*if_icmpne {reexecute=1 rethrow=0 return_oop=0}
+                      ; - (reexecute) jdk.internal.misc.Unsafe::convEndian@4 (line 3818)
+                      ; - jdk.internal.misc.Unsafe::getIntUnaligned@8 (line 3575)
+                      ; - jdk.internal.misc.ScopedMemoryAccess::getIntUnalignedInternal@15 (line 1909)
+                      ; - jdk.internal.misc.ScopedMemoryAccess::getIntUnaligned@6 (line 1897)
+                      ; - java.nio.DirectByteBuffer::getInt@13 (line 744)
+                      ; - java.nio.DirectByteBuffer::getInt@10 (line 753)
+                      ; - godot.core.VariantKt::getVariantType@1 (line 104)
+                      ; - godot.core.VariantKt::access$getVariantType@1 (line 1)
+                      ; - godot.core.VariantParser::toKotlin@7 (line 477)
+                      ; - godot.internal.memory.TransferContext::readReturnValue@20 (line 75)
+                      ; - godot.api.Node2D::getGlobalPosition@41 (line 477)
+  0x00000167e71613f8: 0432 85ff 
+
+  0x00000167e71613fc: ;   {other}
+  0x00000167e71613fc: 0f1f 8400 | 6c07 000e | ba45 ffff | ff89 4c24 
+
+  0x00000167e716140c: ;   {runtime_call UncommonTrapBlob}
+  0x00000167e716140c: 0466 90e8 
+
+  0x00000167e7161410: ; ImmutableOopMap {}
+                      ;*if_icmpne {reexecute=1 rethrow=0 return_oop=0}
+                      ; - (reexecute) godot.core.VariantParser::toKotlin@16 (line 478)
+                      ; - godot.internal.memory.TransferContext::readReturnValue@20 (line 75)
+                      ; - godot.api.Node2D::getGlobalPosition@41 (line 477)
+  0x00000167e7161410: ec31 85ff 
+
+  0x00000167e7161414: ;   {other}
+  0x00000167e7161414: 0f1f 8400 | 8407 000f | ba45 ffff | ff48 8b2c | 2444 8914 
+
+  0x00000167e7161428: ;   {runtime_call UncommonTrapBlob}
+  0x00000167e7161428: 2466 90e8 
+
+  0x00000167e716142c: ; ImmutableOopMap {rbp=Oop [0]=NarrowOop }
+                      ;*ifnonnull {reexecute=1 rethrow=0 return_oop=0}
+                      ; - (reexecute) kotlin.jvm.internal.Intrinsics::checkNotNullParameter@1 (line 130)
+                      ; - godot.common.util.ThreadLocalDelegate::getValue@3
+                      ; - godot.internal.memory.TransferContext::getBuffer@9 (line 28)
+                      ; - godot.internal.memory.TransferContext::writeArguments@7 (line 34)
+                      ; - godot.api.Node2D::getGlobalPosition@7 (line 475)
+  0x00000167e716142c: d031 85ff 
+
+  0x00000167e7161430: ;   {other}
+  0x00000167e7161430: 0f1f 8400 | a007 0010 | ba45 ffff | ff4c 8954 | 2410 4c89 
+
+  0x00000167e7161444: ;   {runtime_call UncommonTrapBlob}
+  0x00000167e7161444: 5424 18e8 
+
+  0x00000167e7161448: ; ImmutableOopMap {[0]=Oop [16]=Oop [24]=Oop }
+                      ;*if_icmpge {reexecute=1 rethrow=0 return_oop=0}
+                      ; - (reexecute) java.nio.Buffer::nextPutIndex@12 (line 743)
+                      ; - java.nio.DirectByteBuffer::putInt@4 (line 785)
+                      ; - godot.internal.memory.TransferContext::writeArguments@21 (line 36)
+                      ; - godot.api.Node2D::getGlobalPosition@7 (line 475)
+  0x00000167e7161448: b431 85ff 
+
+  0x00000167e716144c: ;   {other}
+  0x00000167e716144c: 0f1f 8400 | bc07 0011 | ba45 ffff 
+
+  0x00000167e7161458: ;   {runtime_call UncommonTrapBlob}
+  0x00000167e7161458: ff66 90e8 
+
+  0x00000167e716145c: ; ImmutableOopMap {rbp=NarrowOop }
+                      ;*ifnonnull {reexecute=1 rethrow=0 return_oop=0}
+                      ; - (reexecute) kotlin.jvm.internal.Intrinsics::checkNotNullParameter@1 (line 130)
+                      ; - godot.common.util.ThreadLocalDelegate::getValue@3
+                      ; - godot.internal.memory.TransferContext::getBuffer@9 (line 28)
+                      ; - godot.internal.memory.TransferContext::readReturnValue@7 (line 73)
+                      ; - godot.api.Node2D::getGlobalPosition@41 (line 477)
+  0x00000167e716145c: a031 85ff 
+
+  0x00000167e7161460: ;   {other}
+  0x00000167e7161460: 0f1f 8400 | d007 0012 | ba45 ffff | ff4c 8904 | 244c 8944 
+
+  0x00000167e7161474: ;   {runtime_call UncommonTrapBlob}
+  0x00000167e7161474: 2408 90e8 
+
+  0x00000167e7161478: ; ImmutableOopMap {[0]=Oop [8]=Oop }
+                      ;*if_icmpge {reexecute=1 rethrow=0 return_oop=0}
+                      ; - (reexecute) java.nio.Buffer::nextGetIndex@12 (line 720)
+                      ; - java.nio.DirectByteBuffer::getInt@4 (line 753)
+                      ; - godot.core.VariantKt::getVariantType@1 (line 104)
+                      ; - godot.core.VariantKt::access$getVariantType@1 (line 1)
+                      ; - godot.core.VariantParser::toKotlin@7 (line 477)
+                      ; - godot.internal.memory.TransferContext::readReturnValue@20 (line 75)
+                      ; - godot.api.Node2D::getGlobalPosition@41 (line 477)
+  0x00000167e7161478: 8431 85ff 
+
+  0x00000167e716147c: ;   {other}
+  0x00000167e716147c: 0f1f 8400 | ec07 0013 | ba45 ffff | ff48 8944 | 2410 4c89 | 4424 184c | 8944 2420 
+
+  0x00000167e7161498: ;   {runtime_call UncommonTrapBlob}
+  0x00000167e7161498: 6666 90e8 
+
+  0x00000167e716149c: ; ImmutableOopMap {[16]=Oop [24]=Oop [32]=Oop }
+                      ;*if_icmpge {reexecute=1 rethrow=0 return_oop=0}
+                      ; - (reexecute) java.nio.Buffer::nextGetIndex@12 (line 720)
+                      ; - java.nio.DirectByteBuffer::getFloat@4 (line 953)
+                      ; - godot.core.VariantKt::getVector2@5 (line 19)
+                      ; - godot.core.VariantKt::access$getVector2@1 (line 1)
+                      ; - godot.core.VariantParser$VECTOR2::toUnsafeKotlin@7 (line 176)
+                      ; - godot.core.VariantParser$VECTOR2::toUnsafeKotlin@2 (line 175)
+                      ; - godot.core.VariantParser::toKotlin@21 (line 479)
+                      ; - godot.internal.memory.TransferContext::readReturnValue@20 (line 75)
+                      ; - godot.api.Node2D::getGlobalPosition@41 (line 477)
+  0x00000167e716149c: 6031 85ff 
+
+  0x00000167e71614a0: ;   {other}
+  0x00000167e71614a0: 0f1f 8400 | 1008 0014 | ba45 ffff | ff48 8904 | 24c5 fb11 | 4424 084c | 8944 2418 | 4c89 4424 
+  0x00000167e71614c0: 2044 895c 
+
+  0x00000167e71614c4: ;   {runtime_call UncommonTrapBlob}
+  0x00000167e71614c4: 2428 90e8 
+
+  0x00000167e71614c8: ; ImmutableOopMap {[0]=Oop [24]=Oop [32]=Oop }
+                      ;*if_icmpge {reexecute=1 rethrow=0 return_oop=0}
+                      ; - (reexecute) java.nio.Buffer::nextGetIndex@12 (line 720)
+                      ; - java.nio.DirectByteBuffer::getFloat@4 (line 953)
+                      ; - godot.core.VariantKt::getVector2@14 (line 19)
+                      ; - godot.core.VariantKt::access$getVector2@1 (line 1)
+                      ; - godot.core.VariantParser$VECTOR2::toUnsafeKotlin@7 (line 176)
+                      ; - godot.core.VariantParser$VECTOR2::toUnsafeKotlin@2 (line 175)
+                      ; - godot.core.VariantParser::toKotlin@21 (line 479)
+                      ; - godot.internal.memory.TransferContext::readReturnValue@20 (line 75)
+                      ; - godot.api.Node2D::getGlobalPosition@41 (line 477)
+  0x00000167e71614c8: 3431 85ff 
+
+  0x00000167e71614cc: ;   {other}
+  0x00000167e71614cc: 0f1f 8400 | 3c08 0015 | 488b d54c | 8b44 2408 | 488b 2c24 
+
+  0x00000167e71614e0: ;   {optimized virtual_call}
+  0x00000167e71614e0: 6666 90e8 
+
+  0x00000167e71614e4: ; ImmutableOopMap {rbp=Oop [0]=Oop [8]=Oop }
+                      ;*invokevirtual setInitialValue {reexecute=0 rethrow=0 return_oop=1}
+                      ; - java.lang.ThreadLocal::get@31 (line 194)
+                      ; - java.lang.ThreadLocal::get@4 (line 172)
+                      ; - godot.common.util.ThreadLocalDelegate::getValue@10 (line 7)
+                      ; - godot.internal.memory.TransferContext::getBuffer@9 (line 28)
+                      ; - godot.internal.memory.TransferContext::writeArguments@7 (line 34)
+                      ; - godot.api.Node2D::getGlobalPosition@7 (line 475)
+  0x00000167e71614e4: 98d5 84ff 
+
+  0x00000167e71614e8: ;   {other}
+  0x00000167e71614e8: 0f1f 8400 | 5808 0016 | 4c8b 4c24 | 084c 8bd0 | e9bb faff | ffba deff | ffff 488b | 2c24 4c89 
+  0x00000167e7161508: ;   {runtime_call UncommonTrapBlob}
+  0x00000167e7161508: 1424 90e8 
+
+  0x00000167e716150c: ; ImmutableOopMap {rbp=Oop [0]=Oop }
+                      ;*checkcast {reexecute=0 rethrow=0 return_oop=0}
+                      ; - godot.internal.memory.TransferContext::getBuffer@12 (line 28)
+                      ; - godot.internal.memory.TransferContext::writeArguments@7 (line 34)
+                      ; - godot.api.Node2D::getGlobalPosition@7 (line 475)
+  0x00000167e716150c: f030 85ff 
+
+  0x00000167e7161510: ;   {other}
+  0x00000167e7161510: 0f1f 8400 | 8008 0017 | bade ffff | ff49 8be8 
+
+  0x00000167e7161520: ;   {runtime_call UncommonTrapBlob}
+  0x00000167e7161520: 6666 90e8 
+
+  0x00000167e7161524: ; ImmutableOopMap {rbp=Oop }
+                      ;*checkcast {reexecute=0 rethrow=0 return_oop=0}
+                      ; - godot.internal.memory.TransferContext::getBuffer@12 (line 28)
+                      ; - godot.internal.memory.TransferContext::readReturnValue@7 (line 73)
+                      ; - godot.api.Node2D::getGlobalPosition@41 (line 477)
+  0x00000167e7161524: d830 85ff 
+
+  0x00000167e7161528: ;   {other}
+  0x00000167e7161528: 0f1f 8400 | 9808 0018 | baf6 ffff 
+
+  0x00000167e7161534: ;   {runtime_call UncommonTrapBlob}
+  0x00000167e7161534: ff66 90e8 
+
+  0x00000167e7161538: ; ImmutableOopMap {}
+                      ;*invokevirtual get {reexecute=0 rethrow=0 return_oop=0}
+                      ; - godot.common.util.ThreadLocalDelegate::getValue@10 (line 7)
+                      ; - godot.internal.memory.TransferContext::getBuffer@9 (line 28)
+                      ; - godot.internal.memory.TransferContext::writeArguments@7 (line 34)
+                      ; - godot.api.Node2D::getGlobalPosition@7 (line 475)
+  0x00000167e7161538: c430 85ff 
+
+  0x00000167e716153c: ;   {other}
+  0x00000167e716153c: 0f1f 8400 | ac08 0019 | baf6 ffff 
+
+  0x00000167e7161548: ;   {runtime_call UncommonTrapBlob}
+  0x00000167e7161548: ff66 90e8 
+
+  0x00000167e716154c: ; ImmutableOopMap {}
+                      ;*arraylength {reexecute=0 rethrow=0 return_oop=0}
+                      ; - java.lang.ThreadLocal$ThreadLocalMap::getEntry@8 (line 499)
+                      ; - java.lang.ThreadLocal::get@12 (line 187)
+                      ; - java.lang.ThreadLocal::get@4 (line 172)
+                      ; - godot.common.util.ThreadLocalDelegate::getValue@10 (line 7)
+                      ; - godot.internal.memory.TransferContext::getBuffer@9 (line 28)
+                      ; - godot.internal.memory.TransferContext::writeArguments@7 (line 34)
+                      ; - godot.api.Node2D::getGlobalPosition@7 (line 475)
+  0x00000167e716154c: b030 85ff 
+
+  0x00000167e7161550: ;   {other}
+  0x00000167e7161550: 0f1f 8400 | c008 001a | baf4 ffff | ff48 8b2c 
+
+  0x00000167e7161560: ;   {runtime_call UncommonTrapBlob}
+  0x00000167e7161560: 2466 90e8 
+
+  0x00000167e7161564: ; ImmutableOopMap {rbp=Oop }
+                      ;*checkcast {reexecute=0 rethrow=0 return_oop=0}
+                      ; - godot.internal.memory.TransferContext::getBuffer@12 (line 28)
+                      ; - godot.internal.memory.TransferContext::writeArguments@7 (line 34)
+                      ; - godot.api.Node2D::getGlobalPosition@7 (line 475)
+  0x00000167e7161564: 9830 85ff 
+
+  0x00000167e7161568: ;   {other}
+  0x00000167e7161568: 0f1f 8400 | d808 001b | baf6 ffff 
+
+  0x00000167e7161574: ;   {runtime_call UncommonTrapBlob}
+  0x00000167e7161574: ff66 90e8 
+
+  0x00000167e7161578: ; ImmutableOopMap {}
+                      ;*invokevirtual get {reexecute=0 rethrow=0 return_oop=0}
+                      ; - godot.common.util.ThreadLocalDelegate::getValue@10 (line 7)
+                      ; - godot.internal.memory.TransferContext::getBuffer@9 (line 28)
+                      ; - godot.internal.memory.TransferContext::readReturnValue@7 (line 73)
+                      ; - godot.api.Node2D::getGlobalPosition@41 (line 477)
+  0x00000167e7161578: 8430 85ff 
+
+  0x00000167e716157c: ;   {other}
+  0x00000167e716157c: 0f1f 8400 | ec08 001c | baf6 ffff 
+
+  0x00000167e7161588: ;   {runtime_call UncommonTrapBlob}
+  0x00000167e7161588: ff66 90e8 
+
+  0x00000167e716158c: ; ImmutableOopMap {}
+                      ;*arraylength {reexecute=0 rethrow=0 return_oop=0}
+                      ; - java.lang.ThreadLocal$ThreadLocalMap::getEntry@8 (line 499)
+                      ; - java.lang.ThreadLocal::get@12 (line 187)
+                      ; - java.lang.ThreadLocal::get@4 (line 172)
+                      ; - godot.common.util.ThreadLocalDelegate::getValue@10 (line 7)
+                      ; - godot.internal.memory.TransferContext::getBuffer@9 (line 28)
+                      ; - godot.internal.memory.TransferContext::readReturnValue@7 (line 73)
+                      ; - godot.api.Node2D::getGlobalPosition@41 (line 477)
+  0x00000167e716158c: 7030 85ff 
+
+  0x00000167e7161590: ;   {other}
+  0x00000167e7161590: 0f1f 8400 | 0009 001d | baf4 ffff 
+
+  0x00000167e716159c: ;   {runtime_call UncommonTrapBlob}
+  0x00000167e716159c: ff66 90e8 
+
+  0x00000167e71615a0: ; ImmutableOopMap {}
+                      ;*checkcast {reexecute=0 rethrow=0 return_oop=0}
+                      ; - godot.internal.memory.TransferContext::getBuffer@12 (line 28)
+                      ; - godot.internal.memory.TransferContext::readReturnValue@7 (line 73)
+                      ; - godot.api.Node2D::getGlobalPosition@41 (line 477)
+  0x00000167e71615a0: 5c30 85ff 
+
+  0x00000167e71615a4: ;   {other}
+  0x00000167e71615a4: 0f1f 8400 | 1409 001e | ba45 ffff | ff48 8b2c | 2448 891c | 244c 894c | 2408 894c 
+
+  0x00000167e71615c0: ;   {runtime_call UncommonTrapBlob}
+  0x00000167e71615c0: 2414 90e8 
+
+  0x00000167e71615c4: ; ImmutableOopMap {rbp=Oop [0]=Oop [8]=Oop [20]=NarrowOop }
+                      ;*ifnull {reexecute=1 rethrow=0 return_oop=0}
+                      ; - (reexecute) java.lang.ThreadLocal::get@7 (line 186)
+                      ; - java.lang.ThreadLocal::get@4 (line 172)
+                      ; - godot.common.util.ThreadLocalDelegate::getValue@10 (line 7)
+                      ; - godot.internal.memory.TransferContext::getBuffer@9 (line 28)
+                      ; - godot.internal.memory.TransferContext::writeArguments@7 (line 34)
+                      ; - godot.api.Node2D::getGlobalPosition@7 (line 475)
+  0x00000167e71615c4: 3830 85ff 
+
+  0x00000167e71615c8: ;   {other}
+  0x00000167e71615c8: 0f1f 8400 | 3809 001f | ba45 ffff | ff49 8be8 | 4c89 1424 | 894c 240c 
+
+  0x00000167e71615e0: ;   {runtime_call UncommonTrapBlob}
+  0x00000167e71615e0: 6666 90e8 
+
+  0x00000167e71615e4: ; ImmutableOopMap {rbp=Oop [0]=Oop [12]=NarrowOop }
+                      ;*ifnull {reexecute=1 rethrow=0 return_oop=0}
+                      ; - (reexecute) java.lang.ThreadLocal::get@7 (line 186)
+                      ; - java.lang.ThreadLocal::get@4 (line 172)
+                      ; - godot.common.util.ThreadLocalDelegate::getValue@10 (line 7)
+                      ; - godot.internal.memory.TransferContext::getBuffer@9 (line 28)
+                      ; - godot.internal.memory.TransferContext::readReturnValue@7 (line 73)
+                      ; - godot.api.Node2D::getGlobalPosition@41 (line 477)
+  0x00000167e71615e4: 1830 85ff 
+
+  0x00000167e71615e8: ;   {other}
+  0x00000167e71615e8: 0f1f 8400 | 5809 0020 | eb07 eb0a | 488b d0eb | 0d48 8bd0 | eb08 488b | d0eb 0348 | 8bd0 4883 
+  0x00000167e7161608: ;   {runtime_call _rethrow_Java}
+  0x00000167e7161608: c440 5de9 | 70fc 9aff 
+
+  0x00000167e7161610: ;   {internal_word}
+  0x00000167e7161610: 49ba fb11 | 16e7 6701 | 0000 4d89 | 9768 0400 
+
+  0x00000167e7161620: ;   {runtime_call SafepointBlob}
+  0x00000167e7161620: 00e9 da40 
+
+  0x00000167e7161624: ;   {runtime_call StubRoutines (final stubs)}
+  0x00000167e7161624: 85ff e835 | 3783 ffe9 | eaf8 ffff 
+[Stub Code]
+  0x00000167e7161630: ;   {no_reloc}
+  0x00000167e7161630: 48bb 0000 | 0000 0000 
+
+  0x00000167e7161638: ;   {runtime_call}
+  0x00000167e7161638: 0000 e9fb 
+
+  0x00000167e716163c: ;   {static_stub}
+  0x00000167e716163c: ffff ff48 | bb00 0000 | 0000 0000 
+
+  0x00000167e7161648: ;   {runtime_call}
+  0x00000167e7161648: 00e9 fbff 
+
+  0x00000167e716164c: ;   {static_stub}
+  0x00000167e716164c: ffff 48bb | 0000 0000 | 0000 0000 
+
+  0x00000167e7161658: ;   {runtime_call}
+  0x00000167e7161658: e9fb ffff 
+
+  0x00000167e716165c: ;   {runtime_call ExceptionBlob}
+  0x00000167e716165c: ffe9 1eb1 | 91ff e800 | 0000 0048 | 832c 2405 
+
+  0x00000167e716166c: ;   {runtime_call DeoptimizationBlob}
+  0x00000167e716166c: e92f 3385 | fff4 f4f4 | f4f4 f4f4 
+[/MachCode]
+
+
+Compiled method (c1)   20147 1784       3       game.items.weapons.Weapon::getClosestTarget (115 bytes)
+ total in heap  [0x00000167df870f10,0x00000167df871e48] = 3896
+ relocation     [0x00000167df871070,0x00000167df871178] = 264
+ main code      [0x00000167df871180,0x00000167df871a88] = 2312
+ stub code      [0x00000167df871a88,0x00000167df871b20] = 152
+ oops           [0x00000167df871b20,0x00000167df871b30] = 16
+ metadata       [0x00000167df871b30,0x00000167df871b40] = 16
+ scopes data    [0x00000167df871b40,0x00000167df871c68] = 296
+ scopes pcs     [0x00000167df871c68,0x00000167df871df8] = 400
+ dependencies   [0x00000167df871df8,0x00000167df871e00] = 8
+ nul chk table  [0x00000167df871e00,0x00000167df871e48] = 72
+
+[Constant Pool (empty)]
+
+[MachCode]
+[Entry Point]
+  # {method} {0x00000168397129d8} 'getClosestTarget' '()Lgodot/api/Node2D;' in 'game/items/weapons/Weapon'
+  #           [sp+0x80]  (sp of caller)
+  0x00000167df871180: 448b 5208 | 49bb 0000 | 00f7 6701 | 0000 4d03 | d34c 3bd0 
+
+  0x00000167df871194: ;   {runtime_call ic_miss_stub}
+  0x00000167df871194: 0f85 e6d5 | 1307 660f | 1f44 0000 
+[Verified Entry Point]
+  0x00000167df8711a0: 8984 2400 | 80ff ff55 | 4883 ec70 | 4181 7f20 | 0300 0000 
+
+  0x00000167df8711b4: ;   {runtime_call StubRoutines (final stubs)}
+  0x00000167df8711b4: 7405 e8a5 | 3b12 0748 | 8954 2428 
+
+  0x00000167df8711c0: ;   {metadata(method data for {method} {0x00000168397129d8} 'getClosestTarget' '()Lgodot/api/Node2D;' in 'game/items/weapons/Weapon')}
+  0x00000167df8711c0: 48be 208a | 9439 6801 | 0000 8bbe | cc00 0000 | 83c7 0289 | becc 0000 | 0081 e7fe | 0700 0085 
+  0x00000167df8711e0: ff0f 84cd | 0700 008b | 7240 48c1 | e603 4885 
+
+  0x00000167df8711f0: ;   {metadata(method data for {method} {0x00000168397129d8} 'getClosestTarget' '()Lgodot/api/Node2D;' in 'game/items/weapons/Weapon')}
+  0x00000167df8711f0: f648 bf20 | 8a94 3968 | 0100 0048 | bb10 0100 | 0000 0000 | 0074 0a48 | bb20 0100 | 0000 0000 
+  0x00000167df871210: 0048 8b04 | 1f48 8d40 | 0148 8904 | 1f0f 8474 | 0700 0048 | 3b06 488b 
+
+  0x00000167df871228: ;   {metadata(method data for {method} {0x00000168397129d8} 'getClosestTarget' '()Lgodot/api/Node2D;' in 'game/items/weapons/Weapon')}
+  0x00000167df871228: fe48 bb20 | 8a94 3968 | 0100 008b | 7f08 49ba | 0000 00f7 | 6701 0000 | 4903 fa48 | 3bbb 4001 
+  0x00000167df871248: 0000 750d | 4883 8348 | 0100 0001 | e960 0000 | 0048 3bbb | 5001 0000 | 750d 4883 | 8358 0100 
+  0x00000167df871268: 0001 e94a | 0000 0048 | 83bb 4001 | 0000 0075 | 1748 89bb | 4001 0000 | 48c7 8348 | 0100 0001 
+  0x00000167df871288: 0000 00e9 | 2900 0000 | 4883 bb50 | 0100 0000 | 7517 4889 | bb50 0100 | 0048 c783 | 5801 0000 
+  0x00000167df8712a8: 0100 0000 | e908 0000 | 0048 8383 | 3001 0000 | 0148 8bd6 | 9048 b8d8 | a80b f767 
+
+  0x00000167df8712c4: ;   {virtual_call}
+  0x00000167df8712c4: 0100 00e8 
+
+  0x00000167df8712c8: ; ImmutableOopMap {[40]=Oop }
+                      ;*invokeinterface isEmpty {reexecute=0 rethrow=0 return_oop=0}
+                      ; - game.items.weapons.Weapon::getClosestTarget@11 (line 122)
+  0x00000167df8712c8: d4c1 8d07 
+
+  0x00000167df8712cc: ;   {other}
+  0x00000167df8712cc: 0f1f 8400 | bc03 0000 
+
+  0x00000167df8712d4: ;   {metadata(method data for {method} {0x00000168397129d8} 'getClosestTarget' '()Lgodot/api/Node2D;' in 'game/items/weapons/Weapon')}
+  0x00000167df8712d4: 85c0 49b8 | 208a 9439 | 6801 0000 | 48ba 7801 | 0000 0000 | 0000 750a | 48ba 6801 | 0000 0000 
+  0x00000167df8712f4: 0000 498b | 3410 488d | 7601 4989 | 3410 0f85 | 8f06 0000 | 488b 5424 | 288b 7240 | 48c1 e603 
+  0x00000167df871314: ; implicit exception: dispatches to 0x00000167df8719da
+  0x00000167df871314: 483b 064c 
+
+  0x00000167df871318: ;   {metadata(method data for {method} {0x00000168397129d8} 'getClosestTarget' '()Lgodot/api/Node2D;' in 'game/items/weapons/Weapon')}
+  0x00000167df871318: 8bc6 48bf | 208a 9439 | 6801 0000 | 458b 4008 | 49ba 0000 | 00f7 6701 | 0000 4d03 | c24c 3b87 
+  0x00000167df871338: 9801 0000 | 750d 4883 | 87a0 0100 | 0001 e960 | 0000 004c | 3b87 a801 | 0000 750d | 4883 87b0 
+  0x00000167df871358: 0100 0001 | e94a 0000 | 0048 83bf | 9801 0000 | 0075 174c | 8987 9801 | 0000 48c7 | 87a0 0100 
+  0x00000167df871378: 0001 0000 | 00e9 2900 | 0000 4883 | bfa8 0100 | 0000 7517 | 4c89 87a8 | 0100 0048 | c787 b001 
+  0x00000167df871398: 0000 0100 | 0000 e908 | 0000 0048 | 8387 8801 | 0000 0141 | b800 0000 | 0048 8bd6 | 9048 b8d8 
+  0x00000167df8713b8: a80b f767 
+
+  0x00000167df8713bc: ;   {virtual_call}
+  0x00000167df8713bc: 0100 00e8 
+
+  0x00000167df8713c0: ; ImmutableOopMap {[40]=Oop }
+                      ;*invokeinterface get {reexecute=0 rethrow=0 return_oop=0}
+                      ; - game.items.weapons.Weapon::getClosestTarget@26 (line 123)
+  0x00000167df8713c0: fc5f e5ff 
+
+  0x00000167df8713c4: ;   {other}
+  0x00000167df8713c4: 0f1f 8400 | b404 0001 | 4885 c075 
+
+  0x00000167df8713d0: ;   {metadata(method data for {method} {0x00000168397129d8} 'getClosestTarget' '()Lgodot/api/Node2D;' in 'game/items/weapons/Weapon')}
+  0x00000167df8713d0: 1648 bf20 | 8a94 3968 | 0100 0080 | 8fb9 0100 | 0001 e9cd 
+
+  0x00000167df8713e4: ;   {metadata('godot/api/Node2D')}
+  0x00000167df8713e4: 0000 0048 | bbf0 3403 | f867 0100 | 008b 7808 | 49ba 0000 | 00f7 6701 | 0000 4903 | fa48 3b5f 
+  0x00000167df871404: 580f 858d 
+
+  0x00000167df871408: ;   {metadata(method data for {method} {0x00000168397129d8} 'getClosestTarget' '()Lgodot/api/Node2D;' in 'game/items/weapons/Weapon')}
+  0x00000167df871408: 0000 0048 | bf20 8a94 | 3968 0100 | 008b 5808 | 49ba 0000 | 00f7 6701 | 0000 4903 | da48 3b9f 
+  0x00000167df871428: d001 0000 | 750d 4883 | 87d8 0100 | 0001 e979 | 0000 0048 | 3b9f e001 | 0000 750d | 4883 87e8 
+  0x00000167df871448: 0100 0001 | e963 0000 | 0048 83bf | d001 0000 | 0075 1748 | 899f d001 | 0000 48c7 | 87d8 0100 
+  0x00000167df871468: 0001 0000 | 00e9 4200 | 0000 4883 | bfe0 0100 | 0000 7517 | 4889 9fe0 | 0100 0048 | c787 e801 
+  0x00000167df871488: 0000 0100 | 0000 e921 | 0000 00e9 | 1c00 0000 
+
+  0x00000167df871498: ;   {metadata(method data for {method} {0x00000168397129d8} 'getClosestTarget' '()Lgodot/api/Node2D;' in 'game/items/weapons/Weapon')}
+  0x00000167df871498: 48bf 208a | 9439 6801 | 0000 4883 | afc0 0100 | 0001 e930 | 0500 00e9 | 0000 0000 | 488b f048 
+  0x00000167df8714b8: 8974 2430 | 488b 5424 
+
+  0x00000167df8714c0: ;   {metadata(method data for {method} {0x00000168397129d8} 'getClosestTarget' '()Lgodot/api/Node2D;' in 'game/items/weapons/Weapon')}
+  0x00000167df8714c0: 2848 bf20 | 8a94 3968 | 0100 0048 | 8387 f801 | 0000 0148 | 8b54 2428 | 0f1f 8000 
+
+  0x00000167df8714dc: ;   {optimized virtual_call}
+  0x00000167df8714dc: 0000 00e8 
+
+  0x00000167df8714e0: ; ImmutableOopMap {[40]=Oop [48]=Oop }
+                      ;*invokevirtual getGlobalPosition {reexecute=0 rethrow=0 return_oop=0}
+                      ; - game.items.weapons.Weapon::getClosestTarget@36 (line 124)
+  0x00000167df8714e0: 1cfa 8e07 
+
+  0x00000167df8714e4: ;   {other}
+  0x00000167df8714e4: 0f1f 8400 | d405 0002 | 488b 7424 | 3048 3b06 
+
+  0x00000167df8714f4: ;   {metadata(method data for {method} {0x00000168397129d8} 'getClosestTarget' '()Lgodot/api/Node2D;' in 'game/items/weapons/Weapon')}
+  0x00000167df8714f4: 488b d648 | bf20 8a94 | 3968 0100 | 0048 8387 | 3002 0000 | 0148 8bd6 | 4889 4424 | 3866 0f1f 
+  0x00000167df871514: ;   {optimized virtual_call}
+  0x00000167df871514: 4400 00e8 
+
+  0x00000167df871518: ; ImmutableOopMap {[40]=Oop [48]=Oop [56]=Oop }
+                      ;*invokevirtual getGlobalPosition {reexecute=0 rethrow=0 return_oop=0}
+                      ; - game.items.weapons.Weapon::getClosestTarget@40 (line 124)
+  0x00000167df871518: e4f9 8e07 
+
+  0x00000167df87151c: ;   {other}
+  0x00000167df87151c: 0f1f 8400 | 0c06 0003 | 488b 5424 | 3848 3b02 
+
+  0x00000167df87152c: ;   {metadata(method data for {method} {0x00000168397129d8} 'getClosestTarget' '()Lgodot/api/Node2D;' in 'game/items/weapons/Weapon')}
+  0x00000167df87152c: 4c8b c248 | be20 8a94 | 3968 0100 | 0048 8386 | 6802 0000 | 014c 8bc0 
+
+  0x00000167df871544: ;   {optimized virtual_call}
+  0x00000167df871544: 6666 90e8 
+
+  0x00000167df871548: ; ImmutableOopMap {[40]=Oop [48]=Oop }
+                      ;*invokevirtual distanceTo {reexecute=0 rethrow=0 return_oop=0}
+                      ; - game.items.weapons.Weapon::getClosestTarget@43 (line 124)
+  0x00000167df871548: 748a 9107 
+
+  0x00000167df87154c: ;   {other}
+  0x00000167df87154c: 0f1f 8400 | 3c06 0004 | 488b 7424 | 30bf 0100 | 0000 897c | 2440 c5fb | 1144 2460 | e913 0300 
+  0x00000167df87156c: 0066 6690 | 488b 5424 | 288b 7240 | 48c1 e603 
+
+  0x00000167df87157c: ; implicit exception: dispatches to 0x00000167df8719f2
+  0x00000167df87157c: 483b 064c 
+
+  0x00000167df871580: ;   {metadata(method data for {method} {0x00000168397129d8} 'getClosestTarget' '()Lgodot/api/Node2D;' in 'game/items/weapons/Weapon')}
+  0x00000167df871580: 8bc6 48bb | 208a 9439 | 6801 0000 | 458b 4008 | 49ba 0000 | 00f7 6701 | 0000 4d03 | c24c 3b83 
+  0x00000167df8715a0: 0803 0000 | 750d 4883 | 8310 0300 | 0001 e960 | 0000 004c | 3b83 1803 | 0000 750d | 4883 8320 
+  0x00000167df8715c0: 0300 0001 | e94a 0000 | 0048 83bb | 0803 0000 | 0075 174c | 8983 0803 | 0000 48c7 | 8310 0300 
+  0x00000167df8715e0: 0001 0000 | 00e9 2900 | 0000 4883 | bb18 0300 | 0000 7517 | 4c89 8318 | 0300 0048 | c783 2003 
+  0x00000167df871600: 0000 0100 | 0000 e908 | 0000 0048 | 8383 f802 | 0000 014c | 8bc7 488b | d689 7c24 | 4048 b8d8 
+  0x00000167df871620: a80b f767 
+
+  0x00000167df871624: ;   {virtual_call}
+  0x00000167df871624: 0100 00e8 
+
+  0x00000167df871628: ; ImmutableOopMap {[40]=Oop [72]=Oop }
+                      ;*invokeinterface get {reexecute=0 rethrow=0 return_oop=0}
+                      ; - game.items.weapons.Weapon::getClosestTarget@70 (line 127)
+  0x00000167df871628: 945d e5ff 
+
+  0x00000167df87162c: ;   {other}
+  0x00000167df87162c: 0f1f 8400 | 1c07 0005 | 4885 c075 
+
+  0x00000167df871638: ;   {metadata(method data for {method} {0x00000168397129d8} 'getClosestTarget' '()Lgodot/api/Node2D;' in 'game/items/weapons/Weapon')}
+  0x00000167df871638: 1648 bf20 | 8a94 3968 | 0100 0080 | 8f29 0300 | 0001 e9cd 
+
+  0x00000167df87164c: ;   {metadata('godot/api/Node2D')}
+  0x00000167df87164c: 0000 0048 | bbf0 3403 | f867 0100 | 008b 7808 | 49ba 0000 | 00f7 6701 | 0000 4903 | fa48 3b5f 
+  0x00000167df87166c: 580f 858d 
+
+  0x00000167df871670: ;   {metadata(method data for {method} {0x00000168397129d8} 'getClosestTarget' '()Lgodot/api/Node2D;' in 'game/items/weapons/Weapon')}
+  0x00000167df871670: 0000 0048 | bf20 8a94 | 3968 0100 | 008b 5808 | 49ba 0000 | 00f7 6701 | 0000 4903 | da48 3b9f 
+  0x00000167df871690: 4003 0000 | 750d 4883 | 8748 0300 | 0001 e979 | 0000 0048 | 3b9f 5003 | 0000 750d | 4883 8758 
+  0x00000167df8716b0: 0300 0001 | e963 0000 | 0048 83bf | 4003 0000 | 0075 1748 | 899f 4003 | 0000 48c7 | 8748 0300 
+  0x00000167df8716d0: 0001 0000 | 00e9 4200 | 0000 4883 | bf50 0300 | 0000 7517 | 4889 9f50 | 0300 0048 | c787 5803 
+  0x00000167df8716f0: 0000 0100 | 0000 e921 | 0000 00e9 | 1c00 0000 
+
+  0x00000167df871700: ;   {metadata(method data for {method} {0x00000168397129d8} 'getClosestTarget' '()Lgodot/api/Node2D;' in 'game/items/weapons/Weapon')}
+  0x00000167df871700: 48bf 208a | 9439 6801 | 0000 4883 | af30 0300 | 0001 e9e0 | 0200 00e9 | 0000 0000 | 488b f048 
+  0x00000167df871720: 8974 2450 | 488b 5424 
+
+  0x00000167df871728: ;   {metadata(method data for {method} {0x00000168397129d8} 'getClosestTarget' '()Lgodot/api/Node2D;' in 'game/items/weapons/Weapon')}
+  0x00000167df871728: 2848 bf20 | 8a94 3968 | 0100 0048 | 8387 6803 | 0000 0148 | 8b54 2428 | 0f1f 8000 
+
+  0x00000167df871744: ;   {optimized virtual_call}
+  0x00000167df871744: 0000 00e8 
+
+  0x00000167df871748: ; ImmutableOopMap {[40]=Oop [72]=Oop [80]=Oop }
+                      ;*invokevirtual getGlobalPosition {reexecute=0 rethrow=0 return_oop=0}
+                      ; - game.items.weapons.Weapon::getClosestTarget@81 (line 128)
+  0x00000167df871748: b4f7 8e07 
+
+  0x00000167df87174c: ;   {other}
+  0x00000167df87174c: 0f1f 8400 | 3c08 0006 | 488b 7424 | 5048 3b06 
+
+  0x00000167df87175c: ;   {metadata(method data for {method} {0x00000168397129d8} 'getClosestTarget' '()Lgodot/api/Node2D;' in 'game/items/weapons/Weapon')}
+  0x00000167df87175c: 488b d648 | bf20 8a94 | 3968 0100 | 0048 8387 | a003 0000 | 0148 8bd6 | 4889 4424 | 5866 0f1f 
+  0x00000167df87177c: ;   {optimized virtual_call}
+  0x00000167df87177c: 4400 00e8 
+
+  0x00000167df871780: ; ImmutableOopMap {[40]=Oop [72]=Oop [80]=Oop [88]=Oop }
+                      ;*invokevirtual getGlobalPosition {reexecute=0 rethrow=0 return_oop=0}
+                      ; - game.items.weapons.Weapon::getClosestTarget@86 (line 128)
+  0x00000167df871780: 7cf7 8e07 
+
+  0x00000167df871784: ;   {other}
+  0x00000167df871784: 0f1f 8400 | 7408 0007 | 488b 5424 | 5848 3b02 
+
+  0x00000167df871794: ;   {metadata(method data for {method} {0x00000168397129d8} 'getClosestTarget' '()Lgodot/api/Node2D;' in 'game/items/weapons/Weapon')}
+  0x00000167df871794: 4c8b c248 | be20 8a94 | 3968 0100 | 0048 8386 | d803 0000 | 014c 8bc0 
+
+  0x00000167df8717ac: ;   {optimized virtual_call}
+  0x00000167df8717ac: 6666 90e8 
+
+  0x00000167df8717b0: ; ImmutableOopMap {[40]=Oop [72]=Oop [80]=Oop }
+                      ;*invokevirtual distanceTo {reexecute=0 rethrow=0 return_oop=0}
+                      ; - game.items.weapons.Weapon::getClosestTarget@89 (line 128)
+  0x00000167df8717b0: 0c88 9107 
+
+  0x00000167df8717b4: ;   {other}
+  0x00000167df8717b4: 0f1f 8400 | a408 0008 | c5fb 104c | 2460 c5f9 | 2ec1 b801 | 0000 000f | 8a13 0000 | 000f 870d 
+  0x00000167df8717d4: 0000 00b8 | 0000 0000 | 0f84 0200 | 0000 ffc8 
+
+  0x00000167df8717e4: ;   {metadata(method data for {method} {0x00000168397129d8} 'getClosestTarget' '()Lgodot/api/Node2D;' in 'game/items/weapons/Weapon')}
+  0x00000167df8717e4: 85c0 48b8 | 208a 9439 | 6801 0000 | 48be 2004 | 0000 0000 | 0000 7c0a | 48be 1004 | 0000 0000 
+  0x00000167df871804: 0000 488b | 3c30 488d | 7f01 4889 | 3c30 0f8c | 0e00 0000 | c5f9 28c1 | 488b 7424 | 48e9 0500 
+  0x00000167df871824: 0000 488b | 7424 508b | 7c24 40ff 
+
+  0x00000167df871830: ;   {metadata(method data for {method} {0x00000168397129d8} 'getClosestTarget' '()Lgodot/api/Node2D;' in 'game/items/weapons/Weapon')}
+  0x00000167df871830: c748 b820 | 8a94 3968 | 0100 008b | 98d0 0000 | 0083 c302 | 8998 d000 | 0000 81e3 | fe3f 0000 
+  0x00000167df871850: 85db 0f84 | b201 0000 | 4d8b 9758 
+
+  0x00000167df87185c: ; ImmutableOopMap {rsi=Oop [40]=Oop }
+                      ;*goto {reexecute=1 rethrow=0 return_oop=0}
+                      ; - (reexecute) game.items.weapons.Weapon::getClosestTarget@110 (line 126)
+                      ;   {poll}
+  0x00000167df87185c: 0400 0041 
+
+  0x00000167df871860: ;   {metadata(method data for {method} {0x00000168397129d8} 'getClosestTarget' '()Lgodot/api/Node2D;' in 'game/items/weapons/Weapon')}
+  0x00000167df871860: 8502 48b8 | 208a 9439 | 6801 0000 | ff80 3004 | 0000 c5f9 | 28c8 897c | 2440 c5fb | 114c 2460 
+  0x00000167df871880: 4889 7424 | 4848 8b54 | 2428 8b5a | 4048 c1e3 | 0348 3b03 
+
+  0x00000167df871894: ;   {metadata(method data for {method} {0x00000168397129d8} 'getClosestTarget' '()Lgodot/api/Node2D;' in 'game/items/weapons/Weapon')}
+  0x00000167df871894: 488b c348 | b920 8a94 | 3968 0100 | 008b 4008 | 49ba 0000 | 00f7 6701 | 0000 4903 | c248 3b81 
+  0x00000167df8718b4: b002 0000 | 750d 4883 | 81b8 0200 | 0001 e960 | 0000 0048 | 3b81 c002 | 0000 750d | 4883 81c8 
+  0x00000167df8718d4: 0200 0001 | e94a 0000 | 0048 83b9 | b002 0000 | 0075 1748 | 8981 b002 | 0000 48c7 | 81b8 0200 
+  0x00000167df8718f4: 0001 0000 | 00e9 2900 | 0000 4883 | b9c0 0200 | 0000 7517 | 4889 81c0 | 0200 0048 | c781 c802 
+  0x00000167df871914: 0000 0100 | 0000 e908 | 0000 0048 | 8381 a002 | 0000 0148 | 8bd3 6666 | 9048 b8d8 | a80b f767 
+  0x00000167df871934: ;   {virtual_call}
+  0x00000167df871934: 0100 00e8 
+
+  0x00000167df871938: ; ImmutableOopMap {[40]=Oop [72]=Oop }
+                      ;*invokeinterface size {reexecute=0 rethrow=0 return_oop=0}
+                      ; - game.items.weapons.Weapon::getClosestTarget@56 (line 126)
+  0x00000167df871938: 64ee 8407 
+
+  0x00000167df87193c: ;   {other}
+  0x00000167df87193c: 0f1f 8400 | 2c0a 000a | 8b7c 2440 
+
+  0x00000167df871948: ;   {metadata(method data for {method} {0x00000168397129d8} 'getClosestTarget' '()Lgodot/api/Node2D;' in 'game/items/weapons/Weapon')}
+  0x00000167df871948: 3bf8 49b8 | 208a 9439 | 6801 0000 | 48ba e802 | 0000 0000 | 0000 7c0a | 48ba d802 | 0000 0000 
+  0x00000167df871968: 0000 498b | 3410 488d | 7601 4989 | 3410 0f8c | f4fb ffff | 488b 7424 | 4848 8bc6 | 4883 c470 
+  0x00000167df871988: ;   {poll_return}
+  0x00000167df871988: 5d49 3ba7 | 5004 0000 | 0f87 9a00 
+
+  0x00000167df871994: ;   {oop(nullptr)}
+  0x00000167df871994: 0000 c348 | b800 0000 | 0000 0000 | 0048 83c4 
+
+  0x00000167df8719a4: ;   {poll_return}
+  0x00000167df8719a4: 705d 493b | a750 0400 | 000f 8793 | 0000 00c3 
+
+  0x00000167df8719b4: ;   {metadata({method} {0x00000168397129d8} 'getClosestTarget' '()Lgodot/api/Node2D;' in 'game/items/weapons/Weapon')}
+  0x00000167df8719b4: 49ba d029 | 7139 6801 | 0000 4c89 | 5424 0848 | c704 24ff 
+
+  0x00000167df8719c8: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x00000167df8719c8: ffff ffe8 
+
+  0x00000167df8719cc: ; ImmutableOopMap {rdx=Oop [40]=Oop }
+                      ;*synchronization entry
+                      ; - game.items.weapons.Weapon::getClosestTarget@-1 (line 122)
+  0x00000167df8719cc: b084 2007 | e912 f8ff 
+
+  0x00000167df8719d4: ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x00000167df8719d4: ffe8 a62e 
+
+  0x00000167df8719d8: ; ImmutableOopMap {rsi=Oop [40]=Oop }
+                      ;*invokeinterface isEmpty {reexecute=0 rethrow=0 return_oop=0}
+                      ; - game.items.weapons.Weapon::getClosestTarget@11 (line 122)
+                      ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x00000167df8719d8: 2007 e8a1 
+
+  0x00000167df8719dc: ; ImmutableOopMap {rdx=Oop rsi=Oop [40]=Oop }
+                      ;*invokeinterface get {reexecute=0 rethrow=0 return_oop=0}
+                      ; - game.items.weapons.Weapon::getClosestTarget@26 (line 123)
+  0x00000167df8719dc: 2e20 0748 
+
+  0x00000167df8719e0: ;   {runtime_call throw_class_cast_exception Runtime1 stub}
+  0x00000167df8719e0: 8904 24e8 
+
+  0x00000167df8719e4: ; ImmutableOopMap {[40]=Oop }
+                      ;*checkcast {reexecute=0 rethrow=0 return_oop=0}
+                      ; - game.items.weapons.Weapon::getClosestTarget@31 (line 123)
+  0x00000167df8719e4: 9857 2007 
+
+  0x00000167df8719e8: ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x00000167df8719e8: e893 2e20 
+
+  0x00000167df8719ec: ; ImmutableOopMap {rax=Oop rsi=Oop [40]=Oop [48]=Oop }
+                      ;*invokevirtual getGlobalPosition {reexecute=0 rethrow=0 return_oop=0}
+                      ; - game.items.weapons.Weapon::getClosestTarget@40 (line 124)
+                      ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x00000167df8719ec: 07e8 8e2e 
+
+  0x00000167df8719f0: ; ImmutableOopMap {rax=Oop rdx=Oop [40]=Oop [48]=Oop }
+                      ;*invokevirtual distanceTo {reexecute=0 rethrow=0 return_oop=0}
+                      ; - game.items.weapons.Weapon::getClosestTarget@43 (line 124)
+                      ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x00000167df8719f0: 2007 e889 
+
+  0x00000167df8719f4: ; ImmutableOopMap {rdx=Oop rsi=Oop [40]=Oop [72]=Oop }
+                      ;*invokeinterface get {reexecute=0 rethrow=0 return_oop=0}
+                      ; - game.items.weapons.Weapon::getClosestTarget@70 (line 127)
+  0x00000167df8719f4: 2e20 0748 
+
+  0x00000167df8719f8: ;   {runtime_call throw_class_cast_exception Runtime1 stub}
+  0x00000167df8719f8: 8904 24e8 
+
+  0x00000167df8719fc: ; ImmutableOopMap {[40]=Oop [72]=Oop }
+                      ;*checkcast {reexecute=0 rethrow=0 return_oop=0}
+                      ; - game.items.weapons.Weapon::getClosestTarget@75 (line 127)
+  0x00000167df8719fc: 8057 2007 
+
+  0x00000167df871a00: ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x00000167df871a00: e87b 2e20 
+
+  0x00000167df871a04: ; ImmutableOopMap {rax=Oop rsi=Oop [40]=Oop [72]=Oop [80]=Oop }
+                      ;*invokevirtual getGlobalPosition {reexecute=0 rethrow=0 return_oop=0}
+                      ; - game.items.weapons.Weapon::getClosestTarget@86 (line 128)
+                      ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x00000167df871a04: 07e8 762e 
+
+  0x00000167df871a08: ; ImmutableOopMap {rax=Oop rdx=Oop [40]=Oop [72]=Oop [80]=Oop }
+                      ;*invokevirtual distanceTo {reexecute=0 rethrow=0 return_oop=0}
+                      ; - game.items.weapons.Weapon::getClosestTarget@89 (line 128)
+                      ;   {metadata({method} {0x00000168397129d8} 'getClosestTarget' '()Lgodot/api/Node2D;' in 'game/items/weapons/Weapon')}
+  0x00000167df871a08: 2007 49ba | d029 7139 | 6801 0000 | 4c89 5424 | 0848 c704 | 246e 0000 
+
+  0x00000167df871a20: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x00000167df871a20: 00e8 5a84 
+
+  0x00000167df871a24: ; ImmutableOopMap {rsi=Oop [40]=Oop }
+                      ;*goto {reexecute=1 rethrow=0 return_oop=0}
+                      ; - (reexecute) game.items.weapons.Weapon::getClosestTarget@110 (line 126)
+  0x00000167df871a24: 2007 e92d 
+
+  0x00000167df871a28: ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x00000167df871a28: feff ffe8 
+
+  0x00000167df871a2c: ; ImmutableOopMap {rdx=Oop rbx=Oop [40]=Oop [72]=Oop }
+                      ;*invokeinterface size {reexecute=0 rethrow=0 return_oop=0}
+                      ; - game.items.weapons.Weapon::getClosestTarget@56 (line 126)
+  0x00000167df871a2c: 502e 2007 
+
+  0x00000167df871a30: ;   {internal_word}
+  0x00000167df871a30: 49ba 8919 | 87df 6701 | 0000 4d89 | 9768 0400 
+
+  0x00000167df871a40: ;   {runtime_call SafepointBlob}
+  0x00000167df871a40: 00e9 ba3c 
+
+  0x00000167df871a44: ;   {internal_word}
+  0x00000167df871a44: 1407 49ba | a619 87df | 6701 0000 | 4d89 9768 
+
+  0x00000167df871a54: ;   {runtime_call SafepointBlob}
+  0x00000167df871a54: 0400 00e9 | a43c 1407 | 498b 8700 | 0500 0049 | c787 0005 | 0000 0000 | 0000 49c7 | 8708 0500 
+  0x00000167df871a74: 0000 0000 | 0048 83c4 
+
+  0x00000167df871a7c: ;   {runtime_call unwind_exception Runtime1 stub}
+  0x00000167df871a7c: 705d e97d | 1920 07f4 | f4f4 f4f4 
+[Stub Code]
+  0x00000167df871a88: ;   {no_reloc}
+  0x00000167df871a88: 0f1f 4400 
+
+  0x00000167df871a8c: ;   {static_stub}
+  0x00000167df871a8c: 0048 bb00 | 0000 0000 
+
+  0x00000167df871a94: ;   {runtime_call}
+  0x00000167df871a94: 0000 00e9 | fbff ffff 
+
+  0x00000167df871a9c: ;   {static_stub}
+  0x00000167df871a9c: 9048 bb00 | 0000 0000 
+
+  0x00000167df871aa4: ;   {runtime_call}
+  0x00000167df871aa4: 0000 00e9 | fbff ffff 
+
+  0x00000167df871aac: ;   {static_stub}
+  0x00000167df871aac: 9048 bb00 | 0000 0000 
+
+  0x00000167df871ab4: ;   {runtime_call}
+  0x00000167df871ab4: 0000 00e9 | fbff ffff 
+
+  0x00000167df871abc: ;   {static_stub}
+  0x00000167df871abc: 9048 bb00 | 0000 0000 
+
+  0x00000167df871ac4: ;   {runtime_call}
+  0x00000167df871ac4: 0000 00e9 | fbff ffff 
+
+  0x00000167df871acc: ;   {static_stub}
+  0x00000167df871acc: 48bb 0000 | 0000 0000 
+
+  0x00000167df871ad4: ;   {runtime_call}
+  0x00000167df871ad4: 0000 e9fb 
+
+  0x00000167df871ad8: ;   {static_stub}
+  0x00000167df871ad8: ffff ff48 | bb00 0000 | 0000 0000 
+
+  0x00000167df871ae4: ;   {runtime_call}
+  0x00000167df871ae4: 00e9 fbff 
+
+  0x00000167df871ae8: ;   {runtime_call handle_exception_from_callee Runtime1 stub}
+  0x00000167df871ae8: ffff e891 
+
+  0x00000167df871aec: ;   {external_word}
+  0x00000167df871aec: 5020 0748 | b9b0 7801 | c1fd 7f00 | 0048 83e4 
+
+  0x00000167df871afc: ;   {runtime_call}
+  0x00000167df871afc: f048 b890 | 41c9 c0fd | 7f00 00ff 
+
+  0x00000167df871b08: ;   {section_word}
+  0x00000167df871b08: d0f4 49ba | 0a1b 87df | 6701 0000 
+
+  0x00000167df871b14: ;   {runtime_call DeoptimizationBlob}
+  0x00000167df871b14: 4152 e985 | 2e14 07f4 | f4f4 f4f4 
+[/MachCode]
+
+
+---------------  P R O C E S S  ---------------
+
+Threads class SMR info:
+_java_thread_list=0x000001683e30d410, length=27, elements={
+0x00000167d5eddec0, 0x00000167d6744010, 0x00000167d6744680, 0x00000167d675ca20,
+0x00000167d67cc7e0, 0x00000167d67ec3a0, 0x00000167d6817860, 0x00000167d6817ed0,
+0x00000167d6864630, 0x00000167d6c342a0, 0x00000167d6c88430, 0x00000167ce307920,
+0x00000167ce30b430, 0x00000167ce307fb0, 0x00000167ce30c7e0, 0x00000167ce30e8b0,
+0x00000167ce30ce70, 0x00000167ce30d500, 0x00000167ce30ef40, 0x00000167ce30bac0,
+0x00000167ce30db90, 0x00000167ce30c150, 0x00000167ce30e220, 0x000001683e9e2b40,
+0x000001683e9e1e20, 0x000001683e9e4c10, 0x000001683e9e3860
+}
+
+Java Threads: ( => current thread )
+=>0x00000167d5eddec0 JavaThread "main"                              [_thread_in_native, id=13432, stack(0x00000064e3000000,0x00000064e3800000) (8192K)]
+  0x00000167d6744010 JavaThread "Reference Handler"          daemon [_thread_blocked, id=2936, stack(0x00000064ff800000,0x0000006500000000) (8192K)]
+  0x00000167d6744680 JavaThread "Finalizer"                  daemon [_thread_blocked, id=4728, stack(0x0000006480000000,0x0000006480800000) (8192K)]
+  0x00000167d675ca20 JavaThread "Signal Dispatcher"          daemon [_thread_blocked, id=7892, stack(0x0000006480800000,0x0000006481000000) (8192K)]
+  0x00000167d67cc7e0 JavaThread "Attach Listener"            daemon [_thread_blocked, id=20792, stack(0x0000006481000000,0x0000006481800000) (8192K)]
+  0x00000167d67ec3a0 JavaThread "Service Thread"             daemon [_thread_blocked, id=9824, stack(0x0000006481800000,0x0000006482000000) (8192K)]
+  0x00000167d6817860 JavaThread "Monitor Deflation Thread"   daemon [_thread_blocked, id=10648, stack(0x0000006482000000,0x0000006482800000) (8192K)]
+  0x00000167d6817ed0 JavaThread "C2 CompilerThread0"         daemon [_thread_blocked, id=2636, stack(0x0000006482800000,0x0000006483000000) (8192K)]
+  0x00000167d6864630 JavaThread "C1 CompilerThread0"         daemon [_thread_blocked, id=19784, stack(0x0000006483000000,0x0000006483800000) (8192K)]
+  0x00000167d6c342a0 JavaThread "Notification Thread"        daemon [_thread_blocked, id=3004, stack(0x0000006484800000,0x0000006485000000) (8192K)]
+  0x00000167d6c88430 JavaThread "Common-Cleaner"             daemon [_thread_blocked, id=19968, stack(0x0000006485000000,0x0000006485800000) (8192K)]
+  0x00000167ce307920 JavaThread "Thread-0"                          [_thread_in_native, id=18072, stack(0x00000064e6000000,0x00000064e6800000) (8192K)]
+  0x00000167ce30b430 JavaThread "Thread-1"                          [_thread_in_native, id=2652, stack(0x00000064e6800000,0x00000064e7000000) (8192K)]
+  0x00000167ce307fb0 JavaThread "Thread-2"                          [_thread_in_native, id=11952, stack(0x00000064e7000000,0x00000064e7800000) (8192K)]
+  0x00000167ce30c7e0 JavaThread "Thread-3"                          [_thread_in_native, id=8316, stack(0x00000064e7800000,0x00000064e8000000) (8192K)]
+  0x00000167ce30e8b0 JavaThread "Thread-4"                          [_thread_in_native, id=10452, stack(0x00000064e8000000,0x00000064e8800000) (8192K)]
+  0x00000167ce30ce70 JavaThread "Thread-5"                          [_thread_in_native, id=10352, stack(0x00000064e5800000,0x00000064e6000000) (8192K)]
+  0x00000167ce30d500 JavaThread "Thread-6"                          [_thread_in_native, id=19632, stack(0x00000064e9000000,0x00000064e9800000) (8192K)]
+  0x00000167ce30ef40 JavaThread "Thread-7"                          [_thread_in_native, id=14640, stack(0x00000064e8800000,0x00000064e9000000) (8192K)]
+  0x00000167ce30bac0 JavaThread "Thread-8"                          [_thread_in_native, id=20924, stack(0x00000064ea000000,0x00000064ea800000) (8192K)]
+  0x00000167ce30db90 JavaThread "Thread-9"                          [_thread_in_native, id=4700, stack(0x00000064e9800000,0x00000064ea000000) (8192K)]
+  0x00000167ce30c150 JavaThread "Thread-10"                         [_thread_in_native, id=12728, stack(0x00000064ea800000,0x00000064eb000000) (8192K)]
+  0x00000167ce30e220 JavaThread "Thread-11"                         [_thread_in_native, id=3088, stack(0x00000064eb000000,0x00000064eb800000) (8192K)]
+  0x000001683e9e2b40 JavaThread "Thread-12"                         [_thread_in_native, id=13896, stack(0x00000064eb800000,0x00000064ec000000) (8192K)]
+  0x000001683e9e1e20 JavaThread "Thread-13"                         [_thread_in_native, id=15740, stack(0x00000064ec000000,0x00000064ec800000) (8192K)]
+  0x000001683e9e4c10 JavaThread "Thread-14"                         [_thread_in_native, id=10616, stack(0x00000064ec800000,0x00000064ed000000) (8192K)]
+  0x000001683e9e3860 JavaThread "Thread-15"                         [_thread_in_native, id=14288, stack(0x00000064ed000000,0x00000064ed800000) (8192K)]
+Total: 27
+
+Other Threads:
+  0x00000167cd6568e0 VMThread "VM Thread"                           [id=3084, stack(0x00000064ff000000,0x00000064ff800000) (8192K)]
+  0x00000167cd635510 WatcherThread "VM Periodic Task Thread"        [id=14588, stack(0x00000064fe800000,0x00000064ff000000) (8192K)]
+  0x00000167cd656c90 WorkerThread "GC Thread#0"                     [id=6056, stack(0x00000064fc000000,0x00000064fc800000) (8192K)]
+  0x00000167d6d562d0 WorkerThread "GC Thread#1"                     [id=17288, stack(0x0000006486800000,0x0000006487000000) (8192K)]
+  0x00000167d6d578f0 WorkerThread "GC Thread#2"                     [id=11176, stack(0x0000006487000000,0x0000006487800000) (8192K)]
+  0x00000167d6d59a20 WorkerThread "GC Thread#3"                     [id=19044, stack(0x0000006487800000,0x0000006488000000) (8192K)]
+  0x00000167d6d58050 WorkerThread "GC Thread#4"                     [id=19416, stack(0x0000006488000000,0x0000006488800000) (8192K)]
+  0x00000167d6d58f10 WorkerThread "GC Thread#5"                     [id=10828, stack(0x0000006488800000,0x0000006489000000) (8192K)]
+  0x00000167d6d587b0 WorkerThread "GC Thread#6"                     [id=12064, stack(0x0000006489000000,0x0000006489800000) (8192K)]
+  0x00000167d6d58b60 WorkerThread "GC Thread#7"                     [id=12296, stack(0x0000006489800000,0x000000648a000000) (8192K)]
+  0x00000167d6d592c0 WorkerThread "GC Thread#8"                     [id=2352, stack(0x000000648a000000,0x000000648a800000) (8192K)]
+  0x000001683cf9c7c0 WorkerThread "GC Thread#9"                     [id=14092, stack(0x000000648a800000,0x000000648b000000) (8192K)]
+  0x000001683cf9e540 WorkerThread "GC Thread#10"                    [id=11880, stack(0x000000648b000000,0x000000648b800000) (8192K)]
+  0x000001683cf9e8f0 WorkerThread "GC Thread#11"                    [id=8360, stack(0x000000648b800000,0x000000648c000000) (8192K)]
+  0x000001683cf9eca0 WorkerThread "GC Thread#12"                    [id=16668, stack(0x000000648c000000,0x000000648c800000) (8192K)]
+  0x00000167ce11de70 ConcurrentGCThread "G1 Main Marker"            [id=6500, stack(0x00000064fc800000,0x00000064fd000000) (8192K)]
+  0x00000167cd655dd0 WorkerThread "G1 Conc#0"                       [id=11628, stack(0x00000064fd000000,0x00000064fd800000) (8192K)]
+  0x000001683cf9f050 WorkerThread "G1 Conc#1"                       [id=19340, stack(0x0000006485800000,0x0000006486000000) (8192K)]
+  0x000001683cf9e190 WorkerThread "G1 Conc#2"                       [id=12248, stack(0x000000648c800000,0x000000648d000000) (8192K)]
+  0x00000167ce2ef030 ConcurrentGCThread "G1 Refine#0"               [id=11772, stack(0x00000064fd800000,0x00000064fe000000) (8192K)]
+  0x00000167ce292ba0 ConcurrentGCThread "G1 Service"                [id=17660, stack(0x00000064fe000000,0x00000064fe800000) (8192K)]
+Total: 21
+
+Threads with active compile tasks:
+Total: 0
+
+VM state: not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+Heap address: 0x0000000704a00000, size: 4022 MB, Compressed Oops mode: Zero based, Oop shift amount: 3
+
+CDS archive(s) mapped at: [0x00000167f7000000-0x00000167f7c90000-0x00000167f7c90000), size 13172736, SharedBaseAddress: 0x00000167f7000000, ArchiveRelocationMode: 1.
+Compressed class space mapped at: 0x00000167f8000000-0x0000016838000000, reserved size: 1073741824
+Narrow klass base: 0x00000167f7000000, Narrow klass shift: 0, Narrow klass range: 0x100000000
+
+GC Precious Log:
+ CardTable entry size: 512
+ Card Set container configuration: InlinePtr #cards 4 size 8 Array Of Cards #cards 16 size 48 Howl #buckets 8 coarsen threshold 3686 Howl Bitmap #cards 512 size 80 coarsen threshold 460 Card regions per heap region 1 cards per card region 4096
+ CPUs: 16 total, 16 available
+ Memory: 16087M
+ Large Page Support: Disabled
+ NUMA Support: Disabled
+ Compressed Oops: Enabled (Zero based)
+ Heap Region Size: 2M
+ Heap Min Capacity: 8M
+ Heap Initial Capacity: 252M
+ Heap Max Capacity: 4022M
+ Pre-touch: Disabled
+ Parallel Workers: 13
+ Concurrent Workers: 3
+ Concurrent Refinement Workers: 13
+ Periodic GC: Disabled
+
+Heap:
+ garbage-first heap   total 34816K, used 10797K [0x0000000704a00000, 0x0000000800000000)
+  region size 2048K, 5 young (10240K), 2 survivors (4096K)
+ Metaspace       used 26112K, committed 26304K, reserved 1114112K
+  class space    used 2679K, committed 2752K, reserved 1048576K
+
+Heap Regions: E=young(eden), S=young(survivor), O=old, HS=humongous(starts), HC=humongous(continues), CS=collection set, F=free, TAMS=top-at-mark-start, PB=parsable bottom
+|   0|0x0000000704a00000, 0x0000000704c00000, 0x0000000704c00000|100%| O|  |TAMS 0x0000000704a00000| PB 0x0000000704a00000| Untracked 
+|   1|0x0000000704c00000, 0x0000000704e00000, 0x0000000704e00000|100%| O|  |TAMS 0x0000000704c00000| PB 0x0000000704c00000| Untracked 
+|   2|0x0000000704e00000, 0x0000000704e20e10, 0x0000000705000000|  6%| O|  |TAMS 0x0000000704e00000| PB 0x0000000704e00000| Untracked 
+|   3|0x0000000705000000, 0x0000000705000000, 0x0000000705200000|  0%| F|  |TAMS 0x0000000705000000| PB 0x0000000705000000| Untracked 
+|   4|0x0000000705200000, 0x0000000705200000, 0x0000000705400000|  0%| F|  |TAMS 0x0000000705200000| PB 0x0000000705200000| Untracked 
+|   5|0x0000000705400000, 0x0000000705400000, 0x0000000705600000|  0%| F|  |TAMS 0x0000000705400000| PB 0x0000000705400000| Untracked 
+|   6|0x0000000705600000, 0x0000000705600000, 0x0000000705800000|  0%| F|  |TAMS 0x0000000705600000| PB 0x0000000705600000| Untracked 
+|   7|0x0000000705800000, 0x000000070586a740, 0x0000000705a00000| 20%| S|CS|TAMS 0x0000000705800000| PB 0x0000000705800000| Complete 
+|   8|0x0000000705a00000, 0x0000000705c00000, 0x0000000705c00000|100%| S|CS|TAMS 0x0000000705a00000| PB 0x0000000705a00000| Complete 
+|   9|0x0000000705c00000, 0x0000000705c00000, 0x0000000705e00000|  0%| F|  |TAMS 0x0000000705c00000| PB 0x0000000705c00000| Untracked 
+|  10|0x0000000705e00000, 0x0000000705e00000, 0x0000000706000000|  0%| F|  |TAMS 0x0000000705e00000| PB 0x0000000705e00000| Untracked 
+|  11|0x0000000706000000, 0x0000000706000000, 0x0000000706200000|  0%| F|  |TAMS 0x0000000706000000| PB 0x0000000706000000| Untracked 
+|  12|0x0000000706200000, 0x0000000706200000, 0x0000000706400000|  0%| F|  |TAMS 0x0000000706200000| PB 0x0000000706200000| Untracked 
+| 121|0x0000000713c00000, 0x0000000713c00000, 0x0000000713e00000|  0%| F|  |TAMS 0x0000000713c00000| PB 0x0000000713c00000| Untracked 
+| 122|0x0000000713e00000, 0x0000000713e49e98, 0x0000000714000000| 14%| E|  |TAMS 0x0000000713e00000| PB 0x0000000713e00000| Complete 
+| 123|0x0000000714000000, 0x0000000714200000, 0x0000000714200000|100%| E|CS|TAMS 0x0000000714000000| PB 0x0000000714000000| Complete 
+| 125|0x0000000714400000, 0x0000000714600000, 0x0000000714600000|100%| E|CS|TAMS 0x0000000714400000| PB 0x0000000714400000| Complete 
+
+Card table byte_map: [0x00000167eecf0000,0x00000167ef4d0000] _byte_map_base: 0x00000167eb4cb000
+
+Marking Bits: (CMBitMap*) 0x00000167d5f94040
+ Bits: [0x00000167ef4d0000, 0x00000167f33a8000)
+
+Polling page: 0x00000167cebc0000
+
+Metaspace:
+
+Usage:
+  Non-class:     22.88 MB used.
+      Class:      2.62 MB used.
+       Both:     25.50 MB used.
+
+Virtual space:
+  Non-class space:       64.00 MB reserved,      23.00 MB ( 36%) committed,  1 nodes.
+      Class space:        1.00 GB reserved,       2.69 MB ( <1%) committed,  1 nodes.
+             Both:        1.06 GB reserved,      25.69 MB (  2%) committed. 
+
+Chunk freelists:
+   Non-Class:  6.41 MB
+       Class:  13.16 MB
+        Both:  19.56 MB
+
+MaxMetaspaceSize: unlimited
+CompressedClassSpaceSize: 1.00 GB
+Initial GC threshold: 21.00 MB
+Current GC threshold: 35.12 MB
+CDS: on
+ - commit_granule_bytes: 65536.
+ - commit_granule_words: 8192.
+ - virtual_space_node_default_size: 8388608.
+ - enlarge_chunks_in_place: 1.
+ - use_allocation_guard: 0.
+
+
+Internal statistics:
+
+num_allocs_failed_limit: 3.
+num_arena_births: 124.
+num_arena_deaths: 0.
+num_vsnodes_births: 2.
+num_vsnodes_deaths: 0.
+num_space_committed: 410.
+num_space_uncommitted: 0.
+num_chunks_returned_to_freelist: 3.
+num_chunks_taken_from_freelist: 977.
+num_chunk_merges: 3.
+num_chunk_splits: 857.
+num_chunks_enlarged: 753.
+num_inconsistent_stats: 0.
+
+CodeHeap 'non-profiled nmethods': size=119168Kb used=1012Kb max_used=1012Kb free=118155Kb
+ bounds [0x00000167e70b0000, 0x00000167e7320000, 0x00000167ee510000]
+CodeHeap 'profiled nmethods': size=119104Kb used=3562Kb max_used=3562Kb free=115541Kb
+ bounds [0x00000167df510000, 0x00000167df890000, 0x00000167e6960000]
+CodeHeap 'non-nmethods': size=7488Kb used=1588Kb max_used=3297Kb free=5899Kb
+ bounds [0x00000167e6960000, 0x00000167e6ca0000, 0x00000167e70b0000]
+ total_blobs=2464 nmethods=1819 adapters=550
+ compilation: enabled
+              stopped_count=0, restarted_count=0
+ full_count=0
+
+Compilation events (20 events):
+Event: 18.816 Thread 0x00000167d6864630 1810       1       game.items.weapons.Weapon::getSprite (5 bytes)
+Event: 18.816 Thread 0x00000167d6864630 nmethod 1810 0x00000167e71ab890 code [0x00000167e71aba20, 0x00000167e71abaf0]
+Event: 18.827 Thread 0x00000167d6864630 1811       3       godot.api.Node::getParent (48 bytes)
+Event: 18.828 Thread 0x00000167d6864630 nmethod 1811 0x00000167df887190 code [0x00000167df887440, 0x00000167df888100]
+Event: 18.828 Thread 0x00000167d6864630 1812       3       godot.api.Node$MethodBindings::getGetParentPtr$godot_api_library (4 bytes)
+Event: 18.828 Thread 0x00000167d6864630 nmethod 1812 0x00000167df888510 code [0x00000167df8886a0, 0x00000167df8887b8]
+Event: 18.937 Thread 0x00000167d6817ed0 1813       4       java.lang.StringConcatHelper::stringOf (20 bytes)
+Event: 18.938 Thread 0x00000167d6817ed0 nmethod 1813 0x00000167e71abb90 code [0x00000167e71abd20, 0x00000167e71abde8]
+Event: 19.005 Thread 0x00000167d6864630 1814       3       java.lang.invoke.DelegatingMethodHandle$Holder::reinvoke_L (20 bytes)
+Event: 19.005 Thread 0x00000167d6864630 nmethod 1814 0x00000167df888890 code [0x00000167df888a60, 0x00000167df888e68]
+Event: 19.040 Thread 0x00000167d6817ed0 1815       4       java.util.concurrent.locks.AbstractQueuedSynchronizer::acquire (20 bytes)
+Event: 19.042 Thread 0x00000167d6817ed0 nmethod 1815 0x00000167e71abf10 code [0x00000167e71ac0a0, 0x00000167e71ac298]
+Event: 19.188 Thread 0x00000167d6864630 1816       3       java.lang.invoke.LambdaForm$MH/0x00000167f82c6800::invoke (45 bytes)
+Event: 19.189 Thread 0x00000167d6864630 nmethod 1816 0x00000167df888f90 code [0x00000167df889180, 0x00000167df8897a0]
+Event: 19.189 Thread 0x00000167d6864630 1817       3       java.lang.invoke.LambdaForm$MH/0x00000167f82d3400::invoke (27 bytes)
+Event: 19.190 Thread 0x00000167d6864630 nmethod 1817 0x00000167df889910 code [0x00000167df889ae0, 0x00000167df889f68]
+Event: 19.190 Thread 0x00000167d6864630 1818       3       java.lang.StringConcatHelper::newArrayWithSuffix (40 bytes)
+Event: 19.190 Thread 0x00000167d6864630 nmethod 1818 0x00000167df88a090 code [0x00000167df88a2a0, 0x00000167df88a840]
+Event: 19.356 Thread 0x00000167d6817ed0 1819       4       godot.api.Node2D::setRotation (49 bytes)
+Event: 19.366 Thread 0x00000167d6817ed0 nmethod 1819 0x00000167e71ac390 code [0x00000167e71ac5a0, 0x00000167e71ac9f8]
+
+GC Heap History (12 events):
+Event: 0.454 GC heap before
+{Heap before GC invocations=0 (full 0):
+ garbage-first heap   total 258048K, used 20480K [0x0000000704a00000, 0x0000000800000000)
+  region size 2048K, 11 young (22528K), 0 survivors (0K)
+ Metaspace       used 6501K, committed 6592K, reserved 1114112K
+  class space    used 372K, committed 448K, reserved 1048576K
+}
+Event: 0.459 GC heap after
+{Heap after GC invocations=1 (full 0):
+ garbage-first heap   total 258048K, used 2255K [0x0000000704a00000, 0x0000000800000000)
+  region size 2048K, 2 young (4096K), 2 survivors (4096K)
+ Metaspace       used 6501K, committed 6592K, reserved 1114112K
+  class space    used 372K, committed 448K, reserved 1048576K
+}
+Event: 1.201 GC heap before
+{Heap before GC invocations=1 (full 0):
+ garbage-first heap   total 258048K, used 41167K [0x0000000704a00000, 0x0000000800000000)
+  region size 2048K, 22 young (45056K), 2 survivors (4096K)
+ Metaspace       used 20112K, committed 20288K, reserved 1114112K
+  class space    used 1912K, committed 1984K, reserved 1048576K
+}
+Event: 1.206 GC heap after
+{Heap after GC invocations=2 (full 0):
+ garbage-first heap   total 258048K, used 4568K [0x0000000704a00000, 0x0000000800000000)
+  region size 2048K, 3 young (6144K), 3 survivors (6144K)
+ Metaspace       used 20112K, committed 20288K, reserved 1114112K
+  class space    used 1912K, committed 1984K, reserved 1048576K
+}
+Event: 1.298 GC heap before
+{Heap before GC invocations=2 (full 0):
+ garbage-first heap   total 258048K, used 6616K [0x0000000704a00000, 0x0000000800000000)
+  region size 2048K, 5 young (10240K), 3 survivors (6144K)
+ Metaspace       used 21392K, committed 21504K, reserved 1114112K
+  class space    used 1990K, committed 2048K, reserved 1048576K
+}
+Event: 1.301 GC heap after
+{Heap after GC invocations=3 (full 0):
+ garbage-first heap   total 258048K, used 4821K [0x0000000704a00000, 0x0000000800000000)
+  region size 2048K, 3 young (6144K), 3 survivors (6144K)
+ Metaspace       used 21392K, committed 21504K, reserved 1114112K
+  class space    used 1990K, committed 2048K, reserved 1048576K
+}
+Event: 1.807 GC heap before
+{Heap before GC invocations=4 (full 0):
+ garbage-first heap   total 28672K, used 27349K [0x0000000704a00000, 0x0000000800000000)
+  region size 2048K, 14 young (28672K), 3 survivors (6144K)
+ Metaspace       used 25207K, committed 25344K, reserved 1114112K
+  class space    used 2625K, committed 2688K, reserved 1048576K
+}
+Event: 1.812 GC heap after
+{Heap after GC invocations=5 (full 0):
+ garbage-first heap   total 34816K, used 6080K [0x0000000704a00000, 0x0000000800000000)
+  region size 2048K, 3 young (6144K), 3 survivors (6144K)
+ Metaspace       used 25207K, committed 25344K, reserved 1114112K
+  class space    used 2625K, committed 2688K, reserved 1048576K
+}
+Event: 9.856 GC heap before
+{Heap before GC invocations=5 (full 0):
+ garbage-first heap   total 34816K, used 20416K [0x0000000704a00000, 0x0000000800000000)
+  region size 2048K, 10 young (20480K), 3 survivors (6144K)
+ Metaspace       used 26015K, committed 26176K, reserved 1114112K
+  class space    used 2677K, committed 2752K, reserved 1048576K
+}
+Event: 9.862 GC heap after
+{Heap after GC invocations=6 (full 0):
+ garbage-first heap   total 34816K, used 6466K [0x0000000704a00000, 0x0000000800000000)
+  region size 2048K, 2 young (4096K), 2 survivors (4096K)
+ Metaspace       used 26015K, committed 26176K, reserved 1114112K
+  class space    used 2677K, committed 2752K, reserved 1048576K
+}
+Event: 17.923 GC heap before
+{Heap before GC invocations=6 (full 0):
+ garbage-first heap   total 34816K, used 22850K [0x0000000704a00000, 0x0000000800000000)
+  region size 2048K, 10 young (20480K), 2 survivors (4096K)
+ Metaspace       used 26095K, committed 26304K, reserved 1114112K
+  class space    used 2679K, committed 2752K, reserved 1048576K
+}
+Event: 17.926 GC heap after
+{Heap after GC invocations=7 (full 0):
+ garbage-first heap   total 34816K, used 6701K [0x0000000704a00000, 0x0000000800000000)
+  region size 2048K, 2 young (4096K), 2 survivors (4096K)
+ Metaspace       used 26095K, committed 26304K, reserved 1114112K
+  class space    used 2679K, committed 2752K, reserved 1048576K
+}
+
+Dll operation events (6 events):
+Event: 0.007 Loaded shared library C:\Program Files\Java\jdk-21\bin\java.dll
+Event: 0.036 Loaded shared library C:\Program Files\Java\jdk-21\bin\jsvml.dll
+Event: 0.057 Loaded shared library C:\Program Files\Java\jdk-21\bin\net.dll
+Event: 0.059 Loaded shared library C:\Program Files\Java\jdk-21\bin\nio.dll
+Event: 0.068 Loaded shared library C:\Program Files\Java\jdk-21\bin\zip.dll
+Event: 0.216 Loaded shared library C:\Program Files\Java\jdk-21\bin\jimage.dll
+
+Deoptimization events (20 events):
+Event: 2.583 Thread 0x00000167d5eddec0 Uncommon trap: trap_request=0xffffffd6 fr.pc=0x00000167e713fedc relative=0x000000000000041c
+Event: 2.583 Thread 0x00000167d5eddec0 Uncommon trap: reason=array_check action=maybe_recompile pc=0x00000167e713fedc method=java.util.Arrays.fill([Ljava/lang/Object;IILjava/lang/Object;)V @ 20 c2
+Event: 2.583 Thread 0x00000167d5eddec0 DEOPT PACKING pc=0x00000167e713fedc sp=0x00000064e37fd100
+Event: 2.583 Thread 0x00000167d5eddec0 DEOPT UNPACKING pc=0x00000167e69b46a2 sp=0x00000064e37fd0c8 mode 2
+Event: 2.583 Thread 0x00000167d5eddec0 Uncommon trap: trap_request=0xffffffd6 fr.pc=0x00000167e713fedc relative=0x000000000000041c
+Event: 2.583 Thread 0x00000167d5eddec0 Uncommon trap: reason=array_check action=maybe_recompile pc=0x00000167e713fedc method=java.util.Arrays.fill([Ljava/lang/Object;IILjava/lang/Object;)V @ 20 c2
+Event: 2.583 Thread 0x00000167d5eddec0 DEOPT PACKING pc=0x00000167e713fedc sp=0x00000064e37fd100
+Event: 2.583 Thread 0x00000167d5eddec0 DEOPT UNPACKING pc=0x00000167e69b46a2 sp=0x00000064e37fd0c8 mode 2
+Event: 2.583 Thread 0x00000167d5eddec0 Uncommon trap: trap_request=0xffffffd6 fr.pc=0x00000167e713fedc relative=0x000000000000041c
+Event: 2.583 Thread 0x00000167d5eddec0 Uncommon trap: reason=array_check action=maybe_recompile pc=0x00000167e713fedc method=java.util.Arrays.fill([Ljava/lang/Object;IILjava/lang/Object;)V @ 20 c2
+Event: 2.583 Thread 0x00000167d5eddec0 DEOPT PACKING pc=0x00000167e713fedc sp=0x00000064e37fd100
+Event: 2.583 Thread 0x00000167d5eddec0 DEOPT UNPACKING pc=0x00000167e69b46a2 sp=0x00000064e37fd0c8 mode 2
+Event: 17.107 Thread 0x00000167d5eddec0 Uncommon trap: trap_request=0xffffffad fr.pc=0x00000167e7149788 relative=0x0000000000001448
+Event: 17.107 Thread 0x00000167d5eddec0 Uncommon trap: reason=uninitialized action=reinterpret pc=0x00000167e7149788 method=godot.core.KtFunction.invoke(Lgodot/core/KtObject;)V @ 63 c2
+Event: 17.107 Thread 0x00000167d5eddec0 DEOPT PACKING pc=0x00000167e7149788 sp=0x00000064e37fed90
+Event: 17.107 Thread 0x00000167d5eddec0 DEOPT UNPACKING pc=0x00000167e69b46a2 sp=0x00000064e37fed60 mode 2
+Event: 17.533 Thread 0x00000167d5eddec0 Uncommon trap: trap_request=0xffffff45 fr.pc=0x00000167e718da08 relative=0x00000000000022e8
+Event: 17.533 Thread 0x00000167d5eddec0 Uncommon trap: reason=unstable_if action=reinterpret pc=0x00000167e718da08 method=game.entity.enemies.Enemy.canMoveTowardsPlayer()Z @ 36 c2
+Event: 17.533 Thread 0x00000167d5eddec0 DEOPT PACKING pc=0x00000167e718da08 sp=0x00000064e37feb60
+Event: 17.533 Thread 0x00000167d5eddec0 DEOPT UNPACKING pc=0x00000167e69b46a2 sp=0x00000064e37fe9c0 mode 2
+
+Classes loaded (20 events):
+Event: 1.773 Loading class java/lang/Throwable$PrintStreamOrWriter done
+Event: 1.773 Loading class java/lang/Throwable$WrappedPrintWriter done
+Event: 1.802 Loading class java/lang/Thread$ThreadNumbering
+Event: 1.802 Loading class java/lang/Thread$ThreadNumbering done
+Event: 1.818 Loading class java/util/LinkedList
+Event: 1.818 Loading class java/util/AbstractSequentialList
+Event: 1.818 Loading class java/util/AbstractSequentialList done
+Event: 1.818 Loading class java/util/LinkedList done
+Event: 1.959 Loading class java/util/ArrayList$SubList$1
+Event: 1.959 Loading class java/util/ArrayList$SubList$1 done
+Event: 2.327 Loading class java/lang/FdLibm$Atan2
+Event: 2.327 Loading class java/lang/FdLibm$Atan2 done
+Event: 2.327 Loading class java/lang/FdLibm
+Event: 2.327 Loading class java/lang/FdLibm done
+Event: 2.327 Loading class java/lang/FdLibm$Atan
+Event: 2.327 Loading class java/lang/FdLibm$Atan done
+Event: 7.632 Loading class java/util/LinkedList$Node
+Event: 7.632 Loading class java/util/LinkedList$Node done
+Event: 7.633 Loading class java/util/LinkedList$ListItr
+Event: 7.633 Loading class java/util/LinkedList$ListItr done
+
+Classes unloaded (0 events):
+No events
+
+Classes redefined (0 events):
+No events
+
+Internal exceptions (3 events):
+Event: 1.629 Thread 0x00000167d5eddec0 Exception <a 'java/lang/NoSuchMethodError'{0x00000007055ef468}: 'java.lang.Object java.lang.invoke.DirectMethodHandle$Holder.invokeStaticInit(java.lang.Object, java.lang.Object, java.lang.Object)'> (0x00000007055ef468) 
+thrown [s\open\src\hotspot\share\interpreter\linkResolver.cpp, line 773]
+Event: 1.736 Thread 0x00000167d5eddec0 Exception <a 'java/lang/NoSuchMethodError'{0x00000007053f2538}: 'java.lang.Object java.lang.invoke.DirectMethodHandle$Holder.newInvokeSpecial(java.lang.Object, long, long, int)'> (0x00000007053f2538) 
+thrown [s\open\src\hotspot\share\interpreter\linkResolver.cpp, line 773]
+Event: 1.771 Thread 0x00000167d5eddec0 Exception <a 'java/lang/ClassCastException'{0x0000000705002a80}: class godot.api.Resource cannot be cast to class godot.api.PackedScene (godot.api.Resource and godot.api.PackedScene are in unnamed module of loader java.net.URLClassLoader @36baf30c)> (0x0000000705002a80) 
+thrown [s\open\src\hotspot\share\interpreter\interpreterRuntime.cpp, line 455]
+
+ZGC Phase Switch (0 events):
+No events
+
+VM Operations (20 events):
+Event: 7.821 Executing VM operation: Cleanup
+Event: 7.821 Executing VM operation: Cleanup done
+Event: 8.822 Executing VM operation: Cleanup
+Event: 8.822 Executing VM operation: Cleanup done
+Event: 9.824 Executing VM operation: Cleanup
+Event: 9.824 Executing VM operation: Cleanup done
+Event: 9.856 Executing VM operation: G1CollectForAllocation (G1 Evacuation Pause)
+Event: 9.862 Executing VM operation: G1CollectForAllocation (G1 Evacuation Pause) done
+Event: 11.861 Executing VM operation: Cleanup
+Event: 11.861 Executing VM operation: Cleanup done
+Event: 12.862 Executing VM operation: Cleanup
+Event: 12.862 Executing VM operation: Cleanup done
+Event: 13.863 Executing VM operation: Cleanup
+Event: 13.863 Executing VM operation: Cleanup done
+Event: 17.866 Executing VM operation: Cleanup
+Event: 17.866 Executing VM operation: Cleanup done
+Event: 17.923 Executing VM operation: G1CollectForAllocation (G1 Evacuation Pause)
+Event: 17.926 Executing VM operation: G1CollectForAllocation (G1 Evacuation Pause) done
+Event: 18.927 Executing VM operation: Cleanup
+Event: 18.927 Executing VM operation: Cleanup done
+
+Events (20 events):
+Event: 1.804 Thread 0x00000167ce30ce70 Thread added: 0x00000167ce30ce70
+Event: 1.804 Thread 0x00000167ce30d500 Thread added: 0x00000167ce30d500
+Event: 1.804 Thread 0x00000167ce30ef40 Thread added: 0x00000167ce30ef40
+Event: 1.804 Thread 0x00000167ce30bac0 Thread added: 0x00000167ce30bac0
+Event: 1.804 Thread 0x00000167ce30db90 Thread added: 0x00000167ce30db90
+Event: 1.804 Thread 0x00000167ce30c150 Thread added: 0x00000167ce30c150
+Event: 1.806 Thread 0x00000167ce30e220 Thread added: 0x00000167ce30e220
+Event: 1.816 Thread 0x000001683e9e2b40 Thread added: 0x000001683e9e2b40
+Event: 1.816 Thread 0x000001683e9e1e20 Thread added: 0x000001683e9e1e20
+Event: 1.816 Thread 0x000001683e9e4c10 Thread added: 0x000001683e9e4c10
+Event: 1.816 Thread 0x000001683e9e3860 Thread added: 0x000001683e9e3860
+Event: 5.024 Thread 0x000001683c489870 Thread exited: 0x000001683c489870
+Event: 5.067 Thread 0x00000167d6af3910 Thread exited: 0x00000167d6af3910
+Event: 5.921 Thread 0x00000167d6a5e940 Thread exited: 0x00000167d6a5e940
+Event: 9.863 Thread 0x00000167d6f78010 Thread added: 0x00000167d6f78010
+Event: 10.408 Thread 0x00000167d6f78010 Thread exited: 0x00000167d6f78010
+Event: 17.928 Thread 0x000001683e887df0 Thread added: 0x000001683e887df0
+Event: 17.928 Thread 0x000001683e8884c0 Thread added: 0x000001683e8884c0
+Event: 18.103 Thread 0x000001683e8884c0 Thread exited: 0x000001683e8884c0
+Event: 18.307 Thread 0x000001683e887df0 Thread exited: 0x000001683e887df0
+
+
+Dynamic libraries:
+0x00007ff74fbd0000 - 0x00007ff7591da000 	D:\Godot\godot.windows.editor.x86_64.jvm.0.14.3.exe
+0x00007ffeb54c0000 - 0x00007ffeb5726000 	C:\WINDOWS\SYSTEM32\ntdll.dll
+0x00007ffeb3e10000 - 0x00007ffeb3ed9000 	C:\WINDOWS\System32\KERNEL32.DLL
+0x00007ffeb2cc0000 - 0x00007ffeb30c0000 	C:\WINDOWS\System32\KERNELBASE.dll
+0x00007ffeb43f0000 - 0x00007ffeb458a000 	C:\WINDOWS\System32\ole32.dll
+0x00007ffeb27f0000 - 0x00007ffeb2893000 	C:\WINDOWS\System32\msvcp_win.dll
+0x00007ffeb30d0000 - 0x00007ffeb321c000 	C:\WINDOWS\System32\ucrtbase.dll
+0x00007ffeb4030000 - 0x00007ffeb405b000 	C:\WINDOWS\System32\GDI32.dll
+0x00007ffe9ed40000 - 0x00007ffe9ed76000 	C:\WINDOWS\SYSTEM32\WINMM.dll
+0x00007ffeb27c0000 - 0x00007ffeb27e7000 	C:\WINDOWS\System32\win32u.dll
+0x00007ffeb28a0000 - 0x00007ffeb29ca000 	C:\WINDOWS\System32\gdi32full.dll
+0x00007ffeb4c70000 - 0x00007ffeb4e37000 	C:\WINDOWS\System32\USER32.dll
+0x00007ffeb4060000 - 0x00007ffeb43e3000 	C:\WINDOWS\System32\combase.dll
+0x00007ffeb4690000 - 0x00007ffeb47a8000 	C:\WINDOWS\System32\RPCRT4.dll
+0x00007ffeb4970000 - 0x00007ffeb4a49000 	C:\WINDOWS\System32\OLEAUT32.dll
+0x00007ffeb3220000 - 0x00007ffeb3287000 	C:\WINDOWS\System32\SHLWAPI.dll
+0x00007ffeb3320000 - 0x00007ffeb341a000 	C:\WINDOWS\System32\shcore.dll
+0x00007ffeb3670000 - 0x00007ffeb3e02000 	C:\WINDOWS\System32\SHELL32.dll
+0x00007ffeb4e40000 - 0x00007ffeb4ef7000 	C:\WINDOWS\System32\ADVAPI32.dll
+0x00007ffeb4830000 - 0x00007ffeb48d9000 	C:\WINDOWS\System32\msvcrt.dll
+0x00007ffeb53d0000 - 0x00007ffeb547a000 	C:\WINDOWS\System32\sechost.dll
+0x00007ffeb4f00000 - 0x00007ffeb4f32000 	C:\WINDOWS\System32\IMM32.dll
+0x00007ffeb29d0000 - 0x00007ffeb2b48000 	C:\WINDOWS\System32\CRYPT32.dll
+0x00007ffeb48e0000 - 0x00007ffeb4961000 	C:\WINDOWS\System32\WS2_32.dll
+0x00007ffeb2620000 - 0x00007ffeb264a000 	C:\WINDOWS\SYSTEM32\bcrypt.dll
+0x00007ffeaae10000 - 0x00007ffeaae1b000 	C:\WINDOWS\SYSTEM32\AVRT.dll
+0x00007ffeaf640000 - 0x00007ffeaf66f000 	C:\WINDOWS\SYSTEM32\dwmapi.dll
+0x00007ffeac500000 - 0x00007ffeac768000 	C:\WINDOWS\SYSTEM32\DWrite.dll
+0x00007ffeaf750000 - 0x00007ffeaf992000 	C:\WINDOWS\SYSTEM32\dbghelp.dll
+0x00007ffeb0f10000 - 0x00007ffeb0f43000 	C:\WINDOWS\SYSTEM32\IPHLPAPI.DLL
+0x00007ffe78c00000 - 0x00007ffe78c0a000 	C:\WINDOWS\SYSTEM32\WSOCK32.dll
+0x00007ffeb2c10000 - 0x00007ffeb2cbc000 	C:\WINDOWS\System32\bcryptPrimitives.dll
+0x00007ffeb14f0000 - 0x00007ffeb150b000 	C:\WINDOWS\SYSTEM32\kernel.appcore.dll
+0x00007ffeaf390000 - 0x00007ffeaf439000 	C:\WINDOWS\system32\uxtheme.dll
+0x00007ffeb1b10000 - 0x00007ffeb1b7c000 	C:\WINDOWS\system32\mswsock.dll
+0x00007ffe16a10000 - 0x00007ffe16b94000 	C:\WINDOWS\SYSTEM32\vulkan-1.dll
+0x00007ffeb2370000 - 0x00007ffeb23c1000 	C:\WINDOWS\SYSTEM32\CFGMGR32.dll
+0x00007ffeaf4e0000 - 0x00007ffeaf61a000 	C:\WINDOWS\system32\dxgi.dll
+0x00007ffeb12e0000 - 0x00007ffeb133e000 	C:\WINDOWS\SYSTEM32\powrprof.dll
+0x00007ffeb12c0000 - 0x00007ffeb12d4000 	C:\WINDOWS\SYSTEM32\UMPDC.dll
+0x00007ffe8bab0000 - 0x00007ffe8bacd000 	C:\WINDOWS\SYSTEM32\windows.staterepositorycore.dll
+0x00007ffeafbf0000 - 0x00007ffeafc34000 	C:\WINDOWS\SYSTEM32\dxcore.dll
+0x00007ffeaa1d0000 - 0x00007ffeaa22f000 	C:\WINDOWS\SYSTEM32\directxdatabasehelper.dll
+0x00007ffdde7a0000 - 0x00007ffddf2f7000 	C:\Program Files\WindowsApps\Microsoft.D3DMappingLayers_1.2605.1.0_x64__8wekyb3d8bbwe\x64\vulkan_dzn.dll
+0x00007ffea2100000 - 0x00007ffea210b000 	C:\WINDOWS\SYSTEM32\VERSION.dll
+0x00007ffdca0c0000 - 0x00007ffdcccab000 	C:\WINDOWS\System32\DriverStore\FileRepository\nvacegpu.inf_amd64_0af8f5d55a9e9293\nvoglv64.dll
+0x00007ffeb4f40000 - 0x00007ffeb53c7000 	C:\WINDOWS\System32\SETUPAPI.dll
+0x00007ffeaefe0000 - 0x00007ffeaf00a000 	C:\WINDOWS\SYSTEM32\WTSAPI32.dll
+0x00007ffeb1830000 - 0x00007ffeb187a000 	C:\WINDOWS\SYSTEM32\SspiCli.dll
+0x00007ffeb1f30000 - 0x00007ffeb1f43000 	C:\WINDOWS\SYSTEM32\msasn1.dll
+0x00007ffea20c0000 - 0x00007ffea20fd000 	C:\WINDOWS\SYSTEM32\cryptnet.dll
+0x00007ffea1d90000 - 0x00007ffea1f08000 	C:\WINDOWS\SYSTEM32\drvstore.dll
+0x00007ffeb23d0000 - 0x00007ffeb23ff000 	C:\WINDOWS\SYSTEM32\devobj.dll
+0x00007ffeb1ec0000 - 0x00007ffeb1f2a000 	C:\WINDOWS\SYSTEM32\wldp.dll
+0x00007ffeb1e20000 - 0x00007ffeb1e2c000 	C:\WINDOWS\SYSTEM32\cryptbase.dll
+0x00007ffeb2730000 - 0x00007ffeb27b3000 	C:\WINDOWS\System32\wintrust.dll
+0x00007ffeb4bb0000 - 0x00007ffeb4bd0000 	C:\WINDOWS\System32\imagehlp.dll
+0x00007ffeb1e00000 - 0x00007ffeb1e1b000 	C:\WINDOWS\SYSTEM32\CRYPTSP.dll
+0x00007ffeb1510000 - 0x00007ffeb1549000 	C:\WINDOWS\system32\rsaenh.dll
+0x00007ffeb1b80000 - 0x00007ffeb1bb0000 	C:\WINDOWS\SYSTEM32\gpapi.dll
+0x00007ffeb2650000 - 0x00007ffeb2679000 	C:\WINDOWS\SYSTEM32\profapi.dll
+0x00007ffe0e6e0000 - 0x00007ffe108cb000 	C:\WINDOWS\System32\DriverStore\FileRepository\nvacegpu.inf_amd64_0af8f5d55a9e9293\nvgpucomp64.dll
+0x00007ffeb16b0000 - 0x00007ffeb16e6000 	C:\WINDOWS\SYSTEM32\ntmarta.dll
+0x00007ffdc8890000 - 0x00007ffdca0c0000 	C:\WINDOWS\System32\DriverStore\FileRepository\iigd_dch.inf_amd64_438afae43f7267c8\igvk64.dll
+0x00007ffe9c790000 - 0x00007ffe9cd3a000 	C:\WINDOWS\System32\DriverStore\FileRepository\iigd_dch.inf_amd64_438afae43f7267c8\igdgmm64.dll
+0x00007ffe96f80000 - 0x00007ffe9c127000 	C:\WINDOWS\System32\DriverStore\FileRepository\iigd_dch.inf_amd64_438afae43f7267c8\igc64.dll
+0x00007ffeb45d0000 - 0x00007ffeb467e000 	C:\WINDOWS\System32\clbcatq.dll
+0x00007ffeac900000 - 0x00007ffeaca6a000 	C:\Windows\System32\WinTypes.dll
+0x00007ffe8ba10000 - 0x00007ffe8ba49000 	C:\WINDOWS\SYSTEM32\rometadata.dll
+0x00007ffe168a0000 - 0x00007ffe16a0a000 	C:\Program Files\WindowsApps\Microsoft.D3DMappingLayers_1.2605.1.0_x64__8wekyb3d8bbwe\x64\DXIL.dll
+0x00007ffea2830000 - 0x00007ffea2853000 	C:\WINDOWS\SYSTEM32\d3d12.dll
+0x00007ffe0e380000 - 0x00007ffe0e6d7000 	C:\WINDOWS\SYSTEM32\D3D12Core.dll
+0x00007ffeb02b0000 - 0x00007ffeb0b36000 	C:\WINDOWS\SYSTEM32\windows.storage.dll
+0x00007ffe08fd0000 - 0x00007ffe092a1000 	C:\WINDOWS\system32\nvspcap64.dll
+0x00007ffe09590000 - 0x00007ffe095dd000 	C:\WINDOWS\SYSTEM32\ControlLib.dll
+0x00007ffe62c70000 - 0x00007ffe62d1c000 	C:\WINDOWS\System32\DriverStore\FileRepository\iigd_dch.inf_amd64_438afae43f7267c8\IntelControlLib.dll
+0x00007ffe0ccd0000 - 0x00007ffe0ce31000 	C:\WINDOWS\System32\DriverStore\FileRepository\iigd_dch.inf_amd64_438afae43f7267c8\igvkMedia64.dll
+0x00007ffe7c960000 - 0x00007ffe7ded6000 	C:\WINDOWS\System32\DriverStore\FileRepository\iigd_dch.inf_amd64_438afae43f7267c8\igddxvacommon64.dll
+0x00007ffe7a7f0000 - 0x00007ffe7c870000 	C:\WINDOWS\System32\DriverStore\FileRepository\iigd_dch.inf_amd64_438afae43f7267c8\media_bin_64.dll
+0x00007ffe67190000 - 0x00007ffe6724c000 	C:\WINDOWS\System32\DriverStore\FileRepository\nvacegpu.inf_amd64_0af8f5d55a9e9293\nvldumdx.dll
+0x00007ffdc3480000 - 0x00007ffdc8890000 	C:\WINDOWS\System32\DriverStore\FileRepository\nvacegpu.inf_amd64_0af8f5d55a9e9293\nvwgf2umx.dll
+0x00007ffe89400000 - 0x00007ffe89b37000 	C:\WINDOWS\System32\DriverStore\FileRepository\nvacegpu.inf_amd64_0af8f5d55a9e9293\Display.NvContainer\MessageBus.dll
+0x00007ffeb3660000 - 0x00007ffeb366a000 	C:\WINDOWS\System32\NSI.dll
+0x00007ffea9b90000 - 0x00007ffea9bb5000 	C:\WINDOWS\SYSTEM32\dhcpcsvc.DLL
+0x00007ffe3dc70000 - 0x00007ffe3dd50000 	C:\WINDOWS\SYSTEM32\D3DSCache.dll
+0x00007ffeb1bc0000 - 0x00007ffeb1bf3000 	C:\WINDOWS\SYSTEM32\USERENV.dll
+0x00007ffead490000 - 0x00007ffead6b2000 	C:\WINDOWS\SYSTEM32\DComp.DLL
+0x00007ffeac260000 - 0x00007ffeac279000 	C:\WINDOWS\SYSTEM32\Microsoft.Internal.WarpPal.dll
+0x00007ffe71d50000 - 0x00007ffe71dac000 	C:\WINDOWS\System32\DriverStore\FileRepository\iigd_dch.inf_amd64_438afae43f7267c8\igd12umd64.dll
+0x00007ffdc1390000 - 0x00007ffdc3471000 	C:\WINDOWS\System32\DriverStore\FileRepository\iigd_dch.inf_amd64_438afae43f7267c8\igd12um64xel.dll
+0x00007ffe6b960000 - 0x00007ffe6b9e3000 	C:\WINDOWS\System32\DriverStore\FileRepository\iigd_dch.inf_amd64_438afae43f7267c8\igdext64.dll
+0x00007ffe0c970000 - 0x00007ffe0ccc5000 	C:\WINDOWS\System32\DriverStore\FileRepository\iigd_dch.inf_amd64_438afae43f7267c8\igd12dxva64.dll
+0x00007ffe7dfa0000 - 0x00007ffe7dfc8000 	C:\WINDOWS\System32\DriverStore\FileRepository\iigd_dch.inf_amd64_438afae43f7267c8\igdinfo64.dll
+0x00007ffe5a2b0000 - 0x00007ffe5a85e000 	C:\WINDOWS\SYSTEM32\d3d10warp.dll
+0x00007ffeb4a50000 - 0x00007ffeb4bad000 	C:\WINDOWS\System32\MSCTF.dll
+0x00007ffeaeb90000 - 0x00007ffeaec96000 	C:\WINDOWS\SYSTEM32\PROPSYS.dll
+0x00007ffeb0b40000 - 0x00007ffeb0b4f000 	C:\WINDOWS\SYSTEM32\hid.dll
+0x00007ffea0fa0000 - 0x00007ffea0fbb000 	C:\WINDOWS\SYSTEM32\XInput1_4.dll
+0x00007ffe80cc0000 - 0x00007ffe80ea4000 	C:\WINDOWS\SYSTEM32\inputhost.dll
+0x00007ffeae6a0000 - 0x00007ffeae7c6000 	C:\WINDOWS\SYSTEM32\CoreMessaging.dll
+0x00007ffe732c0000 - 0x00007ffe7330b000 	C:\Windows\System32\dinput8.dll
+0x00007ffe833e0000 - 0x00007ffe83527000 	C:\WINDOWS\SYSTEM32\textinputframework.dll
+0x00007ffe1a4c0000 - 0x00007ffe1a567000 	C:\WINDOWS\System32\DriverStore\FileRepository\nvacegpu.inf_amd64_0af8f5d55a9e9293\NvCamera\NvCameraAllowlisting64.dll
+0x00007ffe86860000 - 0x00007ffe868ef000 	C:\Windows\System32\DispBroker.dll
+0x00007ffe967d0000 - 0x00007ffe96f72000 	C:\WINDOWS\SYSTEM32\nvapi64.dll
+0x00007ffeaa5f0000 - 0x00007ffeaa694000 	C:\WINDOWS\System32\MMDevApi.dll
+0x00007ffe88c00000 - 0x00007ffe88db7000 	C:\WINDOWS\SYSTEM32\AUDIOSES.DLL
+0x00007ffeafe90000 - 0x00007ffeafea4000 	C:\WINDOWS\SYSTEM32\resourcepolicyclient.dll
+0x00007ffe0c040000 - 0x00007ffe0c14c000 	C:\WINDOWS\SYSTEM32\opengl32.dll
+0x00007ffe73fb0000 - 0x00007ffe73fdd000 	C:\WINDOWS\SYSTEM32\GLU32.dll
+0x00007ffdd36c0000 - 0x00007ffdd3e15000 	C:\WINDOWS\System32\DriverStore\FileRepository\nvacegpu.inf_amd64_0af8f5d55a9e9293\nvppex.dll
+0x00007ffeb0e00000 - 0x00007ffeb0e62000 	C:\WINDOWS\SYSTEM32\WINSTA.dll
+0x00007ffead6f0000 - 0x00007ffead950000 	C:\WINDOWS\system32\d3d11.dll
+0x00007ffea01d0000 - 0x00007ffea0463000 	C:\WINDOWS\System32\DriverStore\FileRepository\iigd_dch.inf_amd64_438afae43f7267c8\igd10iumd64.dll
+0x00007ffeaf010000 - 0x00007ffeaf0b0000 	C:\WINDOWS\SYSTEM32\apphelp.dll
+0x00007ffe9ed80000 - 0x00007ffe9fe93000 	C:\WINDOWS\System32\DriverStore\FileRepository\iigd_dch.inf_amd64_438afae43f7267c8\igd10um64xe.DLL
+0x00007ffdc0670000 - 0x00007ffdc138d000 	C:\Program Files\Java\jdk-21\bin\server\jvm.dll
+0x00007ffe9c210000 - 0x00007ffe9c21c000 	C:\WINDOWS\SYSTEM32\VCRUNTIME140_1.dll
+0x00007ffe95220000 - 0x00007ffe9523e000 	C:\WINDOWS\SYSTEM32\VCRUNTIME140.dll
+0x00007ffeaa6e0000 - 0x00007ffeaa6ea000 	C:\Program Files\Java\jdk-21\bin\jimage.dll
+0x00007ffe8bbc0000 - 0x00007ffe8bbfb000 	C:\WINDOWS\SYSTEM32\dbgcore.DLL
+0x00007ffe78cd0000 - 0x00007ffe78cef000 	C:\Program Files\Java\jdk-21\bin\java.dll
+0x00007ffe0bf60000 - 0x00007ffe0c037000 	C:\Program Files\Java\jdk-21\bin\jsvml.dll
+0x00007ffea8fb0000 - 0x00007ffea8fc0000 	C:\Program Files\Java\jdk-21\bin\net.dll
+0x00007ffea9be0000 - 0x00007ffea9d09000 	C:\WINDOWS\SYSTEM32\WINHTTP.dll
+0x00007ffe78c10000 - 0x00007ffe78c26000 	C:\Program Files\Java\jdk-21\bin\nio.dll
+0x00007ffe78650000 - 0x00007ffe78668000 	C:\Program Files\Java\jdk-21\bin\zip.dll
+0x00007ffe62d90000 - 0x00007ffe62dec000 	C:\WINDOWS\system32\dataexchange.dll
+
+dbghelp: loaded successfully - version: 4.0.5 - missing functions: none
+symbol engine: initialized successfully - sym options: 0x614 - pdb path: .;D:\Godot;C:\WINDOWS\SYSTEM32;C:\Program Files\WindowsApps\Microsoft.D3DMappingLayers_1.2605.1.0_x64__8wekyb3d8bbwe\x64;C:\WINDOWS\System32\DriverStore\FileRepository\nvacegpu.inf_amd64_0af8f5d55a9e9293;C:\WINDOWS\System32\DriverStore\FileRepository\iigd_dch.inf_amd64_438afae43f7267c8;C:\WINDOWS\System32\DriverStore\FileRepository\nvacegpu.inf_amd64_0af8f5d55a9e9293\Display.NvContainer;C:\WINDOWS\System32\DriverStore\FileRepository\nvacegpu.inf_amd64_0af8f5d55a9e9293\NvCamera;C:\Program Files\Java\jdk-21\bin\server;C:\Program Files\Java\jdk-21\bin
+
+VM Arguments:
+java_command: <unknown>
+java_class_path (initial): <not set>
+Launcher Type: generic
+
+[Global flags]
+     intx CICompilerCount                          = 12                                        {product} {ergonomic}
+     uint ConcGCThreads                            = 3                                         {product} {ergonomic}
+     uint G1ConcRefinementThreads                  = 13                                        {product} {ergonomic}
+   size_t G1HeapRegionSize                         = 2097152                                   {product} {ergonomic}
+    uintx GCDrainStackTargetSize                   = 64                                        {product} {ergonomic}
+   size_t InitialHeapSize                          = 264241152                                 {product} {ergonomic}
+   size_t MarkStackSize                            = 4194304                                   {product} {ergonomic}
+   size_t MaxHeapSize                              = 4217372672                                {product} {ergonomic}
+   size_t MaxNewSize                               = 2529165312                                {product} {ergonomic}
+   size_t MinHeapDeltaBytes                        = 2097152                                   {product} {ergonomic}
+   size_t MinHeapSize                              = 8388608                                   {product} {ergonomic}
+    uintx NonNMethodCodeHeapSize                   = 7602480                                {pd product} {ergonomic}
+    uintx NonProfiledCodeHeapSize                  = 122027880                              {pd product} {ergonomic}
+    uintx ProfiledCodeHeapSize                     = 122027880                              {pd product} {ergonomic}
+    uintx ReservedCodeCacheSize                    = 251658240                              {pd product} {ergonomic}
+     bool SegmentedCodeCache                       = true                                      {product} {ergonomic}
+   size_t SoftMaxHeapSize                          = 4217372672                             {manageable} {ergonomic}
+     bool UseCompressedOops                        = true                           {product lp64_product} {ergonomic}
+     bool UseG1GC                                  = true                                      {product} {ergonomic}
+     bool UseLargePagesIndividualAllocation        = false                                  {pd product} {ergonomic}
+
+Logging:
+Log output configuration:
+ #0: stdout all=warning uptime,level,tags foldmultilines=false
+ #1: stderr all=off uptime,level,tags foldmultilines=false
+
+Environment Variables:
+JAVA_HOME=C:\Program Files\Java\jdk-21
+PATH=C:\Program Files\Eclipse Adoptium\jdk-25.0.2.10-hotspot\bin;C:\Program Files\Common Files\Oracle\Java\javapath;C:\MinGW\bin;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Program Files\dotnet\;C:\Program Files (x86)\Windows Kits\10\Windows Performance Toolkit\;C:\Users\ADMIN\Downloads\winlibs-x86_64-posix-seh-gcc-12.1.0-mingw-w64msvcrt-10.0.0-r3.zip\mingw64\bin;C:\Program Files\nodejs\;C:\ProgramData\chocolatey\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;D:\Git\cmd;C:\Program Files\Java\jdk-21\bin;C:\Program Files (x86)\Microsoft SQL Server\170\Tools\Binn\;C:\Program Files\Microsoft SQL Server\170\Tools\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\180\Tools\Binn\;C:\Program Files\Microsoft SQL Server\170\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\160\DTS\Binn\;C:\Users\ADMIN\AppData\Local\Microsoft\WindowsApps;C:\Users\ADMIN\.dotnet\tools;C:\TDM-GCC-64\bin;C:\Microsoft VS Code\bin;C:\Users\ADMIN\AppData\Roaming\npm;C:\Git\bin;C:\Users\ADMIN\anaconda3\Lib\site-packages\pyarrow\src\arrow\python;C:\Users\ADMIN\AppData\Local\Programs\Microsoft VS Code\bin;D:\Antigravity\bin;C:\Users\ADMIN\AppData\Local\Programs\Antigravity IDE\bin;D:\Antigravity IDE\bin
+USERNAME=ADMIN
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 186 Stepping 2, GenuineIntel
+TMP=C:\Users\ADMIN\AppData\Local\Temp
+TEMP=C:\Users\ADMIN\AppData\Local\Temp
+
+
+
+
+Periodic native trim disabled
+
+---------------  S Y S T E M  ---------------
+
+OS:
+ Windows 11 , 64 bit Build 26100 (10.0.26100.8553)
+OS uptime: 0 days 0:33 hours
+Hyper-V role detected
+
+CPU: total 16 (initial active 16) (8 cores per cpu, 2 threads per core) family 6 model 186 stepping 2 microcode 0x5105, cx8, cmov, fxsr, ht, mmx, 3dnowpref, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, lzcnt, tsc, tscinvbit, avx, avx2, aes, erms, clmul, bmi1, bmi2, adx, sha, fma, vzeroupper, clflush, clflushopt, clwb, hv, serialize, rdtscp, rdpid, fsrm, f16c, cet_ibt, cet_ss
+Processor Information for processor 0
+  Max Mhz: 2400, Current Mhz: 1520, Mhz Limit: 2400
+Processor Information for processor 1
+  Max Mhz: 2400, Current Mhz: 1520, Mhz Limit: 2400
+Processor Information for processor 2
+  Max Mhz: 2400, Current Mhz: 1520, Mhz Limit: 2400
+Processor Information for processor 3
+  Max Mhz: 2400, Current Mhz: 1520, Mhz Limit: 2400
+Processor Information for processor 4
+  Max Mhz: 2400, Current Mhz: 1520, Mhz Limit: 2400
+Processor Information for processor 5
+  Max Mhz: 2400, Current Mhz: 1520, Mhz Limit: 2400
+Processor Information for processor 6
+  Max Mhz: 2400, Current Mhz: 2400, Mhz Limit: 2400
+Processor Information for processor 7
+  Max Mhz: 2400, Current Mhz: 2400, Mhz Limit: 2400
+Processor Information for processor 8
+  Max Mhz: 2400, Current Mhz: 1520, Mhz Limit: 2400
+Processor Information for processor 9
+  Max Mhz: 2400, Current Mhz: 1520, Mhz Limit: 2400
+Processor Information for processor 10
+  Max Mhz: 2400, Current Mhz: 1520, Mhz Limit: 2400
+Processor Information for processor 11
+  Max Mhz: 2400, Current Mhz: 1520, Mhz Limit: 2400
+Processor Information for processor 12
+  Max Mhz: 2400, Current Mhz: 1466, Mhz Limit: 2400
+Processor Information for processor 13
+  Max Mhz: 2400, Current Mhz: 1466, Mhz Limit: 2400
+Processor Information for processor 14
+  Max Mhz: 2400, Current Mhz: 1466, Mhz Limit: 2400
+Processor Information for processor 15
+  Max Mhz: 2400, Current Mhz: 1466, Mhz Limit: 2400
+
+Memory: 4k page, system-wide physical 16087M (4975M free)
+TotalPageFile size 20439M (AvailPageFile size 5102M)
+current process WorkingSet (physical memory assigned to process): 683M, peak: 683M
+current process commit charge ("private bytes"): 938M, peak: 938M
+
+vm_info: Java HotSpot(TM) 64-Bit Server VM (21.0.9+7-LTS-338) for windows-amd64 JRE (21.0.9+7-LTS-338), built on 2025-09-26T06:33:49Z by "mach5run" with MS VC++ 17.6 (VS2022)
+
+END.

@@ -1,0 +1,1817 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x000000002e747069, pid=15704, tid=14872
+#
+# JRE version: Java(TM) SE Runtime Environment (21.0.9+7) (build 21.0.9+7-LTS-338)
+# Java VM: Java HotSpot(TM) 64-Bit Server VM (21.0.9+7-LTS-338, mixed mode, sharing, tiered, compressed oops, compressed class ptrs, g1 gc, windows-amd64)
+# Problematic frame:
+# C  [godot.windows.editor.x86_64.jvm.0.14.3.exe+0x3420607]  Node2D::get_global_position+0x187
+#
+# No core dump will be written. Minidumps are not enabled by default on client versions of Windows
+#
+# If you would like to submit a bug report, please visit:
+#   https://bugreport.java.com/bugreport/crash.jsp
+# The crash happened outside the Java Virtual Machine in native code.
+# See problematic frame for where to report the bug.
+#
+
+---------------  S U M M A R Y ------------
+
+Command Line: 
+
+Host: 13th Gen Intel(R) Core(TM) i7-13620H, 16 cores, 15G,  Windows 11 , 64 bit Build 26100 (10.0.26100.8553)
+Time: Thu Jun  4 16:30:59 2026 SE Asia Standard Time elapsed time: 26.175045 seconds (0d 0h 0m 26s)
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x000001fddec50cf0):  JavaThread "main"             [_thread_in_native, id=14872, stack(0x0000004e5c600000,0x0000004e5ce00000) (8192K)]
+
+Stack: [0x0000004e5c600000,0x0000004e5ce00000],  sp=0x0000004e5cdfe500,  free space=8185k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+C  0x000000002e747069
+
+Java frames: (J=compiled Java code, j=interpreted, Vv=VM code)
+J 1104  godot.internal.memory.TransferContext.icall(JJI)V (0 bytes) @ 0x000001fd90000d78 [0x000001fd90000d20+0x0000000000000058]
+J 1242 c2 godot.internal.memory.TransferContext.callMethod(JJLgodot/common/interop/VariantConverter;)V (21 bytes) @ 0x000001fd9000841c [0x000001fd900083a0+0x000000000000007c]
+J 1366 c1 godot.api.Node2D.getGlobalPosition()Lgodot/core/Vector2; (54 bytes) @ 0x000001fd88658aa4 [0x000001fd886588c0+0x00000000000001e4]
+j  game.items.weapons.Weapon.getClosestTarget()Lgodot/api/Node2D;+40
+J 1212 c1 game.items.weapons.Weapon._process(D)V (51 bytes) @ 0x000001fd8861e494 [0x000001fd8861e280+0x0000000000000214]
+J 1210 c1 godot.entry.WeaponRegistrar$register$1$1$2.invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object; (19 bytes) @ 0x000001fd8861d40c [0x000001fd8861ce00+0x000000000000060c]
+J 1401 c2 godot.core.KtFunction.invoke(Lgodot/core/KtObject;)V (79 bytes) @ 0x000001fd9001b8b8 [0x000001fd9001b400+0x00000000000004b8]
+v  ~StubRoutines::call_stub 0x000001fd8f83100d
+
+siginfo: EXCEPTION_ACCESS_VIOLATION (0xc0000005), data execution prevention violation at address 0x000000002e747069
+
+
+Registers:
+RAX=0x00007ff6d6e5e758, RBX=0x000001fe46e5d720, RCX=0x000001fe46e5d720, RDX=0x0000004e5cdfe558
+RSP=0x0000004e5cdfe4f8, RBP=0x0000004e5cdfe609, RSI=0x000001fddc9e99a0, RDI=0x0000004e5cdfe5e0
+R8 =0x0000000000000000, R9 =0x00007ff6d1d20480, R10=0x00007ff8b9fd87c0, R11=0x0000004e5cdfe988
+R12=0x000001fe46e5d720, R13=0x000001fdf51e1080, R14=0x0000000000000000, R15=0x0000004e5cdfe6c8
+RIP=0x000000002e747069, EFLAGS=0x0000000000010202
+
+
+Register to memory mapping:
+
+RAX=0x00007ff6d6e5e758 godot.windows.editor.x86_64.jvm.0.14.3.exe::Object::`vftable' + 0x0
+RBX=0x000001fe46e5d720 points into unknown readable memory: 0x00006a7d00001c39 | 39 1c 00 00 7d 6a 00 00
+RCX=0x000001fe46e5d720 points into unknown readable memory: 0x00006a7d00001c39 | 39 1c 00 00 7d 6a 00 00
+RDX=0x0000004e5cdfe558 is pointing into the stack for thread: 0x000001fddec50cf0
+RSP=0x0000004e5cdfe4f8 is pointing into the stack for thread: 0x000001fddec50cf0
+RBP=0x0000004e5cdfe609 is pointing into the stack for thread: 0x000001fddec50cf0
+RSI=0x000001fddc9e99a0 points into unknown readable memory: 0x0000000000000000 | 00 00 00 00 00 00 00 00
+RDI=0x0000004e5cdfe5e0 is pointing into the stack for thread: 0x000001fddec50cf0
+R8 =0x0 is null
+R9 =0x00007ff6d1d20480 godot.windows.editor.x86_64.jvm.0.14.3.exe::Node2D::get_global_position + 0x0
+R10=0x00007ff8b9fd87c0 jvm.dll
+R11=0x0000004e5cdfe988 is pointing into the stack for thread: 0x000001fddec50cf0
+R12=0x000001fe46e5d720 points into unknown readable memory: 0x00006a7d00001c39 | 39 1c 00 00 7d 6a 00 00
+R13=0x000001fdf51e1080 points into unknown readable memory: 0x00007ff6d68ff998 | 98 f9 8f d6 f6 7f 00 00
+R14=0x0 is null
+R15=0x0000004e5cdfe6c8 is pointing into the stack for thread: 0x000001fddec50cf0
+
+Top of Stack: (sp=0x0000004e5cdfe4f8)
+0x0000004e5cdfe4f8:   00007ff6d1d20607 000001fe46f5d7d4
+0x0000004e5cdfe508:   00007ff6d2fb6ff6 000001fe46f55830
+0x0000004e5cdfe518:   000001fddc9e99a0 000001fde8a04e70
+0x0000004e5cdfe528:   00007ff6d15966d1 0000ca8c573158fb
+0x0000004e5cdfe538:   00007ff6d1d21177 000000000000191c
+0x0000004e5cdfe548:   00007ff6d1d1e6b2 000001fe46f5d320
+0x0000004e5cdfe558:   be879084bed928d7 bed928d73e879084
+0x0000004e5cdfe568:   4268000042b47ef8 0000ca8c5731594b
+0x0000004e5cdfe578:   0000000000000000 0000004e5cdfe6e0
+0x0000004e5cdfe588:   00007ff6d1d1ff02 000001fddc9e99a0
+0x0000004e5cdfe598:   00007ff6d1d24afc 00007ff6d42d4498
+0x0000004e5cdfe5a8:   0000000000000000 00007ff6d42d4498
+0x0000004e5cdfe5b8:   000001fddc9e99a0 000001fde8a04e70
+0x0000004e5cdfe5c8:   000001fddc9eab70 0000000800000000
+0x0000004e5cdfe5d8:   0000004e5cdfe618 4268000042b47ef8
+0x0000004e5cdfe5e8:   00007ff6d1d1e6b2 000001fe00000000
+0x0000004e5cdfe5f8:   0000000000000000 0000004e5cdfe6e0
+0x0000004e5cdfe608:   00007ff6cf74dc77 0000ca8c573159db
+0x0000004e5cdfe618:   0000004e5cdfe738 00000000000001c0
+0x0000004e5cdfe628:   00007ff6ce900000 0000000000000000
+0x0000004e5cdfe638:   0000000000000000 000001fdf51e1080
+0x0000004e5cdfe648:   000001fddc9eab70 0000004e5cdfe760
+0x0000004e5cdfe658:   00007ff6cf750a38 000001fe41481208
+0x0000004e5cdfe668:   0000000705e28b10 000001fdf51e0000
+0x0000004e5cdfe678:   000001fddc9e9f70 000001fe00000000
+0x0000004e5cdfe688:   0000004e5cdfe6c8 00007ff6d42d4498
+0x0000004e5cdfe698:   000001fddc9e9f70 00007ff6ce900000
+0x0000004e5cdfe6a8:   0000000000000000 0000000000000000
+0x0000004e5cdfe6b8:   000001fdf51e1080 000001fe46e5d720
+0x0000004e5cdfe6c8:   0000000000000000 0000000000000000
+0x0000004e5cdfe6d8:   000001fddec510b0 bf4ccccd00000000
+0x0000004e5cdfe6e8:   0000000000000000 0000000000000000 
+
+Instructions: (pc=0x00007ff6d1d20607)
+0x00007ff6d1d20507:   44 24 60 80 00 00 00 48 8d 05 0b 53 ac 04 33 f6
+0x00007ff6d1d20517:   48 8d 54 24 58 48 89 44 24 58 48 8d 4c 24 40 48
+0x00007ff6d1d20527:   89 74 24 40 e8 70 a5 a4 01 4c 8b c3 48 8d 54 24
+0x00007ff6d1d20537:   40 48 8d 4c 24 48 e8 3e 99 bf fc 89 74 24 30 4c
+0x00007ff6d1d20547:   8d 0d 03 2b b5 04 40 88 74 24 28 48 8d 15 2f ee
+0x00007ff6d1d20557:   bd 04 41 b8 22 01 00 00 48 89 44 24 20 48 8d 0d
+0x00007ff6d1d20567:   fd ef bd 04 e8 80 33 a4 01 48 8d 4c 24 48 e8 86
+0x00007ff6d1d20577:   8e bf fc 48 8b 44 24 40 48 85 c0 74 6d 48 8d 48
+0x00007ff6d1d20587:   f0 8b d6 48 0f 45 d1 48 c7 c0 ff ff ff ff f0 48
+0x00007ff6d1d20597:   0f c1 02 48 83 f8 01 75 51 48 8b 4c 24 40 33 d2
+0x00007ff6d1d205a7:   48 83 c1 f0 48 89 74 24 40 e8 7b 43 a4 01 48 39
+0x00007ff6d1d205b7:   74 24 40 74 35 89 74 24 30 48 8d 05 09 30 5b 02
+0x00007ff6d1d205c7:   40 88 74 24 28 4c 8d 0d 45 30 5b 02 41 b8 0e 01
+0x00007ff6d1d205d7:   00 00 48 89 44 24 20 48 8d 15 eb 2e 5b 02 48 8d
+0x00007ff6d1d205e7:   0d 54 30 5b 02 e8 3f 30 a4 01 48 89 37 eb 18 48
+0x00007ff6d1d205f7:   8b 03 48 8d 54 24 58 48 8b cb ff 90 b8 02 00 00
+0x00007ff6d1d20607:   48 8b 40 10 48 89 07 48 8b c7 48 8b 4c 24 70 48
+0x00007ff6d1d20617:   33 cc e8 c2 f2 50 02 4c 8d 9c 24 80 00 00 00 49
+0x00007ff6d1d20627:   8b 5b 20 49 8b 73 28 49 8b e3 5f c3 cc cc cc cc
+0x00007ff6d1d20637:   cc cc cc cc cc cc cc cc cc 48 89 5c 24 10 57 48
+0x00007ff6d1d20647:   81 ec 80 00 00 00 48 8b 05 ac 8e a7 05 48 33 c4
+0x00007ff6d1d20657:   48 89 44 24 70 65 48 8b 04 25 58 00 00 00 48 8b
+0x00007ff6d1d20667:   d9 8b 0d 5a 24 e1 05 48 8b 3c c8 b8 1c 19 00 00
+0x00007ff6d1d20677:   80 3c 38 00 75 05 e8 4e f3 50 02 b8 f0 12 00 00
+0x00007ff6d1d20687:   48 83 3c 38 00 0f 85 1c 01 00 00 e8 f9 15 cc 01
+0x00007ff6d1d20697:   84 c0 0f 85 0f 01 00 00 48 83 bb 48 02 00 00 00
+0x00007ff6d1d206a7:   0f 84 01 01 00 00 48 8d 54 24 50 48 8b cb e8 b6
+0x00007ff6d1d206b7:   e2 55 ff 48 8b d8 48 c7 44 24 60 80 00 00 00 48
+0x00007ff6d1d206c7:   8d 05 53 51 ac 04 33 ff 48 8d 54 24 58 48 89 44
+0x00007ff6d1d206d7:   24 58 48 8d 4c 24 40 48 89 7c 24 40 e8 b8 a3 a4
+0x00007ff6d1d206e7:   01 4c 8b c3 48 8d 54 24 40 48 8d 4c 24 48 e8 86
+0x00007ff6d1d206f7:   97 bf fc 89 7c 24 30 4c 8d 0d 3b df ac 04 40 88 
+
+
+Stack slot to memory mapping:
+
+stack at sp + 0 slots: 0x000001fe46f5d7d4 points into unknown readable memory: cd cc 4c 3f
+stack at sp + 1 slots: 0x00007ff6d2fb6ff6 godot.windows.editor.x86_64.jvm.0.14.3.exe::RenderingServerDefault::canvas_item_set_transform + 0xa6
+stack at sp + 2 slots: 0x000001fe46f55830 points into unknown readable memory: 0x00007ff6d4d9adf8 | f8 ad d9 d4 f6 7f 00 00
+stack at sp + 3 slots: 0x000001fddc9e99a0 points into unknown readable memory: 0x0000000000000000 | 00 00 00 00 00 00 00 00
+stack at sp + 4 slots: 0x000001fde8a04e70 points into unknown readable memory: 0x00007ff6d6b3e458 | 58 e4 b3 d6 f6 7f 00 00
+stack at sp + 5 slots: 0x00007ff6d15966d1 godot.windows.editor.x86_64.jvm.0.14.3.exe::MethodBindT<AnimationPlayer,StringName const &,double,float,bool>::call + 0x1f1
+stack at sp + 6 slots: 0x0000ca8c573158fb is an unknown value
+stack at sp + 7 slots: 0x00007ff6d1d21177 godot.windows.editor.x86_64.jvm.0.14.3.exe::Node2D::get_rotation + 0x47
+
+
+Compiled method (n/a)   26272 1104     n 0       godot.internal.memory.TransferContext::icall (native)
+ total in heap  [0x000001fd90000b90,0x000001fd90000f40] = 944
+ relocation     [0x000001fd90000cf0,0x000001fd90000d20] = 48
+ main code      [0x000001fd90000d20,0x000001fd90000f37] = 535
+ stub code      [0x000001fd90000f37,0x000001fd90000f38] = 1
+ oops           [0x000001fd90000f38,0x000001fd90000f40] = 8
+
+[Constant Pool (empty)]
+
+[MachCode]
+[Entry Point]
+  # {method} {0x000001fe4146c0b8} 'icall' '(JJI)V' in 'godot/internal/memory/TransferContext'
+  # this:     rdx:rdx   = 'godot/internal/memory/TransferContext'
+  # parm0:    r8:r8     = long
+  # parm1:    r9:r9     = long
+  # parm2:    rdi       = int
+  #           [sp+0x70]  (sp of caller)
+  0x000001fd90000d20: 448b 5208 | 49bb 0000 | 0000 fe01 | 0000 4d03 | d349 3bc2 | 0f84 0600 
+
+  0x000001fd90000d38: ;   {runtime_call ic_miss_stub}
+  0x000001fd90000d38: 0000 e941 | da87 ff90 
+[Verified Entry Point]
+  0x000001fd90000d40: 8984 2400 | 80ff ff55 | 488b ec48 | 83ec 6090 | 4181 7f20 | 0300 0000 
+
+  0x000001fd90000d58: ;   {runtime_call StubRoutines (final stubs)}
+  0x000001fd90000d58: 7405 e801 | 4086 ff48 | 897c 2420 | 4889 5424 | 2848 83fa | 0048 8d54 | 2428 480f | 4454 2428 
+  0x000001fd90000d78: ;   {internal_word}
+  0x000001fd90000d78: c5f8 7749 | ba78 0d00 | 90fd 0100 | 004d 8997 | a803 0000 | 4989 a7a0 
+
+  0x000001fd90000d90: ;   {external_word}
+  0x000001fd90000d90: 0300 0049 | bac0 87fd | b9f8 7f00 | 0041 803a | 000f 844e | 0000 0052 | 4150 4151 
+
+  0x000001fd90000dac: ;   {metadata({method} {0x000001fe4146c0b8} 'icall' '(JJI)V' in 'godot/internal/memory/TransferContext')}
+  0x000001fd90000dac: 48ba b0c0 | 4641 fe01 | 0000 498b | cf48 83ec | 2040 f6c4 | 0f0f 8419 | 0000 0048 
+
+  0x000001fd90000dc8: ;   {runtime_call}
+  0x000001fd90000dc8: 83ec 0848 | b890 1eae | b9f8 7f00 | 00ff d048 | 83c4 08e9 | 0c00 0000 
+
+  0x000001fd90000de0: ;   {runtime_call}
+  0x000001fd90000de0: 48b8 901e | aeb9 f87f | 0000 ffd0 | 4883 c420 | 4159 4158 | 5a49 8d8f | c003 0000 | 41c7 874c 
+  0x000001fd90000e00: 0400 0004 
+
+  0x000001fd90000e04: ;   {runtime_call TransferContext::icall}
+  0x000001fd90000e04: 0000 0048 | b870 0475 | cff6 7f00 | 00ff d0c5 | f877 41c7 | 874c 0400 | 0005 0000 | 00f0 8344 
+  0x000001fd90000e24: 24c0 0049 | 3baf 5004 | 0000 0f87 | 0e00 0000 | 4183 bf48 | 0400 0000 | 0f84 2300 | 0000 c5f8 
+  0x000001fd90000e44: 7749 8bcf | 4c8b e448 | 83ec 2048 
+
+  0x000001fd90000e50: ;   {runtime_call}
+  0x000001fd90000e50: 83e4 f048 | b860 cb79 | b9f8 7f00 | 00ff d049 | 8be4 4d33 | e441 c787 | 4c04 0000 | 0800 0000 
+  0x000001fd90000e70: 4183 bfc8 | 0400 0002 | 0f84 9400 
+
+  0x000001fd90000e7c: ;   {external_word}
+  0x000001fd90000e7c: 0000 49ba | c087 fdb9 | f87f 0000 | 4180 3a00 | 0f84 4400 
+
+  0x000001fd90000e90: ;   {metadata({method} {0x000001fe4146c0b8} 'icall' '(JJI)V' in 'godot/internal/memory/TransferContext')}
+  0x000001fd90000e90: 0000 48ba | b0c0 4641 | fe01 0000 | 498b cf48 | 83ec 2040 | f6c4 0f0f | 8419 0000 | 0048 83ec 
+  0x000001fd90000eb0: ;   {runtime_call}
+  0x000001fd90000eb0: 0848 b890 | 1eae b9f8 | 7f00 00ff | d048 83c4 | 08e9 0c00 
+
+  0x000001fd90000ec4: ;   {runtime_call}
+  0x000001fd90000ec4: 0000 48b8 | 901e aeb9 | f87f 0000 | ffd0 4883 | c420 49c7 | 87a0 0300 | 0000 0000 | 0049 c787 
+  0x000001fd90000ee4: a803 0000 | 0000 0000 | c5f8 7749 | 8b8f 3004 | 0000 c781 | 0001 0000 | 0000 0000 | c949 837f 
+  0x000001fd90000f04: 0800 0f85 | 0100 0000 
+
+  0x000001fd90000f0c: ;   {runtime_call StubRoutines (initial stubs)}
+  0x000001fd90000f0c: c3e9 eeff | 82ff c5f8 | 774c 8be4 | 4883 ec20 | 4883 e4f0 
+
+  0x000001fd90000f20: ;   {runtime_call}
+  0x000001fd90000f20: 48b8 4056 | aeb9 f87f | 0000 ffd0 | 498b e44d | 33e4 e947 | ffff fff4 
+[/MachCode]
+
+
+Compiled method (c2)   26278 1242       4       godot.internal.memory.TransferContext::callMethod (21 bytes)
+ total in heap  [0x000001fd90008210,0x000001fd900085a8] = 920
+ relocation     [0x000001fd90008370,0x000001fd900083a0] = 48
+ main code      [0x000001fd900083a0,0x000001fd90008488] = 232
+ stub code      [0x000001fd90008488,0x000001fd900084b0] = 40
+ oops           [0x000001fd900084b0,0x000001fd900084c0] = 16
+ metadata       [0x000001fd900084c0,0x000001fd900084d0] = 16
+ scopes data    [0x000001fd900084d0,0x000001fd90008520] = 80
+ scopes pcs     [0x000001fd90008520,0x000001fd90008570] = 80
+ dependencies   [0x000001fd90008570,0x000001fd90008578] = 8
+ handler table  [0x000001fd90008578,0x000001fd900085a8] = 48
+
+[Constant Pool (empty)]
+
+[MachCode]
+[Entry Point]
+  # {method} {0x000001fe4146bf28} 'callMethod' '(JJLgodot/common/interop/VariantConverter;)V' in 'godot/internal/memory/TransferContext'
+  # this:     rdx:rdx   = 'godot/internal/memory/TransferContext'
+  # parm0:    r8:r8     = long
+  # parm1:    r9:r9     = long
+  # parm2:    rdi:rdi   = 'godot/common/interop/VariantConverter'
+  #           [sp+0x40]  (sp of caller)
+  0x000001fd900083a0: 448b 5208 | 49bb 0000 | 0000 fe01 | 0000 4d03 | d349 3bc2 
+
+  0x000001fd900083b4: ;   {runtime_call ic_miss_stub}
+  0x000001fd900083b4: 0f85 c663 | 87ff 6690 | 0f1f 4000 
+[Verified Entry Point]
+  0x000001fd900083c0: 8984 2400 | 80ff ff55 | 4883 ec30 | 4181 7f20 | 0300 0000 | 0f85 9e00 | 0000 4c89 | 4c24 084c 
+  0x000001fd900083e0: 8904 2448 | 8bea 4885 | ff74 4c48 | 8bd7 6666 | 9048 b8e0 | 2b9a fdfd 
+
+  0x000001fd900083f8: ;   {virtual_call}
+  0x000001fd900083f8: 0100 00e8 
+
+  0x000001fd900083fc: ; ImmutableOopMap {rbp=Oop }
+                      ;*invokeinterface getId {reexecute=0 rethrow=0 return_oop=0}
+                      ; - godot.internal.memory.TransferContext::callMethod@12 (line 82)
+  0x000001fd900083fc: 204d 94ff 
+
+  0x000001fd90008400: ;   {other}
+  0x000001fd90008400: 0f1f 8400 | f001 0000 | 488b d54c | 8b04 244c | 8b4c 2408 
+
+  0x000001fd90008414: ;   {optimized virtual_call}
+  0x000001fd90008414: 8bf8 90e8 
+
+  0x000001fd90008418: ; ImmutableOopMap {}
+                      ;*invokespecial icall {reexecute=0 rethrow=0 return_oop=0}
+                      ; - godot.internal.memory.TransferContext::callMethod@17 (line 79)
+  0x000001fd90008418: 2489 ffff 
+
+  0x000001fd9000841c: ;   {other}
+  0x000001fd9000841c: 0f1f 8400 | 0c02 0001 | 4883 c430 
+
+  0x000001fd90008428: ;   {poll_return}
+  0x000001fd90008428: 5d49 3ba7 | 5004 0000 | 0f87 2c00 | 0000 c3ba | 45ff ffff | 4889 7c24 
+
+  0x000001fd90008440: ;   {runtime_call UncommonTrapBlob}
+  0x000001fd90008440: 1866 90e8 
+
+  0x000001fd90008444: ; ImmutableOopMap {rbp=Oop [24]=Oop }
+                      ;*ifnonnull {reexecute=1 rethrow=0 return_oop=0}
+                      ; - (reexecute) kotlin.jvm.internal.Intrinsics::checkNotNullParameter@1 (line 130)
+                      ; - godot.internal.memory.TransferContext::callMethod@4
+  0x000001fd90008444: b8c1 87ff 
+
+  0x000001fd90008448: ;   {other}
+  0x000001fd90008448: 0f1f 8400 | 3802 0002 | 488b d0eb | 0348 8bd0 | 4883 c430 
+
+  0x000001fd9000845c: ;   {runtime_call _rethrow_Java}
+  0x000001fd9000845c: 5de9 1e7a 
+
+  0x000001fd90008460: ;   {internal_word}
+  0x000001fd90008460: 94ff 49ba | 2984 0090 | fd01 0000 | 4d89 9768 
+
+  0x000001fd90008470: ;   {runtime_call SafepointBlob}
+  0x000001fd90008470: 0400 00e9 | 88d2 87ff 
+
+  0x000001fd90008478: ;   {runtime_call StubRoutines (final stubs)}
+  0x000001fd90008478: e8e3 c885 | ffe9 58ff | ffff f4f4 | f4f4 f4f4 
+[Stub Code]
+  0x000001fd90008488: ;   {no_reloc}
+  0x000001fd90008488: 48bb 0000 | 0000 0000 
+
+  0x000001fd90008490: ;   {runtime_call}
+  0x000001fd90008490: 0000 e9fb 
+
+  0x000001fd90008494: ;   {runtime_call ExceptionBlob}
+  0x000001fd90008494: ffff ffe9 | e442 94ff 
+[Deopt Handler Code]
+  0x000001fd9000849c: e800 0000 | 0048 832c 
+
+  0x000001fd900084a4: ;   {runtime_call DeoptimizationBlob}
+  0x000001fd900084a4: 2405 e9f5 | c487 fff4 | f4f4 f4f4 
+[/MachCode]
+
+
+Compiled method (c1)   26280 1366       3       godot.api.Node2D::getGlobalPosition (54 bytes)
+ total in heap  [0x000001fd88658590,0x000001fd88659f30] = 6560
+ relocation     [0x000001fd886586f0,0x000001fd886588b0] = 448
+ main code      [0x000001fd886588c0,0x000001fd886598f0] = 4144
+ stub code      [0x000001fd886598f0,0x000001fd886599c0] = 208
+ oops           [0x000001fd886599c0,0x000001fd88659a00] = 64
+ metadata       [0x000001fd88659a00,0x000001fd88659a58] = 88
+ scopes data    [0x000001fd88659a58,0x000001fd88659c38] = 480
+ scopes pcs     [0x000001fd88659c38,0x000001fd88659ee8] = 688
+ dependencies   [0x000001fd88659ee8,0x000001fd88659ef0] = 8
+ nul chk table  [0x000001fd88659ef0,0x000001fd88659f30] = 64
+
+[Constant Pool (empty)]
+
+[MachCode]
+[Entry Point]
+  # {method} {0x000001fe41718a58} 'getGlobalPosition' '()Lgodot/core/Vector2;' in 'godot/api/Node2D'
+  #           [sp+0x120]  (sp of caller)
+  0x000001fd886588c0: 448b 5208 | 49bb 0000 | 0000 fe01 | 0000 4d03 | d34c 3bd0 
+
+  0x000001fd886588d4: ;   {runtime_call ic_miss_stub}
+  0x000001fd886588d4: 0f85 a65e | 2207 660f | 1f44 0000 
+[Verified Entry Point]
+  0x000001fd886588e0: 8984 2400 | 80ff ff55 | 4881 ec10 | 0100 0090 | 4181 7f20 | 0300 0000 
+
+  0x000001fd886588f8: ;   {runtime_call StubRoutines (final stubs)}
+  0x000001fd886588f8: 7405 e861 
+
+  0x000001fd886588fc: ;   {metadata(method data for {method} {0x000001fe41718a58} 'getGlobalPosition' '()Lgodot/core/Vector2;' in 'godot/api/Node2D')}
+  0x000001fd886588fc: c420 0748 | bbc8 8293 | 42fe 0100 | 008b b3cc | 0000 0083 | c602 89b3 | cc00 0000 | 81e6 fe07 
+  0x000001fd8865891c: 0000 85f6 | 0f84 3e0d | 0000 4889 | 9424 d800 | 0000 bb00 
+
+  0x000001fd88658930: ;   {metadata('kotlin/Pair'[])}
+  0x000001fd88658930: 0000 0048 | baf0 2902 | 01fe 0100 | 0048 63db | 488b fb48 | 81fb ffff | ff00 0f87 | 350d 0000 
+  0x000001fd88658950: 48be 1700 | 0000 0000 | 0000 488d | 349e 4883 | e6f8 498b | 87b8 0100 | 0048 8d34 | 3049 3bb7 
+  0x000001fd88658970: c801 0000 | 0f87 0b0d | 0000 4989 | b7b8 0100 | 0048 2bf0 | 48c7 0001 | 0000 0048 | 8bca 49ba 
+  0x000001fd88658990: 0000 0000 | fe01 0000 | 492b ca89 | 4808 8958 | 0c48 83ee | 1048 85f6 | 0f84 1100 | 0000 4833 
+  0x000001fd886589b0: db48 c1ee | 0348 895c | f008 48ff 
+
+  0x000001fd886589bc: ;   {oop(a 'godot/internal/memory/TransferContext'{0x0000000705e28b10})}
+  0x000001fd886589bc: ce75 f648 | be10 8be2 | 0507 0000 | 004c 8bc6 
+
+  0x000001fd886589cc: ;   {metadata(method data for {method} {0x000001fe41718a58} 'getGlobalPosition' '()Lgodot/core/Vector2;' in 'godot/api/Node2D')}
+  0x000001fd886589cc: 48ba c882 | 9342 fe01 | 0000 4883 | 8210 0100 | 0001 4c8b | c048 8bd6 | 4889 b424 | e000 0000 
+  0x000001fd886589ec: ;   {optimized virtual_call}
+  0x000001fd886589ec: 6666 90e8 
+
+  0x000001fd886589f0: ; ImmutableOopMap {[216]=Oop [224]=Oop }
+                      ;*invokevirtual writeArguments {reexecute=0 rethrow=0 return_oop=0}
+                      ; - godot.api.Node2D::getGlobalPosition@7 (line 475)
+  0x000001fd886589f0: aced 9a07 
+
+  0x000001fd886589f4: ;   {other}
+  0x000001fd886589f4: 0f1f 8400 | 6404 0000 | 488b 9424 | d800 0000 
+
+  0x000001fd88658a04: ;   {metadata(method data for {method} {0x000001fe41718a58} 'getGlobalPosition' '()Lgodot/core/Vector2;' in 'godot/api/Node2D')}
+  0x000001fd88658a04: 49b8 c882 | 9342 fe01 | 0000 4983 | 8048 0100 | 0001 488b | 9424 d800 | 0000 4c8b 
+
+  0x000001fd88658a20: ;   {oop(a 'godot/api/Node2D$MethodBindings'{0x0000000706224a20})}
+  0x000001fd88658a20: 4210 49b9 | 204a 2206 | 0700 0000 
+
+  0x000001fd88658a2c: ;   {metadata(method data for {method} {0x000001fe41718a58} 'getGlobalPosition' '()Lgodot/core/Vector2;' in 'godot/api/Node2D')}
+  0x000001fd88658a2c: 48bf c882 | 9342 fe01 | 0000 4883 | 8780 0100 
+
+  0x000001fd88658a3c: ;   {metadata(method data for {method} {0x000001fe4244c090} 'getGetGlobalPositionPtr$godot_api_library' '()J' in 'godot/api/Node2D$MethodBindings')}
+  0x000001fd88658a3c: 0001 49b9 | c8be 9442 | fe01 0000 | 418b b9cc | 0000 0083 | c702 4189 | b9cc 0000 | 0081 e7fe 
+  0x000001fd88658a5c: ff1f 0085 | ff0f 8428 | 0c00 0048 | 8bb4 24e0 
+
+  0x000001fd88658a6c: ;   {metadata(method data for {method} {0x000001fe41718a58} 'getGlobalPosition' '()Lgodot/core/Vector2;' in 'godot/api/Node2D')}
+  0x000001fd88658a6c: 0000 0049 | b9c8 8293 | 42fe 0100 | 0049 8381 | f001 0000 
+
+  0x000001fd88658a80: ;   {oop(a 'godot/core/VariantParser$VECTOR2'{0x0000000705f38700})}
+  0x000001fd88658a80: 0148 bf00 | 87f3 0507 | 0000 0049 | b980 101e | f5fd 0100 | 0048 8b94 | 24e0 0000 
+
+  0x000001fd88658a9c: ;   {optimized virtual_call}
+  0x000001fd88658a9c: 0066 90e8 
+
+  0x000001fd88658aa0: ; ImmutableOopMap {[224]=Oop }
+                      ;*invokevirtual callMethod {reexecute=0 rethrow=0 return_oop=0}
+                      ; - godot.api.Node2D::getGlobalPosition@29 (line 476)
+  0x000001fd88658aa0: 1cf9 9a07 
+
+  0x000001fd88658aa4: ;   {other}
+  0x000001fd88658aa4: 0f1f 8400 | 1405 0001 | 488b b424 | e000 0000 
+
+  0x000001fd88658ab4: ;   {metadata(method data for {method} {0x000001fe41718a58} 'getGlobalPosition' '()Lgodot/core/Vector2;' in 'godot/api/Node2D')}
+  0x000001fd88658ab4: 48ba c882 | 9342 fe01 | 0000 4883 | 8260 0200 
+
+  0x000001fd88658ac4: ;   {metadata(method data for {method} {0x000001fe4146be40} 'readReturnValue' '(Lgodot/common/interop/VariantConverter;)Ljava/lang/Object;' in 'godot/internal/memory/TransferContext')}
+  0x000001fd88658ac4: 0001 48ba | 4020 9342 | fe01 0000 | 8bb2 cc00 | 0000 83c6 | 0289 b2cc | 0000 0081 | e6fe ff1f 
+  0x000001fd88658ae4: 0085 f60f | 84c3 0b00 
+
+  0x000001fd88658aec: ;   {metadata(method data for {method} {0x000001fe4146be40} 'readReturnValue' '(Lgodot/common/interop/VariantConverter;)Ljava/lang/Object;' in 'godot/internal/memory/TransferContext')}
+  0x000001fd88658aec: 0048 ba40 | 2093 42fe | 0100 0048 | 8382 1001 
+
+  0x000001fd88658afc: ;   {metadata(method data for {method} {0x000001fe4143dde0} 'checkNotNullParameter' '(Ljava/lang/Object;Ljava/lang/String;)V' in 'kotlin/jvm/internal/Intrinsics')}
+  0x000001fd88658afc: 0000 0148 | ba88 b35f | 41fe 0100 | 008b b2cc | 0000 0083 | c602 89b2 | cc00 0000 | 81e6 feff 
+  0x000001fd88658b1c: 1f00 85f6 | 0f84 ab0b 
+
+  0x000001fd88658b24: ;   {metadata(method data for {method} {0x000001fe4143dde0} 'checkNotNullParameter' '(Ljava/lang/Object;Ljava/lang/String;)V' in 'kotlin/jvm/internal/Intrinsics')}
+  0x000001fd88658b24: 0000 48ba | 88b3 5f41 | fe01 0000 | ff82 1001 
+
+  0x000001fd88658b34: ;   {oop(a 'godot/internal/memory/TransferContext'{0x0000000705e28b10})}
+  0x000001fd88658b34: 0000 48ba | 108b e205 | 0700 0000 
+
+  0x000001fd88658b40: ;   {metadata(method data for {method} {0x000001fe4146be40} 'readReturnValue' '(Lgodot/common/interop/VariantConverter;)Ljava/lang/Object;' in 'godot/internal/memory/TransferContext')}
+  0x000001fd88658b40: 48be 4020 | 9342 fe01 | 0000 4883 | 8620 0100 
+
+  0x000001fd88658b50: ;   {metadata(method data for {method} {0x000001fe4146b778} 'getBuffer' '()Ljava/nio/ByteBuffer;' in 'godot/internal/memory/TransferContext')}
+  0x000001fd88658b50: 0001 48ba | e0a6 8d42 | fe01 0000 | 8bb2 cc00 | 0000 83c6 | 0289 b2cc | 0000 0081 | e6fe ff1f 
+  0x000001fd88658b70: 0085 f60f | 8479 0b00 
+
+  0x000001fd88658b78: ;   {oop(a 'kotlin/reflect/KProperty'[1] {0x0000000706269c78})}
+  0x000001fd88658b78: 0048 ba78 | 9c26 0607 | 0000 008b | 5210 48c1 
+
+  0x000001fd88658b88: ;   {oop(a 'godot/common/util/ThreadLocalDelegate'{0x0000000706269ee0})}
+  0x000001fd88658b88: e203 48be | e09e 2606 | 0700 0000 
+
+  0x000001fd88658b94: ;   {metadata(method data for {method} {0x000001fe4146b778} 'getBuffer' '()Ljava/nio/ByteBuffer;' in 'godot/internal/memory/TransferContext')}
+  0x000001fd88658b94: 48bf e0a6 | 8d42 fe01 | 0000 4883 | 8710 0100 
+
+  0x000001fd88658ba4: ;   {metadata(method data for {method} {0x000001fe4145e9a0} 'getValue' '(Ljava/lang/Object;Lkotlin/reflect/KProperty;)Ljava/lang/Object;' in 'godot/common/util/ThreadLocalDelegate')}
+  0x000001fd88658ba4: 0001 48be | 38a5 8d42 | fe01 0000 | 8bbe cc00 | 0000 83c7 | 0289 becc | 0000 0081 | e7fe ff1f 
+  0x000001fd88658bc4: 0085 ff0f | 844b 0b00 
+
+  0x000001fd88658bcc: ;   {metadata(method data for {method} {0x000001fe4145e9a0} 'getValue' '(Ljava/lang/Object;Lkotlin/reflect/KProperty;)Ljava/lang/Object;' in 'godot/common/util/ThreadLocalDelegate')}
+  0x000001fd88658bcc: 0048 be38 | a58d 42fe | 0100 0048 | 8386 1001 
+
+  0x000001fd88658bdc: ;   {metadata(method data for {method} {0x000001fe4143dde0} 'checkNotNullParameter' '(Ljava/lang/Object;Ljava/lang/String;)V' in 'kotlin/jvm/internal/Intrinsics')}
+  0x000001fd88658bdc: 0000 0148 | be88 b35f | 41fe 0100 | 008b becc | 0000 0083 | c702 89be | cc00 0000 | 81e7 feff 
+  0x000001fd88658bfc: 1f00 85ff | 0f84 330b | 0000 4885 
+
+  0x000001fd88658c08: ;   {metadata(method data for {method} {0x000001fe4143dde0} 'checkNotNullParameter' '(Ljava/lang/Object;Ljava/lang/String;)V' in 'kotlin/jvm/internal/Intrinsics')}
+  0x000001fd88658c08: d248 ba88 | b35f 41fe | 0100 0048 | be20 0100 | 0000 0000 | 0074 0a48 | be10 0100 | 0000 0000 
+  0x000001fd88658c28: 0048 8b3c | 3248 8d7f | 0148 893c | 320f 8499 
+
+  0x000001fd88658c38: ;   {oop(a 'godot/common/util/ThreadLocalDelegate'{0x0000000706269ee0})}
+  0x000001fd88658c38: 0700 0048 | bae0 9e26 | 0607 0000 | 008b 5210 | 48c1 e203 
+
+  0x000001fd88658c4c: ; implicit exception: dispatches to 0x000001fd8865975f
+  0x000001fd88658c4c: 483b 0248 
+
+  0x000001fd88658c50: ;   {metadata(method data for {method} {0x000001fe4145e9a0} 'getValue' '(Ljava/lang/Object;Lkotlin/reflect/KProperty;)Ljava/lang/Object;' in 'godot/common/util/ThreadLocalDelegate')}
+  0x000001fd88658c50: 8bf2 48bf | 38a5 8d42 | fe01 0000 | 8b76 0849 | ba00 0000 | 00fe 0100 | 0049 03f2 | 483b b730 
+  0x000001fd88658c70: 0100 0075 | 0d48 8387 | 3801 0000 | 01e9 6000 | 0000 483b | b740 0100 | 0075 0d48 | 8387 4801 
+  0x000001fd88658c90: 0000 01e9 | 4a00 0000 | 4883 bf30 | 0100 0000 | 7517 4889 | b730 0100 | 0048 c787 | 3801 0000 
+  0x000001fd88658cb0: 0100 0000 | e929 0000 | 0048 83bf | 4001 0000 | 0075 1748 | 89b7 4001 | 0000 48c7 | 8748 0100 
+  0x000001fd88658cd0: 0001 0000 | 00e9 0800 | 0000 4883 | 8720 0100 | 0001 6666 | 9048 b868 | 3f04 01fe 
+
+  0x000001fd88658cec: ;   {virtual_call}
+  0x000001fd88658cec: 0100 00e8 
+
+  0x000001fd88658cf0: ; ImmutableOopMap {}
+                      ;*invokevirtual get {reexecute=0 rethrow=0 return_oop=0}
+                      ; - godot.common.util.ThreadLocalDelegate::getValue@10 (line 7)
+                      ; - godot.internal.memory.TransferContext::getBuffer@9 (line 28)
+                      ; - godot.internal.memory.TransferContext::readReturnValue@7 (line 73)
+                      ; - godot.api.Node2D::getGlobalPosition@41 (line 477)
+  0x000001fd88658cf0: 2cb5 9a07 
+
+  0x000001fd88658cf4: ;   {other}
+  0x000001fd88658cf4: 0f1f 8400 | 6407 0002 | 4885 c075 
+
+  0x000001fd88658d00: ;   {metadata(method data for {method} {0x000001fe4146b778} 'getBuffer' '()Ljava/nio/ByteBuffer;' in 'godot/internal/memory/TransferContext')}
+  0x000001fd88658d00: 1648 bfe0 | a68d 42fe | 0100 0080 | 8f41 0100 | 0001 e9cd 
+
+  0x000001fd88658d14: ;   {metadata('java/nio/ByteBuffer')}
+  0x000001fd88658d14: 0000 0048 | bb10 230c | 00fe 0100 | 008b 7808 | 49ba 0000 | 0000 fe01 | 0000 4903 | fa48 3b5f 
+  0x000001fd88658d34: 400f 858d 
+
+  0x000001fd88658d38: ;   {metadata(method data for {method} {0x000001fe4146b778} 'getBuffer' '()Ljava/nio/ByteBuffer;' in 'godot/internal/memory/TransferContext')}
+  0x000001fd88658d38: 0000 0048 | bfe0 a68d | 42fe 0100 | 008b 5808 | 49ba 0000 | 0000 fe01 | 0000 4903 | da48 3b9f 
+  0x000001fd88658d58: 5801 0000 | 750d 4883 | 8760 0100 | 0001 e979 | 0000 0048 | 3b9f 6801 | 0000 750d | 4883 8770 
+  0x000001fd88658d78: 0100 0001 | e963 0000 | 0048 83bf | 5801 0000 | 0075 1748 | 899f 5801 | 0000 48c7 | 8760 0100 
+  0x000001fd88658d98: 0001 0000 | 00e9 4200 | 0000 4883 | bf68 0100 | 0000 7517 | 4889 9f68 | 0100 0048 | c787 7001 
+  0x000001fd88658db8: 0000 0100 | 0000 e921 | 0000 00e9 | 1c00 0000 
+
+  0x000001fd88658dc8: ;   {metadata(method data for {method} {0x000001fe4146b778} 'getBuffer' '()Ljava/nio/ByteBuffer;' in 'godot/internal/memory/TransferContext')}
+  0x000001fd88658dc8: 48bf e0a6 | 8d42 fe01 | 0000 4883 | af48 0100 | 0001 e985 | 0900 00e9 | 0000 0000 | 488b f048 
+  0x000001fd88658de8: 3b06 488b 
+
+  0x000001fd88658dec: ;   {metadata(method data for {method} {0x000001fe4146be40} 'readReturnValue' '(Lgodot/common/interop/VariantConverter;)Ljava/lang/Object;' in 'godot/internal/memory/TransferContext')}
+  0x000001fd88658dec: d648 bf40 | 2093 42fe | 0100 008b | 5208 49ba | 0000 0000 | fe01 0000 | 4903 d248 | 3b97 6801 
+  0x000001fd88658e0c: 0000 750d | 4883 8770 | 0100 0001 | e960 0000 | 0048 3b97 | 7801 0000 | 750d 4883 | 8780 0100 
+  0x000001fd88658e2c: 0001 e94a | 0000 0048 | 83bf 6801 | 0000 0075 | 1748 8997 | 6801 0000 | 48c7 8770 | 0100 0001 
+  0x000001fd88658e4c: 0000 00e9 | 2900 0000 | 4883 bf78 | 0100 0000 | 7517 4889 | 9778 0100 | 0048 c787 | 8001 0000 
+  0x000001fd88658e6c: 0100 0000 | e908 0000 | 0048 8387 | 5801 0000 | 0148 8bd6 | 4889 b424 | e800 0000 | 0f1f 4400 
+  0x000001fd88658e8c: 0048 b878 | 0b1c 00fe 
+
+  0x000001fd88658e94: ;   {virtual_call}
+  0x000001fd88658e94: 0100 00e8 
+
+  0x000001fd88658e98: ; ImmutableOopMap {[232]=Oop }
+                      ;*invokevirtual rewind {reexecute=0 rethrow=0 return_oop=0}
+                      ; - godot.internal.memory.TransferContext::readReturnValue@14 (line 74)
+                      ; - godot.api.Node2D::getGlobalPosition@41 (line 477)
+  0x000001fd88658e98: 84c1 9a07 
+
+  0x000001fd88658e9c: ;   {other}
+  0x000001fd88658e9c: 0f1f 8400 | 0c09 0003 
+
+  0x000001fd88658ea4: ;   {oop(a 'godot/core/VariantParser$VECTOR2'{0x0000000705f38700})}
+  0x000001fd88658ea4: 48ba 0087 | f305 0700 | 0000 4c8b 
+
+  0x000001fd88658eb0: ;   {metadata(method data for {method} {0x000001fe4146be40} 'readReturnValue' '(Lgodot/common/interop/VariantConverter;)Ljava/lang/Object;' in 'godot/internal/memory/TransferContext')}
+  0x000001fd88658eb0: c248 be40 | 2093 42fe | 0100 0045 | 8b40 0849 | ba00 0000 | 00fe 0100 | 004d 03c2 | 4c3b 86a0 
+  0x000001fd88658ed0: 0100 0075 | 0d48 8386 | a801 0000 | 01e9 6000 | 0000 4c3b | 86b0 0100 | 0075 0d48 | 8386 b801 
+  0x000001fd88658ef0: 0000 01e9 | 4a00 0000 | 4883 bea0 | 0100 0000 | 7517 4c89 | 86a0 0100 | 0048 c786 | a801 0000 
+  0x000001fd88658f10: 0100 0000 | e929 0000 | 0048 83be | b001 0000 | 0075 174c | 8986 b001 | 0000 48c7 | 86b8 0100 
+  0x000001fd88658f30: 0001 0000 | 00e9 0800 | 0000 4883 | 8690 0100 | 0001 4c8b | 8424 e800 | 0000 0f1f 
+
+  0x000001fd88658f4c: ;   {optimized virtual_call}
+  0x000001fd88658f4c: 4400 00e8 
+
+  0x000001fd88658f50: ; ImmutableOopMap {}
+                      ;*invokeinterface toKotlin {reexecute=0 rethrow=0 return_oop=0}
+                      ; - godot.internal.memory.TransferContext::readReturnValue@20 (line 75)
+                      ; - godot.api.Node2D::getGlobalPosition@41 (line 477)
+  0x000001fd88658f50: 8ce1 9a07 
+
+  0x000001fd88658f54: ;   {other}
+  0x000001fd88658f54: 0f1f 8400 | c409 0004 | 4889 8424 | f000 0000 
+
+  0x000001fd88658f64: ;   {metadata(method data for {method} {0x000001fe41718a58} 'getGlobalPosition' '()Lgodot/core/Vector2;' in 'godot/api/Node2D')}
+  0x000001fd88658f64: 48ba c882 | 9342 fe01 | 0000 4883 | 8298 0200 
+
+  0x000001fd88658f74: ;   {metadata(method data for {method} {0x000001fe4143ce68} 'checkNotNull' '(Ljava/lang/Object;Ljava/lang/String;)V' in 'kotlin/jvm/internal/Intrinsics')}
+  0x000001fd88658f74: 0001 48ba | 686e 7341 | fe01 0000 | 8bb2 cc00 | 0000 83c6 | 0289 b2cc | 0000 0081 | e6fe ff1f 
+  0x000001fd88658f94: 0085 f60f | 84d5 0700 | 0048 85c0 
+
+  0x000001fd88658fa0: ;   {metadata(method data for {method} {0x000001fe4143ce68} 'checkNotNull' '(Ljava/lang/Object;Ljava/lang/String;)V' in 'kotlin/jvm/internal/Intrinsics')}
+  0x000001fd88658fa0: 48ba 686e | 7341 fe01 | 0000 48be | 1001 0000 | 0000 0000 | 750a 48be | 2001 0000 | 0000 0000 
+  0x000001fd88658fc0: 488b 3c32 | 488d 7f01 | 4889 3c32 | 0f85 e201 
+
+  0x000001fd88658fd0: ;   {metadata(method data for {method} {0x000001fe4143ce68} 'checkNotNull' '(Ljava/lang/Object;Ljava/lang/String;)V' in 'kotlin/jvm/internal/Intrinsics')}
+  0x000001fd88658fd0: 0000 48ba | 686e 7341 | fe01 0000 | 4883 8230 | 0100 0001 
+
+  0x000001fd88658fe4: ;   {metadata(method data for {method} {0x000001fe4143d138} 'throwJavaNpe' '(Ljava/lang/String;)V' in 'kotlin/jvm/internal/Intrinsics')}
+  0x000001fd88658fe4: 48ba f06f | 7341 fe01 | 0000 8bb2 | cc00 0000 | 83c6 0289 | b2cc 0000 | 0081 e6fe | ff1f 0085 
+  0x000001fd88659004: f60f 8488 | 0700 000f | 1f44 0000 
+
+  0x000001fd88659010: ;   {no_reloc}
+  0x000001fd88659010: e9ae 0700 | 0000 0000 | 0000 498b | 87b8 0100 | 0048 8d78 | 3049 3bbf | c801 0000 | 0f87 9b07 
+  0x000001fd88659030: 0000 4989 | bfb8 0100 | 0048 c700 | 0100 0000 | 488b ca49 | ba00 0000 | 00fe 0100 | 0049 2bca 
+  0x000001fd88659050: 8948 0848 | 33c9 8948 | 0c48 33c9 | 4889 4810 | 4889 4818 | 4889 4820 | 4889 4828 
+
+  0x000001fd8865906c: ;   {metadata(method data for {method} {0x000001fe4143d138} 'throwJavaNpe' '(Ljava/lang/String;)V' in 'kotlin/jvm/internal/Intrinsics')}
+  0x000001fd8865906c: 4c8b c048 | baf0 6f73 | 41fe 0100 | 0048 8382 | 1001 0000 
+
+  0x000001fd88659080: ;   {oop("null cannot be cast to non-null type godot.core.Vector2"{0x000000071452a790})}
+  0x000001fd88659080: 0149 b890 | a752 1407 | 0000 0048 | 8bd0 4889 | 8424 f800 
+
+  0x000001fd88659094: ;   {optimized virtual_call}
+  0x000001fd88659094: 0000 90e8 
+
+  0x000001fd88659098: ; ImmutableOopMap {[240]=Oop [248]=Oop }
+                      ;*invokespecial <init> {reexecute=0 rethrow=0 return_oop=0}
+                      ; - kotlin.jvm.internal.Intrinsics::throwJavaNpe@5 (line 50)
+                      ; - kotlin.jvm.internal.Intrinsics::checkNotNull@5 (line 31)
+                      ; - godot.api.Node2D::getGlobalPosition@47 (line 477)
+  0x000001fd88659098: e459 2207 
+
+  0x000001fd8865909c: ;   {other}
+  0x000001fd8865909c: 0f1f 8400 | 0c0b 0005 
+
+  0x000001fd886590a4: ;   {metadata(method data for {method} {0x000001fe4143d138} 'throwJavaNpe' '(Ljava/lang/String;)V' in 'kotlin/jvm/internal/Intrinsics')}
+  0x000001fd886590a4: 48ba f06f | 7341 fe01 | 0000 4883 | 8220 0100 
+
+  0x000001fd886590b4: ;   {metadata(method data for {method} {0x000001fe4143efd8} 'sanitizeStackTrace' '(Ljava/lang/Throwable;)Ljava/lang/Throwable;' in 'kotlin/jvm/internal/Intrinsics')}
+  0x000001fd886590b4: 0001 48ba | f0bb 5f41 | fe01 0000 | 8bb2 cc00 | 0000 83c6 | 0289 b2cc | 0000 0081 | e6fe ff1f 
+  0x000001fd886590d4: 0085 f60f | 84fd 0600 
+
+  0x000001fd886590dc: ;   {oop(a 'java/lang/Class'{0x0000000705fa11c8} = 'kotlin/jvm/internal/Intrinsics')}
+  0x000001fd886590dc: 0048 bac8 | 11fa 0507 | 0000 0048 
+
+  0x000001fd886590e8: ;   {metadata(method data for {method} {0x000001fe4143efd8} 'sanitizeStackTrace' '(Ljava/lang/Throwable;)Ljava/lang/Throwable;' in 'kotlin/jvm/internal/Intrinsics')}
+  0x000001fd886590e8: 8bf2 48bf | f0bb 5f41 | fe01 0000 | 4883 8710 | 0100 0001 
+
+  0x000001fd886590fc: ;   {metadata(method data for {method} {0x000001fe0046ee00} 'getName' '()Ljava/lang/String;' in 'java/lang/Class')}
+  0x000001fd886590fc: 48be a8c4 | 0541 fe01 | 0000 8bbe | cc00 0000 | 83c7 0289 | becc 0000 | 0081 e7fe | ff1f 0085 
+  0x000001fd8865911c: ff0f 84d8 | 0600 008b | 522c 48c1 | e203 4885 
+
+  0x000001fd8865912c: ;   {metadata(method data for {method} {0x000001fe0046ee00} 'getName' '()Ljava/lang/String;' in 'java/lang/Class')}
+  0x000001fd8865912c: d248 bea8 | c405 41fe | 0100 0048 | bf10 0100 | 0000 0000 | 0074 0a48 | bf20 0100 | 0000 0000 
+  0x000001fd8865914c: 0048 8b1c | 3e48 8d5b | 0148 891c | 3e0f 8418 
+
+  0x000001fd8865915c: ;   {metadata(method data for {method} {0x000001fe0046ee00} 'getName' '()Ljava/lang/String;' in 'java/lang/Class')}
+  0x000001fd8865915c: 0000 0048 | bea8 c405 | 41fe 0100 | 00ff 8630 | 0100 0048 | 8bf2 e930 
+
+  0x000001fd88659174: ;   {oop(a 'java/lang/Class'{0x0000000705fa11c8} = 'kotlin/jvm/internal/Intrinsics')}
+  0x000001fd88659174: 0000 0048 | bac8 11fa | 0507 0000 | 0048 8bf2 
+
+  0x000001fd88659184: ;   {metadata(method data for {method} {0x000001fe0046ee00} 'getName' '()Ljava/lang/String;' in 'java/lang/Class')}
+  0x000001fd88659184: 48bf a8c4 | 0541 fe01 | 0000 4883 | 8748 0100 
+
+  0x000001fd88659194: ;   {optimized virtual_call}
+  0x000001fd88659194: 0001 90e8 
+
+  0x000001fd88659198: ; ImmutableOopMap {[240]=Oop [248]=Oop }
+                      ;*invokevirtual initClassName {reexecute=0 rethrow=0 return_oop=0}
+                      ; - java.lang.Class::getName@14 (line 950)
+                      ; - kotlin.jvm.internal.Intrinsics::sanitizeStackTrace@3 (line 253)
+                      ; - kotlin.jvm.internal.Intrinsics::throwJavaNpe@8 (line 50)
+                      ; - kotlin.jvm.internal.Intrinsics::checkNotNull@5 (line 31)
+                      ; - godot.api.Node2D::getGlobalPosition@47 (line 477)
+  0x000001fd88659198: e458 2207 
+
+  0x000001fd8865919c: ;   {other}
+  0x000001fd8865919c: 0f1f 8400 | 0c0c 0006 | 488b f048 | 8b84 24f8 | 0000 00e9 | fe00 0000 | 4885 c075 
+
+  0x000001fd886591b8: ;   {metadata(method data for {method} {0x000001fe41718a58} 'getGlobalPosition' '()Lgodot/core/Vector2;' in 'godot/api/Node2D')}
+  0x000001fd886591b8: 1749 b8c8 | 8293 42fe | 0100 0041 | 8088 a102 | 0000 01e9 | cc00 0000 
+
+  0x000001fd886591d0: ;   {metadata('godot/core/Vector2')}
+  0x000001fd886591d0: 48be 1084 | 0201 fe01 | 0000 8b50 | 0849 ba00 | 0000 00fe | 0100 0049 | 03d2 483b | f20f 858d 
+  0x000001fd886591f0: ;   {metadata(method data for {method} {0x000001fe41718a58} 'getGlobalPosition' '()Lgodot/core/Vector2;' in 'godot/api/Node2D')}
+  0x000001fd886591f0: 0000 0049 | b8c8 8293 | 42fe 0100 | 008b 7008 | 49ba 0000 | 0000 fe01 | 0000 4903 | f249 3bb0 
+  0x000001fd88659210: b802 0000 | 750d 4983 | 80c0 0200 | 0001 e979 | 0000 0049 | 3bb0 c802 | 0000 750d | 4983 80d0 
+  0x000001fd88659230: 0200 0001 | e963 0000 | 0049 83b8 | b802 0000 | 0075 1749 | 89b0 b802 | 0000 49c7 | 80c0 0200 
+  0x000001fd88659250: 0001 0000 | 00e9 4200 | 0000 4983 | b8c8 0200 | 0000 7517 | 4989 b0c8 | 0200 0049 | c780 d002 
+  0x000001fd88659270: 0000 0100 | 0000 e921 | 0000 00e9 | 1c00 0000 
+
+  0x000001fd88659280: ;   {metadata(method data for {method} {0x000001fe41718a58} 'getGlobalPosition' '()Lgodot/core/Vector2;' in 'godot/api/Node2D')}
+  0x000001fd88659280: 49b8 c882 | 9342 fe01 | 0000 4983 | a8a8 0200 | 0001 e98a | 0500 00e9 | 0000 0000 | 4881 c410 
+  0x000001fd886592a0: 0100 005d 
+
+  0x000001fd886592a4: ;   {poll_return}
+  0x000001fd886592a4: 493b a750 | 0400 000f | 8779 0500 
+
+  0x000001fd886592b0: ;   {metadata(method data for {method} {0x000001fe4143efd8} 'sanitizeStackTrace' '(Ljava/lang/Throwable;)Ljava/lang/Throwable;' in 'kotlin/jvm/internal/Intrinsics')}
+  0x000001fd886592b0: 00c3 48ba | f0bb 5f41 | fe01 0000 | 4883 8248 | 0100 0001 | 488b d04c | 8bc6 0f1f 
+
+  0x000001fd886592cc: ;   {static_call}
+  0x000001fd886592cc: 4400 00e8 
+
+  0x000001fd886592d0: ; ImmutableOopMap {[240]=Oop }
+                      ;*invokestatic sanitizeStackTrace {reexecute=0 rethrow=0 return_oop=0}
+                      ; - kotlin.jvm.internal.Intrinsics::sanitizeStackTrace@6 (line 253)
+                      ; - kotlin.jvm.internal.Intrinsics::throwJavaNpe@8 (line 50)
+                      ; - kotlin.jvm.internal.Intrinsics::checkNotNull@5 (line 31)
+                      ; - godot.api.Node2D::getGlobalPosition@47 (line 477)
+  0x000001fd886592d0: ac5d 2207 
+
+  0x000001fd886592d4: ;   {other}
+  0x000001fd886592d4: 0f1f 8400 | 440d 0007 | 488b 9424 | f000 0000 | 4885 c075 
+
+  0x000001fd886592e8: ;   {metadata(method data for {method} {0x000001fe4143d138} 'throwJavaNpe' '(Ljava/lang/String;)V' in 'kotlin/jvm/internal/Intrinsics')}
+  0x000001fd886592e8: 1648 bff0 | 6f73 41fe | 0100 0080 | 8f29 0100 | 0001 e9cd 
+
+  0x000001fd886592fc: ;   {metadata('java/lang/NullPointerException')}
+  0x000001fd886592fc: 0000 0048 | b928 d906 | 00fe 0100 | 008b 7808 | 49ba 0000 | 0000 fe01 | 0000 4903 | fa48 3b4f 
+  0x000001fd8865931c: 500f 858d 
+
+  0x000001fd88659320: ;   {metadata(method data for {method} {0x000001fe4143d138} 'throwJavaNpe' '(Ljava/lang/String;)V' in 'kotlin/jvm/internal/Intrinsics')}
+  0x000001fd88659320: 0000 0048 | bff0 6f73 | 41fe 0100 | 008b 4808 | 49ba 0000 | 0000 fe01 | 0000 4903 | ca48 3b8f 
+  0x000001fd88659340: 4001 0000 | 750d 4883 | 8748 0100 | 0001 e979 | 0000 0048 | 3b8f 5001 | 0000 750d | 4883 8758 
+  0x000001fd88659360: 0100 0001 | e963 0000 | 0048 83bf | 4001 0000 | 0075 1748 | 898f 4001 | 0000 48c7 | 8748 0100 
+  0x000001fd88659380: 0001 0000 | 00e9 4200 | 0000 4883 | bf50 0100 | 0000 7517 | 4889 8f50 | 0100 0048 | c787 5801 
+  0x000001fd886593a0: 0000 0100 | 0000 e921 | 0000 00e9 | 1c00 0000 
+
+  0x000001fd886593b0: ;   {metadata(method data for {method} {0x000001fe4143d138} 'throwJavaNpe' '(Ljava/lang/String;)V' in 'kotlin/jvm/internal/Intrinsics')}
+  0x000001fd886593b0: 48bf f06f | 7341 fe01 | 0000 4883 | af30 0100 | 0001 e979 | 0400 00e9 | 0000 0000 
+
+  0x000001fd886593cc: ; implicit exception: dispatches to 0x000001fd88659849
+  0x000001fd886593cc: 483b 00e9 | 0d05 0000 
+
+  0x000001fd886593d4: ;   {metadata(method data for {method} {0x000001fe4143dde0} 'checkNotNullParameter' '(Ljava/lang/Object;Ljava/lang/String;)V' in 'kotlin/jvm/internal/Intrinsics')}
+  0x000001fd886593d4: 48ba 88b3 | 5f41 fe01 | 0000 4883 | 8230 0100 
+
+  0x000001fd886593e4: ;   {metadata(method data for {method} {0x000001fe4143df60} 'throwParameterIsNullNPE' '(Ljava/lang/String;)V' in 'kotlin/jvm/internal/Intrinsics')}
+  0x000001fd886593e4: 0001 48ba | 10b5 5f41 | fe01 0000 | 8bb2 cc00 | 0000 83c6 | 0289 b2cc | 0000 0081 | e6fe ff1f 
+  0x000001fd88659404: 0085 f60f | 8441 0400 | 0066 6690 
+
+  0x000001fd88659410: ;   {no_reloc}
+  0x000001fd88659410: e969 0400 | 0000 0000 | 0000 498b | 87b8 0100 | 0048 8d78 | 3049 3bbf | c801 0000 | 0f87 5604 
+  0x000001fd88659430: 0000 4989 | bfb8 0100 | 0048 c700 | 0100 0000 | 488b ca49 | ba00 0000 | 00fe 0100 | 0049 2bca 
+  0x000001fd88659450: 8948 0848 | 33c9 8948 | 0c48 33c9 | 4889 4810 | 4889 4818 | 4889 4820 | 4889 4828 
+
+  0x000001fd8865946c: ;   {metadata(method data for {method} {0x000001fe4143df60} 'throwParameterIsNullNPE' '(Ljava/lang/String;)V' in 'kotlin/jvm/internal/Intrinsics')}
+  0x000001fd8865946c: 48ba 10b5 | 5f41 fe01 | 0000 4883 | 8210 0100 
+
+  0x000001fd8865947c: ;   {oop("property"{0x00000007062d9ba0})}
+  0x000001fd8865947c: 0001 48ba | a09b 2d06 | 0700 0000 | 4889 8424 | 0001 0000 | 0f1f 8000 
+
+  0x000001fd88659494: ;   {static_call}
+  0x000001fd88659494: 0000 00e8 
+
+  0x000001fd88659498: ; ImmutableOopMap {[256]=Oop }
+                      ;*invokestatic createParameterIsNullExceptionMessage {reexecute=0 rethrow=0 return_oop=0}
+                      ; - kotlin.jvm.internal.Intrinsics::throwParameterIsNullNPE@5 (line 140)
+                      ; - kotlin.jvm.internal.Intrinsics::checkNotNullParameter@5 (line 131)
+                      ; - godot.common.util.ThreadLocalDelegate::getValue@3
+                      ; - godot.internal.memory.TransferContext::getBuffer@9 (line 28)
+                      ; - godot.internal.memory.TransferContext::readReturnValue@7 (line 73)
+                      ; - godot.api.Node2D::getGlobalPosition@41 (line 477)
+  0x000001fd88659498: e45b 2207 
+
+  0x000001fd8865949c: ;   {other}
+  0x000001fd8865949c: 0f1f 8400 | 0c0f 0008 | 4c8b 8424 | 0001 0000 
+
+  0x000001fd886594ac: ;   {metadata(method data for {method} {0x000001fe4143df60} 'throwParameterIsNullNPE' '(Ljava/lang/String;)V' in 'kotlin/jvm/internal/Intrinsics')}
+  0x000001fd886594ac: 48ba 10b5 | 5f41 fe01 | 0000 4883 | 8220 0100 | 0001 4c8b | c048 8b94 | 2400 0100 | 0066 0f1f 
+  0x000001fd886594cc: ;   {optimized virtual_call}
+  0x000001fd886594cc: 4400 00e8 
+
+  0x000001fd886594d0: ; ImmutableOopMap {[256]=Oop }
+                      ;*invokespecial <init> {reexecute=0 rethrow=0 return_oop=0}
+                      ; - kotlin.jvm.internal.Intrinsics::throwParameterIsNullNPE@8 (line 140)
+                      ; - kotlin.jvm.internal.Intrinsics::checkNotNullParameter@5 (line 131)
+                      ; - godot.common.util.ThreadLocalDelegate::getValue@3
+                      ; - godot.internal.memory.TransferContext::getBuffer@9 (line 28)
+                      ; - godot.internal.memory.TransferContext::readReturnValue@7 (line 73)
+                      ; - godot.api.Node2D::getGlobalPosition@41 (line 477)
+  0x000001fd886594d0: ac55 2207 
+
+  0x000001fd886594d4: ;   {other}
+  0x000001fd886594d4: 0f1f 8400 | 440f 0009 
+
+  0x000001fd886594dc: ;   {metadata(method data for {method} {0x000001fe4143df60} 'throwParameterIsNullNPE' '(Ljava/lang/String;)V' in 'kotlin/jvm/internal/Intrinsics')}
+  0x000001fd886594dc: 48ba 10b5 | 5f41 fe01 | 0000 4883 | 8230 0100 
+
+  0x000001fd886594ec: ;   {metadata(method data for {method} {0x000001fe4143efd8} 'sanitizeStackTrace' '(Ljava/lang/Throwable;)Ljava/lang/Throwable;' in 'kotlin/jvm/internal/Intrinsics')}
+  0x000001fd886594ec: 0001 48ba | f0bb 5f41 | fe01 0000 | 8bb2 cc00 | 0000 83c6 | 0289 b2cc | 0000 0081 | e6fe ff1f 
+  0x000001fd8865950c: 0085 f60f | 8480 0300 
+
+  0x000001fd88659514: ;   {oop(a 'java/lang/Class'{0x0000000705fa11c8} = 'kotlin/jvm/internal/Intrinsics')}
+  0x000001fd88659514: 0048 bac8 | 11fa 0507 | 0000 0048 
+
+  0x000001fd88659520: ;   {metadata(method data for {method} {0x000001fe4143efd8} 'sanitizeStackTrace' '(Ljava/lang/Throwable;)Ljava/lang/Throwable;' in 'kotlin/jvm/internal/Intrinsics')}
+  0x000001fd88659520: 8bf2 48bf | f0bb 5f41 | fe01 0000 | 4883 8710 | 0100 0001 
+
+  0x000001fd88659534: ;   {optimized virtual_call}
+  0x000001fd88659534: 6666 90e8 
+
+  0x000001fd88659538: ; ImmutableOopMap {[256]=Oop }
+                      ;*invokevirtual getName {reexecute=0 rethrow=0 return_oop=0}
+                      ; - kotlin.jvm.internal.Intrinsics::sanitizeStackTrace@3 (line 253)
+                      ; - kotlin.jvm.internal.Intrinsics::throwParameterIsNullNPE@11 (line 140)
+                      ; - kotlin.jvm.internal.Intrinsics::checkNotNullParameter@5 (line 131)
+                      ; - godot.common.util.ThreadLocalDelegate::getValue@3
+                      ; - godot.internal.memory.TransferContext::getBuffer@9 (line 28)
+                      ; - godot.internal.memory.TransferContext::readReturnValue@7 (line 73)
+                      ; - godot.api.Node2D::getGlobalPosition@41 (line 477)
+  0x000001fd88659538: 4455 2207 
+
+  0x000001fd8865953c: ;   {other}
+  0x000001fd8865953c: 0f1f 8400 | ac0f 000a 
+
+  0x000001fd88659544: ;   {metadata(method data for {method} {0x000001fe4143efd8} 'sanitizeStackTrace' '(Ljava/lang/Throwable;)Ljava/lang/Throwable;' in 'kotlin/jvm/internal/Intrinsics')}
+  0x000001fd88659544: 48ba f0bb | 5f41 fe01 | 0000 4883 | 8248 0100 | 0001 488b | 9424 0001 | 0000 4c8b | c066 0f1f 
+  0x000001fd88659564: ;   {static_call}
+  0x000001fd88659564: 4400 00e8 
+
+  0x000001fd88659568: ; ImmutableOopMap {}
+                      ;*invokestatic sanitizeStackTrace {reexecute=0 rethrow=0 return_oop=0}
+                      ; - kotlin.jvm.internal.Intrinsics::sanitizeStackTrace@6 (line 253)
+                      ; - kotlin.jvm.internal.Intrinsics::throwParameterIsNullNPE@11 (line 140)
+                      ; - kotlin.jvm.internal.Intrinsics::checkNotNullParameter@5 (line 131)
+                      ; - godot.common.util.ThreadLocalDelegate::getValue@3
+                      ; - godot.internal.memory.TransferContext::getBuffer@9 (line 28)
+                      ; - godot.internal.memory.TransferContext::readReturnValue@7 (line 73)
+                      ; - godot.api.Node2D::getGlobalPosition@41 (line 477)
+  0x000001fd88659568: 145b 2207 
+
+  0x000001fd8865956c: ;   {other}
+  0x000001fd8865956c: 0f1f 8400 | dc0f 000b | 4885 c075 
+
+  0x000001fd88659578: ;   {metadata(method data for {method} {0x000001fe4143df60} 'throwParameterIsNullNPE' '(Ljava/lang/String;)V' in 'kotlin/jvm/internal/Intrinsics')}
+  0x000001fd88659578: 1648 bf10 | b55f 41fe | 0100 0080 | 8f39 0100 | 0001 e9cd 
+
+  0x000001fd8865958c: ;   {metadata('java/lang/NullPointerException')}
+  0x000001fd8865958c: 0000 0048 | bb28 d906 | 00fe 0100 | 008b 7808 | 49ba 0000 | 0000 fe01 | 0000 4903 | fa48 3b5f 
+  0x000001fd886595ac: 500f 858d 
+
+  0x000001fd886595b0: ;   {metadata(method data for {method} {0x000001fe4143df60} 'throwParameterIsNullNPE' '(Ljava/lang/String;)V' in 'kotlin/jvm/internal/Intrinsics')}
+  0x000001fd886595b0: 0000 0048 | bf10 b55f | 41fe 0100 | 008b 5808 | 49ba 0000 | 0000 fe01 | 0000 4903 | da48 3b9f 
+  0x000001fd886595d0: 5001 0000 | 750d 4883 | 8758 0100 | 0001 e979 | 0000 0048 | 3b9f 6001 | 0000 750d | 4883 8768 
+  0x000001fd886595f0: 0100 0001 | e963 0000 | 0048 83bf | 5001 0000 | 0075 1748 | 899f 5001 | 0000 48c7 | 8758 0100 
+  0x000001fd88659610: 0001 0000 | 00e9 4200 | 0000 4883 | bf60 0100 | 0000 7517 | 4889 9f60 | 0100 0048 | c787 6801 
+  0x000001fd88659630: 0000 0100 | 0000 e921 | 0000 00e9 | 1c00 0000 
+
+  0x000001fd88659640: ;   {metadata(method data for {method} {0x000001fe4143df60} 'throwParameterIsNullNPE' '(Ljava/lang/String;)V' in 'kotlin/jvm/internal/Intrinsics')}
+  0x000001fd88659640: 48bf 10b5 | 5f41 fe01 | 0000 4883 | af40 0100 | 0001 e95f | 0200 00e9 | 0000 0000 
+
+  0x000001fd8865965c: ; implicit exception: dispatches to 0x000001fd886598bf
+  0x000001fd8865965c: 483b 00e9 | 7d02 0000 
+
+  0x000001fd88659664: ;   {metadata({method} {0x000001fe41718a58} 'getGlobalPosition' '()Lgodot/core/Vector2;' in 'godot/api/Node2D')}
+  0x000001fd88659664: 49ba 508a | 7141 fe01 | 0000 4c89 | 5424 0848 | c704 24ff 
+
+  0x000001fd88659678: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x000001fd88659678: ffff ffe8 
+
+  0x000001fd8865967c: ; ImmutableOopMap {rdx=Oop }
+                      ;*synchronization entry
+                      ; - godot.api.Node2D::getGlobalPosition@-1 (line 475)
+  0x000001fd8865967c: 801b 2f07 | e9a1 f2ff 
+
+  0x000001fd88659684: ;   {runtime_call new_object_array Runtime1 stub}
+  0x000001fd88659684: ffe8 f6c8 
+
+  0x000001fd88659688: ; ImmutableOopMap {[216]=Oop }
+                      ;*anewarray {reexecute=0 rethrow=0 return_oop=0}
+                      ; - godot.api.Node2D::getGlobalPosition@4 (line 475)
+  0x000001fd88659688: 2e07 e930 
+
+  0x000001fd8865968c: ;   {metadata({method} {0x000001fe4244c090} 'getGetGlobalPositionPtr$godot_api_library' '()J' in 'godot/api/Node2D$MethodBindings')}
+  0x000001fd8865968c: f3ff ff49 | ba88 c044 | 42fe 0100 | 004c 8954 | 2408 48c7 | 0424 ffff 
+
+  0x000001fd886596a4: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x000001fd886596a4: ffff e855 
+
+  0x000001fd886596a8: ; ImmutableOopMap {[224]=Oop }
+                      ;*synchronization entry
+                      ; - godot.api.Node2D$MethodBindings::getGetGlobalPositionPtr$godot_api_library@-1 (line 644)
+                      ; - godot.api.Node2D::getGlobalPosition@20 (line 476)
+  0x000001fd886596a8: 1b2f 07e9 | b7f3 ffff 
+
+  0x000001fd886596b0: ;   {metadata({method} {0x000001fe4146be40} 'readReturnValue' '(Lgodot/common/interop/VariantConverter;)Ljava/lang/Object;' in 'godot/internal/memory/TransferContext')}
+  0x000001fd886596b0: 49ba 38be | 4641 fe01 | 0000 4c89 | 5424 0848 | c704 24ff 
+
+  0x000001fd886596c4: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x000001fd886596c4: ffff ffe8 
+
+  0x000001fd886596c8: ; ImmutableOopMap {}
+                      ;*synchronization entry
+                      ; - godot.internal.memory.TransferContext::readReturnValue@-1
+                      ; - godot.api.Node2D::getGlobalPosition@41 (line 477)
+  0x000001fd886596c8: 341b 2f07 | e91c f4ff 
+
+  0x000001fd886596d0: ;   {metadata({method} {0x000001fe4143dde0} 'checkNotNullParameter' '(Ljava/lang/Object;Ljava/lang/String;)V' in 'kotlin/jvm/internal/Intrinsics')}
+  0x000001fd886596d0: ff49 bad8 | dd43 41fe | 0100 004c | 8954 2408 | 48c7 0424 | ffff ffff 
+
+  0x000001fd886596e8: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x000001fd886596e8: e813 1b2f 
+
+  0x000001fd886596ec: ; ImmutableOopMap {}
+                      ;*synchronization entry
+                      ; - kotlin.jvm.internal.Intrinsics::checkNotNullParameter@-1 (line 130)
+                      ; - godot.internal.memory.TransferContext::readReturnValue@3
+                      ; - godot.api.Node2D::getGlobalPosition@41 (line 477)
+  0x000001fd886596ec: 07e9 34f4 
+
+  0x000001fd886596f0: ;   {metadata({method} {0x000001fe4146b778} 'getBuffer' '()Ljava/nio/ByteBuffer;' in 'godot/internal/memory/TransferContext')}
+  0x000001fd886596f0: ffff 49ba | 70b7 4641 | fe01 0000 | 4c89 5424 | 0848 c704 | 24ff ffff 
+
+  0x000001fd88659708: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x000001fd88659708: ffe8 f21a 
+
+  0x000001fd8865970c: ; ImmutableOopMap {}
+                      ;*synchronization entry
+                      ; - godot.internal.memory.TransferContext::getBuffer@-1 (line 28)
+                      ; - godot.internal.memory.TransferContext::readReturnValue@7 (line 73)
+                      ; - godot.api.Node2D::getGlobalPosition@41 (line 477)
+  0x000001fd8865970c: 2f07 e966 
+
+  0x000001fd88659710: ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x000001fd88659710: f4ff ffe8 
+
+  0x000001fd88659714: ; ImmutableOopMap {}
+                      ;*aaload {reexecute=0 rethrow=0 return_oop=0}
+                      ; - godot.internal.memory.TransferContext::getBuffer@8 (line 28)
+                      ; - godot.internal.memory.TransferContext::readReturnValue@7 (line 73)
+                      ; - godot.api.Node2D::getGlobalPosition@41 (line 477)
+  0x000001fd88659714: 68b6 2e07 
+
+  0x000001fd88659718: ;   {metadata({method} {0x000001fe4145e9a0} 'getValue' '(Ljava/lang/Object;Lkotlin/reflect/KProperty;)Ljava/lang/Object;' in 'godot/common/util/ThreadLocalDelegate')}
+  0x000001fd88659718: 49ba 98e9 | 4541 fe01 | 0000 4c89 | 5424 0848 | c704 24ff 
+
+  0x000001fd8865972c: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x000001fd8865972c: ffff ffe8 
+
+  0x000001fd88659730: ; ImmutableOopMap {rdx=Oop }
+                      ;*synchronization entry
+                      ; - godot.common.util.ThreadLocalDelegate::getValue@-1
+                      ; - godot.internal.memory.TransferContext::getBuffer@9 (line 28)
+                      ; - godot.internal.memory.TransferContext::readReturnValue@7 (line 73)
+                      ; - godot.api.Node2D::getGlobalPosition@41 (line 477)
+  0x000001fd88659730: cc1a 2f07 | e994 f4ff 
+
+  0x000001fd88659738: ;   {metadata({method} {0x000001fe4143dde0} 'checkNotNullParameter' '(Ljava/lang/Object;Ljava/lang/String;)V' in 'kotlin/jvm/internal/Intrinsics')}
+  0x000001fd88659738: ff49 bad8 | dd43 41fe | 0100 004c | 8954 2408 | 48c7 0424 | ffff ffff 
+
+  0x000001fd88659750: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x000001fd88659750: e8ab 1a2f 
+
+  0x000001fd88659754: ; ImmutableOopMap {rdx=Oop }
+                      ;*synchronization entry
+                      ; - kotlin.jvm.internal.Intrinsics::checkNotNullParameter@-1 (line 130)
+                      ; - godot.common.util.ThreadLocalDelegate::getValue@3
+                      ; - godot.internal.memory.TransferContext::getBuffer@9 (line 28)
+                      ; - godot.internal.memory.TransferContext::readReturnValue@7 (line 73)
+                      ; - godot.api.Node2D::getGlobalPosition@41 (line 477)
+  0x000001fd88659754: 07e9 acf4 
+
+  0x000001fd88659758: ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x000001fd88659758: ffff e821 
+
+  0x000001fd8865975c: ; ImmutableOopMap {}
+                      ;*getfield threadLocal {reexecute=1 rethrow=0 return_oop=0}
+                      ; - (reexecute) godot.common.util.ThreadLocalDelegate::getValue@7 (line 7)
+                      ; - godot.internal.memory.TransferContext::getBuffer@9 (line 28)
+                      ; - godot.internal.memory.TransferContext::readReturnValue@7 (line 73)
+                      ; - godot.api.Node2D::getGlobalPosition@41 (line 477)
+                      ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x000001fd8865975c: b62e 07e8 
+
+  0x000001fd88659760: ; ImmutableOopMap {rdx=Oop }
+                      ;*invokevirtual get {reexecute=0 rethrow=0 return_oop=0}
+                      ; - godot.common.util.ThreadLocalDelegate::getValue@10 (line 7)
+                      ; - godot.internal.memory.TransferContext::getBuffer@9 (line 28)
+                      ; - godot.internal.memory.TransferContext::readReturnValue@7 (line 73)
+                      ; - godot.api.Node2D::getGlobalPosition@41 (line 477)
+  0x000001fd88659760: 1cb6 2e07 | 4889 0424 
+
+  0x000001fd88659768: ;   {runtime_call throw_class_cast_exception Runtime1 stub}
+  0x000001fd88659768: e813 da2e 
+
+  0x000001fd8865976c: ; ImmutableOopMap {}
+                      ;*checkcast {reexecute=0 rethrow=0 return_oop=0}
+                      ; - godot.internal.memory.TransferContext::getBuffer@12 (line 28)
+                      ; - godot.internal.memory.TransferContext::readReturnValue@7 (line 73)
+                      ; - godot.api.Node2D::getGlobalPosition@41 (line 477)
+                      ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x000001fd8865976c: 07e8 0eb6 
+
+  0x000001fd88659770: ; ImmutableOopMap {rsi=Oop }
+                      ;*invokevirtual rewind {reexecute=0 rethrow=0 return_oop=0}
+                      ; - godot.internal.memory.TransferContext::readReturnValue@14 (line 74)
+                      ; - godot.api.Node2D::getGlobalPosition@41 (line 477)
+                      ;   {metadata({method} {0x000001fe4143ce68} 'checkNotNull' '(Ljava/lang/Object;Ljava/lang/String;)V' in 'kotlin/jvm/internal/Intrinsics')}
+  0x000001fd88659770: 2e07 49ba | 60ce 4341 | fe01 0000 | 4c89 5424 | 0848 c704 | 24ff ffff 
+
+  0x000001fd88659788: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x000001fd88659788: ffe8 721a 
+
+  0x000001fd8865978c: ; ImmutableOopMap {rax=Oop [240]=Oop }
+                      ;*synchronization entry
+                      ; - kotlin.jvm.internal.Intrinsics::checkNotNull@-1 (line 30)
+                      ; - godot.api.Node2D::getGlobalPosition@47 (line 477)
+  0x000001fd8865978c: 2f07 e90a 
+
+  0x000001fd88659790: ;   {metadata({method} {0x000001fe4143d138} 'throwJavaNpe' '(Ljava/lang/String;)V' in 'kotlin/jvm/internal/Intrinsics')}
+  0x000001fd88659790: f8ff ff49 | ba30 d143 | 41fe 0100 | 004c 8954 | 2408 48c7 | 0424 ffff 
+
+  0x000001fd886597a8: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x000001fd886597a8: ffff e851 
+
+  0x000001fd886597ac: ; ImmutableOopMap {[240]=Oop }
+                      ;*synchronization entry
+                      ; - kotlin.jvm.internal.Intrinsics::throwJavaNpe@-1 (line 50)
+                      ; - kotlin.jvm.internal.Intrinsics::checkNotNull@5 (line 31)
+                      ; - godot.api.Node2D::getGlobalPosition@47 (line 477)
+  0x000001fd886597ac: 1a2f 07e9 | 57f8 ffff 
+
+  0x000001fd886597b4: ;   {metadata(nullptr)}
+  0x000001fd886597b4: 48ba 0000 | 0000 0000 | 0000 b800 
+
+  0x000001fd886597c0: ;   {runtime_call load_klass_patching Runtime1 stub}
+  0x000001fd886597c0: 0f05 0ae8 
+
+  0x000001fd886597c4: ; ImmutableOopMap {[240]=Oop }
+                      ;*new {reexecute=1 rethrow=0 return_oop=0}
+                      ; - (reexecute) kotlin.jvm.internal.Intrinsics::throwJavaNpe@0 (line 50)
+                      ; - kotlin.jvm.internal.Intrinsics::checkNotNull@5 (line 31)
+                      ; - godot.api.Node2D::getGlobalPosition@47 (line 477)
+  0x000001fd886597c4: b809 2f07 | e943 f8ff | ff48 8bd2 
+
+  0x000001fd886597d0: ;   {runtime_call fast_new_instance Runtime1 stub}
+  0x000001fd886597d0: e8ab be2e 
+
+  0x000001fd886597d4: ; ImmutableOopMap {[240]=Oop }
+                      ;*new {reexecute=0 rethrow=0 return_oop=0}
+                      ; - kotlin.jvm.internal.Intrinsics::throwJavaNpe@0 (line 50)
+                      ; - kotlin.jvm.internal.Intrinsics::checkNotNull@5 (line 31)
+                      ; - godot.api.Node2D::getGlobalPosition@47 (line 477)
+  0x000001fd886597d4: 07e9 92f8 
+
+  0x000001fd886597d8: ;   {metadata({method} {0x000001fe4143efd8} 'sanitizeStackTrace' '(Ljava/lang/Throwable;)Ljava/lang/Throwable;' in 'kotlin/jvm/internal/Intrinsics')}
+  0x000001fd886597d8: ffff 49ba | d0ef 4341 | fe01 0000 | 4c89 5424 | 0848 c704 | 24ff ffff 
+
+  0x000001fd886597f0: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x000001fd886597f0: ffe8 0a1a 
+
+  0x000001fd886597f4: ; ImmutableOopMap {[240]=Oop [248]=Oop }
+                      ;*synchronization entry
+                      ; - kotlin.jvm.internal.Intrinsics::sanitizeStackTrace@-1 (line 253)
+                      ; - kotlin.jvm.internal.Intrinsics::throwJavaNpe@8 (line 50)
+                      ; - kotlin.jvm.internal.Intrinsics::checkNotNull@5 (line 31)
+                      ; - godot.api.Node2D::getGlobalPosition@47 (line 477)
+  0x000001fd886597f4: 2f07 e9e2 
+
+  0x000001fd886597f8: ;   {metadata({method} {0x000001fe0046ee00} 'getName' '()Ljava/lang/String;' in 'java/lang/Class')}
+  0x000001fd886597f8: f8ff ff49 | baf8 ed46 | 00fe 0100 | 004c 8954 | 2408 48c7 | 0424 ffff 
+
+  0x000001fd88659810: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x000001fd88659810: ffff e8e9 
+
+  0x000001fd88659814: ; ImmutableOopMap {rdx=Oop [240]=Oop [248]=Oop }
+                      ;*synchronization entry
+                      ; - java.lang.Class::getName@-1 (line 949)
+                      ; - kotlin.jvm.internal.Intrinsics::sanitizeStackTrace@3 (line 253)
+                      ; - kotlin.jvm.internal.Intrinsics::throwJavaNpe@8 (line 50)
+                      ; - kotlin.jvm.internal.Intrinsics::checkNotNull@5 (line 31)
+                      ; - godot.api.Node2D::getGlobalPosition@47 (line 477)
+  0x000001fd88659814: 192f 07e9 | 07f9 ffff 
+
+  0x000001fd8865981c: ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x000001fd8865981c: e85f b52e 
+
+  0x000001fd88659820: ; ImmutableOopMap {[240]=Oop [248]=Oop }
+                      ;*getfield name {reexecute=1 rethrow=0 return_oop=0}
+                      ; - (reexecute) java.lang.Class::getName@1 (line 949)
+                      ; - kotlin.jvm.internal.Intrinsics::sanitizeStackTrace@3 (line 253)
+                      ; - kotlin.jvm.internal.Intrinsics::throwJavaNpe@8 (line 50)
+                      ; - kotlin.jvm.internal.Intrinsics::checkNotNull@5 (line 31)
+                      ; - godot.api.Node2D::getGlobalPosition@47 (line 477)
+  0x000001fd88659820: 0748 8904 
+
+  0x000001fd88659824: ;   {runtime_call throw_class_cast_exception Runtime1 stub}
+  0x000001fd88659824: 24e8 56d9 
+
+  0x000001fd88659828: ; ImmutableOopMap {}
+                      ;*checkcast {reexecute=0 rethrow=0 return_oop=0}
+                      ; - godot.api.Node2D::getGlobalPosition@50 (line 477)
+                      ;   {internal_word}
+  0x000001fd88659828: 2e07 49ba | a492 6588 | fd01 0000 | 4d89 9768 
+
+  0x000001fd88659838: ;   {runtime_call SafepointBlob}
+  0x000001fd88659838: 0400 00e9 | c0be 2207 | 4889 0424 
+
+  0x000001fd88659844: ;   {runtime_call throw_class_cast_exception Runtime1 stub}
+  0x000001fd88659844: e837 d92e 
+
+  0x000001fd88659848: ; ImmutableOopMap {rdx=Oop [240]=Oop }
+                      ;*checkcast {reexecute=0 rethrow=0 return_oop=0}
+                      ; - kotlin.jvm.internal.Intrinsics::throwJavaNpe@11 (line 50)
+                      ; - kotlin.jvm.internal.Intrinsics::checkNotNull@5 (line 31)
+                      ; - godot.api.Node2D::getGlobalPosition@47 (line 477)
+                      ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x000001fd88659848: 07e8 32b5 
+
+  0x000001fd8865984c: ; ImmutableOopMap {rdx=Oop rax=Oop [240]=Oop }
+                      ;*athrow {reexecute=1 rethrow=0 return_oop=0}
+                      ; - (reexecute) kotlin.jvm.internal.Intrinsics::throwJavaNpe@14 (line 50)
+                      ; - kotlin.jvm.internal.Intrinsics::checkNotNull@5 (line 31)
+                      ; - godot.api.Node2D::getGlobalPosition@47 (line 477)
+                      ;   {metadata({method} {0x000001fe4143df60} 'throwParameterIsNullNPE' '(Ljava/lang/String;)V' in 'kotlin/jvm/internal/Intrinsics')}
+  0x000001fd8865984c: 2e07 49ba | 58df 4341 | fe01 0000 | 4c89 5424 | 0848 c704 | 24ff ffff 
+
+  0x000001fd88659864: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x000001fd88659864: ffe8 9619 
+
+  0x000001fd88659868: ; ImmutableOopMap {}
+                      ;*synchronization entry
+                      ; - kotlin.jvm.internal.Intrinsics::throwParameterIsNullNPE@-1 (line 140)
+                      ; - kotlin.jvm.internal.Intrinsics::checkNotNullParameter@5 (line 131)
+                      ; - godot.common.util.ThreadLocalDelegate::getValue@3
+                      ; - godot.internal.memory.TransferContext::getBuffer@9 (line 28)
+                      ; - godot.internal.memory.TransferContext::readReturnValue@7 (line 73)
+                      ; - godot.api.Node2D::getGlobalPosition@41 (line 477)
+  0x000001fd88659868: 2f07 e99e 
+
+  0x000001fd8865986c: ;   {metadata(nullptr)}
+  0x000001fd8865986c: fbff ff48 | ba00 0000 | 0000 0000 | 00b8 000f 
+
+  0x000001fd8865987c: ;   {runtime_call load_klass_patching Runtime1 stub}
+  0x000001fd8865987c: 050a e8fd 
+
+  0x000001fd88659880: ; ImmutableOopMap {}
+                      ;*new {reexecute=1 rethrow=0 return_oop=0}
+                      ; - (reexecute) kotlin.jvm.internal.Intrinsics::throwParameterIsNullNPE@0 (line 140)
+                      ; - kotlin.jvm.internal.Intrinsics::checkNotNullParameter@5 (line 131)
+                      ; - godot.common.util.ThreadLocalDelegate::getValue@3
+                      ; - godot.internal.memory.TransferContext::getBuffer@9 (line 28)
+                      ; - godot.internal.memory.TransferContext::readReturnValue@7 (line 73)
+                      ; - godot.api.Node2D::getGlobalPosition@41 (line 477)
+  0x000001fd88659880: 082f 07e9 | 88fb ffff 
+
+  0x000001fd88659888: ;   {runtime_call fast_new_instance Runtime1 stub}
+  0x000001fd88659888: 488b d2e8 
+
+  0x000001fd8865988c: ; ImmutableOopMap {}
+                      ;*new {reexecute=0 rethrow=0 return_oop=0}
+                      ; - kotlin.jvm.internal.Intrinsics::throwParameterIsNullNPE@0 (line 140)
+                      ; - kotlin.jvm.internal.Intrinsics::checkNotNullParameter@5 (line 131)
+                      ; - godot.common.util.ThreadLocalDelegate::getValue@3
+                      ; - godot.internal.memory.TransferContext::getBuffer@9 (line 28)
+                      ; - godot.internal.memory.TransferContext::readReturnValue@7 (line 73)
+                      ; - godot.api.Node2D::getGlobalPosition@41 (line 477)
+  0x000001fd8865988c: f0bd 2e07 | e9d7 fbff 
+
+  0x000001fd88659894: ;   {metadata({method} {0x000001fe4143efd8} 'sanitizeStackTrace' '(Ljava/lang/Throwable;)Ljava/lang/Throwable;' in 'kotlin/jvm/internal/Intrinsics')}
+  0x000001fd88659894: ff49 bad0 | ef43 41fe | 0100 004c | 8954 2408 | 48c7 0424 | ffff ffff 
+
+  0x000001fd886598ac: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x000001fd886598ac: e84f 192f 
+
+  0x000001fd886598b0: ; ImmutableOopMap {[256]=Oop }
+                      ;*synchronization entry
+                      ; - kotlin.jvm.internal.Intrinsics::sanitizeStackTrace@-1 (line 253)
+                      ; - kotlin.jvm.internal.Intrinsics::throwParameterIsNullNPE@11 (line 140)
+                      ; - kotlin.jvm.internal.Intrinsics::checkNotNullParameter@5 (line 131)
+                      ; - godot.common.util.ThreadLocalDelegate::getValue@3
+                      ; - godot.internal.memory.TransferContext::getBuffer@9 (line 28)
+                      ; - godot.internal.memory.TransferContext::readReturnValue@7 (line 73)
+                      ; - godot.api.Node2D::getGlobalPosition@41 (line 477)
+  0x000001fd886598b0: 07e9 5ffc | ffff 4889 
+
+  0x000001fd886598b8: ;   {runtime_call throw_class_cast_exception Runtime1 stub}
+  0x000001fd886598b8: 0424 e8c1 
+
+  0x000001fd886598bc: ; ImmutableOopMap {}
+                      ;*checkcast {reexecute=0 rethrow=0 return_oop=0}
+                      ; - kotlin.jvm.internal.Intrinsics::throwParameterIsNullNPE@14 (line 140)
+                      ; - kotlin.jvm.internal.Intrinsics::checkNotNullParameter@5 (line 131)
+                      ; - godot.common.util.ThreadLocalDelegate::getValue@3
+                      ; - godot.internal.memory.TransferContext::getBuffer@9 (line 28)
+                      ; - godot.internal.memory.TransferContext::readReturnValue@7 (line 73)
+                      ; - godot.api.Node2D::getGlobalPosition@41 (line 477)
+                      ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x000001fd886598bc: d82e 07e8 
+
+  0x000001fd886598c0: ; ImmutableOopMap {rax=Oop }
+                      ;*athrow {reexecute=1 rethrow=0 return_oop=0}
+                      ; - (reexecute) kotlin.jvm.internal.Intrinsics::throwParameterIsNullNPE@17 (line 140)
+                      ; - kotlin.jvm.internal.Intrinsics::checkNotNullParameter@5 (line 131)
+                      ; - godot.common.util.ThreadLocalDelegate::getValue@3
+                      ; - godot.internal.memory.TransferContext::getBuffer@9 (line 28)
+                      ; - godot.internal.memory.TransferContext::readReturnValue@7 (line 73)
+                      ; - godot.api.Node2D::getGlobalPosition@41 (line 477)
+  0x000001fd886598c0: bcb4 2e07 | 498b 8700 | 0500 0049 | c787 0005 | 0000 0000 | 0000 49c7 | 8708 0500 | 0000 0000 
+  0x000001fd886598e0: 0048 81c4 | 1001 0000 
+
+  0x000001fd886598e8: ;   {runtime_call unwind_exception Runtime1 stub}
+  0x000001fd886598e8: 5de9 92a5 | 2e07 f4f4 
+[Stub Code]
+  0x000001fd886598f0: ;   {no_reloc}
+  0x000001fd886598f0: 0f1f 4400 
+
+  0x000001fd886598f4: ;   {static_stub}
+  0x000001fd886598f4: 0048 bb00 | 0000 0000 
+
+  0x000001fd886598fc: ;   {runtime_call}
+  0x000001fd886598fc: 0000 00e9 | fbff ffff 
+
+  0x000001fd88659904: ;   {static_stub}
+  0x000001fd88659904: 9048 bb00 | 0000 0000 
+
+  0x000001fd8865990c: ;   {runtime_call}
+  0x000001fd8865990c: 0000 00e9 | fbff ffff 
+
+  0x000001fd88659914: ;   {static_stub}
+  0x000001fd88659914: 9048 bb00 | 0000 0000 
+
+  0x000001fd8865991c: ;   {runtime_call}
+  0x000001fd8865991c: 0000 00e9 | fbff ffff 
+
+  0x000001fd88659924: ;   {static_stub}
+  0x000001fd88659924: 48bb 0000 | 0000 0000 
+
+  0x000001fd8865992c: ;   {runtime_call}
+  0x000001fd8865992c: 0000 e9fb 
+
+  0x000001fd88659930: ;   {static_stub}
+  0x000001fd88659930: ffff ff48 | bb00 0000 | 0000 0000 
+
+  0x000001fd8865993c: ;   {runtime_call}
+  0x000001fd8865993c: 00e9 fbff 
+
+  0x000001fd88659940: ;   {static_stub}
+  0x000001fd88659940: ffff 48bb | 0000 0000 | 0000 0000 
+
+  0x000001fd8865994c: ;   {runtime_call}
+  0x000001fd8865994c: e9fb ffff 
+
+  0x000001fd88659950: ;   {static_stub}
+  0x000001fd88659950: ff48 bb00 | 0000 0000 
+
+  0x000001fd88659958: ;   {runtime_call}
+  0x000001fd88659958: 0000 00e9 | fbff ffff 
+
+  0x000001fd88659960: ;   {static_stub}
+  0x000001fd88659960: 48bb 0000 | 0000 0000 
+
+  0x000001fd88659968: ;   {runtime_call}
+  0x000001fd88659968: 0000 e9fb 
+
+  0x000001fd8865996c: ;   {static_stub}
+  0x000001fd8865996c: ffff ff48 | bb00 0000 | 0000 0000 
+
+  0x000001fd88659978: ;   {runtime_call}
+  0x000001fd88659978: 00e9 fbff 
+
+  0x000001fd8865997c: ;   {static_stub}
+  0x000001fd8865997c: ffff 48bb | 0000 0000 | 0000 0000 
+
+  0x000001fd88659988: ;   {runtime_call}
+  0x000001fd88659988: e9fb ffff 
+
+  0x000001fd8865998c: ;   {runtime_call handle_exception_from_callee Runtime1 stub}
+  0x000001fd8865998c: ffe8 eed1 
+
+  0x000001fd88659990: ;   {external_word}
+  0x000001fd88659990: 2e07 48b9 | b078 d5b9 | f87f 0000 | 4883 e4f0 
+
+  0x000001fd886599a0: ;   {runtime_call}
+  0x000001fd886599a0: 48b8 9041 | 9db9 f87f | 0000 ffd0 
+
+  0x000001fd886599ac: ;   {section_word}
+  0x000001fd886599ac: f449 baad | 9965 88fd | 0100 0041 
+
+  0x000001fd886599b8: ;   {runtime_call DeoptimizationBlob}
+  0x000001fd886599b8: 52e9 e2af | 2207 f4f4 
+[/MachCode]
+
+
+---------------  P R O C E S S  ---------------
+
+Threads class SMR info:
+_java_thread_list=0x000001fde2532bf0, length=28, elements={
+0x000001fddec50cf0, 0x000001fdfd4bc820, 0x000001fdfd4bce90, 0x000001fdfd512550,
+0x000001fdfd512bc0, 0x000001fdfd513230, 0x000001fdfd5140b0, 0x000001fdfd60f790,
+0x000001fdfd6e36d0, 0x000001fdfd9d3ce0, 0x000001fdfda7cb20, 0x000001fe47ca1500,
+0x000001fe4734d8c0, 0x000001fe472a7690, 0x000001fe47c09990, 0x000001fdf4f803a0,
+0x000001fdf4f83eb0, 0x000001fdf4f81750, 0x000001fdf4f84540, 0x000001fdf4f810c0,
+0x000001fdf4f84bd0, 0x000001fdf4f86610, 0x000001fdf4f85260, 0x000001fdf4f86ca0,
+0x000001fdf4f858f0, 0x000001fdf4f87330, 0x000001fdf4f85f80, 0x000001fe476bc8e0
+}
+
+Java Threads: ( => current thread )
+=>0x000001fddec50cf0 JavaThread "main"                              [_thread_in_native, id=14872, stack(0x0000004e5c600000,0x0000004e5ce00000) (8192K)]
+  0x000001fdfd4bc820 JavaThread "Reference Handler"          daemon [_thread_blocked, id=22252, stack(0x0000004e78e00000,0x0000004e79600000) (8192K)]
+  0x000001fdfd4bce90 JavaThread "Finalizer"                  daemon [_thread_blocked, id=7224, stack(0x0000004e79600000,0x0000004e79e00000) (8192K)]
+  0x000001fdfd512550 JavaThread "Signal Dispatcher"          daemon [_thread_blocked, id=13128, stack(0x0000004e79e00000,0x0000004e7a600000) (8192K)]
+  0x000001fdfd512bc0 JavaThread "Attach Listener"            daemon [_thread_blocked, id=19900, stack(0x0000004e7a600000,0x0000004e7ae00000) (8192K)]
+  0x000001fdfd513230 JavaThread "Service Thread"             daemon [_thread_blocked, id=22284, stack(0x0000004e7ae00000,0x0000004e7b600000) (8192K)]
+  0x000001fdfd5140b0 JavaThread "Monitor Deflation Thread"   daemon [_thread_blocked, id=21356, stack(0x0000004e7b600000,0x0000004e7be00000) (8192K)]
+  0x000001fdfd60f790 JavaThread "C2 CompilerThread0"         daemon [_thread_blocked, id=1728, stack(0x0000004e7be00000,0x0000004e7c600000) (8192K)]
+  0x000001fdfd6e36d0 JavaThread "C1 CompilerThread0"         daemon [_thread_blocked, id=11688, stack(0x0000004e7c600000,0x0000004e7ce00000) (8192K)]
+  0x000001fdfd9d3ce0 JavaThread "Notification Thread"        daemon [_thread_blocked, id=23388, stack(0x0000004e7e600000,0x0000004e7ee00000) (8192K)]
+  0x000001fdfda7cb20 JavaThread "Common-Cleaner"             daemon [_thread_blocked, id=1296, stack(0x0000004e7ee00000,0x0000004e7f600000) (8192K)]
+  0x000001fe47ca1500 JavaThread "Thread-0"                          [_thread_in_native, id=23308, stack(0x0000004e5f600000,0x0000004e5fe00000) (8192K)]
+  0x000001fe4734d8c0 JavaThread "Thread-1"                          [_thread_in_native, id=23504, stack(0x0000004e5fe00000,0x0000004e60600000) (8192K)]
+  0x000001fe472a7690 JavaThread "Thread-2"                          [_thread_in_native, id=22628, stack(0x0000004e5ee00000,0x0000004e5f600000) (8192K)]
+  0x000001fe47c09990 JavaThread "Thread-3"                          [_thread_in_native, id=19520, stack(0x0000004e60e00000,0x0000004e61600000) (8192K)]
+  0x000001fdf4f803a0 JavaThread "Thread-4"                          [_thread_in_native, id=22596, stack(0x0000004e60600000,0x0000004e60e00000) (8192K)]
+  0x000001fdf4f83eb0 JavaThread "Thread-5"                          [_thread_in_native, id=2016, stack(0x0000004e61600000,0x0000004e61e00000) (8192K)]
+  0x000001fdf4f81750 JavaThread "Thread-6"                          [_thread_in_native, id=22540, stack(0x0000004e61e00000,0x0000004e62600000) (8192K)]
+  0x000001fdf4f84540 JavaThread "Thread-7"                          [_thread_in_native, id=22768, stack(0x0000004e62600000,0x0000004e62e00000) (8192K)]
+  0x000001fdf4f810c0 JavaThread "Thread-8"                          [_thread_in_native, id=19668, stack(0x0000004e62e00000,0x0000004e63600000) (8192K)]
+  0x000001fdf4f84bd0 JavaThread "Thread-9"                          [_thread_in_native, id=9152, stack(0x0000004e63e00000,0x0000004e64600000) (8192K)]
+  0x000001fdf4f86610 JavaThread "Thread-10"                         [_thread_in_native, id=3208, stack(0x0000004e63600000,0x0000004e63e00000) (8192K)]
+  0x000001fdf4f85260 JavaThread "Thread-11"                         [_thread_in_native, id=10236, stack(0x0000004e64600000,0x0000004e64e00000) (8192K)]
+  0x000001fdf4f86ca0 JavaThread "Thread-12"                         [_thread_in_native, id=20544, stack(0x0000004e64e00000,0x0000004e65600000) (8192K)]
+  0x000001fdf4f858f0 JavaThread "Thread-13"                         [_thread_in_native, id=12532, stack(0x0000004e65600000,0x0000004e65e00000) (8192K)]
+  0x000001fdf4f87330 JavaThread "Thread-14"                         [_thread_in_native, id=20220, stack(0x0000004e65e00000,0x0000004e66600000) (8192K)]
+  0x000001fdf4f85f80 JavaThread "Thread-15"                         [_thread_in_native, id=7004, stack(0x0000004e66600000,0x0000004e66e00000) (8192K)]
+  0x000001fe476bc8e0 JavaThread "C1 CompilerThread1"         daemon [_thread_blocked, id=15172, stack(0x0000004e08800000,0x0000004e09000000) (8192K)]
+Total: 28
+
+Other Threads:
+  0x000001fdfd45f680 VMThread "VM Thread"                           [id=11976, stack(0x0000004e78600000,0x0000004e78e00000) (8192K)]
+  0x000001fde97a1780 WatcherThread "VM Periodic Task Thread"        [id=14488, stack(0x0000004e77e00000,0x0000004e78600000) (8192K)]
+  0x000001fde1d38e30 WorkerThread "GC Thread#0"                     [id=23020, stack(0x0000004e75600000,0x0000004e75e00000) (8192K)]
+  0x000001fdfd461f10 WorkerThread "GC Thread#1"                     [id=19024, stack(0x0000004e00000000,0x0000004e00800000) (8192K)]
+  0x000001fdfd460ca0 WorkerThread "GC Thread#2"                     [id=21112, stack(0x0000004e00800000,0x0000004e01000000) (8192K)]
+  0x000001fdfd45f2d0 WorkerThread "GC Thread#3"                     [id=11148, stack(0x0000004e01000000,0x0000004e01800000) (8192K)]
+  0x000001fdfd45e7c0 WorkerThread "GC Thread#4"                     [id=23144, stack(0x0000004e01800000,0x0000004e02000000) (8192K)]
+  0x000001fdfd45eb70 WorkerThread "GC Thread#5"                     [id=8988, stack(0x0000004e02000000,0x0000004e02800000) (8192K)]
+  0x000001fe45fb44e0 WorkerThread "GC Thread#6"                     [id=13404, stack(0x0000004e02800000,0x0000004e03000000) (8192K)]
+  0x000001fe45fb4130 WorkerThread "GC Thread#7"                     [id=18876, stack(0x0000004e03000000,0x0000004e03800000) (8192K)]
+  0x000001fe45fb0d90 WorkerThread "GC Thread#8"                     [id=10784, stack(0x0000004e03800000,0x0000004e04000000) (8192K)]
+  0x000001fe45fb4890 WorkerThread "GC Thread#9"                     [id=8628, stack(0x0000004e04000000,0x0000004e04800000) (8192K)]
+  0x000001fe45fb3d80 WorkerThread "GC Thread#10"                    [id=3200, stack(0x0000004e04800000,0x0000004e05000000) (8192K)]
+  0x000001fe45fb2ec0 WorkerThread "GC Thread#11"                    [id=13428, stack(0x0000004e05000000,0x0000004e05800000) (8192K)]
+  0x000001fe45fb2b10 WorkerThread "GC Thread#12"                    [id=21900, stack(0x0000004e05800000,0x0000004e06000000) (8192K)]
+  0x000001fdf5185330 ConcurrentGCThread "G1 Main Marker"            [id=2152, stack(0x0000004e75e00000,0x0000004e76600000) (8192K)]
+  0x000001fde1d38320 WorkerThread "G1 Conc#0"                       [id=21648, stack(0x0000004e76600000,0x0000004e76e00000) (8192K)]
+  0x000001fe45fb1140 WorkerThread "G1 Conc#1"                       [id=19976, stack(0x0000004e06000000,0x0000004e06800000) (8192K)]
+  0x000001fe45fb2760 WorkerThread "G1 Conc#2"                       [id=11608, stack(0x0000004e06800000,0x0000004e07000000) (8192K)]
+  0x000001fdfbf60b00 ConcurrentGCThread "G1 Refine#0"               [id=10572, stack(0x0000004e76e00000,0x0000004e77600000) (8192K)]
+  0x000001fdf4fb1d00 ConcurrentGCThread "G1 Service"                [id=5976, stack(0x0000004e77600000,0x0000004e77e00000) (8192K)]
+Total: 21
+
+Threads with active compile tasks:
+Total: 0
+
+VM state: not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+Heap address: 0x0000000704a00000, size: 4022 MB, Compressed Oops mode: Zero based, Oop shift amount: 3
+
+CDS archive(s) mapped at: [0x000001fe00000000-0x000001fe00c90000-0x000001fe00c90000), size 13172736, SharedBaseAddress: 0x000001fe00000000, ArchiveRelocationMode: 1.
+Compressed class space mapped at: 0x000001fe01000000-0x000001fe41000000, reserved size: 1073741824
+Narrow klass base: 0x000001fe00000000, Narrow klass shift: 0, Narrow klass range: 0x100000000
+
+GC Precious Log:
+ CardTable entry size: 512
+ Card Set container configuration: InlinePtr #cards 4 size 8 Array Of Cards #cards 16 size 48 Howl #buckets 8 coarsen threshold 3686 Howl Bitmap #cards 512 size 80 coarsen threshold 460 Card regions per heap region 1 cards per card region 4096
+ CPUs: 16 total, 16 available
+ Memory: 16087M
+ Large Page Support: Disabled
+ NUMA Support: Disabled
+ Compressed Oops: Enabled (Zero based)
+ Heap Region Size: 2M
+ Heap Min Capacity: 8M
+ Heap Initial Capacity: 252M
+ Heap Max Capacity: 4022M
+ Pre-touch: Disabled
+ Parallel Workers: 13
+ Concurrent Workers: 3
+ Concurrent Refinement Workers: 13
+ Periodic GC: Disabled
+
+Heap:
+ garbage-first heap   total 34816K, used 14063K [0x0000000704a00000, 0x0000000800000000)
+  region size 2048K, 8 young (16384K), 3 survivors (6144K)
+ Metaspace       used 25827K, committed 25984K, reserved 1114112K
+  class space    used 2641K, committed 2688K, reserved 1048576K
+
+Heap Regions: E=young(eden), S=young(survivor), O=old, HS=humongous(starts), HC=humongous(continues), CS=collection set, F=free, TAMS=top-at-mark-start, PB=parsable bottom
+|   0|0x0000000704a00000, 0x0000000704a00000, 0x0000000704c00000|  0%| F|  |TAMS 0x0000000704a00000| PB 0x0000000704a00000| Untracked 
+|   1|0x0000000704c00000, 0x0000000704c00000, 0x0000000704e00000|  0%| F|  |TAMS 0x0000000704c00000| PB 0x0000000704c00000| Untracked 
+|   2|0x0000000704e00000, 0x0000000704e00000, 0x0000000705000000|  0%| F|  |TAMS 0x0000000704e00000| PB 0x0000000704e00000| Untracked 
+|   3|0x0000000705000000, 0x0000000705000000, 0x0000000705200000|  0%| F|  |TAMS 0x0000000705000000| PB 0x0000000705000000| Untracked 
+|   4|0x0000000705200000, 0x0000000705200000, 0x0000000705400000|  0%| F|  |TAMS 0x0000000705200000| PB 0x0000000705200000| Untracked 
+|   5|0x0000000705400000, 0x0000000705400000, 0x0000000705600000|  0%| F|  |TAMS 0x0000000705400000| PB 0x0000000705400000| Untracked 
+|   6|0x0000000705600000, 0x0000000705600000, 0x0000000705800000|  0%| F|  |TAMS 0x0000000705600000| PB 0x0000000705600000| Untracked 
+|   7|0x0000000705800000, 0x0000000705800000, 0x0000000705a00000|  0%| F|  |TAMS 0x0000000705800000| PB 0x0000000705800000| Untracked 
+|   8|0x0000000705a00000, 0x0000000705a00000, 0x0000000705c00000|  0%| F|  |TAMS 0x0000000705a00000| PB 0x0000000705a00000| Untracked 
+|   9|0x0000000705c00000, 0x0000000705e00000, 0x0000000705e00000|100%| E|  |TAMS 0x0000000705c00000| PB 0x0000000705c00000| Complete 
+|  10|0x0000000705e00000, 0x0000000706000000, 0x0000000706000000|100%| S|CS|TAMS 0x0000000705e00000| PB 0x0000000705e00000| Complete 
+|  11|0x0000000706000000, 0x0000000706200000, 0x0000000706200000|100%| S|CS|TAMS 0x0000000706000000| PB 0x0000000706000000| Complete 
+|  12|0x0000000706200000, 0x00000007063bbfe0, 0x0000000706400000| 86%| S|CS|TAMS 0x0000000706200000| PB 0x0000000706200000| Complete 
+| 121|0x0000000713c00000, 0x0000000713e00000, 0x0000000713e00000|100%| E|CS|TAMS 0x0000000713c00000| PB 0x0000000713c00000| Complete 
+| 122|0x0000000713e00000, 0x0000000714000000, 0x0000000714000000|100%| E|CS|TAMS 0x0000000713e00000| PB 0x0000000713e00000| Complete 
+| 123|0x0000000714000000, 0x0000000714200000, 0x0000000714200000|100%| E|CS|TAMS 0x0000000714000000| PB 0x0000000714000000| Complete 
+| 125|0x0000000714400000, 0x0000000714600000, 0x0000000714600000|100%| E|CS|TAMS 0x0000000714400000| PB 0x0000000714400000| Complete 
+
+Card table byte_map: [0x000001fdfe640000,0x000001fdfee20000] _byte_map_base: 0x000001fdfae1b000
+
+Marking Bits: (CMBitMap*) 0x000001fdfcd76060
+ Bits: [0x000001fd973e0000, 0x000001fd9b2b8000)
+
+Polling page: 0x000001fdf58f0000
+
+Metaspace:
+
+Usage:
+  Non-class:     22.64 MB used.
+      Class:      2.58 MB used.
+       Both:     25.22 MB used.
+
+Virtual space:
+  Non-class space:       64.00 MB reserved,      22.75 MB ( 36%) committed,  1 nodes.
+      Class space:        1.00 GB reserved,       2.62 MB ( <1%) committed,  1 nodes.
+             Both:        1.06 GB reserved,      25.38 MB (  2%) committed. 
+
+Chunk freelists:
+   Non-Class:  6.58 MB
+       Class:  13.19 MB
+        Both:  19.77 MB
+
+MaxMetaspaceSize: unlimited
+CompressedClassSpaceSize: 1.00 GB
+Initial GC threshold: 21.00 MB
+Current GC threshold: 35.12 MB
+CDS: on
+ - commit_granule_bytes: 65536.
+ - commit_granule_words: 8192.
+ - virtual_space_node_default_size: 8388608.
+ - enlarge_chunks_in_place: 1.
+ - use_allocation_guard: 0.
+
+
+Internal statistics:
+
+num_allocs_failed_limit: 3.
+num_arena_births: 114.
+num_arena_deaths: 0.
+num_vsnodes_births: 2.
+num_vsnodes_deaths: 0.
+num_space_committed: 405.
+num_space_uncommitted: 0.
+num_chunks_returned_to_freelist: 3.
+num_chunks_taken_from_freelist: 964.
+num_chunk_merges: 3.
+num_chunk_splits: 845.
+num_chunks_enlarged: 739.
+num_inconsistent_stats: 0.
+
+CodeHeap 'non-profiled nmethods': size=119168Kb used=667Kb max_used=667Kb free=118501Kb
+ bounds [0x000001fd8ff80000, 0x000001fd901f0000, 0x000001fd973e0000]
+CodeHeap 'profiled nmethods': size=119104Kb used=2835Kb max_used=2835Kb free=116268Kb
+ bounds [0x000001fd883e0000, 0x000001fd886b0000, 0x000001fd8f830000]
+CodeHeap 'non-nmethods': size=7488Kb used=2152Kb max_used=3252Kb free=5335Kb
+ bounds [0x000001fd8f830000, 0x000001fd8fb70000, 0x000001fd8ff80000]
+ total_blobs=2140 nmethods=1494 adapters=550
+ compilation: enabled
+              stopped_count=0, restarted_count=0
+ full_count=0
+
+Compilation events (20 events):
+Event: 25.590 Thread 0x000001fdfd60f790 1485       4       java.lang.Float::doubleValue (6 bytes)
+Event: 25.590 Thread 0x000001fdfd60f790 nmethod 1485 0x000001fd90024e10 code [0x000001fd90024fa0, 0x000001fd90025030]
+Event: 25.763 Thread 0x000001fdfd60f790 1486       4       godot.api.Timer::isStopped (57 bytes)
+Event: 25.773 Thread 0x000001fdfd60f790 nmethod 1486 0x000001fd90025110 code [0x000001fd90025320, 0x000001fd90025940]
+Event: 25.791 Thread 0x000001fdfd6e36d0 1487       3       java.lang.FdLibm::__LO (8 bytes)
+Event: 25.791 Thread 0x000001fe476bc8e0 1488       3       java.lang.Double::isNaN (12 bytes)
+Event: 25.791 Thread 0x000001fdfd6e36d0 nmethod 1487 0x000001fd886a1990 code [0x000001fd886a1b20, 0x000001fd886a1c28]
+Event: 25.791 Thread 0x000001fe476bc8e0 nmethod 1488 0x000001fd886a1c90 code [0x000001fd886a1e20, 0x000001fd886a1f88]
+Event: 25.819 Thread 0x000001fdfd60f790 1489       4       java.nio.DirectByteBuffer::putLong (18 bytes)
+Event: 25.822 Thread 0x000001fdfd60f790 nmethod 1489 0x000001fd90026390 code [0x000001fd90026520, 0x000001fd90026660]
+Event: 25.822 Thread 0x000001fdfd60f790 1490   !   4       java.nio.DirectByteBuffer::putLong (39 bytes)
+Event: 25.823 Thread 0x000001fdfd60f790 nmethod 1490 0x000001fd90026810 code [0x000001fd900269a0, 0x000001fd90026a88]
+Event: 25.860 Thread 0x000001fe476bc8e0 1491       3       godot.core.VariantParser$LONG::toUnsafeGodot (41 bytes)
+Event: 25.861 Thread 0x000001fe476bc8e0 nmethod 1491 0x000001fd886a2010 code [0x000001fd886a2280, 0x000001fd886a2d30]
+Event: 25.863 Thread 0x000001fe476bc8e0 1492       3       godot.core.VariantParser$OBJECT::toUnsafeGodot (46 bytes)
+Event: 25.864 Thread 0x000001fdfd6e36d0 1493       3       godot.core.VariantKt::access$setObj (6 bytes)
+Event: 25.864 Thread 0x000001fdfd6e36d0 nmethod 1493 0x000001fd886a3090 code [0x000001fd886a3240, 0x000001fd886a34c8]
+Event: 25.864 Thread 0x000001fdfd6e36d0 1494       3       godot.core.VariantKt::setObj (19 bytes)
+Event: 25.864 Thread 0x000001fdfd6e36d0 nmethod 1494 0x000001fd886a3610 code [0x000001fd886a37c0, 0x000001fd886a39e8]
+Event: 25.864 Thread 0x000001fe476bc8e0 nmethod 1492 0x000001fd886a3b10 code [0x000001fd886a3da0, 0x000001fd886a4908]
+
+GC Heap History (8 events):
+Event: 0.266 GC heap before
+{Heap before GC invocations=0 (full 0):
+ garbage-first heap   total 258048K, used 22528K [0x0000000704a00000, 0x0000000800000000)
+  region size 2048K, 11 young (22528K), 0 survivors (0K)
+ Metaspace       used 6436K, committed 6528K, reserved 1114112K
+  class space    used 366K, committed 448K, reserved 1048576K
+}
+Event: 0.269 GC heap after
+{Heap after GC invocations=1 (full 0):
+ garbage-first heap   total 258048K, used 2255K [0x0000000704a00000, 0x0000000800000000)
+  region size 2048K, 2 young (4096K), 2 survivors (4096K)
+ Metaspace       used 6436K, committed 6528K, reserved 1114112K
+  class space    used 366K, committed 448K, reserved 1048576K
+}
+Event: 0.724 GC heap before
+{Heap before GC invocations=1 (full 0):
+ garbage-first heap   total 258048K, used 43215K [0x0000000704a00000, 0x0000000800000000)
+  region size 2048K, 22 young (45056K), 2 survivors (4096K)
+ Metaspace       used 20206K, committed 20352K, reserved 1114112K
+  class space    used 1920K, committed 1984K, reserved 1048576K
+}
+Event: 0.728 GC heap after
+{Heap after GC invocations=2 (full 0):
+ garbage-first heap   total 258048K, used 4452K [0x0000000704a00000, 0x0000000800000000)
+  region size 2048K, 3 young (6144K), 3 survivors (6144K)
+ Metaspace       used 20206K, committed 20352K, reserved 1114112K
+  class space    used 1920K, committed 1984K, reserved 1048576K
+}
+Event: 0.787 GC heap before
+{Heap before GC invocations=2 (full 0):
+ garbage-first heap   total 258048K, used 6500K [0x0000000704a00000, 0x0000000800000000)
+  region size 2048K, 5 young (10240K), 3 survivors (6144K)
+ Metaspace       used 21389K, committed 21504K, reserved 1114112K
+  class space    used 1990K, committed 2048K, reserved 1048576K
+}
+Event: 0.790 GC heap after
+{Heap after GC invocations=3 (full 0):
+ garbage-first heap   total 258048K, used 5100K [0x0000000704a00000, 0x0000000800000000)
+  region size 2048K, 3 young (6144K), 3 survivors (6144K)
+ Metaspace       used 21389K, committed 21504K, reserved 1114112K
+  class space    used 1990K, committed 2048K, reserved 1048576K
+}
+Event: 1.122 GC heap before
+{Heap before GC invocations=4 (full 0):
+ garbage-first heap   total 28672K, used 27628K [0x0000000704a00000, 0x0000000800000000)
+  region size 2048K, 14 young (28672K), 3 survivors (6144K)
+ Metaspace       used 24836K, committed 24960K, reserved 1114112K
+  class space    used 2567K, committed 2624K, reserved 1048576K
+}
+Event: 1.126 GC heap after
+{Heap after GC invocations=5 (full 0):
+ garbage-first heap   total 34816K, used 5871K [0x0000000704a00000, 0x0000000800000000)
+  region size 2048K, 3 young (6144K), 3 survivors (6144K)
+ Metaspace       used 24836K, committed 24960K, reserved 1114112K
+  class space    used 2567K, committed 2624K, reserved 1048576K
+}
+
+Dll operation events (6 events):
+Event: 0.005 Loaded shared library C:\Program Files\Java\jdk-21\bin\java.dll
+Event: 0.024 Loaded shared library C:\Program Files\Java\jdk-21\bin\jsvml.dll
+Event: 0.036 Loaded shared library C:\Program Files\Java\jdk-21\bin\net.dll
+Event: 0.037 Loaded shared library C:\Program Files\Java\jdk-21\bin\nio.dll
+Event: 0.043 Loaded shared library C:\Program Files\Java\jdk-21\bin\zip.dll
+Event: 0.123 Loaded shared library C:\Program Files\Java\jdk-21\bin\jimage.dll
+
+Deoptimization events (20 events):
+Event: 24.015 Thread 0x000001fddec50cf0 Uncommon trap: trap_request=0xffffffd6 fr.pc=0x000001fd9000fc5c relative=0x000000000000041c
+Event: 24.015 Thread 0x000001fddec50cf0 Uncommon trap: reason=array_check action=maybe_recompile pc=0x000001fd9000fc5c method=java.util.Arrays.fill([Ljava/lang/Object;IILjava/lang/Object;)V @ 20 c2
+Event: 24.015 Thread 0x000001fddec50cf0 DEOPT PACKING pc=0x000001fd9000fc5c sp=0x0000004e5cdfd0c0
+Event: 24.015 Thread 0x000001fddec50cf0 DEOPT UNPACKING pc=0x000001fd8f8846a2 sp=0x0000004e5cdfd088 mode 2
+Event: 24.015 Thread 0x000001fddec50cf0 Uncommon trap: trap_request=0xffffffd6 fr.pc=0x000001fd9000fc5c relative=0x000000000000041c
+Event: 24.015 Thread 0x000001fddec50cf0 Uncommon trap: reason=array_check action=maybe_recompile pc=0x000001fd9000fc5c method=java.util.Arrays.fill([Ljava/lang/Object;IILjava/lang/Object;)V @ 20 c2
+Event: 24.015 Thread 0x000001fddec50cf0 DEOPT PACKING pc=0x000001fd9000fc5c sp=0x0000004e5cdfd0c0
+Event: 24.015 Thread 0x000001fddec50cf0 DEOPT UNPACKING pc=0x000001fd8f8846a2 sp=0x0000004e5cdfd088 mode 2
+Event: 24.015 Thread 0x000001fddec50cf0 Uncommon trap: trap_request=0xffffffd6 fr.pc=0x000001fd9000fc5c relative=0x000000000000041c
+Event: 24.015 Thread 0x000001fddec50cf0 Uncommon trap: reason=array_check action=maybe_recompile pc=0x000001fd9000fc5c method=java.util.Arrays.fill([Ljava/lang/Object;IILjava/lang/Object;)V @ 20 c2
+Event: 24.015 Thread 0x000001fddec50cf0 DEOPT PACKING pc=0x000001fd9000fc5c sp=0x0000004e5cdfd0c0
+Event: 24.015 Thread 0x000001fddec50cf0 DEOPT UNPACKING pc=0x000001fd8f8846a2 sp=0x0000004e5cdfd088 mode 2
+Event: 24.097 Thread 0x000001fddec50cf0 Uncommon trap: trap_request=0xffffff45 fr.pc=0x000001fd8fff8a2c relative=0x00000000000000ec
+Event: 24.097 Thread 0x000001fddec50cf0 Uncommon trap: reason=unstable_if action=reinterpret pc=0x000001fd8fff8a2c method=java.lang.Math.max(FF)F @ 11 c2
+Event: 24.097 Thread 0x000001fddec50cf0 DEOPT PACKING pc=0x000001fd8fff8a2c sp=0x0000004e5cdfd000
+Event: 24.097 Thread 0x000001fddec50cf0 DEOPT UNPACKING pc=0x000001fd8f8846a2 sp=0x0000004e5cdfcfa0 mode 2
+Event: 24.444 Thread 0x000001fddec50cf0 Uncommon trap: trap_request=0xffffff5c fr.pc=0x000001fd90018a94 relative=0x0000000000000074
+Event: 24.444 Thread 0x000001fddec50cf0 Uncommon trap: reason=speculate_null_check action=make_not_entrant pc=0x000001fd90018a94 method=jdk.internal.misc.Unsafe.putLongUnaligned(Ljava/lang/Object;JJZ)V @ 10 c2
+Event: 24.444 Thread 0x000001fddec50cf0 DEOPT PACKING pc=0x000001fd90018a94 sp=0x0000004e5cdfe3a0
+Event: 24.444 Thread 0x000001fddec50cf0 DEOPT UNPACKING pc=0x000001fd8f8846a2 sp=0x0000004e5cdfe2f0 mode 2
+
+Classes loaded (20 events):
+Event: 1.229 Loading class java/util/ArrayList$SubList$1
+Event: 1.229 Loading class java/util/ArrayList$SubList$1 done
+Event: 23.333 Loading class java/io/StringWriter
+Event: 23.333 Loading class java/io/StringWriter done
+Event: 23.334 Loading class java/io/PrintWriter
+Event: 23.334 Loading class java/io/PrintWriter done
+Event: 23.334 Loading class java/io/PrintWriter$1
+Event: 23.334 Loading class jdk/internal/access/JavaIOPrintWriterAccess
+Event: 23.334 Loading class jdk/internal/access/JavaIOPrintWriterAccess done
+Event: 23.334 Loading class java/io/PrintWriter$1 done
+Event: 23.334 Loading class java/lang/Throwable$WrappedPrintWriter
+Event: 23.334 Loading class java/lang/Throwable$PrintStreamOrWriter
+Event: 23.334 Loading class java/lang/Throwable$PrintStreamOrWriter done
+Event: 23.334 Loading class java/lang/Throwable$WrappedPrintWriter done
+Event: 23.906 Loading class java/lang/FdLibm$Atan2
+Event: 23.906 Loading class java/lang/FdLibm$Atan2 done
+Event: 23.906 Loading class java/lang/FdLibm
+Event: 23.906 Loading class java/lang/FdLibm done
+Event: 23.906 Loading class java/lang/FdLibm$Atan
+Event: 23.906 Loading class java/lang/FdLibm$Atan done
+
+Classes unloaded (0 events):
+No events
+
+Classes redefined (0 events):
+No events
+
+Internal exceptions (3 events):
+Event: 0.959 Thread 0x000001fddec50cf0 Exception <a 'java/lang/NoSuchMethodError'{0x00000007054a0760}: 'java.lang.Object java.lang.invoke.DirectMethodHandle$Holder.invokeStaticInit(java.lang.Object, java.lang.Object, java.lang.Object)'> (0x00000007054a0760) 
+thrown [s\open\src\hotspot\share\interpreter\linkResolver.cpp, line 773]
+Event: 1.206 Thread 0x000001fddec50cf0 Exception <a 'java/lang/NoSuchMethodError'{0x000000071450a6c0}: 'java.lang.Object java.lang.invoke.DirectMethodHandle$Holder.newInvokeSpecial(java.lang.Object, long, long, int)'> (0x000000071450a6c0) 
+thrown [s\open\src\hotspot\share\interpreter\linkResolver.cpp, line 773]
+Event: 23.333 Thread 0x000001fddec50cf0 Exception <a 'java/lang/ClassCastException'{0x0000000713e7eee0}: class godot.api.Resource cannot be cast to class godot.api.PackedScene (godot.api.Resource and godot.api.PackedScene are in unnamed module of loader java.net.URLClassLoader @36baf30c)> (0x0000000713e7eee0) 
+thrown [s\open\src\hotspot\share\interpreter\interpreterRuntime.cpp, line 455]
+
+ZGC Phase Switch (0 events):
+No events
+
+VM Operations (20 events):
+Event: 0.987 Executing VM operation: HandshakeAllThreads (Deoptimize)
+Event: 0.988 Executing VM operation: HandshakeAllThreads (Deoptimize) done
+Event: 1.122 Executing VM operation: G1CollectForAllocation (G1 Evacuation Pause)
+Event: 1.126 Executing VM operation: G1CollectForAllocation (G1 Evacuation Pause) done
+Event: 1.216 Executing VM operation: HandshakeAllThreads (Deoptimize)
+Event: 1.216 Executing VM operation: HandshakeAllThreads (Deoptimize) done
+Event: 2.217 Executing VM operation: Cleanup
+Event: 2.217 Executing VM operation: Cleanup done
+Event: 20.229 Executing VM operation: Cleanup
+Event: 20.229 Executing VM operation: Cleanup done
+Event: 21.230 Executing VM operation: Cleanup
+Event: 21.230 Executing VM operation: Cleanup done
+Event: 23.334 Executing VM operation: HandshakeAllThreads (Deoptimize)
+Event: 23.334 Executing VM operation: HandshakeAllThreads (Deoptimize) done
+Event: 23.334 Executing VM operation: Cleanup
+Event: 23.334 Executing VM operation: Cleanup done
+Event: 23.335 Executing VM operation: HandshakeAllThreads (Deoptimize)
+Event: 23.335 Executing VM operation: HandshakeAllThreads (Deoptimize) done
+Event: 25.334 Executing VM operation: Cleanup
+Event: 25.334 Executing VM operation: Cleanup done
+
+Events (20 events):
+Event: 1.119 Thread 0x000001fe47c09990 Thread added: 0x000001fe47c09990
+Event: 1.120 Thread 0x000001fdf4f803a0 Thread added: 0x000001fdf4f803a0
+Event: 1.121 Thread 0x000001fdf4f83eb0 Thread added: 0x000001fdf4f83eb0
+Event: 1.121 Thread 0x000001fdf4f81750 Thread added: 0x000001fdf4f81750
+Event: 1.121 Thread 0x000001fdf4f84540 Thread added: 0x000001fdf4f84540
+Event: 1.121 Thread 0x000001fdf4f810c0 Thread added: 0x000001fdf4f810c0
+Event: 1.121 Thread 0x000001fdf4f84bd0 Thread added: 0x000001fdf4f84bd0
+Event: 1.121 Thread 0x000001fdf4f86610 Thread added: 0x000001fdf4f86610
+Event: 1.121 Thread 0x000001fdf4f85260 Thread added: 0x000001fdf4f85260
+Event: 1.121 Thread 0x000001fdf4f86ca0 Thread added: 0x000001fdf4f86ca0
+Event: 1.121 Thread 0x000001fdf4f858f0 Thread added: 0x000001fdf4f858f0
+Event: 1.122 Thread 0x000001fdf4f87330 Thread added: 0x000001fdf4f87330
+Event: 1.126 Thread 0x000001fdf4f85f80 Thread added: 0x000001fdf4f85f80
+Event: 1.322 Thread 0x000001fdfdacbcb0 Thread exited: 0x000001fdfdacbcb0
+Event: 3.884 Thread 0x000001fdfd999c30 Thread exited: 0x000001fdfd999c30
+Event: 9.696 Thread 0x000001fdfd990430 Thread exited: 0x000001fdfd990430
+Event: 9.696 Thread 0x000001fdfd8393d0 Thread exited: 0x000001fdfd8393d0
+Event: 23.341 Thread 0x000001fe476bc8e0 Thread added: 0x000001fe476bc8e0
+Event: 24.049 Thread 0x000001fe476bd680 Thread added: 0x000001fe476bd680
+Event: 24.319 Thread 0x000001fe476bd680 Thread exited: 0x000001fe476bd680
+
+
+Dynamic libraries:
+0x00007ff6ce900000 - 0x00007ff6d7f0a000 	D:\Godot\godot.windows.editor.x86_64.jvm.0.14.3.exe
+0x00007ff9bdb20000 - 0x00007ff9bdd86000 	C:\WINDOWS\SYSTEM32\ntdll.dll
+0x00007ff9bce20000 - 0x00007ff9bcee9000 	C:\WINDOWS\System32\KERNEL32.DLL
+0x00007ff9bb340000 - 0x00007ff9bb740000 	C:\WINDOWS\System32\KERNELBASE.dll
+0x00007ff9bc970000 - 0x00007ff9bcb0a000 	C:\WINDOWS\System32\ole32.dll
+0x00007ff9bb290000 - 0x00007ff9bb333000 	C:\WINDOWS\System32\msvcp_win.dll
+0x00007ff9a93a0000 - 0x00007ff9a93d6000 	C:\WINDOWS\SYSTEM32\WINMM.dll
+0x00007ff9bae20000 - 0x00007ff9baf6c000 	C:\WINDOWS\System32\ucrtbase.dll
+0x00007ff9bcb10000 - 0x00007ff9bcb3b000 	C:\WINDOWS\System32\GDI32.dll
+0x00007ff9bb0e0000 - 0x00007ff9bb107000 	C:\WINDOWS\System32\win32u.dll
+0x00007ff9bb750000 - 0x00007ff9bb87a000 	C:\WINDOWS\System32\gdi32full.dll
+0x00007ff9bcf80000 - 0x00007ff9bd147000 	C:\WINDOWS\System32\USER32.dll
+0x00007ff9bd150000 - 0x00007ff9bd4d3000 	C:\WINDOWS\System32\combase.dll
+0x00007ff9bc7d0000 - 0x00007ff9bc8e8000 	C:\WINDOWS\System32\RPCRT4.dll
+0x00007ff9bc590000 - 0x00007ff9bc669000 	C:\WINDOWS\System32\OLEAUT32.dll
+0x00007ff9bd5f0000 - 0x00007ff9bd657000 	C:\WINDOWS\System32\SHLWAPI.dll
+0x00007ff9bd4e0000 - 0x00007ff9bd5da000 	C:\WINDOWS\System32\shcore.dll
+0x00007ff9bbdf0000 - 0x00007ff9bc582000 	C:\WINDOWS\System32\SHELL32.dll
+0x00007ff9bda20000 - 0x00007ff9bdad7000 	C:\WINDOWS\System32\ADVAPI32.dll
+0x00007ff9bd810000 - 0x00007ff9bd8b9000 	C:\WINDOWS\System32\msvcrt.dll
+0x00007ff9bd760000 - 0x00007ff9bd80a000 	C:\WINDOWS\System32\sechost.dll
+0x00007ff9bcb40000 - 0x00007ff9bcb72000 	C:\WINDOWS\System32\IMM32.dll
+0x00007ff9bb110000 - 0x00007ff9bb288000 	C:\WINDOWS\System32\CRYPT32.dll
+0x00007ff9bbd60000 - 0x00007ff9bbde1000 	C:\WINDOWS\System32\WS2_32.dll
+0x00007ff9bacb0000 - 0x00007ff9bacda000 	C:\WINDOWS\SYSTEM32\bcrypt.dll
+0x00007ff9b33b0000 - 0x00007ff9b33bb000 	C:\WINDOWS\SYSTEM32\AVRT.dll
+0x00007ff9b7e00000 - 0x00007ff9b7e2f000 	C:\WINDOWS\SYSTEM32\dwmapi.dll
+0x00007ff9b5350000 - 0x00007ff9b55b8000 	C:\WINDOWS\SYSTEM32\DWrite.dll
+0x00007ff9b7eb0000 - 0x00007ff9b80f2000 	C:\WINDOWS\SYSTEM32\dbghelp.dll
+0x00007ff9b9570000 - 0x00007ff9b95a3000 	C:\WINDOWS\SYSTEM32\IPHLPAPI.DLL
+0x00007ff9ab9e0000 - 0x00007ff9ab9ea000 	C:\WINDOWS\SYSTEM32\WSOCK32.dll
+0x00007ff9bb030000 - 0x00007ff9bb0dc000 	C:\WINDOWS\System32\bcryptPrimitives.dll
+0x00007ff9b9b50000 - 0x00007ff9b9b6b000 	C:\WINDOWS\SYSTEM32\kernel.appcore.dll
+0x00007ff9b79a0000 - 0x00007ff9b7a49000 	C:\WINDOWS\system32\uxtheme.dll
+0x00007ff9ba170000 - 0x00007ff9ba1dc000 	C:\WINDOWS\system32\mswsock.dll
+0x00007ff97f0d0000 - 0x00007ff97f254000 	C:\WINDOWS\SYSTEM32\vulkan-1.dll
+0x00007ff9ba9d0000 - 0x00007ff9baa21000 	C:\WINDOWS\SYSTEM32\CFGMGR32.dll
+0x00007ff9b7b20000 - 0x00007ff9b7c5a000 	C:\WINDOWS\system32\dxgi.dll
+0x00007ff9b9940000 - 0x00007ff9b999e000 	C:\WINDOWS\SYSTEM32\powrprof.dll
+0x00007ff9b9920000 - 0x00007ff9b9934000 	C:\WINDOWS\SYSTEM32\UMPDC.dll
+0x00007ff991160000 - 0x00007ff99117d000 	C:\WINDOWS\SYSTEM32\windows.staterepositorycore.dll
+0x00007ff9b7e60000 - 0x00007ff9b7ea4000 	C:\WINDOWS\SYSTEM32\dxcore.dll
+0x00007ff9b2690000 - 0x00007ff9b26ef000 	C:\WINDOWS\SYSTEM32\directxdatabasehelper.dll
+0x00007ff8d74e0000 - 0x00007ff8d8037000 	C:\Program Files\WindowsApps\Microsoft.D3DMappingLayers_1.2605.1.0_x64__8wekyb3d8bbwe\x64\vulkan_dzn.dll
+0x00007ff9aa640000 - 0x00007ff9aa64b000 	C:\WINDOWS\SYSTEM32\VERSION.dll
+0x00007ff8d8040000 - 0x00007ff8dac2b000 	C:\WINDOWS\System32\DriverStore\FileRepository\nvacegpu.inf_amd64_0af8f5d55a9e9293\nvoglv64.dll
+0x00007ff9bb8a0000 - 0x00007ff9bbd27000 	C:\WINDOWS\System32\SETUPAPI.dll
+0x00007ff9b66a0000 - 0x00007ff9b66ca000 	C:\WINDOWS\SYSTEM32\WTSAPI32.dll
+0x00007ff9b9e90000 - 0x00007ff9b9eda000 	C:\WINDOWS\SYSTEM32\SspiCli.dll
+0x00007ff9ba590000 - 0x00007ff9ba5a3000 	C:\WINDOWS\SYSTEM32\msasn1.dll
+0x00007ff9aa3d0000 - 0x00007ff9aa40d000 	C:\WINDOWS\SYSTEM32\cryptnet.dll
+0x00007ff9a9f10000 - 0x00007ff9aa088000 	C:\WINDOWS\SYSTEM32\drvstore.dll
+0x00007ff9baa30000 - 0x00007ff9baa5f000 	C:\WINDOWS\SYSTEM32\devobj.dll
+0x00007ff9ba520000 - 0x00007ff9ba58a000 	C:\WINDOWS\SYSTEM32\wldp.dll
+0x00007ff9ba480000 - 0x00007ff9ba48c000 	C:\WINDOWS\SYSTEM32\cryptbase.dll
+0x00007ff9bad90000 - 0x00007ff9bae13000 	C:\WINDOWS\System32\wintrust.dll
+0x00007ff9bd730000 - 0x00007ff9bd750000 	C:\WINDOWS\System32\imagehlp.dll
+0x00007ff9ba460000 - 0x00007ff9ba47b000 	C:\WINDOWS\SYSTEM32\CRYPTSP.dll
+0x00007ff9b9b70000 - 0x00007ff9b9ba9000 	C:\WINDOWS\system32\rsaenh.dll
+0x00007ff9ba1e0000 - 0x00007ff9ba210000 	C:\WINDOWS\SYSTEM32\gpapi.dll
+0x00007ff9bac80000 - 0x00007ff9baca9000 	C:\WINDOWS\SYSTEM32\profapi.dll
+0x00007ff92d4a0000 - 0x00007ff92f68b000 	C:\WINDOWS\System32\DriverStore\FileRepository\nvacegpu.inf_amd64_0af8f5d55a9e9293\nvgpucomp64.dll
+0x00007ff9b9d10000 - 0x00007ff9b9d46000 	C:\WINDOWS\SYSTEM32\ntmarta.dll
+0x00007ff8d5cb0000 - 0x00007ff8d74e0000 	C:\WINDOWS\System32\DriverStore\FileRepository\iigd_dch.inf_amd64_438afae43f7267c8\igvk64.dll
+0x00007ff9a6f60000 - 0x00007ff9a750a000 	C:\WINDOWS\System32\DriverStore\FileRepository\iigd_dch.inf_amd64_438afae43f7267c8\igdgmm64.dll
+0x00007ff9a1450000 - 0x00007ff9a65f7000 	C:\WINDOWS\System32\DriverStore\FileRepository\iigd_dch.inf_amd64_438afae43f7267c8\igc64.dll
+0x00007ff9bcb80000 - 0x00007ff9bcc2e000 	C:\WINDOWS\System32\clbcatq.dll
+0x00007ff9b6c10000 - 0x00007ff9b6d7a000 	C:\Windows\System32\WinTypes.dll
+0x00007ff98f7a0000 - 0x00007ff98f7d9000 	C:\WINDOWS\SYSTEM32\rometadata.dll
+0x00007ff96cab0000 - 0x00007ff96cc1a000 	C:\Program Files\WindowsApps\Microsoft.D3DMappingLayers_1.2605.1.0_x64__8wekyb3d8bbwe\x64\DXIL.dll
+0x00007ff9ab400000 - 0x00007ff9ab423000 	C:\WINDOWS\SYSTEM32\d3d12.dll
+0x00007ff92c380000 - 0x00007ff92c6d7000 	C:\WINDOWS\SYSTEM32\D3D12Core.dll
+0x00007ff9b8910000 - 0x00007ff9b9196000 	C:\WINDOWS\SYSTEM32\windows.storage.dll
+0x00007ff947460000 - 0x00007ff947731000 	C:\WINDOWS\system32\nvspcap64.dll
+0x00007ff928450000 - 0x00007ff92849d000 	C:\WINDOWS\SYSTEM32\ControlLib.dll
+0x00007ff96bd60000 - 0x00007ff96be0c000 	C:\WINDOWS\System32\DriverStore\FileRepository\iigd_dch.inf_amd64_438afae43f7267c8\IntelControlLib.dll
+0x00007ff96c940000 - 0x00007ff96caa1000 	C:\WINDOWS\System32\DriverStore\FileRepository\iigd_dch.inf_amd64_438afae43f7267c8\igvkMedia64.dll
+0x00007ff984fb0000 - 0x00007ff986526000 	C:\WINDOWS\System32\DriverStore\FileRepository\iigd_dch.inf_amd64_438afae43f7267c8\igddxvacommon64.dll
+0x00007ff982e00000 - 0x00007ff984e80000 	C:\WINDOWS\System32\DriverStore\FileRepository\iigd_dch.inf_amd64_438afae43f7267c8\media_bin_64.dll
+0x00007ff9b1c10000 - 0x00007ff9b1ccc000 	C:\WINDOWS\System32\DriverStore\FileRepository\nvacegpu.inf_amd64_0af8f5d55a9e9293\nvldumdx.dll
+0x00007ff8cd900000 - 0x00007ff8d2d10000 	C:\WINDOWS\System32\DriverStore\FileRepository\nvacegpu.inf_amd64_0af8f5d55a9e9293\nvwgf2umx.dll
+0x00007ff991180000 - 0x00007ff9918b7000 	C:\WINDOWS\System32\DriverStore\FileRepository\nvacegpu.inf_amd64_0af8f5d55a9e9293\Display.NvContainer\MessageBus.dll
+0x00007ff9bbd50000 - 0x00007ff9bbd5a000 	C:\WINDOWS\System32\NSI.dll
+0x00007ff9b1fb0000 - 0x00007ff9b1fd5000 	C:\WINDOWS\SYSTEM32\dhcpcsvc.DLL
+0x00007ff97fe20000 - 0x00007ff97ff00000 	C:\WINDOWS\SYSTEM32\D3DSCache.dll
+0x00007ff9ba220000 - 0x00007ff9ba253000 	C:\WINDOWS\SYSTEM32\USERENV.dll
+0x00007ff9b5e70000 - 0x00007ff9b6092000 	C:\WINDOWS\SYSTEM32\DComp.DLL
+0x00007ff9b5100000 - 0x00007ff9b5119000 	C:\WINDOWS\SYSTEM32\Microsoft.Internal.WarpPal.dll
+0x00007ff987c40000 - 0x00007ff987c9c000 	C:\WINDOWS\System32\DriverStore\FileRepository\iigd_dch.inf_amd64_438afae43f7267c8\igd12umd64.dll
+0x00007ff8d3bc0000 - 0x00007ff8d5ca1000 	C:\WINDOWS\System32\DriverStore\FileRepository\iigd_dch.inf_amd64_438afae43f7267c8\igd12um64xel.dll
+0x00007ff981d60000 - 0x00007ff981de3000 	C:\WINDOWS\System32\DriverStore\FileRepository\iigd_dch.inf_amd64_438afae43f7267c8\igdext64.dll
+0x00007ff8e63b0000 - 0x00007ff8e6705000 	C:\WINDOWS\System32\DriverStore\FileRepository\iigd_dch.inf_amd64_438afae43f7267c8\igd12dxva64.dll
+0x00007ff986e80000 - 0x00007ff986ea8000 	C:\WINDOWS\System32\DriverStore\FileRepository\iigd_dch.inf_amd64_438afae43f7267c8\igdinfo64.dll
+0x00007ff962a90000 - 0x00007ff96303e000 	C:\WINDOWS\SYSTEM32\d3d10warp.dll
+0x00007ff9bd8c0000 - 0x00007ff9bda1d000 	C:\WINDOWS\System32\MSCTF.dll
+0x00007ff9b75d0000 - 0x00007ff9b76d6000 	C:\WINDOWS\SYSTEM32\PROPSYS.dll
+0x00007ff9b91a0000 - 0x00007ff9b91af000 	C:\WINDOWS\SYSTEM32\hid.dll
+0x00007ff9b4b90000 - 0x00007ff9b4bab000 	C:\WINDOWS\SYSTEM32\XInput1_4.dll
+0x00007ff9927b0000 - 0x00007ff992994000 	C:\WINDOWS\SYSTEM32\inputhost.dll
+0x00007ff9b66d0000 - 0x00007ff9b67f6000 	C:\WINDOWS\SYSTEM32\CoreMessaging.dll
+0x00007ff9b1bc0000 - 0x00007ff9b1c0b000 	C:\Windows\System32\dinput8.dll
+0x00007ff98b370000 - 0x00007ff98b4b7000 	C:\WINDOWS\SYSTEM32\textinputframework.dll
+0x00007ff97f020000 - 0x00007ff97f0c7000 	C:\WINDOWS\System32\DriverStore\FileRepository\nvacegpu.inf_amd64_0af8f5d55a9e9293\NvCamera\NvCameraAllowlisting64.dll
+0x00007ff98f040000 - 0x00007ff98f0cf000 	C:\Windows\System32\DispBroker.dll
+0x00007ff99dfb0000 - 0x00007ff99e752000 	C:\WINDOWS\SYSTEM32\nvapi64.dll
+0x00007ff9b2ff0000 - 0x00007ff9b3094000 	C:\WINDOWS\System32\MMDevApi.dll
+0x00007ff992310000 - 0x00007ff9924c7000 	C:\WINDOWS\SYSTEM32\AUDIOSES.DLL
+0x00007ff9b84f0000 - 0x00007ff9b8504000 	C:\WINDOWS\SYSTEM32\resourcepolicyclient.dll
+0x00007ff969250000 - 0x00007ff96935c000 	C:\WINDOWS\SYSTEM32\opengl32.dll
+0x00007ff9b1b40000 - 0x00007ff9b1b6d000 	C:\WINDOWS\SYSTEM32\GLU32.dll
+0x00007ff8d3460000 - 0x00007ff8d3bb5000 	C:\WINDOWS\System32\DriverStore\FileRepository\nvacegpu.inf_amd64_0af8f5d55a9e9293\nvppex.dll
+0x00007ff9b9450000 - 0x00007ff9b94b2000 	C:\WINDOWS\SYSTEM32\WINSTA.dll
+0x00007ff9b5c00000 - 0x00007ff9b5e60000 	C:\WINDOWS\system32\d3d11.dll
+0x00007ff9a9070000 - 0x00007ff9a9303000 	C:\WINDOWS\System32\DriverStore\FileRepository\iigd_dch.inf_amd64_438afae43f7267c8\igd10iumd64.dll
+0x00007ff9b6db0000 - 0x00007ff9b6e50000 	C:\WINDOWS\SYSTEM32\apphelp.dll
+0x00007ff9a7f50000 - 0x00007ff9a9063000 	C:\WINDOWS\System32\DriverStore\FileRepository\iigd_dch.inf_amd64_438afae43f7267c8\igd10um64xe.DLL
+0x00007ff8b93b0000 - 0x00007ff8ba0cd000 	C:\Program Files\Java\jdk-21\bin\server\jvm.dll
+0x00007ff99af90000 - 0x00007ff99af9c000 	C:\WINDOWS\SYSTEM32\VCRUNTIME140_1.dll
+0x00007ff99bb40000 - 0x00007ff99bb5e000 	C:\WINDOWS\SYSTEM32\VCRUNTIME140.dll
+0x00007ff9b4b80000 - 0x00007ff9b4b8a000 	C:\Program Files\Java\jdk-21\bin\jimage.dll
+0x00007ff995760000 - 0x00007ff99579b000 	C:\WINDOWS\SYSTEM32\dbgcore.DLL
+0x00007ff9b0740000 - 0x00007ff9b075f000 	C:\Program Files\Java\jdk-21\bin\java.dll
+0x00007ff968ad0000 - 0x00007ff968ba7000 	C:\Program Files\Java\jdk-21\bin\jsvml.dll
+0x00007ff9b1cf0000 - 0x00007ff9b1d00000 	C:\Program Files\Java\jdk-21\bin\net.dll
+0x00007ff9b2040000 - 0x00007ff9b2169000 	C:\WINDOWS\SYSTEM32\WINHTTP.dll
+0x00007ff9a9990000 - 0x00007ff9a99a6000 	C:\Program Files\Java\jdk-21\bin\nio.dll
+0x00007ff9a0f60000 - 0x00007ff9a0f78000 	C:\Program Files\Java\jdk-21\bin\zip.dll
+0x00007ff96be10000 - 0x00007ff96be6c000 	C:\WINDOWS\system32\dataexchange.dll
+
+dbghelp: loaded successfully - version: 4.0.5 - missing functions: none
+symbol engine: initialized successfully - sym options: 0x614 - pdb path: .;D:\Godot;C:\WINDOWS\SYSTEM32;C:\Program Files\WindowsApps\Microsoft.D3DMappingLayers_1.2605.1.0_x64__8wekyb3d8bbwe\x64;C:\WINDOWS\System32\DriverStore\FileRepository\nvacegpu.inf_amd64_0af8f5d55a9e9293;C:\WINDOWS\System32\DriverStore\FileRepository\iigd_dch.inf_amd64_438afae43f7267c8;C:\WINDOWS\System32\DriverStore\FileRepository\nvacegpu.inf_amd64_0af8f5d55a9e9293\Display.NvContainer;C:\WINDOWS\System32\DriverStore\FileRepository\nvacegpu.inf_amd64_0af8f5d55a9e9293\NvCamera;C:\Program Files\Java\jdk-21\bin\server;C:\Program Files\Java\jdk-21\bin
+
+VM Arguments:
+java_command: <unknown>
+java_class_path (initial): <not set>
+Launcher Type: generic
+
+[Global flags]
+     intx CICompilerCount                          = 12                                        {product} {ergonomic}
+     uint ConcGCThreads                            = 3                                         {product} {ergonomic}
+     uint G1ConcRefinementThreads                  = 13                                        {product} {ergonomic}
+   size_t G1HeapRegionSize                         = 2097152                                   {product} {ergonomic}
+    uintx GCDrainStackTargetSize                   = 64                                        {product} {ergonomic}
+   size_t InitialHeapSize                          = 264241152                                 {product} {ergonomic}
+   size_t MarkStackSize                            = 4194304                                   {product} {ergonomic}
+   size_t MaxHeapSize                              = 4217372672                                {product} {ergonomic}
+   size_t MaxNewSize                               = 2529165312                                {product} {ergonomic}
+   size_t MinHeapDeltaBytes                        = 2097152                                   {product} {ergonomic}
+   size_t MinHeapSize                              = 8388608                                   {product} {ergonomic}
+    uintx NonNMethodCodeHeapSize                   = 7602480                                {pd product} {ergonomic}
+    uintx NonProfiledCodeHeapSize                  = 122027880                              {pd product} {ergonomic}
+    uintx ProfiledCodeHeapSize                     = 122027880                              {pd product} {ergonomic}
+    uintx ReservedCodeCacheSize                    = 251658240                              {pd product} {ergonomic}
+     bool SegmentedCodeCache                       = true                                      {product} {ergonomic}
+   size_t SoftMaxHeapSize                          = 4217372672                             {manageable} {ergonomic}
+     bool UseCompressedOops                        = true                           {product lp64_product} {ergonomic}
+     bool UseG1GC                                  = true                                      {product} {ergonomic}
+     bool UseLargePagesIndividualAllocation        = false                                  {pd product} {ergonomic}
+
+Logging:
+Log output configuration:
+ #0: stdout all=warning uptime,level,tags foldmultilines=false
+ #1: stderr all=off uptime,level,tags foldmultilines=false
+
+Environment Variables:
+JAVA_HOME=C:\Program Files\Java\jdk-21
+PATH=C:\Program Files\Eclipse Adoptium\jdk-25.0.2.10-hotspot\bin;C:\Program Files\Common Files\Oracle\Java\javapath;C:\MinGW\bin;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Program Files\dotnet\;C:\Program Files (x86)\Windows Kits\10\Windows Performance Toolkit\;C:\Users\ADMIN\Downloads\winlibs-x86_64-posix-seh-gcc-12.1.0-mingw-w64msvcrt-10.0.0-r3.zip\mingw64\bin;C:\Program Files\nodejs\;C:\ProgramData\chocolatey\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;D:\Git\cmd;C:\Program Files\Java\jdk-21\bin;C:\Program Files (x86)\Microsoft SQL Server\170\Tools\Binn\;C:\Program Files\Microsoft SQL Server\170\Tools\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\180\Tools\Binn\;C:\Program Files\Microsoft SQL Server\170\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\160\DTS\Binn\;C:\Users\ADMIN\AppData\Local\Microsoft\WindowsApps;C:\Users\ADMIN\.dotnet\tools;C:\TDM-GCC-64\bin;C:\Microsoft VS Code\bin;C:\Users\ADMIN\AppData\Roaming\npm;C:\Git\bin;C:\Users\ADMIN\anaconda3\Lib\site-packages\pyarrow\src\arrow\python;C:\Users\ADMIN\AppData\Local\Programs\Microsoft VS Code\bin;D:\Antigravity\bin;C:\Users\ADMIN\AppData\Local\Programs\Antigravity IDE\bin;D:\Antigravity IDE\bin
+USERNAME=ADMIN
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 186 Stepping 2, GenuineIntel
+TMP=C:\Users\ADMIN\AppData\Local\Temp
+TEMP=C:\Users\ADMIN\AppData\Local\Temp
+
+
+
+
+Periodic native trim disabled
+
+---------------  S Y S T E M  ---------------
+
+OS:
+ Windows 11 , 64 bit Build 26100 (10.0.26100.8553)
+OS uptime: 0 days 2:04 hours
+Hyper-V role detected
+
+CPU: total 16 (initial active 16) (8 cores per cpu, 2 threads per core) family 6 model 186 stepping 2 microcode 0x5105, cx8, cmov, fxsr, ht, mmx, 3dnowpref, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, lzcnt, tsc, tscinvbit, avx, avx2, aes, erms, clmul, bmi1, bmi2, adx, sha, fma, vzeroupper, clflush, clflushopt, clwb, hv, serialize, rdtscp, rdpid, fsrm, f16c, cet_ibt, cet_ss
+Processor Information for all 16 processors :
+  Max Mhz: 2400, Current Mhz: 2400, Mhz Limit: 2400
+
+Memory: 4k page, system-wide physical 16087M (5075M free)
+TotalPageFile size 20439M (AvailPageFile size 3112M)
+current process WorkingSet (physical memory assigned to process): 728M, peak: 728M
+current process commit charge ("private bytes"): 999M, peak: 999M
+
+vm_info: Java HotSpot(TM) 64-Bit Server VM (21.0.9+7-LTS-338) for windows-amd64 JRE (21.0.9+7-LTS-338), built on 2025-09-26T06:33:49Z by "mach5run" with MS VC++ 17.6 (VS2022)
+
+END.
