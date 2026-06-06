@@ -1,0 +1,98 @@
+[gd_scene load_steps=17 format=3 uid="uid://dcfl87ynusgap"]
+
+[ext_resource type="PackedScene" uid="uid://bw6b5kktpiof3" path="res://scenes/unit/enemy_chaser_slow.tscn" id="1_chaser"]
+[ext_resource type="Script" uid="uid://b8dbdxvcbegxm" path="res://gdj/game/entity/enemies/types/EnemyEggLayer.gdj" id="2_script"]
+[ext_resource type="Texture2D" uid="uid://b7uoclgtgf162" path="res://assets/Enemy_Generate/EnemyEggLayer/attack/1.png" id="3_atk1"]
+[ext_resource type="Texture2D" uid="uid://bd6lc2ghaiwc4" path="res://assets/Enemy_Generate/EnemyEggLayer/attack/2.png" id="4_atk2"]
+[ext_resource type="Texture2D" uid="uid://be67l5w5p8poa" path="res://assets/Enemy_Generate/EnemyEggLayer/move/1.png" id="5_mov1"]
+[ext_resource type="Texture2D" uid="uid://b6fgyydtufqsr" path="res://assets/Enemy_Generate/EnemyEggLayer/move/2.png" id="6_mov2"]
+[ext_resource type="Texture2D" uid="uid://b1eces1fjn467" path="res://assets/Enemy_Generate/EnemyEggLayer/move/3.png" id="7_mov3"]
+[ext_resource type="Texture2D" uid="uid://d3mrqw3qj7lh7" path="res://assets/Enemy_Generate/EnemyEggLayer/move/4.png" id="8_mov4"]
+[ext_resource type="Texture2D" uid="uid://d0vk18bi7eb56" path="res://assets/Enemy_Generate/EnemyEggLayer/move/5.png" id="9_mov5"]
+[ext_resource type="Texture2D" uid="uid://s4ha0ew6piqd" path="res://assets/Enemy_Generate/EnemyEggLayer/move/6.png" id="10_mov6"]
+[ext_resource type="Texture2D" uid="uid://r80y8vhv7dcc" path="res://assets/Enemy_Generate/EnemyEggLayer/move/7.png" id="11_mov7"]
+[ext_resource type="Texture2D" uid="uid://c6amdf0ku6d8e" path="res://assets/Enemy_Generate/EnemyEggLayer/move/8.png" id="12_mov8"]
+[ext_resource type="Texture2D" uid="uid://dmpve7e2unfkb" path="res://assets/Enemy_Generate/EnemyEggLayer/move/9.png" id="13_mov9"]
+[ext_resource type="Texture2D" uid="uid://b06mfx2xwac3j" path="res://assets/Enemy_Generate/EnemyEggLayer/move/10.png" id="14_mov10"]
+[ext_resource type="Texture2D" uid="uid://cmb8gfwaxxt5s" path="res://assets/Enemy_Generate/EnemyEggLayer/move/11.png" id="15_mov11"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_anim"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_atk1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_atk2")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_mov1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_mov2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_mov3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_mov4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_mov5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_mov6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_mov7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_mov8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_mov9")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_mov10")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_mov11")
+}],
+"loop": true,
+"name": &"move",
+"speed": 10.0
+}]
+
+[node name="EnemyEggLayer" instance=ExtResource("1_chaser")]
+script = ExtResource("2_script")
+egg_scene = null
+
+[node name="EggLayerAnimation" type="AnimatedSprite2D" parent="Visuals" index="0"]
+unique_name_in_owner = true
+position = Vector2(0, -60)
+scale = Vector2(0.25, 0.25)
+sprite_frames = SubResource("SpriteFrames_anim")
+animation = &"move"
+autoplay = "move"
+flip_h = true
+
+[node name="Sprite" parent="Visuals" index="2"]
+visible = false
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(0, -20)
+
+[node name="HurtboxComponent" parent="." index="4"]
+position = Vector2(0, -40)
+
+[node name="HitboxComponent" parent="." index="5"]
+position = Vector2(0, -40)
+
+[node name="HealthBar" parent="." index="7"]
+offset_top = -120.0
+offset_bottom = -110.0

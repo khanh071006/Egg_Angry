@@ -243,15 +243,18 @@ public class Spawner extends Node2D {
             }
         }
         pendingSpawns.clear();
+        pendingSpawns.clear();
 
-        if (spawnedEnemies.size() == 0) {
-            return;
-        }
-
-        for (Node enemyNode : spawnedEnemies) {
-            if (GD.isInstanceValid(enemyNode)) {
-                Enemy enemy = (Enemy) enemyNode;
-                enemy.destroyEnemy();
+        // Lấy TOÀN BỘ kẻ địch thuộc group "enemy" (kể cả do trứng đẻ ra) để dọn dẹp
+        godot.core.VariantArray<godot.api.Node> allEnemies = getTree().getNodesInGroup(new godot.core.StringName("enemy"));
+        for (int i = 0; i < allEnemies.size(); i++) {
+            godot.api.Node enemyNode = allEnemies.get(i);
+            if (godot.global.GD.isInstanceValid(enemyNode)) {
+                if (enemyNode instanceof game.entity.enemies.core.Enemy) {
+                    ((game.entity.enemies.core.Enemy) enemyNode).destroyEnemy();
+                } else {
+                    enemyNode.queueFree();
+                }
             }
         }
         spawnedEnemies.clear();

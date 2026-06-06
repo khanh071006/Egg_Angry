@@ -17,6 +17,8 @@ import game.entity.enemies.behaviors.ShootingBehavior
 import game.entity.enemies.core.Enemy
 import game.entity.enemies.spawner.Spawner
 import game.entity.enemies.types.EnemyBomber
+import game.entity.enemies.types.EnemyEgg
+import game.entity.enemies.types.EnemyEggLayer
 import game.entity.enemies.types.EnemyIceMage
 import game.entity.enemies.types.EnemyMeteorMage
 import game.items.Coins
@@ -58,6 +60,8 @@ import godot.entry.ChaserBehaviorRegistrar
 import godot.entry.CoinsBagRegistrar
 import godot.entry.CoinsRegistrar
 import godot.entry.EnemyBomberRegistrar
+import godot.entry.EnemyEggLayerRegistrar
+import godot.entry.EnemyEggRegistrar
 import godot.entry.EnemyIceMageRegistrar
 import godot.entry.EnemyMeteorMageRegistrar
 import godot.entry.EnemyRegistrar
@@ -114,7 +118,7 @@ import kotlin.collections.listOf
 import kotlin.reflect.KClass
 
 public class Entry : Entry() {
-  public override val classRegistrarCount: Int = 50
+  public override val classRegistrarCount: Int = 52
 
   public override val projectName: String = "project-3"
 
@@ -135,6 +139,8 @@ public class Entry : Entry() {
     IceSpikeEffectRegistrar().register(registry)
     SpawnerRegistrar().register(registry)
     EnemyBomberRegistrar().register(registry)
+    EnemyEggRegistrar().register(registry)
+    EnemyEggLayerRegistrar().register(registry)
     EnemyIceMageRegistrar().register(registry)
     EnemyMeteorMageRegistrar().register(registry)
     PlayerRegistrar().register(registry)
@@ -181,13 +187,13 @@ public class Entry : Entry() {
       WaveUnitData::class, Trail::class, Arena::class, CameraController::class, Global::class,
       HealthComponent::class, HitBoxComponent::class, HurtBoxComponent::class, BaseUnit::class,
       ChaserBehavior::class, ShootingBehavior::class, Enemy::class, IceSpikeEffect::class,
-      Spawner::class, EnemyBomber::class, EnemyIceMage::class, EnemyMeteorMage::class,
-      Player::class, WeaponContainer::class, Coins::class, MeleeBehavior::class, Projectile::class,
-      RangeBehavior::class, Weapon::class, WeaponBehavior::class, ItemBase::class,
-      ItemPassive::class, ItemUpgrade::class, ItemWeapon::class, WeaponStats::class,
-      EnemyStats::class, PlayerStats::class, UnitStats::class, CoinsBag::class, FloatingText::class,
-      GameOverMenu::class, HealthBar::class, ItemCard::class, MainMenu::class, SelectionCard::class,
-      SelectionPanel::class, ShopCard::class, ShopPanel::class, StatsContainer::class,
-      StoryMenu::class, TutorialDummy::class, TutorialMenu::class, UpgradeCard::class,
-      UpgradePanel::class)
+      Spawner::class, EnemyBomber::class, EnemyEgg::class, EnemyEggLayer::class,
+      EnemyIceMage::class, EnemyMeteorMage::class, Player::class, WeaponContainer::class,
+      Coins::class, MeleeBehavior::class, Projectile::class, RangeBehavior::class, Weapon::class,
+      WeaponBehavior::class, ItemBase::class, ItemPassive::class, ItemUpgrade::class,
+      ItemWeapon::class, WeaponStats::class, EnemyStats::class, PlayerStats::class,
+      UnitStats::class, CoinsBag::class, FloatingText::class, GameOverMenu::class, HealthBar::class,
+      ItemCard::class, MainMenu::class, SelectionCard::class, SelectionPanel::class,
+      ShopCard::class, ShopPanel::class, StatsContainer::class, StoryMenu::class,
+      TutorialDummy::class, TutorialMenu::class, UpgradeCard::class, UpgradePanel::class)
 }

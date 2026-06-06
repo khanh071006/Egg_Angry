@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="UnitStats" load_steps=2 format=3 uid="uid://x1y2z3egg_st"]
+
+[ext_resource type="Script" uid="uid://cax2514nsh1c2" path="res://gdj/game/resources/units/UnitStats.gdj" id="1_stats"]
+
+[resource]
+script = ExtResource("1_stats")
+unit_name = "Egg"
+health = 150.0
+speed = 0.0

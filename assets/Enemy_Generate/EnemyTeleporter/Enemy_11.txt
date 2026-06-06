@@ -1,0 +1,2 @@
+Mở cổng dịch chuyển dịch chuyển đến gần player và đánh
+Con này đi như bay nên ko cần file move

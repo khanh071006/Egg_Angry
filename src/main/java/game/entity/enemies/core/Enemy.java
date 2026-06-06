@@ -46,6 +46,7 @@ public class Enemy extends BaseUnit {
     @Override
     public void _ready() {
         super._ready();
+        addToGroup(new StringName("enemy"));
 
         visuals = (Node2D) getNode("%Visuals");
         sprite = (Sprite2D) getNode("%Sprite");
@@ -123,8 +124,8 @@ public class Enemy extends BaseUnit {
         Vector2 myPos = getGlobalPosition();
         Vector2 playerPos = Global.player.getGlobalPosition();
 
-        // 1. Lấy hướng thẳng tới Player
         Vector2 direction = playerPos.minus(myPos).normalized();
+        Vector2 totalFlockForce = new Vector2(0, 0);
 
         if (visionArea != null) {
             VariantArray<Area2D> overlapping = visionArea.getOverlappingAreas();
@@ -140,13 +141,20 @@ public class Enemy extends BaseUnit {
                     float length = (float) vector.length();
 
                     if (length > 0.0f) {
-                        // direction += vector.normalized() / vector.length() * flock_push
-                        Vector2 pushForce = vector.normalized().div(length).times(flockPush);
-                        direction = direction.plus(pushForce);
+                        float pushMagnitude = Math.min(flockPush / length, 0.5f);
+                        Vector2 pushForce = vector.normalized().times(pushMagnitude);
+                        totalFlockForce = totalFlockForce.plus(pushForce);
                     }
                 }
             }
         }
+        
+        // Giới hạn tổng lực đẩy không bao giờ vượt quá 0.8 để luôn bé hơn hướng đi tới player (1.0)
+        if (totalFlockForce.length() > 0.8f) {
+            totalFlockForce = totalFlockForce.normalized().times(0.8f);
+        }
+        
+        direction = direction.plus(totalFlockForce);
 
         // Trả về vector đã chuẩn hóa cuối cùng
         return direction.normalized();

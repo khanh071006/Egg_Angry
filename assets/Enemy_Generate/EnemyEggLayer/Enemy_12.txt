@@ -1,0 +1,1 @@
+Sinh ra các con quái con sau 1 khoảng thời gian vd 1s/1 con quái

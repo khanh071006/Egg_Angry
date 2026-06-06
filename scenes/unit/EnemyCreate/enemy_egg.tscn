@@ -1,0 +1,83 @@
+[gd_scene load_steps=11 format=3 uid="uid://c4rlrkdlqmdpa"]
+
+[ext_resource type="PackedScene" uid="uid://bw6b5kktpiof3" path="res://scenes/unit/enemy_chaser_slow.tscn" id="1_chaser"]
+[ext_resource type="Script" uid="uid://hykop520qemn" path="res://gdj/game/entity/enemies/types/EnemyEgg.gdj" id="2_script"]
+[ext_resource type="Texture2D" uid="uid://ci0bwrcvl2a3g" path="res://assets/Enemy_Generate/EnemyEggLayer/effect/1.png" id="3_eff1"]
+[ext_resource type="Texture2D" uid="uid://bed4aewmw68u" path="res://assets/Enemy_Generate/EnemyEggLayer/effect/2.png" id="4_eff2"]
+[ext_resource type="Texture2D" uid="uid://vbw2dy60e2dx" path="res://assets/Enemy_Generate/EnemyEggLayer/effect/3.png" id="5_eff3"]
+[ext_resource type="Texture2D" uid="uid://1sl1gb2go2ev" path="res://assets/Enemy_Generate/EnemyEggLayer/effect/4.png" id="6_eff4"]
+[ext_resource type="Texture2D" uid="uid://bjwapmfvqs8u2" path="res://assets/Enemy_Generate/EnemyEggLayer/effect/5.png" id="7_eff5"]
+[ext_resource type="Texture2D" uid="uid://btigayiphqndu" path="res://assets/Enemy_Generate/EnemyEggLayer/effect/6.png" id="8_eff6"]
+[ext_resource type="Texture2D" uid="uid://blfnidy5ju8u8" path="res://assets/Enemy_Generate/EnemyEggLayer/effect/7.png" id="9_eff7"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_anim"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_eff1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_eff2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_eff3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_eff4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_eff5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_eff6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_eff7")
+}],
+"loop": false,
+"name": &"hatch",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_eff1")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="EnemyEgg" instance=ExtResource("1_chaser")]
+script = ExtResource("2_script")
+
+[node name="EggAnimation" type="AnimatedSprite2D" parent="Visuals" index="0"]
+unique_name_in_owner = true
+position = Vector2(0, -50)
+rotation = 0.20071286
+scale = Vector2(0.15, 0.15)
+sprite_frames = SubResource("SpriteFrames_anim")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="Shadow" parent="Visuals" index="1"]
+visible = false
+
+[node name="Sprite" parent="Visuals" index="2"]
+visible = false
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(0, -20)
+
+[node name="HurtboxComponent" parent="." index="4"]
+position = Vector2(0, -40)
+
+[node name="HitboxComponent" parent="." index="5"]
+position = Vector2(0, -40)
+
+[node name="HealthBar" parent="." index="7"]
+offset_left = -71.66667
+offset_top = -146.66666
+offset_right = 24.333328
+offset_bottom = -126.66666
+
+[connection signal="animation_finished" from="Visuals/EggAnimation" to="." method="_on_animation_finished"]
