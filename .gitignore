@@ -3,3 +3,6 @@
 /android/
 
 docs/
+
+*.jar
+jvm/*.jar
