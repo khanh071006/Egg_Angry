@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://3ltab4xt014s" path="res://scenes/unit/unit.tscn" id="1_7gwxk"]
 [ext_resource type="Texture2D" uid="uid://d1ou504pylric" path="res://gdj/game/Game+Assets/assets/sprites/Enemies/Enemy_1.png" id="2_st0p2"]
-[ext_resource type="Script" uid="uid://be3bdglh1u53c" path="res://gdj/game/entity/Enemy.gdj" id="2_yf04y"]
+[ext_resource type="Script" uid="uid://be3bdglh1u53c" path="res://gdj/game/entity/enemies/core/Enemy.gdj" id="2_yf04y"]
 [ext_resource type="Resource" uid="uid://cxaovpfmc4ddl" path="res://resources/units/enemies/stats_enemy_chaser_slow.tres" id="3_yf04y"]
 [ext_resource type="PackedScene" uid="uid://b4qatjphmdel5" path="res://scenes/component/hitbox_component.tscn" id="5_s6apq"]
 

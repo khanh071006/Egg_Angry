@@ -6,3 +6,9 @@ docs/
 
 *.jar
 jvm/*.jar
+
+# Gradle & Build
+build/
+.gradle/
+scratch/
+hs_err_*.log

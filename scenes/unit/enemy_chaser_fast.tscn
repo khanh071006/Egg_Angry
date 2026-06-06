@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bw6b5kktpiof3" path="res://scenes/unit/enemy_chaser_slow.tscn" id="1_em67m"]
 [ext_resource type="Texture2D" uid="uid://c6vplmpl4q4jr" path="res://gdj/game/Game+Assets/assets/sprites/Enemies/Enemy_3.png" id="2_kh634"]
 [ext_resource type="Resource" uid="uid://05y2amr2nbu7" path="res://resources/units/enemies/stats_enemy_chaser_fast.tres" id="2_uq1fp"]
-[ext_resource type="Script" path="res://gdj/game/entity/ChaserBehavior.gdj" id="4_docw7"]
+[ext_resource type="Script" path="res://gdj/game/entity/enemies/behaviors/ChaserBehavior.gdj" id="4_docw7"]
 
 [sub_resource type="Animation" id="Animation_d3ybq"]
 resource_name = "charge"

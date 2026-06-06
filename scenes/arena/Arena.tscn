@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://cbvtm502as2ux" path="res://gdj/game/arena/Arena.gdj" id="1_etbs0"]
 [ext_resource type="Texture2D" uid="uid://ov4fmsbglo55" path="res://gdj/game/Game+Assets/assets/sprites/Map.png" id="2_etbs0"]
 [ext_resource type="Script" uid="uid://dr32cptk08mq0" path="res://gdj/game/arena/CameraController.gdj" id="5_faeup"]
-[ext_resource type="Script" uid="uid://cqy82on6oilua" path="res://gdj/game/entity/enemies/Spawner.gdj" id="7_2g53k"]
+[ext_resource type="Script" uid="uid://cqy82on6oilua" path="res://gdj/game/entity/enemies/spawner/Spawner.gdj" id="7_2g53k"]
 [ext_resource type="Script" uid="uid://cjecllwrga6ph" path="res://gdj/game/resources/waves/WaveData.gdj" id="8_g06lh"]
 [ext_resource type="PackedScene" uid="uid://btrhknbg3yyrh" path="res://scenes/ui/coins_bag/coins_bag.tscn" id="10_cx6kx"]
 [ext_resource type="PackedScene" uid="uid://fk6w23e0taua" path="res://scenes/ui/upgrade_panel/upgrade_panel.tscn" id="10_g06lh"]

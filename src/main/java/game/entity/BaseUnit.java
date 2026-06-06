@@ -85,8 +85,8 @@ public class BaseUnit extends Area2D { // Đổi tên class ở đây
             sourceNode = hitbox.getOwner();
         }
 
-        if (sourceNode instanceof game.entity.enemies.Enemy) {
-            game.entity.enemies.Enemy enemy = (game.entity.enemies.Enemy) sourceNode;
+        if (sourceNode instanceof game.entity.enemies.core.Enemy) {
+            game.entity.enemies.core.Enemy enemy = (game.entity.enemies.core.Enemy) sourceNode;
             // Vector hướng từ Player chỉ ra Enemy
             godot.core.Vector2 pushDir = enemy.getGlobalPosition().minus(this.getGlobalPosition()).normalized();
             enemy.applyKnockbackAdvanced(pushDir, 30.0, false); // false = không phải lực đẩy vũ khí

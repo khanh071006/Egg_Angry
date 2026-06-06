@@ -1,7 +1,7 @@
 // THIS FILE IS GENERATED! DO NOT EDIT IT MANUALLY!
 package godot.entry
 
-import game.entity.enemies.Spawner
+import game.entity.enemies.spawner.Spawner
 import godot.`annotation`.RegisteredClassMetadata
 import godot.api.MultiplayerAPI.RPCMode.DISABLED
 import godot.api.MultiplayerPeer.TransferMode.RELIABLE
@@ -22,20 +22,20 @@ import kotlin.collections.listOf
 @RegisteredClassMetadata(
   "Spawner",
   "Node2D",
-  "game.entity.enemies.Spawner",
-  "src/main/java/game/entity/enemies/Spawner.java",
+  "game.entity.enemies.spawner.Spawner",
+  "src/main/java/game/entity/enemies/spawner/Spawner.java",
   "gdj/game/entity/enemies/Spawner.gdj",
   "project-3",
   "godot.api.Node2D,godot.api.CanvasItem,godot.api.Node,godot.api.Object,godot.core.KtObject,godot.common.interop.NativeWrapper,godot.common.interop.NativePointer,kotlin.Any",
-  "game.entity.enemies.Spawner.onWaveCompleted",
-  "game.entity.enemies.Spawner.wavesData,game.entity.enemies.Spawner.spawnAreaSize",
-  "game.entity.enemies.Spawner._process,game.entity.enemies.Spawner._ready,game.entity.enemies.Spawner._on_spawn_timer_timeout,game.entity.enemies.Spawner._on_wave_timer_timeout",
+  "game.entity.enemies.spawner.Spawner.onWaveCompleted",
+  "game.entity.enemies.spawner.Spawner.wavesData,game.entity.enemies.spawner.Spawner.spawnAreaSize",
+  "game.entity.enemies.spawner.Spawner._process,game.entity.enemies.spawner.Spawner._ready,game.entity.enemies.spawner.Spawner._on_spawn_timer_timeout,game.entity.enemies.spawner.Spawner._on_wave_timer_timeout",
   true,
 )
 public open class SpawnerRegistrar : ClassRegistrar {
   public override fun register(registry: ClassRegistry): Unit {
     with(registry) {
-      registerClass<Spawner>(listOf(), Spawner::class, false, "Node2D", "Spawner", "src/main/java/game/entity/enemies/Spawner.java", "gdj/game/entity/enemies/Spawner.gdj") {
+      registerClass<Spawner>(listOf(), Spawner::class, false, "Node2D", "Spawner", "src/main/java/game/entity/enemies/spawner/Spawner.java", "gdj/game/entity/enemies/Spawner.gdj") {
         constructor(KtConstructor0(::Spawner))
         notificationFunctions(listOf())
         function(Spawner::_process, NIL, DOUBLE, KtFunctionArgument(DOUBLE, "kotlin.Double", "delta"), KtFunctionArgument(NIL, "kotlin.Unit"), KtRpcConfig(DISABLED.id.toInt(), false, RELIABLE.id.toInt(), 0))
