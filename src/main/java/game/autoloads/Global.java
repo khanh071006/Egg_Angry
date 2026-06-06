@@ -18,6 +18,7 @@ public class Global extends Node {
     public static Player player;
     public static ShaderMaterial FLASH_MATERIAL;
     public static ShaderMaterial OUTLINE_MATERIAL;
+    public static ShaderMaterial FROZEN_MATERIAL;
     public static Global instance;
     public static PackedScene floatingTextScene;
     public static boolean isAttack = true;
@@ -88,6 +89,7 @@ public class Global extends Node {
         // Load file .tres mà bạn đã tạo từ Shader ở bước 1
         FLASH_MATERIAL = (ShaderMaterial) ResourceLoader.load("res://effects/flash_material.tres");
         OUTLINE_MATERIAL = (ShaderMaterial) ResourceLoader.load("res://shaders/outline_material.tres");
+        FROZEN_MATERIAL = (ShaderMaterial) ResourceLoader.load("res://effects/frozen_material.tres");
         floatingTextScene = (PackedScene) ResourceLoader.load("res://effects/floating_text.tscn");
         coinsScene = (PackedScene) ResourceLoader.load("res://scenes/coins/coins.tscn");
         itemCardScene = (PackedScene) ResourceLoader.load("res://scenes/ui/item_card/item_card.tscn");

@@ -28,7 +28,7 @@ import kotlin.collections.listOf
   "project-3",
   "godot.api.Area2D,godot.api.CollisionObject2D,godot.api.Node2D,godot.api.CanvasItem,godot.api.Node,godot.api.Object,godot.core.KtObject,godot.common.interop.NativeWrapper,godot.common.interop.NativePointer,kotlin.Any",
   "game.components.HitBoxComponent.onHitHurtbox",
-  "game.components.HitBoxComponent.damage,game.components.HitBoxComponent.critical,game.components.HitBoxComponent.knockbackPower",
+  "game.components.HitBoxComponent.damage,game.components.HitBoxComponent.critical,game.components.HitBoxComponent.knockbackPower,game.components.HitBoxComponent.slowDuration,game.components.HitBoxComponent.slowMultiplier",
   "game.components.HitBoxComponent.enable,game.components.HitBoxComponent.disable,game.components.HitBoxComponent.setup,game.components.HitBoxComponent._on_area_entered",
   true,
 )
@@ -46,6 +46,8 @@ public open class HitBoxComponentRegistrar : ClassRegistrar {
         property(HitBoxComponent::damage, FLOAT, DOUBLE, "kotlin.Float", NONE, "", godot.core.PropertyUsageFlags.NONE.flag)
         property(HitBoxComponent::critical, BOOL, BOOL, "kotlin.Boolean", NONE, "", godot.core.PropertyUsageFlags.NONE.flag)
         property(HitBoxComponent::knockbackPower, FLOAT, DOUBLE, "kotlin.Float", NONE, "", godot.core.PropertyUsageFlags.NONE.flag)
+        property(HitBoxComponent::slowDuration, FLOAT, DOUBLE, "kotlin.Float", NONE, "", godot.core.PropertyUsageFlags.NONE.flag)
+        property(HitBoxComponent::slowMultiplier, FLOAT, DOUBLE, "kotlin.Float", NONE, "", godot.core.PropertyUsageFlags.NONE.flag)
       }
     }
   }

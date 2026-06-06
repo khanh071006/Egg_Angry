@@ -112,8 +112,18 @@ public class Player extends BaseUnit {
 		// Xử lý làm chậm
 		if (slowTimer > 0.0) {
 			slowTimer -= delta;
+            
+            // Phủ băng xanh lên Player bằng Modulate
+            if (sprite != null) {
+                sprite.setModulate(new godot.core.Color(0.5f, 0.8f, 1.0f, 1.0f));
+            }
+            
 			if (slowTimer <= 0.0) {
 				currentSpeedMulti = 1.0f; // Hết thời gian làm chậm, về lại bình thường
+                // Trả lại màu gốc
+                if (sprite != null) {
+                    sprite.setModulate(new godot.core.Color(1.0f, 1.0f, 1.0f, 1.0f));
+                }
 			}
 		}
 

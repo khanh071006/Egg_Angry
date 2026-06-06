@@ -21,9 +21,13 @@ public class IceSpikeEffect extends Node {
 
     @RegisterFunction
     public void onAreaEntered(godot.api.Area2D area) {
+        godot.global.GD.print("IceSpikeEffect: onAreaEntered called with area = " + area);
         if (area instanceof HurtBoxComponent) {
+            godot.global.GD.print("IceSpikeEffect: area IS HurtBoxComponent!");
             HurtBoxComponent hurtbox = (HurtBoxComponent) area;
             onHitPlayer(hurtbox);
+        } else {
+            godot.global.GD.print("IceSpikeEffect: area is NOT HurtBoxComponent. Type is " + (area != null ? area.getClass().getName() : "null"));
         }
     }
 

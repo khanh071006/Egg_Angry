@@ -23,7 +23,9 @@ signals = [
 properties = [
     damage,
 	critical,
-	knockback_power
+	knockback_power,
+	slow_duration,
+	slow_multiplier
 ]
 functions = [
     enable,

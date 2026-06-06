@@ -21,7 +21,13 @@ public class HitBoxComponent extends Area2D {
     public boolean critical;
 
     @RegisterProperty
-    public float knockbackPower;
+    public float knockbackPower = 0;
+
+    @RegisterProperty
+    public float slowDuration = 0.0f;
+
+    @RegisterProperty
+    public float slowMultiplier = 1.0f;
 
     public Node2D source;
 
@@ -56,6 +62,12 @@ public class HitBoxComponent extends Area2D {
             HurtBoxComponent hurtbox = (HurtBoxComponent) area;
 
             onHitHurtbox.emit(hurtbox);
+
+            // Nếu HitBox này có tính năng làm chậm và trúng Player
+            if (slowDuration > 0.0f && hurtbox.getParent() instanceof game.entity.Player) {
+                game.entity.Player player = (game.entity.Player) hurtbox.getParent();
+                player.applySlow(slowDuration, slowMultiplier);
+            }
 
             if (area.getOwner() != null) {
                 // CHÉM TRÚNG
