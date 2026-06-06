@@ -10,13 +10,13 @@
 radius = 20.09975
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7gwxk"]
-radius = 300.0
+radius = 186.33899
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_s6apq"]
-radius = 59.22837
+radius = 61.681076
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_07cq8"]
-radius = 76.105194
+radius = 69.822784
 
 [node name="EnemyChaserSlow" instance=ExtResource("1_7gwxk")]
 collision_layer = 0

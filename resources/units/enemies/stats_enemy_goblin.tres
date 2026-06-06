@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="EnemyStats" format=3]
+
+[ext_resource type="Script" path="res://gdj/game/resources/EnemyStats.gdj" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+gold_drop = 3.0
+block_chance = 0.0
+unit_name = "Goblin"
+health = 40.0
+health_increase_per_wave = 10.0
+damage = 8.0
+speed = 100.0

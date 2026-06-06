@@ -13,6 +13,8 @@ import game.entity.Player
 import game.entity.WeaponContainer
 import game.entity.enemies.ChaserBehavior
 import game.entity.enemies.Enemy
+import game.entity.enemies.EnemyGoblin
+import game.entity.enemies.GoblinEffect
 import game.entity.enemies.ShootingBehavior
 import game.entity.enemies.Spawner
 import game.items.Coins
@@ -53,11 +55,13 @@ import godot.entry.CameraControllerRegistrar
 import godot.entry.ChaserBehaviorRegistrar
 import godot.entry.CoinsBagRegistrar
 import godot.entry.CoinsRegistrar
+import godot.entry.EnemyGoblinRegistrar
 import godot.entry.EnemyRegistrar
 import godot.entry.EnemyStatsRegistrar
 import godot.entry.FloatingTextRegistrar
 import godot.entry.GameOverMenuRegistrar
 import godot.entry.GlobalRegistrar
+import godot.entry.GoblinEffectRegistrar
 import godot.entry.HealthBarRegistrar
 import godot.entry.HealthComponentRegistrar
 import godot.entry.HitBoxComponentRegistrar
@@ -106,7 +110,7 @@ import kotlin.collections.listOf
 import kotlin.reflect.KClass
 
 public class Entry : Entry() {
-  public override val classRegistrarCount: Int = 46
+  public override val classRegistrarCount: Int = 48
 
   public override val projectName: String = "project-3"
 
@@ -123,6 +127,8 @@ public class Entry : Entry() {
     BaseUnitRegistrar().register(registry)
     ChaserBehaviorRegistrar().register(registry)
     EnemyRegistrar().register(registry)
+    EnemyGoblinRegistrar().register(registry)
+    GoblinEffectRegistrar().register(registry)
     ShootingBehaviorRegistrar().register(registry)
     SpawnerRegistrar().register(registry)
     PlayerRegistrar().register(registry)
@@ -168,13 +174,13 @@ public class Entry : Entry() {
   public override fun Context.getRegisteredClasses(): List<KClass<*>> = listOf(WaveData::class,
       WaveUnitData::class, Trail::class, Arena::class, CameraController::class, Global::class,
       HealthComponent::class, HitBoxComponent::class, HurtBoxComponent::class, BaseUnit::class,
-      ChaserBehavior::class, Enemy::class, ShootingBehavior::class, Spawner::class, Player::class,
-      WeaponContainer::class, Coins::class, MeleeBehavior::class, Projectile::class,
-      RangeBehavior::class, Weapon::class, WeaponBehavior::class, ItemBase::class,
-      ItemPassive::class, ItemUpgrade::class, ItemWeapon::class, WeaponStats::class,
-      EnemyStats::class, PlayerStats::class, UnitStats::class, CoinsBag::class, FloatingText::class,
-      GameOverMenu::class, HealthBar::class, ItemCard::class, MainMenu::class, SelectionCard::class,
-      SelectionPanel::class, ShopCard::class, ShopPanel::class, StatsContainer::class,
-      StoryMenu::class, TutorialDummy::class, TutorialMenu::class, UpgradeCard::class,
-      UpgradePanel::class)
+      ChaserBehavior::class, Enemy::class, EnemyGoblin::class, GoblinEffect::class,
+      ShootingBehavior::class, Spawner::class, Player::class, WeaponContainer::class, Coins::class,
+      MeleeBehavior::class, Projectile::class, RangeBehavior::class, Weapon::class,
+      WeaponBehavior::class, ItemBase::class, ItemPassive::class, ItemUpgrade::class,
+      ItemWeapon::class, WeaponStats::class, EnemyStats::class, PlayerStats::class,
+      UnitStats::class, CoinsBag::class, FloatingText::class, GameOverMenu::class, HealthBar::class,
+      ItemCard::class, MainMenu::class, SelectionCard::class, SelectionPanel::class,
+      ShopCard::class, ShopPanel::class, StatsContainer::class, StoryMenu::class,
+      TutorialDummy::class, TutorialMenu::class, UpgradeCard::class, UpgradePanel::class)
 }
