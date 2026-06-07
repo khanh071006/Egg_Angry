@@ -12,7 +12,7 @@ script = ExtResource("3_oy0iu")
 metadata/_custom_type_script = "uid://b8ofl8x8e0fi6"
 
 [sub_resource type="LabelSettings" id="LabelSettings_oy0iu"]
-font_size = 28
+font_size = 22
 
 [node name="UpgradeCard" type="Panel"]
 custom_minimum_size = Vector2(300, 380)
@@ -62,9 +62,9 @@ stretch_mode = 5
 [node name="Name" type="Label" parent="MarginContainer/Control"]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 45.0
+offset_left = 20.0
 offset_top = 226.0
-offset_right = 234.0
+offset_right = 220.0
 offset_bottom = 264.6667
 theme_override_font_sizes/font_size = 38
 text = "damage"
@@ -75,9 +75,9 @@ vertical_alignment = 1
 unique_name_in_owner = true
 modulate = Color(0.827451, 0.9098039, 0.17254902, 1)
 layout_mode = 0
-offset_left = 189.0
+offset_left = 220.0
 offset_top = 226.0
-offset_right = 378.0
+offset_right = 290.0
 offset_bottom = 264.6667
 theme_override_font_sizes/font_size = 38
 text = "+ 1"
