@@ -231,6 +231,7 @@ text = "luck:"
 label_settings = SubResource("LabelSettings_q67w4")
 
 [node name="LuckLabel" type="Label" parent="MarginContainer2/VBoxContainer/StatsLuck"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -266,6 +267,7 @@ text = "speed:"
 label_settings = SubResource("LabelSettings_q67w4")
 
 [node name="SpeedLabel" type="Label" parent="MarginContainer2/VBoxContainer/StatsSpeed"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -301,6 +303,7 @@ text = "% block chance:"
 label_settings = SubResource("LabelSettings_q67w4")
 
 [node name="BlockLabel" type="Label" parent="MarginContainer2/VBoxContainer/StatsBlock"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -336,6 +339,7 @@ text = "harvesting:"
 label_settings = SubResource("LabelSettings_q67w4")
 
 [node name="HarvestingLabel" type="Label" parent="MarginContainer2/VBoxContainer/StatsHarvesting"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
