@@ -1,4 +1,4 @@
-package game.entity.enemies; // Sếp đổi package theo project nha
+package game.entity.enemies;
 
 import game.Helper.GodotHelper;
 import game.autoloads.Global;
@@ -19,18 +19,15 @@ import java.util.ArrayList;
 @RegisterClass
 public class Spawner extends Node2D {
 
-    // --- CHỈ LÀ BIẾN NỘI BỘ, KHÔNG HIỆN LÊN INSPECTOR NỮA ---
     private Timer spawnTimer;
     private Timer waveTimer;
 
-    // Gọi hàm khởi tạo mảng của Kotlin để không bị lỗi KSP!
-    // Java thò tay sang nhà Kotlin để gọi cái hàm tạo mảng về! Xong phim!
     @Export
     @RegisterProperty
     public VariantArray<WaveData> wavesData = GodotHelper.createWaveDataArray();
 
-    // Spawn Area Size (1000, 500) như trong video
-    @Export @RegisterProperty
+    @Export
+    @RegisterProperty
     public Vector2 spawnAreaSize = new Vector2(1000, 500);
 
     // --- BIẾN LOGIC (Chỉ chạy ngầm trong Java) ---
@@ -85,8 +82,10 @@ public class Spawner extends Node2D {
         spawnTimer = (Timer) getNode("SpawnTimer");
         waveTimer = (Timer) getNode("WaveTimer");
 
-        if (spawnTimer == null) GD.printErr("LỖI: Không tìm thấy node tên 'SpawnTimer'!");
-        if (waveTimer == null) GD.printErr("LỖI: Không tìm thấy node tên 'WaveTimer'!");
+        if (spawnTimer == null || waveTimer == null) {
+            GD.printErr("LỖI: Không tìm thấy node SpawnTimer hoặc WaveTimer!");
+            return;
+        }
 
         // CHECK 1: Xem sếp đã kéo thả biến ở Inspector chưa
         if (spawnTimer == null) GD.printErr("LỖI NẶNG: Chưa kéo SpawnTimer vào Inspector!");
@@ -94,7 +93,6 @@ public class Spawner extends Node2D {
         if (wavesData.isEmpty()) GD.printErr("LỖI NẶNG: Mảng Waves Data trống trơn! Chưa kéo file .tres vào!");
     }
 
-    // --- HÀM TÌM KỊCH BẢN (find_wave_data) ---
     private WaveData findWaveData() {
         for (int i = 0; i < wavesData.size(); i++) {
             WaveData wave = wavesData.get(i);
@@ -104,16 +102,15 @@ public class Spawner extends Node2D {
                 return wave;
             }
         }
-        return null; // Không tìm thấy thì trả về null
+        return null;
     }
 
-    // --- HÀM BẮT ĐẦU ĐỢT (start_wave) ---
     public void startWave() {
         Global.isAttack = true;
         currentWaveData = findWaveData();
 
         if (currentWaveData == null) {
-            GD.printErr("No valid wave data! Không tìm thấy Wave: " + waveIndex);
+            GD.printErr("No valid wave data for Wave: " + waveIndex);
             if (spawnTimer != null) spawnTimer.stop();
             if (waveTimer != null) waveTimer.stop();
             return;
@@ -121,24 +118,18 @@ public class Spawner extends Node2D {
         // Cài đặt thời gian cho Wave (Mặc định 20s)
         waveTimer.setWaitTime(currentWaveData.getWaveTime());
         waveTimer.start();
-
-        // Kích hoạt đồng hồ đẻ quái
         setSpawnTimer();
     }
 
-    // --- HÀM CÀI ĐẶT NHỊP ĐẺ QUÁI (set_spawn_timer) ---
     private void setSpawnTimer() {
-        if (currentWaveData == null || spawnTimer == null) return;
+        if (currentWaveData == null || spawnTimer == null)
+            return;
 
-        // Kiểm tra loại đẻ quái: 0 là Fixed, 1 là Random
-        if (currentWaveData.getSpawnType() == WaveData.SpawnType.FIXED) {
-            // FIXED (Cố định)
-            spawnTimer.setWaitTime(currentWaveData.getFixedSpawnTime());
+        if (currentWaveData.spawnType == WaveData.SpawnType.FIXED) {
+            spawnTimer.setWaitTime(currentWaveData.fixedSpawnTime);
         } else {
-            // RANDOM (Ngẫu nhiên từ Min đến Max)
-            double minT = currentWaveData.getMinSpawnTime();
-            double maxT = currentWaveData.getMaxSpawnTime();
-            // Hàm tính Random của Java
+            double minT = currentWaveData.minSpawnTime;
+            double maxT = currentWaveData.maxSpawnTime;
             double randomTime = minT + (Math.random() * (maxT - minT));
             spawnTimer.setWaitTime(randomTime);
         }

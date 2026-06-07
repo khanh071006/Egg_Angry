@@ -32,6 +32,7 @@ scale = Vector2(2, 2)
 texture = ExtResource("1_dm0lm")
 
 [node name="GrassBG" type="Sprite2D" parent="."]
+position = Vector2(826, 310)
 scale = Vector2(2, 2)
 texture = ExtResource("2_etbs0")
 

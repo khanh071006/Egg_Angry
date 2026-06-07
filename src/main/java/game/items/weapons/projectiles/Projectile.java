@@ -1,6 +1,8 @@
 package game.items.weapons.projectiles;
 
 import game.components.HitBoxComponent;
+import game.entity.PlayerChrono;
+import game.entity.enemies.Enemy;
 import godot.annotation.Export;
 import godot.annotation.RegisterClass;
 import godot.annotation.RegisterFunction;
@@ -18,10 +20,16 @@ public class Projectile extends Node2D {
     public HitBoxComponent hitbox;
 
     private Vector2 velocity = new Vector2(0, 0);
+    public boolean isEnemyProjectile = false;
+    private Node2D owner;
 
     @RegisterFunction
     public void setProjectile(Vector2 velocity,double damage,boolean critical, float knockback, Node2D unit){
         this.velocity = velocity;
+        this.owner = unit;
+        if (unit instanceof Enemy) {
+            this.isEnemyProjectile = true;
+        }
 
         // Quay đầu viên đạn theo hướng bay
         this.setRotation((float) velocity.angle());
@@ -35,6 +43,9 @@ public class Projectile extends Node2D {
     @Override
     @RegisterFunction
     public void _process(double delta){
+        if (isEnemyProjectile && PlayerChrono.isTimeWarpActive) {
+            delta *= 0.15;
+        }
         double newX = this.getPosition().getX() + (velocity.getX() * delta);
         double newY = this.getPosition().getY() + (velocity.getY() * delta);
         setPosition(new Vector2(newX, newY));

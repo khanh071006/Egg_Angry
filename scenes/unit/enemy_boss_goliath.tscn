@@ -1,0 +1,35 @@
+[gd_scene load_steps=7 format=3 uid="uid://boha11acngy04"]
+
+[ext_resource type="PackedScene" uid="uid://bw6b5kktpiof3" path="res://scenes/unit/enemy_chaser_slow.tscn" id="1_chaser_slow"]
+[ext_resource type="Resource" uid="uid://cm6jfxsp0jfie" path="res://resources/units/enemies/stats_enemy_goliath.tres" id="2_goliath_stats"]
+[ext_resource type="Texture2D" uid="uid://c8jj5v0xp6agc" path="res://assets/sprites/Enemies/Boss_1.png" id="3_rh2u1"]
+[ext_resource type="Script" uid="uid://cp3n2as5n3mvh" path="res://gdj/game/entity/enemies/SlamBehavior.gdj" id="3_slam_behavior"]
+[ext_resource type="PackedScene" uid="uid://b4qatjphmdel5" path="res://scenes/component/hitbox_component.tscn" id="4_hitbox_scene"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_slam"]
+radius = 64.0
+
+[node name="EnemyBossGoliath" instance=ExtResource("1_chaser_slow")]
+scale = Vector2(2.5, 2.5)
+stats = ExtResource("2_goliath_stats")
+
+[node name="Sprite" parent="Visuals" index="1"]
+texture = ExtResource("3_rh2u1")
+
+[node name="CollisionShape2D" parent="VisionArea" index="0"]
+scale = Vector2(0.7, 0.7)
+
+[node name="SlamBehavior" type="Node2D" parent="." index="10" node_paths=PackedStringArray("enemy", "slam_hitbox")]
+script = ExtResource("3_slam_behavior")
+enemy = NodePath("..")
+slam_hitbox = NodePath("../SlamHitbox")
+
+[node name="SlamHitbox" parent="." index="11" instance=ExtResource("4_hitbox_scene")]
+collision_layer = 18
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SlamHitbox" index="0"]
+position = Vector2(0, -58)
+scale = Vector2(8, 8)
+shape = SubResource("CircleShape2D_slam")
+debug_color = Color(0.952941, 0.0823529, 0.0823529, 0.419608)

@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="PlayerStats" load_steps=3 format=3 uid="uid://bfr8qku5x5y46"]
+
+[ext_resource type="Texture2D" uid="uid://wh8j7fo64w1p" path="res://assets/sprites/Players/Player_aph.png" id="1_aph_tex"]
+[ext_resource type="Script" uid="uid://75n7qhb6f577" path="res://gdj/game/resources/PlayerStats.gdj" id="2_hys2m"]
+
+[resource]
+script = ExtResource("2_hys2m")
+luck = 10.0
+block_chance = 50.0
+unit_name = "Player APH"
+icon = ExtResource("1_aph_tex")
+health = 100.0
+health_increase_per_wave = 10.0
+damage = 50.0
+damage_increase_per_wave = 5.0
+speed = 400.0
+blockchance = 50.0
