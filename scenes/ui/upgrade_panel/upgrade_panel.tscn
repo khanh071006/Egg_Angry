@@ -1,9 +1,8 @@
-[gd_scene load_steps=54 format=3 uid="uid://fk6w23e0taua"]
+[gd_scene load_steps=53 format=3 uid="uid://fk6w23e0taua"]
 
 [ext_resource type="PackedScene" uid="uid://b7fwix0hr7c41" path="res://scenes/ui/stats_container/stats_container.tscn" id="1_6gbsu"]
 [ext_resource type="PackedScene" uid="uid://dbailjkaj25em" path="res://scenes/ui/upgrade_card/upgrade_card.tscn" id="1_52meh"]
 [ext_resource type="Script" uid="uid://cp4m2hnx0gvp1" path="res://gdj/game/ui/UpgradePanel.gdj" id="1_aghkh"]
-[ext_resource type="Script" uid="uid://b8ofl8x8e0fi6" path="res://gdj/game/resources/items/upgrades/ItemUpgrade.gdj" id="3_evmld"]
 [ext_resource type="Resource" uid="uid://b2aef344c57yh" path="res://resources/items/upgrades/data/block/upgrade_block_1.tres" id="4_oekas"]
 [ext_resource type="Resource" uid="uid://d25ixk8j5btrr" path="res://resources/items/upgrades/data/block/upgrade_block_2.tres" id="5_k56t5"]
 [ext_resource type="Resource" uid="uid://dql6dutp1kbwr" path="res://resources/items/upgrades/data/block/upgrade_block_4.tres" id="6_l4p84"]
@@ -50,8 +49,8 @@
 [ext_resource type="Resource" uid="uid://dxpkkx5b2ggwr" path="res://resources/items/upgrades/data/speed/upgrade_speed_12.tres" id="47_v7mxw"]
 [ext_resource type="Resource" uid="uid://cn1li14kfnd28" path="res://resources/items/upgrades/data/speed/upgrade_speed_15.tres" id="48_eyac8"]
 [ext_resource type="Resource" uid="uid://dp7u6ql1xljep" path="res://resources/items/upgrades/data/speed/upgrade_speed_20.tres" id="49_4hygx"]
-[ext_resource type="Texture2D" uid="uid://dw6s4t044y4vt" path="res://scenes/arena/wave_completed/wave_bgr.png" id="50_l4p84"]
-[ext_resource type="Texture2D" uid="uid://b53bo6w38fc04" path="res://scenes/arena/wave_completed/text.png" id="52_625vb"]
+[ext_resource type="Texture2D" uid="uid://c7e3x6tvccekx" path="res://scenes/arena/wave_completed/wave_bgr.png" id="50_l4p84"]
+[ext_resource type="Texture2D" uid="uid://clk2udtnc0cn6" path="res://scenes/arena/wave_completed/text.png" id="52_625vb"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l4p84"]
 
@@ -63,7 +62,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_aghkh")
 upgrade_card_scene = ExtResource("1_52meh")
-upgrade_list = Array[ExtResource("3_evmld")]([ExtResource("4_oekas"), ExtResource("5_k56t5"), ExtResource("6_l4p84"), ExtResource("7_625vb"), ExtResource("8_rm2kw"), ExtResource("9_kbsgn"), ExtResource("10_a1b4m"), ExtResource("11_5ewdg"), ExtResource("12_u36xe"), ExtResource("13_8rmpg"), ExtResource("14_vmsa8"), ExtResource("15_bppm0"), ExtResource("16_lo8g7"), ExtResource("17_mpu6n"), ExtResource("18_0na6y"), ExtResource("19_nipon"), ExtResource("20_5j17u"), ExtResource("21_0vvts"), ExtResource("22_bir3b"), ExtResource("23_3eupe"), ExtResource("24_5000v"), ExtResource("25_u74v4"), ExtResource("26_p6etl"), ExtResource("27_1tim8"), ExtResource("28_eakci"), ExtResource("29_l6ohj"), ExtResource("30_agreq"), ExtResource("31_7uwbt"), ExtResource("32_e51u4"), ExtResource("33_g7n0k"), ExtResource("34_if5nx"), ExtResource("35_27sma"), ExtResource("36_5x8vq"), ExtResource("37_0mn6i"), ExtResource("38_ibvf6"), ExtResource("39_lfla0"), ExtResource("40_x24kl"), ExtResource("41_qsvnt"), ExtResource("42_2maa3"), ExtResource("43_u7vwi"), ExtResource("44_4dvkj"), ExtResource("45_twlxy"), ExtResource("46_1121e"), ExtResource("47_v7mxw"), ExtResource("48_eyac8"), ExtResource("49_4hygx")])
+upgrade_list = [ExtResource("4_oekas"), ExtResource("5_k56t5"), ExtResource("6_l4p84"), ExtResource("7_625vb"), ExtResource("8_rm2kw"), ExtResource("9_kbsgn"), ExtResource("10_a1b4m"), ExtResource("11_5ewdg"), ExtResource("12_u36xe"), ExtResource("13_8rmpg"), ExtResource("14_vmsa8"), ExtResource("15_bppm0"), ExtResource("16_lo8g7"), ExtResource("17_mpu6n"), ExtResource("18_0na6y"), ExtResource("19_nipon"), ExtResource("20_5j17u"), ExtResource("21_0vvts"), ExtResource("22_bir3b"), ExtResource("23_3eupe"), ExtResource("24_5000v"), ExtResource("25_u74v4"), ExtResource("26_p6etl"), ExtResource("27_1tim8"), ExtResource("28_eakci"), ExtResource("29_l6ohj"), ExtResource("30_agreq"), ExtResource("31_7uwbt"), ExtResource("32_e51u4"), ExtResource("33_g7n0k"), ExtResource("34_if5nx"), ExtResource("35_27sma"), ExtResource("36_5x8vq"), ExtResource("37_0mn6i"), ExtResource("38_ibvf6"), ExtResource("39_lfla0"), ExtResource("40_x24kl"), ExtResource("41_qsvnt"), ExtResource("42_2maa3"), ExtResource("43_u7vwi"), ExtResource("44_4dvkj"), ExtResource("45_twlxy"), ExtResource("46_1121e"), ExtResource("47_v7mxw"), ExtResource("48_eyac8"), ExtResource("49_4hygx")]
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
@@ -101,6 +100,7 @@ offset_right = 1376.0
 offset_bottom = 1053.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxTexture_l4p84")
 theme_override_styles/panel = SubResource("StyleBoxTexture_l4p84")
 
 [node name="CenterContainer" type="CenterContainer" parent="."]

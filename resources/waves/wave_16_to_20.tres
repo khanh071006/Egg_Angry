@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="WaveData" load_steps=15 format=3 uid="uid://c1toi4ngo4fac"]
+[gd_resource type="Resource" script_class="WaveData" load_steps=12 format=3 uid="uid://c1toi4ngo4fac"]
 
 [ext_resource type="Script" uid="uid://cjecllwrga6ph" path="res://gdj/game/resources/waves/WaveData.gdj" id="1_script"]
 [ext_resource type="Script" uid="uid://bf8v16a6b8yrh" path="res://gdj/game/resources/waves/WaveUnitData.gdj" id="2_script"]
@@ -35,4 +35,4 @@ script = ExtResource("1_script")
 from = 16
 to = 20
 wave_time = 60
-units = Array[ExtResource("2_script")]([SubResource("Resource_unit_1"), SubResource("Resource_unit_2"), SubResource("Resource_unit_4")])
+units = [SubResource("Resource_unit_1"), SubResource("Resource_unit_2"), SubResource("Resource_unit_4")]

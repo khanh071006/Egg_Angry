@@ -26,4 +26,4 @@ script = ExtResource("1_script")
 from = 4
 to = 6
 wave_time = 30
-units = Array[ExtResource("2_script")]([SubResource("Resource_unit_1"), SubResource("Resource_unit_2")])
+units = [SubResource("Resource_unit_1"), SubResource("Resource_unit_2")]

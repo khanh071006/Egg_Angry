@@ -1,25 +1,17 @@
-[gd_resource type="Resource" script_class="WaveData" load_steps=22 format=3 uid="uid://btrm1trfe4dt1"]
+[gd_resource type="Resource" script_class="WaveData" load_steps=18 format=3 uid="uid://btrm1trfe4dt1"]
 
 [ext_resource type="Script" uid="uid://cjecllwrga6ph" path="res://gdj/game/resources/waves/WaveData.gdj" id="1_script"]
 [ext_resource type="Script" uid="uid://bf8v16a6b8yrh" path="res://gdj/game/resources/waves/WaveUnitData.gdj" id="2_script"]
-
+[ext_resource type="PackedScene" uid="uid://dgwu4biwd5kkx" path="res://scenes/unit/enemy_cross_laser.tscn" id="c_laser_scene"]
+[ext_resource type="Resource" uid="uid://df2s7lcrossla" path="res://resources/units/enemies/stats_enemy_cross_laser.tres" id="c_laser_stats"]
 [ext_resource type="PackedScene" uid="uid://fkulh8ufnef" path="res://scenes/unit/EnemyCreate/enemy_goblin.tscn" id="goblin_scene"]
 [ext_resource type="Resource" path="res://resources/units/enemies/stats_enemy_goblin.tres" id="goblin_stats"]
-
-[ext_resource type="PackedScene" path="res://scenes/unit/enemy_cross_laser.tscn" id="c_laser_scene"]
-[ext_resource type="Resource" path="res://resources/units/enemies/stats_enemy_cross_laser.tres" id="c_laser_stats"]
-
-[ext_resource type="PackedScene" path="res://scenes/unit/enemy_laser_spinner.tscn" id="l_spinner_scene"]
-[ext_resource type="Resource" path="res://resources/units/enemies/stats_enemy_laser_spinner.tres" id="l_spinner_stats"]
-
-[ext_resource type="PackedScene" uid="uid://k7kv46e6byce" path="res://scenes/unit/enemy_micro_chaser.tscn" id="micro_c_scene"]
-[ext_resource type="Resource" path="res://resources/units/enemies/stats_enemy_micro_chaser.tres" id="micro_c_stats"]
-
-[ext_resource type="PackedScene" path="res://scenes/unit/enemy_splitter.tscn" id="splitter_scene"]
-[ext_resource type="Resource" path="res://resources/units/enemies/stats_enemy_splitter.tres" id="splitter_stats"]
-
-[ext_resource type="PackedScene" path="res://scenes/unit/enemy_splitter_bomber.tscn" id="splitter_b_scene"]
+[ext_resource type="PackedScene" uid="uid://cdd3gkqqk5u33" path="res://scenes/unit/enemy_laser_spinner.tscn" id="l_spinner_scene"]
+[ext_resource type="Resource" uid="uid://df2s7lstattaa" path="res://resources/units/enemies/stats_enemy_laser_spinner.tres" id="l_spinner_stats"]
+[ext_resource type="PackedScene" uid="uid://1tfpndswfrsq" path="res://scenes/unit/enemy_splitter_bomber.tscn" id="splitter_b_scene"]
 [ext_resource type="Resource" uid="uid://dpspoavsadn7y" path="res://resources/units/enemies/stats_enemy_splitter_bomber.tres" id="splitter_b_stats"]
+[ext_resource type="PackedScene" uid="uid://c8xxg21arjp06" path="res://scenes/unit/enemy_splitter.tscn" id="splitter_scene"]
+[ext_resource type="Resource" path="res://resources/units/enemies/stats_enemy_splitter.tres" id="splitter_stats"]
 
 [sub_resource type="Resource" id="Resource_goblin"]
 script = ExtResource("2_script")
@@ -42,13 +34,6 @@ weight = 10.0
 unit_stats = ExtResource("l_spinner_stats")
 metadata/_custom_type_script = "uid://bf8v16a6b8yrh"
 
-[sub_resource type="Resource" id="Resource_micro_c"]
-script = ExtResource("2_script")
-unit_scene = ExtResource("micro_c_scene")
-weight = 10.0
-unit_stats = ExtResource("micro_c_stats")
-metadata/_custom_type_script = "uid://bf8v16a6b8yrh"
-
 [sub_resource type="Resource" id="Resource_splitter"]
 script = ExtResource("2_script")
 unit_scene = ExtResource("splitter_scene")
@@ -67,4 +52,4 @@ metadata/_custom_type_script = "uid://bf8v16a6b8yrh"
 script = ExtResource("1_script")
 to = 3
 fixed_spawn_time = 2.0
-units = Array[ExtResource("2_script")]([SubResource("Resource_goblin"), SubResource("Resource_c_laser"), SubResource("Resource_l_spinner"), SubResource("Resource_splitter"), SubResource("Resource_splitter_b")])
+units = [SubResource("Resource_goblin"), SubResource("Resource_c_laser"), SubResource("Resource_l_spinner"), SubResource("Resource_splitter"), SubResource("Resource_splitter_b")]
