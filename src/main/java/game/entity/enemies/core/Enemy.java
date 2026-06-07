@@ -42,6 +42,9 @@ public class Enemy extends BaseUnit {
     public double knockbackImmunityTime = 0.3; // 0.3 giây miễn nhiễm sau khi bị đẩy
     private double knockbackCooldown = 0.0;
 
+    protected float originalScaleX = 1.0f;
+    protected float originalScaleY = 1.0f;
+
     @RegisterFunction
     @Override
     public void _ready() {
@@ -49,6 +52,13 @@ public class Enemy extends BaseUnit {
         addToGroup(new StringName("enemy"));
 
         visuals = (Node2D) getNode("%Visuals");
+        if (visuals != null) {
+            originalScaleX = Math.abs((float) visuals.getScale().getX());
+            originalScaleY = Math.abs((float) visuals.getScale().getY());
+            if (originalScaleX == 0) originalScaleX = 1.0f;
+            if (originalScaleY == 0) originalScaleY = 1.0f;
+        }
+
         sprite = (Sprite2D) getNode("%Sprite");
         animPlayer = (AnimationPlayer) getNode("AnimationPlayer");
         visionArea = (Area2D) getNode("VisionArea");
@@ -166,11 +176,11 @@ public class Enemy extends BaseUnit {
         Vector2 myPos = getGlobalPosition();
         Vector2 playerPos = Global.player.getGlobalPosition();
 
-        // Xoay nhân vật dựa trên vị trí X của Player
+        // Xoay nhân vật dựa trên vị trí X của Player, NHƯNG GIỮ NGUYÊN SCALE GỐC
         if (myPos.getX() < playerPos.getX()) {
-            visuals.setScale(new Vector2(-1f, 1f));
+            visuals.setScale(new Vector2(-originalScaleX, originalScaleY));
         } else {
-            visuals.setScale(new Vector2(1f, 1f));
+            visuals.setScale(new Vector2(originalScaleX, originalScaleY));
         }
     }
 

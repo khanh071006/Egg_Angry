@@ -2,18 +2,18 @@
 
 [ext_resource type="Script" uid="uid://cjecllwrga6ph" path="res://gdj/game/resources/waves/WaveData.gdj" id="1_script"]
 [ext_resource type="Script" uid="uid://bf8v16a6b8yrh" path="res://gdj/game/resources/waves/WaveUnitData.gdj" id="2_script"]
-[ext_resource type="PackedScene" path="res://scenes/unit/EnemyCreate/enemy_egg_layer.tscn" id="egg_layer_scene"]
-[ext_resource type="Resource" path="res://resources/units/enemies/stats_enemy_egg_layer.tres" id="egg_layer_stats"]
+[ext_resource type="PackedScene" uid="uid://fkulh8ufnef" path="res://scenes/unit/EnemyCreate/enemy_goblin.tscn" id="goblin_scene"]
+[ext_resource type="Resource" path="res://resources/units/enemies/stats_enemy_goblin.tres" id="goblin_stats"]
 
-[sub_resource type="Resource" id="Resource_egg_layer"]
+[sub_resource type="Resource" id="Resource_goblin"]
 script = ExtResource("2_script")
-unit_scene = ExtResource("egg_layer_scene")
+unit_scene = ExtResource("goblin_scene")
 weight = 10.0
-unit_stats = ExtResource("egg_layer_stats")
+unit_stats = ExtResource("goblin_stats")
 metadata/_custom_type_script = "uid://bf8v16a6b8yrh"
 
 [resource]
 script = ExtResource("1_script")
 to = 3
 fixed_spawn_time = 2.0
-units = Array[ExtResource("2_script")]([SubResource("Resource_egg_layer")])
+units = Array[ExtResource("2_script")]([SubResource("Resource_goblin")])

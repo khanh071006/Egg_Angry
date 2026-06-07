@@ -19,8 +19,10 @@ import game.entity.enemies.spawner.Spawner
 import game.entity.enemies.types.EnemyBomber
 import game.entity.enemies.types.EnemyEgg
 import game.entity.enemies.types.EnemyEggLayer
+import game.entity.enemies.types.EnemyGoblin
 import game.entity.enemies.types.EnemyIceMage
 import game.entity.enemies.types.EnemyMeteorMage
+import game.entity.enemies.types.GoblinEffect
 import game.items.Coins
 import game.items.weapons.Weapon
 import game.items.weapons.WeaponBehavior
@@ -62,6 +64,7 @@ import godot.entry.CoinsRegistrar
 import godot.entry.EnemyBomberRegistrar
 import godot.entry.EnemyEggLayerRegistrar
 import godot.entry.EnemyEggRegistrar
+import godot.entry.EnemyGoblinRegistrar
 import godot.entry.EnemyIceMageRegistrar
 import godot.entry.EnemyMeteorMageRegistrar
 import godot.entry.EnemyRegistrar
@@ -69,6 +72,7 @@ import godot.entry.EnemyStatsRegistrar
 import godot.entry.FloatingTextRegistrar
 import godot.entry.GameOverMenuRegistrar
 import godot.entry.GlobalRegistrar
+import godot.entry.GoblinEffectRegistrar
 import godot.entry.HealthBarRegistrar
 import godot.entry.HealthComponentRegistrar
 import godot.entry.HitBoxComponentRegistrar
@@ -118,7 +122,7 @@ import kotlin.collections.listOf
 import kotlin.reflect.KClass
 
 public class Entry : Entry() {
-  public override val classRegistrarCount: Int = 52
+  public override val classRegistrarCount: Int = 54
 
   public override val projectName: String = "project-3"
 
@@ -141,8 +145,10 @@ public class Entry : Entry() {
     EnemyBomberRegistrar().register(registry)
     EnemyEggRegistrar().register(registry)
     EnemyEggLayerRegistrar().register(registry)
+    EnemyGoblinRegistrar().register(registry)
     EnemyIceMageRegistrar().register(registry)
     EnemyMeteorMageRegistrar().register(registry)
+    GoblinEffectRegistrar().register(registry)
     PlayerRegistrar().register(registry)
     WeaponContainerRegistrar().register(registry)
     CoinsRegistrar().register(registry)
@@ -187,13 +193,14 @@ public class Entry : Entry() {
       WaveUnitData::class, Trail::class, Arena::class, CameraController::class, Global::class,
       HealthComponent::class, HitBoxComponent::class, HurtBoxComponent::class, BaseUnit::class,
       ChaserBehavior::class, ShootingBehavior::class, Enemy::class, IceSpikeEffect::class,
-      Spawner::class, EnemyBomber::class, EnemyEgg::class, EnemyEggLayer::class,
-      EnemyIceMage::class, EnemyMeteorMage::class, Player::class, WeaponContainer::class,
-      Coins::class, MeleeBehavior::class, Projectile::class, RangeBehavior::class, Weapon::class,
-      WeaponBehavior::class, ItemBase::class, ItemPassive::class, ItemUpgrade::class,
-      ItemWeapon::class, WeaponStats::class, EnemyStats::class, PlayerStats::class,
-      UnitStats::class, CoinsBag::class, FloatingText::class, GameOverMenu::class, HealthBar::class,
-      ItemCard::class, MainMenu::class, SelectionCard::class, SelectionPanel::class,
-      ShopCard::class, ShopPanel::class, StatsContainer::class, StoryMenu::class,
-      TutorialDummy::class, TutorialMenu::class, UpgradeCard::class, UpgradePanel::class)
+      Spawner::class, EnemyBomber::class, EnemyEgg::class, EnemyEggLayer::class, EnemyGoblin::class,
+      EnemyIceMage::class, EnemyMeteorMage::class, GoblinEffect::class, Player::class,
+      WeaponContainer::class, Coins::class, MeleeBehavior::class, Projectile::class,
+      RangeBehavior::class, Weapon::class, WeaponBehavior::class, ItemBase::class,
+      ItemPassive::class, ItemUpgrade::class, ItemWeapon::class, WeaponStats::class,
+      EnemyStats::class, PlayerStats::class, UnitStats::class, CoinsBag::class, FloatingText::class,
+      GameOverMenu::class, HealthBar::class, ItemCard::class, MainMenu::class, SelectionCard::class,
+      SelectionPanel::class, ShopCard::class, ShopPanel::class, StatsContainer::class,
+      StoryMenu::class, TutorialDummy::class, TutorialMenu::class, UpgradeCard::class,
+      UpgradePanel::class)
 }
