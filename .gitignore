@@ -6,3 +6,6 @@ docs/
 
 *.jar
 jvm/*.jar
+build/
+.gradle/
+.kotlin/
