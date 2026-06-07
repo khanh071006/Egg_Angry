@@ -7,11 +7,8 @@ import godot.api.MultiplayerAPI.RPCMode.DISABLED
 import godot.api.MultiplayerPeer.TransferMode.RELIABLE
 import godot.core.KtConstructor0
 import godot.core.KtRpcConfig
-import godot.core.PropertyHint.NONE
-import godot.core.VariantCaster.FLOAT
 import godot.core.VariantParser.DOUBLE
 import godot.core.VariantParser.NIL
-import godot.core.VariantParser.VECTOR2
 import godot.registration.ClassRegistrar
 import godot.registration.ClassRegistry
 import godot.registration.KtFunctionArgument
@@ -27,8 +24,8 @@ import kotlin.collections.listOf
   "project-3",
   "godot.api.Camera2D,godot.api.Node2D,godot.api.CanvasItem,godot.api.Node,godot.api.Object,godot.core.KtObject,godot.common.interop.NativeWrapper,godot.common.interop.NativePointer,kotlin.Any",
   "",
-  "game.arena.CameraController.lerpSpeed,game.arena.CameraController.cameraZoom",
-  "game.arena.CameraController._process,game.arena.CameraController._ready,game.arena.CameraController.addShake",
+  "",
+  "game.arena.CameraController._process",
   true,
 )
 public open class CameraControllerRegistrar : ClassRegistrar {
@@ -38,10 +35,6 @@ public open class CameraControllerRegistrar : ClassRegistrar {
         constructor(KtConstructor0(::CameraController))
         notificationFunctions(listOf())
         function(CameraController::_process, NIL, DOUBLE, KtFunctionArgument(DOUBLE, "kotlin.Double", "delta"), KtFunctionArgument(NIL, "kotlin.Unit"), KtRpcConfig(DISABLED.id.toInt(), false, RELIABLE.id.toInt(), 0))
-        function(CameraController::_ready, NIL, KtFunctionArgument(NIL, "kotlin.Unit"), KtRpcConfig(DISABLED.id.toInt(), false, RELIABLE.id.toInt(), 0))
-        function(CameraController::addShake, NIL, FLOAT, KtFunctionArgument(FLOAT, "kotlin.Float", "intensity"), KtFunctionArgument(NIL, "kotlin.Unit"), KtRpcConfig(DISABLED.id.toInt(), false, RELIABLE.id.toInt(), 0))
-        property(CameraController::lerpSpeed, FLOAT, DOUBLE, "kotlin.Float", NONE, "", godot.core.PropertyUsageFlags.DEFAULT.flag)
-        property(CameraController::cameraZoom, VECTOR2, VECTOR2, "godot.core.Vector2", NONE, "", godot.core.PropertyUsageFlags.DEFAULT.flag)
       }
     }
   }

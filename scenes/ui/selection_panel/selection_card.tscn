@@ -1,13 +1,25 @@
-[gd_scene load_steps=3 format=3 uid="uid://df7x8yay001a"]
+[gd_scene load_steps=4 format=3 uid="uid://df7x8yay001a"]
 
-[ext_resource type="StyleBox" uid="uid://wmyqnve45qmn" path="res://styles/common_style.tres" id="1_csty"]
 [ext_resource type="Script" uid="uid://b2qe3cm25tnyy" path="res://gdj/game/ui/SelectionCard.gdj" id="2_61x6i"]
+[ext_resource type="Texture2D" uid="uid://kpjjxn34xag1" path="res://scenes/arena/BGV.png" id="2_if42v"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_og1li"]
 
 [node name="SelectionCard" type="Button"]
 custom_minimum_size = Vector2(100, 100)
-theme_override_styles/normal = ExtResource("1_csty")
+theme_override_styles/normal = SubResource("StyleBoxTexture_og1li")
 icon_alignment = 1
 expand_icon = true
 script = ExtResource("2_61x6i")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_if42v")
 
 [connection signal="pressed" from="." to="." method="_on_pressed"]

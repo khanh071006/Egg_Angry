@@ -10,24 +10,24 @@ import godot.api.Texture2D;
 @RegisterClass
 public class SelectionCard extends Button {
 
-    public int playerIndex = -1;
+	public int playerIndex = -1;
 
-    @RegisterSignal
-    public Signal1<Integer> onCardSelected = Signal1.create(this, "onCardSelected");
+	@RegisterSignal
+	public Signal1<Integer> onCardSelected = Signal1.create(this, "onCardSelected");
 
-    public SelectionCard() {
-        super();
-    }
+	public SelectionCard() {
+		super();
+	}
 
-    @RegisterFunction
-    public void _on_pressed() {
-        if (playerIndex >= 0) {
-            onCardSelected.emit(playerIndex);
-        }
-    }
+	@RegisterFunction
+	public void _on_pressed() {
+		if (playerIndex >= 0) {
+			onCardSelected.emit(playerIndex);
+		}
+	}
 
-    @RegisterFunction
-    public void setIconTexture(Texture2D texture) {
-        this.set(new godot.core.StringName("icon"), texture);
-    }
+	@RegisterFunction
+	public void setIconTexture(Texture2D texture) {
+		this.set(new godot.core.StringName("icon"), texture);
+	}
 }

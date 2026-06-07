@@ -14,7 +14,11 @@ import java.util.Random;
 @RegisterClass
 public class Global extends Node {
 
-    // ĐÂY LÀ BIẾN TOÀN CẦU! Ai cũng có thể truy cập nó!
+    public godot.api.Texture2D commonCardTexture;
+    public godot.api.Texture2D rareCardTexture;
+    public godot.api.Texture2D epicCardTexture;
+    public godot.api.Texture2D legendaryCardTexture;
+
     public static Player player;
     public static ShaderMaterial FLASH_MATERIAL;
     public static ShaderMaterial OUTLINE_MATERIAL;
@@ -28,6 +32,9 @@ public class Global extends Node {
     public static game.resources.items.weapons.ItemWeapon mainWeaponSelected;
 
     public static java.util.Map<String, String> availablePlayers = new java.util.HashMap<>();
+
+    // SỬA BUG HIỆU SUẤT: Tái sử dụng một bộ Random duy nhất thay vì khởi tạo liên tục
+    private static final Random SHARED_RANDOM = new Random();
 
     static {
         availablePlayers.put("Brawler", "res://scenes/unit/player_brawler.tscn");
@@ -54,7 +61,6 @@ public class Global extends Node {
         return playerInstance;
     }
 
-    // --- CÁC STYLE CHO THẺ NÂNG CẤP ---
     public godot.api.StyleBoxFlat commonStyle;
     public godot.api.StyleBoxFlat rareStyle;
     public godot.api.StyleBoxFlat epicStyle;
@@ -76,7 +82,6 @@ public class Global extends Node {
     public Signal1<game.entity.enemies.Enemy> onEnemyDied = Signal1.create(this, "onEnemyDied");
 
     public PackedScene itemCardScene;
-
     public PackedScene coinsScene;
 
     public java.util.List<game.resources.items.weapons.ItemWeapon> equippedWeapons = new java.util.ArrayList<>();
@@ -85,33 +90,41 @@ public class Global extends Node {
     @RegisterFunction
     @Override
     public void _ready() {
-        // Load file .tres mà bạn đã tạo từ Shader ở bước 1
         FLASH_MATERIAL = (ShaderMaterial) ResourceLoader.load("res://effects/flash_material.tres");
         OUTLINE_MATERIAL = (ShaderMaterial) ResourceLoader.load("res://shaders/outline_material.tres");
         floatingTextScene = (PackedScene) ResourceLoader.load("res://effects/floating_text.tscn");
         coinsScene = (PackedScene) ResourceLoader.load("res://scenes/coins/coins.tscn");
         itemCardScene = (PackedScene) ResourceLoader.load("res://scenes/ui/item_card/item_card.tscn");
 
-        // Tự động load các Style màu thẻ từ thư mục styles (khỏi cần kéo thả tay)
         commonStyle = (godot.api.StyleBoxFlat) ResourceLoader.load("res://styles/common_style.tres");
         rareStyle = (godot.api.StyleBoxFlat) ResourceLoader.load("res://styles/rare_style.tres");
         epicStyle = (godot.api.StyleBoxFlat) ResourceLoader.load("res://styles/epic_style.tres");
         legendaryStyle = (godot.api.StyleBoxFlat) ResourceLoader.load("res://styles/legendary_style.tres");
 
+        commonCardTexture = (godot.api.Texture2D) ResourceLoader.load("res://scenes/arena/wave_completed/item_box.png");
+        rareCardTexture = (godot.api.Texture2D) ResourceLoader.load("res://scenes/arena/wave_completed/item_box_blue.png");
+        epicCardTexture = (godot.api.Texture2D) ResourceLoader.load("res://scenes/arena/wave_completed/item_box_purple.png");
+        legendaryCardTexture = (godot.api.Texture2D) ResourceLoader.load("res://scenes/arena/wave_completed/item_box_red.png");
+
         isAttack = true;
         gamePaused = false;
-
-        get_chance_sucess(0.5f);
         instance = this;
+    }
+
+    public godot.api.Texture2D getTierTexture(UpgradeTier itemTier) {
+        if (itemTier == null) return commonCardTexture;
+        switch (itemTier) {
+            case COMMON: return commonCardTexture;
+            case RARE: return rareCardTexture;
+            case EPIC: return epicCardTexture;
+            case LEGENDARY: return legendaryCardTexture;
+            default: return commonCardTexture;
+        }
     }
 
     @RegisterFunction
     public static boolean get_chance_sucess(double chance) {
-        Random random = new Random();
-        double randomFloat = random.nextFloat();
-        if (randomFloat <= chance)
-            return true;
-        return false;
+        return SHARED_RANDOM.nextDouble() <= chance;
     }
 
     public enum UpgradeTier {
@@ -121,7 +134,6 @@ public class Global extends Node {
         LEGENDARY
     }
 
-    // --- BỘ CẤU HÌNH XÁC SUẤT XUẤT HIỆN THẺ NÂNG CẤP ---
     public static class TierConfig {
         public int startWave;
         public float baseMulti;
@@ -152,38 +164,31 @@ public class Global extends Node {
         float epicChance = 0.0f;
         float legendaryChance = 0.0f;
 
-        // 1. Kiểm tra Rare
         TierConfig rare = config.get("rare");
         if (currentWave >= rare.startWave) {
             rareChance = Math.min(1.0f, (currentWave - (rare.startWave - 1)) * rare.baseMulti);
         }
 
-        // 2. Kiểm tra Epic
         TierConfig epic = config.get("epic");
         if (currentWave >= epic.startWave) {
             epicChance = Math.min(1.0f, (currentWave - (epic.startWave - 3)) * epic.baseMulti);
         }
 
-        // 3. Kiểm tra Legendary
         TierConfig legendary = config.get("legendary");
         if (currentWave >= legendary.startWave) {
             legendaryChance = Math.min(1.0f, (currentWave - (legendary.startWave - 6)) * legendary.baseMulti);
         }
 
-        // 4. Áp dụng hệ số Luck (May mắn) của người chơi
         float playerLuck = 0.0f;
         if (player != null && player.stats instanceof game.resources.units.PlayerStats) {
             playerLuck = ((game.resources.units.PlayerStats) player.stats).luck;
         }
 
-        // Ví dụ: Luck = 10 -> luckFactor = 1.1 (Tăng 10% cơ hội)
         float luckFactor = 1.0f + (playerLuck / 100.0f);
-
         rareChance *= luckFactor;
         epicChance *= luckFactor;
         legendaryChance *= luckFactor;
 
-        // 5. Chuẩn hóa xác suất (Normalize) để tổng không vượt quá 1 (100%)
         float totalNonCommonChances = rareChance + epicChance + legendaryChance;
         if (totalNonCommonChances > 1.0f) {
             float scaleDown = 1.0f / totalNonCommonChances;
@@ -193,16 +198,13 @@ public class Global extends Node {
             totalNonCommonChances = 1.0f;
         }
 
-        // 6. Tính xác suất của Common
         commonChance = 1.0f - totalNonCommonChances;
 
-        // --- DEBUG RA CONSOLE (In kết quả ra giống trong video) ---
         String message = String.format(java.util.Locale.US,
                 "Wave: %d | Luck: %.1f | Chances -> Common: %.2f | Rare: %.2f | Epic: %.2f | Legendary: %.4f",
                 currentWave, playerLuck, commonChance, rareChance, epicChance, legendaryChance);
         GD.print(message);
 
-        // Trả về mảng 4 giá trị tỉ lệ
         return new float[] {
                 Math.max(0.0f, commonChance),
                 Math.max(0.0f, rareChance),
@@ -211,40 +213,30 @@ public class Global extends Node {
         };
     }
 
-    // --- HÀM LẤY STYLE DỰA TRÊN ĐỘ HIẾM (TIER) ---
     public godot.api.StyleBoxFlat getTierStyle(UpgradeTier itemTier) {
         if (itemTier == null)
-            return legendaryStyle;
+            return commonStyle;
 
         switch (itemTier) {
-            case COMMON:
-                return commonStyle;
-            case RARE:
-                return rareStyle;
-            case EPIC:
-                return epicStyle;
-            default:
-                return legendaryStyle;
+            case COMMON: return commonStyle;
+            case RARE: return rareStyle;
+            case EPIC: return epicStyle;
+            case LEGENDARY: return legendaryStyle;
+            default: return commonStyle;
         }
     }
 
-    // --- HÀM LẤY MÀU VIỀN DỰA TRÊN ĐỘ HIẾM (TIER) ---
     public godot.core.Color getTierColor(UpgradeTier tier) {
         if (tier == null)
-            return new godot.core.Color(1.0f, 1.0f, 1.0f, 1.0f); // Default white
+            return new godot.core.Color(1.0f, 1.0f, 1.0f, 1.0f);
         switch (tier) {
-            case RARE:
-                return new godot.core.Color(0.0f, 0.557f, 0.741f, 1.0f);
-            case EPIC:
-                return new godot.core.Color(0.478f, 0.251f, 0.71f, 1.0f);
-            case LEGENDARY:
-                return new godot.core.Color(0.906f, 0.212f, 0.212f, 1.0f);
-            default:
-                return new godot.core.Color(1.0f, 1.0f, 1.0f, 1.0f);
+            case RARE: return new godot.core.Color(0.0f, 0.557f, 0.741f, 1.0f);
+            case EPIC: return new godot.core.Color(0.478f, 0.251f, 0.71f, 1.0f);
+            case LEGENDARY: return new godot.core.Color(0.906f, 0.212f, 0.212f, 1.0f);
+            default: return new godot.core.Color(1.0f, 1.0f, 1.0f, 1.0f);
         }
     }
 
-    // --- LOGIC HARVESTING (THU THẬP XU) ---
     @RegisterFunction
     public void getHarvestingCoins() {
         if (player != null && player.stats != null) {
@@ -259,73 +251,80 @@ public class Global extends Node {
             int currentWave,
             java.util.Map<String, TierConfig> config) {
 
+        if (itemPool == null || itemPool.size() == 0) {
+            return game.Helper.GodotHelper.createItemBaseArray();
+        }
+
         float[] tierChances = calculateTierProbability(currentWave, config);
 
-        float legendaryLimit = tierChances[3];
-        float epicLimit = legendaryLimit + tierChances[2];
-        float rareLimit = epicLimit + tierChances[1];
+        float commonLimit = tierChances[0];
+        float rareLimit = commonLimit + tierChances[1];
+        float epicLimit = rareLimit + tierChances[2];
 
         java.util.List<game.resources.items.ItemBase> offerItemsList = new java.util.ArrayList<>();
-        int failsafe = 0; // Để tránh vòng lặp vô tận nếu mảng ItemPool ít hơn 4 món
+        int failsafe = 0;
 
         GD.print("Debug: Bắt đầu selectItemsForOffer. itemPool size = " + itemPool.size());
 
         while (offerItemsList.size() < 4 && failsafe < 100) {
             failsafe++;
-            float roll = (float) Math.random(); // Ngẫu nhiên từ 0.0 đến 1.0
-            int chosenTierIndex = 0; // Mặc định là Common (0)
+            float roll = (float) SHARED_RANDOM.nextDouble();
+            int chosenTierIndex = 0;
 
-            if (roll < legendaryLimit) {
-                chosenTierIndex = 3; // Legendary
-            } else if (roll < epicLimit) {
-                chosenTierIndex = 2; // Epic
+            if (roll < commonLimit) {
+                chosenTierIndex = 0;
             } else if (roll < rareLimit) {
-                chosenTierIndex = 1; // Rare
+                chosenTierIndex = 1;
+            } else if (roll < epicLimit) {
+                chosenTierIndex = 2;
+            } else {
+                chosenTierIndex = 3;
             }
 
             int currentSearchTierIndex = chosenTierIndex;
             java.util.List<game.resources.items.ItemBase> potentialItemsList = new java.util.ArrayList<>();
 
-            while (potentialItemsList.isEmpty() && currentSearchTierIndex >= 0) {
-                // Lọc những thẻ có phẩm chất (tier) trùng với currentSearchTierIndex
+            while (currentSearchTierIndex >= 0) {
+                potentialItemsList.clear();
+
                 for (int i = 0; i < itemPool.size(); i++) {
                     game.resources.items.ItemBase item = itemPool.get(i);
                     if (item != null && item.itemTier != null && item.itemTier.ordinal() == currentSearchTierIndex) {
-
-                        // Kiểm tra nếu là thẻ Passive thì xem người chơi có gánh được Penalty không
                         if (item instanceof game.resources.items.ItemPassive) {
                             if (!((game.resources.items.ItemPassive) item).canAffordPenalty()) {
-                                continue; // Bỏ qua thẻ này
+                                continue;
                             }
                         }
-
                         potentialItemsList.add(item);
                     }
                 }
 
-                if (potentialItemsList.isEmpty()) {
-                    currentSearchTierIndex--; // Giảm 1 cấp nếu không tìm thấy thẻ ở phẩm chất đó
-                } else {
+                if (!potentialItemsList.isEmpty()) {
                     break;
+                }
+                currentSearchTierIndex--;
+            }
+
+            if (potentialItemsList.isEmpty()) {
+                for (int i = 0; i < itemPool.size(); i++) {
+                    game.resources.items.ItemBase fallbackItem = itemPool.get(i);
+                    if (fallbackItem != null && !offerItemsList.contains(fallbackItem)) {
+                        potentialItemsList.add(fallbackItem);
+                    }
                 }
             }
 
             if (!potentialItemsList.isEmpty()) {
-                // Chọn ngẫu nhiên 1 phần tử
-                int randomIndex = (int) (Math.random() * potentialItemsList.size());
+                int randomIndex = (int) (SHARED_RANDOM.nextDouble() * potentialItemsList.size());
                 game.resources.items.ItemBase selectedItem = potentialItemsList.get(randomIndex);
 
-                // Kiểm tra xem thẻ đã được chọn chưa (Chống trùng lặp)
                 if (!offerItemsList.contains(selectedItem)) {
                     offerItemsList.add(selectedItem);
                 }
             }
         }
 
-        // Chuyển List thành VariantArray để Godot dùng
-        godot.core.VariantArray<game.resources.items.ItemBase> finalArray = game.Helper.GodotHelper
-                .createItemBaseArray();
-
+        godot.core.VariantArray<game.resources.items.ItemBase> finalArray = game.Helper.GodotHelper.createItemBaseArray();
         GD.print("Debug: Vòng lặp kết thúc, offerItemsList size = " + offerItemsList.size());
 
         for (game.resources.items.ItemBase item : offerItemsList) {
@@ -333,7 +332,6 @@ public class Global extends Node {
         }
 
         GD.print("Debug: Sau khi copy sang finalArray, size = " + finalArray.size());
-
         return finalArray;
     }
 }

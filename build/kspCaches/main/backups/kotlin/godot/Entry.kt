@@ -9,19 +9,12 @@ import game.components.HealthComponent
 import game.components.HitBoxComponent
 import game.components.HurtBoxComponent
 import game.entity.BaseUnit
-import game.entity.Bomb
 import game.entity.Player
-import game.entity.PlayerChrono
 import game.entity.WeaponContainer
 import game.entity.enemies.ChaserBehavior
-import game.entity.enemies.CrossLaserBehavior
 import game.entity.enemies.Enemy
-import game.entity.enemies.LaserSpinnerBehavior
 import game.entity.enemies.ShootingBehavior
-import game.entity.enemies.SlamBehavior
 import game.entity.enemies.Spawner
-import game.entity.enemies.SplitterBehavior
-import game.entity.enemies.SplitterBomberBehavior
 import game.items.Coins
 import game.items.weapons.Weapon
 import game.items.weapons.WeaponBehavior
@@ -56,12 +49,10 @@ import game.ui.UpgradeCard
 import game.ui.UpgradePanel
 import godot.entry.ArenaRegistrar
 import godot.entry.BaseUnitRegistrar
-import godot.entry.BombRegistrar
 import godot.entry.CameraControllerRegistrar
 import godot.entry.ChaserBehaviorRegistrar
 import godot.entry.CoinsBagRegistrar
 import godot.entry.CoinsRegistrar
-import godot.entry.CrossLaserBehaviorRegistrar
 import godot.entry.EnemyRegistrar
 import godot.entry.EnemyStatsRegistrar
 import godot.entry.FloatingTextRegistrar
@@ -76,10 +67,8 @@ import godot.entry.ItemCardRegistrar
 import godot.entry.ItemPassiveRegistrar
 import godot.entry.ItemUpgradeRegistrar
 import godot.entry.ItemWeaponRegistrar
-import godot.entry.LaserSpinnerBehaviorRegistrar
 import godot.entry.MainMenuRegistrar
 import godot.entry.MeleeBehaviorRegistrar
-import godot.entry.PlayerChronoRegistrar
 import godot.entry.PlayerRegistrar
 import godot.entry.PlayerStatsRegistrar
 import godot.entry.ProjectileRegistrar
@@ -89,10 +78,7 @@ import godot.entry.SelectionPanelRegistrar
 import godot.entry.ShootingBehaviorRegistrar
 import godot.entry.ShopCardRegistrar
 import godot.entry.ShopPanelRegistrar
-import godot.entry.SlamBehaviorRegistrar
 import godot.entry.SpawnerRegistrar
-import godot.entry.SplitterBehaviorRegistrar
-import godot.entry.SplitterBomberBehaviorRegistrar
 import godot.entry.StatsContainerRegistrar
 import godot.entry.StoryMenuRegistrar
 import godot.entry.TrailRegistrar
@@ -120,7 +106,7 @@ import kotlin.collections.listOf
 import kotlin.reflect.KClass
 
 public class Entry : Entry() {
-  public override val classRegistrarCount: Int = 53
+  public override val classRegistrarCount: Int = 46
 
   public override val projectName: String = "project-3"
 
@@ -135,18 +121,11 @@ public class Entry : Entry() {
     HitBoxComponentRegistrar().register(registry)
     HurtBoxComponentRegistrar().register(registry)
     BaseUnitRegistrar().register(registry)
-    BombRegistrar().register(registry)
     ChaserBehaviorRegistrar().register(registry)
-    CrossLaserBehaviorRegistrar().register(registry)
     EnemyRegistrar().register(registry)
-    LaserSpinnerBehaviorRegistrar().register(registry)
     ShootingBehaviorRegistrar().register(registry)
-    SlamBehaviorRegistrar().register(registry)
     SpawnerRegistrar().register(registry)
-    SplitterBehaviorRegistrar().register(registry)
-    SplitterBomberBehaviorRegistrar().register(registry)
     PlayerRegistrar().register(registry)
-    PlayerChronoRegistrar().register(registry)
     WeaponContainerRegistrar().register(registry)
     CoinsRegistrar().register(registry)
     MeleeBehaviorRegistrar().register(registry)
@@ -189,9 +168,7 @@ public class Entry : Entry() {
   public override fun Context.getRegisteredClasses(): List<KClass<*>> = listOf(WaveData::class,
       WaveUnitData::class, Trail::class, Arena::class, CameraController::class, Global::class,
       HealthComponent::class, HitBoxComponent::class, HurtBoxComponent::class, BaseUnit::class,
-      Bomb::class, ChaserBehavior::class, CrossLaserBehavior::class, Enemy::class,
-      LaserSpinnerBehavior::class, ShootingBehavior::class, SlamBehavior::class, Spawner::class,
-      SplitterBehavior::class, SplitterBomberBehavior::class, Player::class, PlayerChrono::class,
+      ChaserBehavior::class, Enemy::class, ShootingBehavior::class, Spawner::class, Player::class,
       WeaponContainer::class, Coins::class, MeleeBehavior::class, Projectile::class,
       RangeBehavior::class, Weapon::class, WeaponBehavior::class, ItemBase::class,
       ItemPassive::class, ItemUpgrade::class, ItemWeapon::class, WeaponStats::class,

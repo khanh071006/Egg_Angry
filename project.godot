@@ -17,7 +17,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-Global="*res://gdj/game/autoloads/Global.gdj"
+GlobalNode="*res://gdj/game/autoloads/Global.gdj"
 
 [display]
 
@@ -28,6 +28,8 @@ window/stretch/mode="canvas_items"
 [gd_jvm]
 
 jvm_args="-XX:ErrorFile=logs/hs_err_pid%p.log"
+config/use_embedded_jre=false
+config/jre_path="E:jdk-17.0.18"
 
 [gui]
 

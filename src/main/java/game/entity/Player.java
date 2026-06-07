@@ -107,10 +107,9 @@ public class Player extends BaseUnit {
 
 		Vector2 currentPos = getPosition();
 		Vector2 newPos = currentPos.plus(currentVelocity.times(fDelta));
-		// Ép điểm X nằm gọn trong khoảng -1000 đến 1000
-		float clampedX = (float) Math.clamp(newPos.getX(), -1000.0f, 1000.0f);
-		// Ép điểm Y nằm gọn trong khoảng -500 đến 500
-		float clampedY = (float) Math.clamp(newPos.getY(), -500.0f, 500.0f);
+        // Sửa dòng 111 thành:
+        float clampedX = (float) Math.max(-1000.0f, Math.min(newPos.getX(), 1000.0f));
+        float clampedY = (float) Math.max(-500.0f, Math.min(newPos.getY(), 500.0f));
 
 		// Đặt lại vị trí mới đã bị nhốt
 		setPosition(new Vector2(clampedX, clampedY));

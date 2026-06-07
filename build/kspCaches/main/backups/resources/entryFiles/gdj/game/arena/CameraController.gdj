@@ -20,11 +20,8 @@ signals = [
     
 ]
 properties = [
-    lerp_speed,
-	camera_zoom
+    
 ]
 functions = [
-    _process,
-	_ready,
-	add_shake
+    _process
 ]

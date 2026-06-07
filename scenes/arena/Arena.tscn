@@ -83,7 +83,6 @@ label_settings = SubResource("LabelSettings_g06lh")
 visible = false
 
 [node name="ShopPanel" parent="GameUI" instance=ExtResource("11_2ri42")]
-visible = false
 
 [node name="SelectionPanel" parent="GameUI" instance=ExtResource("17_dkyfc")]
 

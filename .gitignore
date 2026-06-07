@@ -1,8 +1,13 @@
-# Godot 4+ specific ignores
+# Gradle files
+.gradle/
+build/
+
+# Godot files
 .godot/
-/android/
+*.log
 
-docs/
+# OS files
+.DS_Store
+Thumbs.db
 
-*.jar
-jvm/*.jar
+*.exe
