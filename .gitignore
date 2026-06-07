@@ -9,3 +9,4 @@ jvm/*.jar
 build/
 .gradle/
 .kotlin/
+.idea/
