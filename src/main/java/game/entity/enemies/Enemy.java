@@ -158,7 +158,8 @@ public class Enemy extends BaseUnit {
         Vector2 myPos = getGlobalPosition();
         Vector2 playerPos = Global.player.getGlobalPosition();
 
-        // Xoay nhân vật dựa trên vị trí X của Player
+        // Quái bên TRÁI player → cần nhìn PHẢI để đuổi → flip (-1,1)
+        // Quái bên PHẢI player → cần nhìn TRÁI để đuổi → không flip (1,1)
         if (myPos.getX() < playerPos.getX()) {
             visuals.setScale(new Vector2(-1f, 1f));
         } else {
