@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="ItemWeapon" load_steps=6 format=3 uid="uid://ewejvljbj7a"]
 
-[ext_resource type="Texture2D" uid="uid://yk5ltsb4khr8" path="res://gdj/game/Game+Assets/assets/sprites/Weapons/Icons/weapon_chainsaw_icon.png" id="1_4lkgn"]
+[ext_resource type="Texture2D" uid="uid://yk5ltsb4khr8" path="res://assets/sprites/Weapons/Icons/weapon_chainsaw_icon.png" id="1_4lkgn"]
 [ext_resource type="Script" uid="uid://bql6f74ltjh1f" path="res://gdj/game/resources/items/weapons/ItemWeapon.gdj" id="2_3an6p"]
 [ext_resource type="Resource" uid="uid://vfmku7o7lqv5" path="res://resources/items/weapons/melee/chainsaw/stats_chainsaw_3.tres" id="3_4ics0"]
 [ext_resource type="Resource" uid="uid://b8y5i3lg1jfwi" path="res://resources/items/weapons/melee/chainsaw/item_chainsaw_4.tres" id="4_3an6p"]

@@ -85,7 +85,7 @@ public class BaseUnit extends Area2D { // Đổi tên class ở đây
             sourceNode = hitbox.getOwner();
         }
 
-        if (sourceNode instanceof game.entity.enemies.core.Enemy) {
+        if (godot.global.GD.isInstanceValid(sourceNode) && sourceNode instanceof game.entity.enemies.core.Enemy) {
             game.entity.enemies.core.Enemy enemy = (game.entity.enemies.core.Enemy) sourceNode;
             // Vector hướng từ Player chỉ ra Enemy
             godot.core.Vector2 pushDir = enemy.getGlobalPosition().minus(this.getGlobalPosition()).normalized();

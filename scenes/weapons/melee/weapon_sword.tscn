@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://0im1r5fouqh"]
 
 [ext_resource type="PackedScene" uid="uid://d0c5ne05f8x2i" path="res://scenes/weapons/melee/weapon_punch.tscn" id="1_mcquq"]
-[ext_resource type="Texture2D" uid="uid://2fk3slrab3bp" path="res://gdj/game/Game+Assets/assets/sprites/Weapons/Melee/Weapon_sword.png" id="2_m1lus"]
+[ext_resource type="Texture2D" uid="uid://2fk3slrab3bp" path="res://assets/sprites/Weapons/Melee/Weapon_sword.png" id="2_m1lus"]
 
 [node name="WeaponSword" instance=ExtResource("1_mcquq")]
 

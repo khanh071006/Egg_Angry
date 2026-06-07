@@ -72,6 +72,11 @@ public class Player extends BaseUnit {
 	@RegisterFunction
 	@Override
 	public void _ready() {
+        if (this.stats != null) {
+            // TẠO BẢN SAO (DUPLICATE) STATS GỐC ĐỂ KHÔNG BỊ LƯU TỪ VÁN NÀY SANG VÁN KHÁC!
+            this.stats = (game.resources.units.UnitStats) this.stats.duplicate();
+        }
+
         //Run parent constructor
         super._ready();
 

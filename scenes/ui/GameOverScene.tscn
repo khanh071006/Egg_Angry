@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://wia2peanp6el"]
 
 [ext_resource type="Script" uid="uid://dijdbjp6imiux" path="res://gdj/game/ui/GameOverMenu.gdj" id="1_script"]
-[ext_resource type="FontFile" uid="uid://kfh6ooeul77g" path="res://gdj/game/Game+Assets/assets/font/Bake Soda.otf" id="2_font"]
+[ext_resource type="FontFile" uid="uid://kfh6ooeul77g" path="res://assets/font/Bake Soda.otf" id="2_font"]
 [ext_resource type="Texture2D" uid="uid://cqpdss7x468xn" path="res://scenes/ui/game_over.png" id="3_go_img"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_normal"]

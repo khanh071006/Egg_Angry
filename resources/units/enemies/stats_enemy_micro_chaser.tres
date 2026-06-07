@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="EnemyStats" load_steps=3 format=3]
+
+[ext_resource type="Texture2D" uid="uid://c6vplmpl4q4jr" path="res://assets/sprites/Enemies/Enemy_3.png" id="1_icon"]
+[ext_resource type="Script" uid="uid://bgy8iaa1dequj" path="res://gdj/game/resources/EnemyStats.gdj" id="2_script"]
+
+[resource]
+script = ExtResource("2_script")
+gold_drop = 1.0
+block_chance = 0.0
+unit_name = "Micro Chaser"
+icon = ExtResource("1_icon")
+health = 10.0
+damage = 1.0
+speed = 360.0

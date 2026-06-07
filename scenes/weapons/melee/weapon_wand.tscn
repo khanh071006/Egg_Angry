@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cbjt4py75k30r"]
 
 [ext_resource type="PackedScene" uid="uid://d0c5ne05f8x2i" path="res://scenes/weapons/melee/weapon_punch.tscn" id="1_sk406"]
-[ext_resource type="Texture2D" uid="uid://cio6msi4s4r8k" path="res://gdj/game/Game+Assets/assets/sprites/Weapons/Melee/Weapon_wand.png" id="2_qdl5d"]
+[ext_resource type="Texture2D" uid="uid://cio6msi4s4r8k" path="res://assets/sprites/Weapons/Melee/Weapon_wand.png" id="2_qdl5d"]
 
 [node name="WeaponWand" instance=ExtResource("1_sk406")]
 

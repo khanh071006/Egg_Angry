@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://lty2nxmp27i0" path="res://scenes/unit/player_well_rounded.tscn" id="1_pptme"]
 [ext_resource type="Resource" uid="uid://b3418dxjryuen" path="res://resources/units/players/stats_player_brawler.tres" id="2_gyel1"]
-[ext_resource type="Texture2D" uid="uid://dpxw8tsbgrfse" path="res://gdj/game/Game+Assets/assets/sprites/Players/Player_2.png" id="2_pptme"]
+[ext_resource type="Texture2D" uid="uid://dpxw8tsbgrfse" path="res://assets/sprites/Players/Player_2.png" id="2_pptme"]
 
 [node name="PlayerBrawler" instance=ExtResource("1_pptme")]
 scale = Vector2(0.5, 0.5)

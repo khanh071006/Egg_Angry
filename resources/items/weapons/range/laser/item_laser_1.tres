@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="ItemWeapon" load_steps=6 format=3 uid="uid://bnh4s0k24el82"]
 
-[ext_resource type="Texture2D" uid="uid://crs6paux78un0" path="res://gdj/game/Game+Assets/assets/sprites/Weapons/Icons/weapon_laser_icon.png" id="1_jll5j"]
+[ext_resource type="Texture2D" uid="uid://crs6paux78un0" path="res://assets/sprites/Weapons/Icons/weapon_laser_icon.png" id="1_jll5j"]
 [ext_resource type="Script" uid="uid://bql6f74ltjh1f" path="res://gdj/game/resources/items/weapons/ItemWeapon.gdj" id="2_sjcuc"]
 [ext_resource type="Resource" uid="uid://q4l5thjyhavf" path="res://resources/items/weapons/range/laser/stats_laser_1.tres" id="3_mi703"]
 [ext_resource type="Resource" uid="uid://b13iuwowfvl6i" path="res://resources/items/weapons/range/laser/item_laser_2.tres" id="4_sjcuc"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://bhqyiy31vlfs7"]
 
 [ext_resource type="Script" uid="uid://dtwrlrju67n6i" path="res://gdj/game/ui/StoryMenu.gdj" id="1_script"]
-[ext_resource type="FontFile" uid="uid://kfh6ooeul77g" path="res://gdj/game/Game+Assets/assets/font/Bake Soda.otf" id="2_font"]
+[ext_resource type="FontFile" uid="uid://kfh6ooeul77g" path="res://assets/font/Bake Soda.otf" id="2_font"]
 [ext_resource type="Texture2D" uid="uid://duopnjcoou164" path="res://scenes/ui/plot.jpg" id="3_plot_img"]
 [ext_resource type="Texture2D" uid="uid://rm0wqigcklpg" path="res://scenes/ui/intro_player.png" id="4_intro_player"]
 [ext_resource type="Texture2D" uid="uid://u6ve5jr4uaia" path="res://scenes/ui/intro_enemy.png" id="5_intro_enemy"]

@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="EnemyStats" load_steps=3 format=3 uid="uid://bqdx4pk5p5ouc"]
 
 [ext_resource type="Script" uid="uid://bgy8iaa1dequj" path="res://gdj/game/resources/EnemyStats.gdj" id="1_8qwe7"]
-[ext_resource type="Texture2D" uid="uid://bf4ls8ho3cuqa" path="res://gdj/game/Game+Assets/assets/sprites/Enemies/Enemy_2.png" id="1_gkg84"]
+[ext_resource type="Texture2D" uid="uid://bf4ls8ho3cuqa" path="res://assets/sprites/Enemies/Enemy_2.png" id="1_gkg84"]
 
 [resource]
 script = ExtResource("1_8qwe7")

@@ -57,6 +57,11 @@ public class Arena extends Node2D {
     @RegisterFunction
     @Override
     public void _ready() {
+        // RESET STATE TỪ CÁC VÁN CHƠI TRƯỚC
+        Global.coins = 0;
+        if (Global.instance != null) {
+            Global.instance.equippedWeapons.clear();
+        }
 
         // BÍ QUYẾT LÀ ĐÂY: Dùng Callable.create(...) và new StringName(...)
         godot.core.Error errBlock = Global.instance.onCreateBlockText

@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://d0c5ne05f8x2i"]
 
 [ext_resource type="PackedScene" uid="uid://b4wkibpbsncdl" path="res://scenes/weapons/weapon_base.tscn" id="1_soyvn"]
-[ext_resource type="Texture2D" uid="uid://l5hst1cf27oo" path="res://gdj/game/Game+Assets/assets/sprites/Weapons/Melee/Weapon_Punch.png" id="2_sv013"]
+[ext_resource type="Texture2D" uid="uid://l5hst1cf27oo" path="res://assets/sprites/Weapons/Melee/Weapon_Punch.png" id="2_sv013"]
 [ext_resource type="Script" uid="uid://bwrgjtj6t361v" path="res://gdj/game/components/HitBoxComponent.gdj" id="3_etoc4"]
 [ext_resource type="Script" uid="uid://b145tmfm7kp2k" path="res://gdj/game/items/weapons/melee/MeleeBehavior.gdj" id="4_etoc4"]
 

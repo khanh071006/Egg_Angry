@@ -1,11 +1,11 @@
 [gd_scene load_steps=17 format=3 uid="uid://clj3r3c2s3iyc"]
 
 [ext_resource type="Script" uid="uid://bmlbj6v1ywpgf" path="res://gdj/game/ui/TutorialMenu.gdj" id="1_script"]
-[ext_resource type="FontFile" uid="uid://kfh6ooeul77g" path="res://gdj/game/Game+Assets/assets/font/Bake Soda.otf" id="2_font"]
+[ext_resource type="FontFile" uid="uid://kfh6ooeul77g" path="res://assets/font/Bake Soda.otf" id="2_font"]
 [ext_resource type="Texture2D" uid="uid://ccg077tqxj0yh" path="res://assets/sprites/Projectiles/Gemini_Generated_Image_2qwq6s2qwq6s2qwq.png" id="2_ftoej"]
 [ext_resource type="Script" uid="uid://w5a40bhwsrt1" path="res://gdj/game/ui/TutorialDummy.gdj" id="4_dummy_script"]
-[ext_resource type="Texture2D" uid="uid://cproxhccob85g" path="res://gdj/game/Game+Assets/assets/sprites/Players/Player_1.png" id="5_player_tex"]
-[ext_resource type="Texture2D" uid="uid://devt2xbk78rej" path="res://gdj/game/Game+Assets/assets/sprites/shadow.png" id="6_shadow_tex"]
+[ext_resource type="Texture2D" uid="uid://cproxhccob85g" path="res://assets/sprites/Players/Player_1.png" id="5_player_tex"]
+[ext_resource type="Texture2D" uid="uid://devt2xbk78rej" path="res://assets/sprites/shadow.png" id="6_shadow_tex"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_normal"]
 content_margin_left = 20.0

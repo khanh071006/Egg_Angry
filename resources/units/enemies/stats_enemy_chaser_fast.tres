@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="EnemyStats" load_steps=3 format=3 uid="uid://05y2amr2nbu7"]
 
-[ext_resource type="Texture2D" uid="uid://c6vplmpl4q4jr" path="res://gdj/game/Game+Assets/assets/sprites/Enemies/Enemy_3.png" id="1_ymlpp"]
+[ext_resource type="Texture2D" uid="uid://c6vplmpl4q4jr" path="res://assets/sprites/Enemies/Enemy_3.png" id="1_ymlpp"]
 [ext_resource type="Script" uid="uid://bgy8iaa1dequj" path="res://gdj/game/resources/EnemyStats.gdj" id="2_86dbv"]
 
 [resource]

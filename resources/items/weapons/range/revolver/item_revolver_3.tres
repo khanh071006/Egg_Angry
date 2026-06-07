@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="ItemWeapon" load_steps=6 format=3 uid="uid://tw33bpcxcdy5"]
 
-[ext_resource type="Texture2D" uid="uid://dmo5qwx6l6wdu" path="res://gdj/game/Game+Assets/assets/sprites/Weapons/Icons/weapon_revolver_icon.png" id="1_26sto"]
+[ext_resource type="Texture2D" uid="uid://dmo5qwx6l6wdu" path="res://assets/sprites/Weapons/Icons/weapon_revolver_icon.png" id="1_26sto"]
 [ext_resource type="Script" uid="uid://bql6f74ltjh1f" path="res://gdj/game/resources/items/weapons/ItemWeapon.gdj" id="2_26sto"]
 [ext_resource type="Resource" uid="uid://b5xo6ldg0qhdg" path="res://resources/items/weapons/range/revolver/stats_revolver_3.tres" id="3_26sto"]
 [ext_resource type="Resource" uid="uid://bbg84rdc5uipt" path="res://resources/items/weapons/range/revolver/item_revolver_4.tres" id="4_l71qt"]

@@ -95,21 +95,30 @@ visible = false
 
 [node name="GoblinAnimation" type="AnimatedSprite2D" parent="Visuals" index="2"]
 position = Vector2(0, -150)
-scale = Vector2(0.35, 0.35)
+scale = Vector2(0.45, 0.45)
 sprite_frames = SubResource("SpriteFrames_2r40n")
 animation = &"move"
 frame_progress = 0.9491298
 flip_h = true
 
+[node name="VisionArea" parent="." index="3"]
+visible = false
+
 [node name="CollisionShape2D" parent="VisionArea" index="0"]
 position = Vector2(-3.3333333, -43.33333)
 
 [node name="CollisionShape2D" parent="HurtboxComponent" index="0"]
-position = Vector2(-1.6666666, -44.999996)
+position = Vector2(-5, -68.33333)
+
+[node name="HitboxComponent" parent="." index="5"]
+visible = false
 
 [node name="CollisionShape2D" parent="HitboxComponent" index="0"]
-position = Vector2(-4.9999995, -43.33333)
+position = Vector2(-3.3333333, -73.33333)
 
 [node name="HealthBar" parent="." index="7"]
-offset_top = -193.33331
-offset_bottom = -173.33331
+offset_left = -96.666664
+offset_top = -231.66666
+offset_right = -0.6666641
+offset_bottom = -211.66666
+scale = Vector2(2, 2)

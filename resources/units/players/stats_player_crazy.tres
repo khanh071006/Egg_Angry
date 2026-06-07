@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="PlayerStats" load_steps=3 format=3 uid="uid://c7seiylrx3igi"]
 
-[ext_resource type="Texture2D" uid="uid://cs76nffmalb7k" path="res://gdj/game/Game+Assets/assets/sprites/Players/Player_3.png" id="1_ujefh"]
+[ext_resource type="Texture2D" uid="uid://cs76nffmalb7k" path="res://assets/sprites/Players/Player_3.png" id="1_ujefh"]
 [ext_resource type="Script" uid="uid://75n7qhb6f577" path="res://gdj/game/resources/PlayerStats.gdj" id="2_xvmk0"]
 
 [resource]

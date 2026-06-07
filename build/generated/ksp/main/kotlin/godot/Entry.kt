@@ -13,7 +13,12 @@ import game.entity.Player
 import game.entity.WeaponContainer
 import game.entity.enemies.IceSpikeEffect
 import game.entity.enemies.behaviors.ChaserBehavior
+import game.entity.enemies.behaviors.CrossLaserBehavior
+import game.entity.enemies.behaviors.LaserSpinnerBehavior
 import game.entity.enemies.behaviors.ShootingBehavior
+import game.entity.enemies.behaviors.SlamBehavior
+import game.entity.enemies.behaviors.SplitterBehavior
+import game.entity.enemies.behaviors.SplitterBomberBehavior
 import game.entity.enemies.core.Enemy
 import game.entity.enemies.spawner.Spawner
 import game.entity.enemies.types.EnemyBomber
@@ -61,6 +66,7 @@ import godot.entry.CameraControllerRegistrar
 import godot.entry.ChaserBehaviorRegistrar
 import godot.entry.CoinsBagRegistrar
 import godot.entry.CoinsRegistrar
+import godot.entry.CrossLaserBehaviorRegistrar
 import godot.entry.EnemyBomberRegistrar
 import godot.entry.EnemyEggLayerRegistrar
 import godot.entry.EnemyEggRegistrar
@@ -83,6 +89,7 @@ import godot.entry.ItemCardRegistrar
 import godot.entry.ItemPassiveRegistrar
 import godot.entry.ItemUpgradeRegistrar
 import godot.entry.ItemWeaponRegistrar
+import godot.entry.LaserSpinnerBehaviorRegistrar
 import godot.entry.MainMenuRegistrar
 import godot.entry.MeleeBehaviorRegistrar
 import godot.entry.PlayerRegistrar
@@ -94,7 +101,10 @@ import godot.entry.SelectionPanelRegistrar
 import godot.entry.ShootingBehaviorRegistrar
 import godot.entry.ShopCardRegistrar
 import godot.entry.ShopPanelRegistrar
+import godot.entry.SlamBehaviorRegistrar
 import godot.entry.SpawnerRegistrar
+import godot.entry.SplitterBehaviorRegistrar
+import godot.entry.SplitterBomberBehaviorRegistrar
 import godot.entry.StatsContainerRegistrar
 import godot.entry.StoryMenuRegistrar
 import godot.entry.TrailRegistrar
@@ -122,7 +132,7 @@ import kotlin.collections.listOf
 import kotlin.reflect.KClass
 
 public class Entry : Entry() {
-  public override val classRegistrarCount: Int = 54
+  public override val classRegistrarCount: Int = 59
 
   public override val projectName: String = "project-3"
 
@@ -138,7 +148,12 @@ public class Entry : Entry() {
     HurtBoxComponentRegistrar().register(registry)
     BaseUnitRegistrar().register(registry)
     ChaserBehaviorRegistrar().register(registry)
+    CrossLaserBehaviorRegistrar().register(registry)
+    LaserSpinnerBehaviorRegistrar().register(registry)
     ShootingBehaviorRegistrar().register(registry)
+    SlamBehaviorRegistrar().register(registry)
+    SplitterBehaviorRegistrar().register(registry)
+    SplitterBomberBehaviorRegistrar().register(registry)
     EnemyRegistrar().register(registry)
     IceSpikeEffectRegistrar().register(registry)
     SpawnerRegistrar().register(registry)
@@ -192,8 +207,10 @@ public class Entry : Entry() {
   public override fun Context.getRegisteredClasses(): List<KClass<*>> = listOf(WaveData::class,
       WaveUnitData::class, Trail::class, Arena::class, CameraController::class, Global::class,
       HealthComponent::class, HitBoxComponent::class, HurtBoxComponent::class, BaseUnit::class,
-      ChaserBehavior::class, ShootingBehavior::class, Enemy::class, IceSpikeEffect::class,
-      Spawner::class, EnemyBomber::class, EnemyEgg::class, EnemyEggLayer::class, EnemyGoblin::class,
+      ChaserBehavior::class, CrossLaserBehavior::class, LaserSpinnerBehavior::class,
+      ShootingBehavior::class, SlamBehavior::class, SplitterBehavior::class,
+      SplitterBomberBehavior::class, Enemy::class, IceSpikeEffect::class, Spawner::class,
+      EnemyBomber::class, EnemyEgg::class, EnemyEggLayer::class, EnemyGoblin::class,
       EnemyIceMage::class, EnemyMeteorMage::class, GoblinEffect::class, Player::class,
       WeaponContainer::class, Coins::class, MeleeBehavior::class, Projectile::class,
       RangeBehavior::class, Weapon::class, WeaponBehavior::class, ItemBase::class,

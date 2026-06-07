@@ -54,7 +54,7 @@
 [ext_resource type="Resource" path="res://resources/items/passives/passive_cape.tres" id="51_pass"]
 [ext_resource type="Resource" path="res://resources/items/passives/passive_mighty_sword.tres" id="52_pass"]
 [ext_resource type="Resource" path="res://resources/items/passives/passive_rage.tres" id="53_pass"]
-[ext_resource type="Texture2D" uid="uid://chm4srsn6xd8y" path="res://gdj/game/Game+Assets/assets/sprites/Gold/gold_1.png" id="CoinTex"]
+[ext_resource type="Texture2D" uid="uid://chm4srsn6xd8y" path="res://assets/sprites/Gold/gold_1.png" id="CoinTex"]
 [ext_resource type="Resource" path="res://resources/items/passives/passive_14.tres" id="passive_14"]
 [ext_resource type="Resource" path="res://resources/items/passives/passive_15.tres" id="passive_15"]
 [ext_resource type="Resource" path="res://resources/items/passives/passive_16.tres" id="passive_16"]

@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="ItemWeapon" load_steps=6 format=3 uid="uid://cqxpbepghe7uh"]
 
-[ext_resource type="Texture2D" uid="uid://ctbl7s5o37g7v" path="res://gdj/game/Game+Assets/assets/sprites/Weapons/Icons/weapon_pistol_icon.png" id="1_0dp18"]
+[ext_resource type="Texture2D" uid="uid://ctbl7s5o37g7v" path="res://assets/sprites/Weapons/Icons/weapon_pistol_icon.png" id="1_0dp18"]
 [ext_resource type="Script" uid="uid://bql6f74ltjh1f" path="res://gdj/game/resources/items/weapons/ItemWeapon.gdj" id="2_wkn4t"]
 [ext_resource type="Resource" uid="uid://bq728drewrr5q" path="res://resources/items/weapons/range/pistol/stats_pistol_3.tres" id="3_wkn4t"]
 [ext_resource type="PackedScene" uid="uid://dpqr3476rdomq" path="res://scenes/weapons/range/weapon_pistol.tscn" id="4_424hn"]

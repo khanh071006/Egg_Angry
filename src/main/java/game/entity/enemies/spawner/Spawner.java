@@ -93,7 +93,49 @@ public class Spawner extends Node2D {
         // CHECK 1: Xem sếp đã kéo thả biến ở Inspector chưa
         if (spawnTimer == null) GD.printErr("LỖI NẶNG: Chưa kéo SpawnTimer vào Inspector!");
         if (waveTimer == null) GD.printErr("LỖI NẶNG: Chưa kéo WaveTimer vào Inspector!");
+
+        setupTestWaves();
+
         if (wavesData.isEmpty()) GD.printErr("LỖI NẶNG: Mảng Waves Data trống trơn! Chưa kéo file .tres vào!");
+    }
+
+    private void setupTestWaves() {
+        wavesData.clear();
+        String[] enemyPaths = {
+            "res://scenes/unit/EnemyCreate/enemy_goblin.tscn",
+            "res://scenes/unit/enemy_cross_laser.tscn",
+            "res://scenes/unit/enemy_laser_spinner.tscn",
+            "res://scenes/unit/enemy_splitter.tscn",
+            "res://scenes/unit/enemy_splitter_bomber.tscn",
+            "res://scenes/unit/enemy_micro_chaser.tscn",
+            "res://scenes/unit/EnemyCreate/enemy_bomber.tscn",
+            "res://scenes/unit/EnemyCreate/enemy_ice_mage.tscn",
+            "res://scenes/unit/EnemyCreate/enemy_meteor_mage.tscn",
+            "res://scenes/unit/EnemyCreate/enemy_egg_layer.tscn",
+            "res://scenes/unit/EnemyCreate/enemy_egg.tscn",
+            "res://scenes/unit/enemy_chaser.tscn",
+            "res://scenes/unit/enemy_chaser_fast.tscn",
+            "res://scenes/unit/enemy_chaser_mid.tscn",
+            "res://scenes/unit/enemy_chaser_slow.tscn",
+            "res://scenes/unit/enemy_shooter.tscn"
+        };
+
+        for (int i = 0; i < enemyPaths.length; i++) {
+            WaveData wave = new WaveData();
+            wave.setFrom(i + 1);
+            wave.setTo(i + 1);
+            wave.setWaveTime(20);
+            wave.setFixedSpawnTime(2.0f);
+            wave.setSpawnType(WaveData.SpawnType.FIXED);
+
+            WaveUnitData unit = new WaveUnitData();
+            godot.api.PackedScene scene = (godot.api.PackedScene) godot.api.ResourceLoader.load(enemyPaths[i]);
+            unit.setUnitScene(scene);
+            unit.setWeight(10.0f);
+            
+            wave.getUnits().append(unit);
+            wavesData.append(wave);
+        }
     }
 
     // --- HÀM TÌM KỊCH BẢN (find_wave_data) ---

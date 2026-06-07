@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="ItemWeapon" load_steps=6 format=3 uid="uid://51lcvkdwj46l"]
 
-[ext_resource type="Texture2D" uid="uid://bvrve6ucp4svv" path="res://gdj/game/Game+Assets/assets/sprites/Weapons/Icons/weapon_wand_icon.png" id="1_bq16p"]
+[ext_resource type="Texture2D" uid="uid://bvrve6ucp4svv" path="res://assets/sprites/Weapons/Icons/weapon_wand_icon.png" id="1_bq16p"]
 [ext_resource type="Script" uid="uid://bql6f74ltjh1f" path="res://gdj/game/resources/items/weapons/ItemWeapon.gdj" id="2_wdt6i"]
 [ext_resource type="Resource" uid="uid://bnbcmhul3bf4e" path="res://resources/items/weapons/melee/wand/stats_wand_2.tres" id="3_wdt6i"]
 [ext_resource type="Resource" uid="uid://ckvxyuwfurui8" path="res://resources/items/weapons/melee/wand/item_wand_3.tres" id="4_213c8"]

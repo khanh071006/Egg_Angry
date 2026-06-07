@@ -30,26 +30,6 @@ public class HealthBar extends Control {
 
         progressBar = (ProgressBar) getNode("ProgressBar");
         healthLabel = (Label) getNode("HealthAmount");
-
-        if (progressBar != null) {
-            // SỬA: Thêm tham số thứ 2 là "ProgressBar"
-            StyleBoxFlat bgStyle = (StyleBoxFlat) progressBar.getThemeStylebox(
-                    new StringName("bg"),
-                    new StringName("ProgressBar")
-            ).duplicate();
-
-            bgStyle.setBgColor(backColor);
-            progressBar.addThemeStyleboxOverride(new StringName("bg"), bgStyle);
-
-            // SỬA: Thêm tham số thứ 2 là "ProgressBar"
-            StyleBoxFlat fillStyle = (StyleBoxFlat) progressBar.getThemeStylebox(
-                    new StringName("fill"),
-                    new StringName("ProgressBar")
-            ).duplicate();
-
-            fillStyle.setBgColor(fillColor);
-            progressBar.addThemeStyleboxOverride(new StringName("fill"), fillStyle);
-        }
     }
 
     @RegisterFunction

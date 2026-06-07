@@ -75,7 +75,7 @@ egg_scene = null
 [node name="EggLayerAnimation" type="AnimatedSprite2D" parent="Visuals" index="0"]
 unique_name_in_owner = true
 position = Vector2(0, -60)
-scale = Vector2(0.25, 0.25)
+scale = Vector2(0.45, 0.45)
 sprite_frames = SubResource("SpriteFrames_anim")
 animation = &"move"
 autoplay = "move"
@@ -94,5 +94,5 @@ position = Vector2(0, -40)
 position = Vector2(0, -40)
 
 [node name="HealthBar" parent="." index="7"]
-offset_top = -120.0
-offset_bottom = -110.0
+offset_top = -140.0
+offset_bottom = -130.0

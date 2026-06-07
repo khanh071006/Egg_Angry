@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="ItemPassive" load_steps=3 format=3 uid="uid://bsxobsnm7bp3d"]
 
-[ext_resource type="Texture2D" uid="uid://dyvhlxy2ogrl5" path="res://gdj/game/Game+Assets/assets/sprites/Upgrades/9.png" id="1_4jwux"]
+[ext_resource type="Texture2D" uid="uid://dyvhlxy2ogrl5" path="res://assets/sprites/Upgrades/9.png" id="1_4jwux"]
 [ext_resource type="Script" uid="uid://dei327lfm0ybu" path="res://gdj/game/resources/items/ItemPassive.gdj" id="2_script"]
 
 [resource]

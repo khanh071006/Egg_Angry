@@ -53,14 +53,14 @@ script = ExtResource("2_script")
 [node name="EggAnimation" type="AnimatedSprite2D" parent="Visuals" index="0"]
 unique_name_in_owner = true
 position = Vector2(0, -50)
-rotation = 0.20071286
-scale = Vector2(0.15, 0.15)
+rotation = 0.200713
+scale = Vector2(0.3, 0.3)
 sprite_frames = SubResource("SpriteFrames_anim")
 animation = &"idle"
 autoplay = "idle"
 
 [node name="Shadow" parent="Visuals" index="1"]
-visible = false
+visible = true
 
 [node name="Sprite" parent="Visuals" index="2"]
 visible = false
@@ -71,13 +71,20 @@ position = Vector2(0, -20)
 [node name="HurtboxComponent" parent="." index="4"]
 position = Vector2(0, -40)
 
+[node name="CollisionShape2D" parent="HurtboxComponent" index="0"]
+position = Vector2(0, -16.6667)
+
 [node name="HitboxComponent" parent="." index="5"]
 position = Vector2(0, -40)
 
+[node name="CollisionShape2D" parent="HitboxComponent" index="0"]
+position = Vector2(0, -13.3333)
+
 [node name="HealthBar" parent="." index="7"]
-offset_left = -71.66667
-offset_top = -146.66666
-offset_right = 24.333328
-offset_bottom = -126.66666
+offset_left = -48.0
+offset_top = -100.0
+offset_right = 48.0
+offset_bottom = -90.0
+
 
 [connection signal="animation_finished" from="Visuals/EggAnimation" to="." method="_on_animation_finished"]

@@ -2,7 +2,7 @@
 
 [ext_resource type="StyleBox" uid="uid://wmyqnve45qmn" path="res://styles/common_style.tres" id="1_p145h"]
 [ext_resource type="Script" uid="uid://b05od7i2vh0te" path="res://gdj/game/ui/UpgradeCard.gdj" id="2_kjnsj"]
-[ext_resource type="Texture2D" uid="uid://dn68qq5evmvwa" path="res://gdj/game/Game+Assets/assets/sprites/Upgrades/12.png" id="2_v41mk"]
+[ext_resource type="Texture2D" uid="uid://dn68qq5evmvwa" path="res://assets/sprites/Upgrades/12.png" id="2_v41mk"]
 [ext_resource type="PackedScene" uid="uid://bgrva6i5a6w5t" path="res://scenes/ui/custom_button/custom_button.tscn" id="3_kjnsj"]
 [ext_resource type="Script" uid="uid://b8ofl8x8e0fi6" path="res://gdj/game/resources/items/upgrades/ItemUpgrade.gdj" id="3_oy0iu"]
 

@@ -1,10 +1,10 @@
 [gd_scene load_steps=9 format=3 uid="uid://bdd8nkexbhhnj"]
 
 [ext_resource type="StyleBox" uid="uid://wmyqnve45qmn" path="res://styles/common_style.tres" id="1_tvaaa"]
-[ext_resource type="Texture2D" uid="uid://cyh23wqn8vcac" path="res://gdj/game/Game+Assets/assets/sprites/Weapons/Icons/weapon_punch_icon.png" id="2_b8qnx"]
+[ext_resource type="Texture2D" uid="uid://cyh23wqn8vcac" path="res://assets/sprites/Weapons/Icons/weapon_punch_icon.png" id="2_b8qnx"]
 [ext_resource type="PackedScene" uid="uid://bgrva6i5a6w5t" path="res://scenes/ui/custom_button/custom_button.tscn" id="3_7csgf"]
 [ext_resource type="Script" uid="uid://5to86tk37c7a" path="res://gdj/game/ui/ShopCard.gdj" id="4_b8qnx"]
-[ext_resource type="Texture2D" uid="uid://chm4srsn6xd8y" path="res://gdj/game/Game+Assets/assets/sprites/Gold/gold_1.png" id="4_xkf66"]
+[ext_resource type="Texture2D" uid="uid://chm4srsn6xd8y" path="res://assets/sprites/Gold/gold_1.png" id="4_xkf66"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_moip7"]
 bg_color = Color(0.29411766, 0.29411766, 0.29411766, 0.78431374)

@@ -6,8 +6,6 @@
 [ext_resource type="Resource" uid="uid://rlcn4ik6vjrh" path="res://resources/units/enemies/stats_enemy_chaser.tres" id="3_stats_chaser"]
 [ext_resource type="PackedScene" uid="uid://bnldmub10aarb" path="res://scenes/unit/enemy_chaser_mid.tscn" id="4_scene_mid"]
 [ext_resource type="Resource" uid="uid://bqdx4pk5p5ouc" path="res://resources/units/enemies/stats_enemy_chaser_mid.tres" id="4_stats_mid"]
-[ext_resource type="PackedScene" uid="uid://bl7mlior4yl6o" path="res://scenes/unit/enemy_chaser_shooter1.tscn" id="5_scene_shooter"]
-[ext_resource type="Resource" uid="uid://d15j55qden05i" path="res://resources/units/enemies/stats_enemy_shooter.tres" id="5_stats_shooter"]
 [ext_resource type="PackedScene" uid="uid://bw6b5kktpiof3" path="res://scenes/unit/enemy_chaser_slow.tscn" id="6_scene_slow"]
 [ext_resource type="Resource" uid="uid://cxaovpfmc4ddl" path="res://resources/units/enemies/stats_enemy_chaser_slow.tres" id="6_stats_slow"]
 
@@ -25,13 +23,6 @@ weight = 4.0
 unit_stats = ExtResource("4_stats_mid")
 metadata/_custom_type_script = "uid://bf8v16a6b8yrh"
 
-[sub_resource type="Resource" id="Resource_unit_3"]
-script = ExtResource("2_script")
-unit_scene = ExtResource("5_scene_shooter")
-weight = 3.0
-unit_stats = ExtResource("5_stats_shooter")
-metadata/_custom_type_script = "uid://bf8v16a6b8yrh"
-
 [sub_resource type="Resource" id="Resource_unit_4"]
 script = ExtResource("2_script")
 unit_scene = ExtResource("6_scene_slow")
@@ -44,4 +35,4 @@ script = ExtResource("1_script")
 from = 16
 to = 20
 wave_time = 60
-units = Array[ExtResource("2_script")]([SubResource("Resource_unit_1"), SubResource("Resource_unit_2"), SubResource("Resource_unit_3"), SubResource("Resource_unit_4")])
+units = Array[ExtResource("2_script")]([SubResource("Resource_unit_1"), SubResource("Resource_unit_2"), SubResource("Resource_unit_4")])

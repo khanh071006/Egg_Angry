@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="EnemyStats" load_steps=3 format=3]
+
+[ext_resource type="Texture2D" uid="uid://d1ou504pylric" path="res://assets/sprites/Enemies/Enemy_1.png" id="1_icon"]
+[ext_resource type="Script" uid="uid://bgy8iaa1dequj" path="res://gdj/game/resources/EnemyStats.gdj" id="2_script"]
+
+[resource]
+script = ExtResource("2_script")
+gold_drop = 3.0
+block_chance = 0.0
+unit_name = "Splitter"
+icon = ExtResource("1_icon")
+health = 60.0
+damage = 4.0
+speed = 180.0
