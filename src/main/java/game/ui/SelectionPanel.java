@@ -19,11 +19,11 @@ public class SelectionPanel extends Panel {
 
     @Export
     @RegisterProperty
-    public VariantArray<Resource> players = game.Helper.GodotHelper.createResourceArray();
+    public VariantArray<Resource> players = game.helper.GodotHelper.createResourceArray();
 
     @Export
     @RegisterProperty
-    public VariantArray<Resource> startWeapons = game.Helper.GodotHelper.createResourceArray();
+    public VariantArray<Resource> startWeapons = game.helper.GodotHelper.createResourceArray();
 
     @Export
     @RegisterProperty

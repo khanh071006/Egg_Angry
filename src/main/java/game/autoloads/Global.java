@@ -27,6 +27,10 @@ public class Global extends Node {
     public static boolean gamePaused = false;
     public static int coins = 0;
 
+    // --- MAP BOUNDARIES (Brotato Map Size) ---
+    public static final float MAP_LIMIT_X = 2000.0f;
+    public static final float MAP_LIMIT_Y = 2000.0f;
+
     public static game.resources.units.UnitStats mainPlayerSelected;
     public static game.resources.items.weapons.ItemWeapon mainWeaponSelected;
 
@@ -38,6 +42,8 @@ public class Global extends Node {
         availablePlayers.put("Crazy", "res://scenes/unit/player_crazy.tscn");
         availablePlayers.put("Knight", "res://scenes/unit/player_knight.tscn");
         availablePlayers.put("Well Rounded", "res://scenes/unit/player_well_rounded.tscn");
+        availablePlayers.put("Chrono", "res://scenes/unit/player_chrono.tscn");
+        availablePlayers.put("Player APH", "res://scenes/unit/Player_aph.tscn");
     }
 
     @RegisterFunction
@@ -106,6 +112,9 @@ public class Global extends Node {
 
         get_chance_sucess(0.5f);
         instance = this;
+
+        // Bắt đầu phát nhạc nền
+        startBgm();
     }
 
     @RegisterFunction
@@ -326,7 +335,7 @@ public class Global extends Node {
         }
 
         // Chuyển List thành VariantArray để Godot dùng
-        godot.core.VariantArray<game.resources.items.ItemBase> finalArray = game.Helper.GodotHelper
+        godot.core.VariantArray<game.resources.items.ItemBase> finalArray = game.helper.GodotHelper
                 .createItemBaseArray();
 
         GD.print("Debug: Vòng lặp kết thúc, offerItemsList size = " + offerItemsList.size());
@@ -338,5 +347,121 @@ public class Global extends Node {
         GD.print("Debug: Sau khi copy sang finalArray, size = " + finalArray.size());
 
         return finalArray;
+    }
+
+    // --- BỘ QUẢN LÝ ÂM THANH TOÀN CỤC ---
+    private AudioStreamPlayer bgmPlayer;
+    // Lưu âm lượng hiện tại (0-100). Mặc định 80%.
+    private float bgmVolumePercent = 80.0f;
+
+    @RegisterFunction
+    public void startBgm() {
+        if (bgmPlayer == null) {
+            bgmPlayer = new AudioStreamPlayer();
+            AudioStream stream = (AudioStream) ResourceLoader.load("res://assets/audio/Bg Music.mp3");
+            if (stream != null) {
+                bgmPlayer.setStream(stream);
+                bgmPlayer.setAutoplay(true);
+                bgmPlayer.setVolumeDb(percentToDb(bgmVolumePercent));
+                addChild(bgmPlayer);
+                bgmPlayer.play();
+                GD.print("SoundManager: Đã bật nhạc nền Bg Music.mp3");
+            } else {
+                GD.printErr("SoundManager ERROR: Không load được nhạc nền res://assets/audio/Bg Music.mp3");
+            }
+        } else if (!bgmPlayer.isPlaying()) {
+            bgmPlayer.setVolumeDb(percentToDb(bgmVolumePercent));
+            bgmPlayer.play();
+        }
+    }
+
+    @RegisterFunction
+    public void stopBgm() {
+        if (bgmPlayer != null && bgmPlayer.isPlaying()) {
+            bgmPlayer.stop();
+            GD.print("SoundManager: Đã dừng nhạc nền");
+        }
+    }
+
+    /**
+     * Đặt âm lượng nhạc nền. percent = 0..100
+     * 0% => muted (-80 dB), 100% => -10 dB (max nhạc nền)
+     */
+    @RegisterFunction
+    public void setBgmVolume(float percent) {
+        bgmVolumePercent = Math.max(0.0f, Math.min(100.0f, percent));
+        if (bgmPlayer != null) {
+            bgmPlayer.setVolumeDb(percentToDb(bgmVolumePercent));
+        }
+    }
+
+    /** Trả về phần trăm âm lượng hiện tại (0-100) */
+    @RegisterFunction
+    public float getBgmVolumePercent() {
+        return bgmVolumePercent;
+    }
+
+    /**
+     * Chuyển đổi 0-100% sang dB.
+     * Dùng linear scale: 0% = -80 dB (muted), 100% = -10 dB
+     */
+    private float percentToDb(float percent) {
+        if (percent <= 0.0f) return -80.0f;
+        // linear ratio: 0->0, 100->1 mapped to dB range [-80, -10]
+        float linear = percent / 100.0f;
+        // Convert linear amplitude to dB: 20 * log10(linear), then offset to [-80, -10]
+        // We use a simpler linear interpolation: lerp(-80, -10, linear)
+        return -80.0f + linear * 70.0f;
+    }
+
+    private AudioStreamPlayer chroniclePlayer;
+
+    @RegisterFunction
+    public void playChronicleSound() {
+        stopChronicleSound();
+        chroniclePlayer = new AudioStreamPlayer();
+        AudioStream stream = (AudioStream) ResourceLoader.load("res://assets/audio/chronicle_sound.mp3");
+        if (stream != null) {
+            chroniclePlayer.setStream(stream);
+            chroniclePlayer.setVolumeDb(-5.0f);
+            addChild(chroniclePlayer);
+            chroniclePlayer.play();
+            GD.print("SoundManager: Đã bật nhạc chronicle_sound.mp3");
+        } else {
+            GD.printErr("SoundManager ERROR: Không load được nhạc chronicle_sound.mp3");
+        }
+    }
+
+    @RegisterFunction
+    public void stopChronicleSound() {
+        if (chroniclePlayer != null) {
+            if (chroniclePlayer.isPlaying()) {
+                chroniclePlayer.stop();
+            }
+            chroniclePlayer.queueFree();
+            chroniclePlayer = null;
+            GD.print("SoundManager: Đã dừng nhạc chronicle_sound.mp3");
+        }
+    }
+
+    @RegisterFunction
+    public void playSfx(String path) {
+        AudioStream stream = (AudioStream) ResourceLoader.load(path);
+        if (stream == null) {
+            GD.printErr("SoundManager ERROR: Không tìm thấy file âm thanh tại " + path);
+            return;
+        }
+
+        AudioStreamPlayer player = new AudioStreamPlayer();
+        player.setStream(stream);
+        addChild(player);
+        player.play();
+
+        // Tự động giải phóng AudioStreamPlayer khi phát xong bằng tín hiệu finished kết nối tới queue_free
+        player.connect(
+            new godot.core.StringName("finished"),
+            godot.core.Callable.create(player, new godot.core.StringName("queue_free")),
+            0
+        );
     }
 }

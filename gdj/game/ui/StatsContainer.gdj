@@ -30,7 +30,6 @@ properties = [
 	harvesting_label
 ]
 functions = [
-    _draw,
-	_process,
+    _process,
 	_ready
 ]

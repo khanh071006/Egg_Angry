@@ -63,6 +63,7 @@ public class UpgradeCard extends Panel {
     @RegisterFunction
     public void _on_custom_button_pressed() {
         if (itemData != null && godot.global.GD.isInstanceValid(game.autoloads.Global.player)) {
+            game.autoloads.Global.instance.playSfx("res://assets/audio/level-up_sound.mp3");
             itemData.applyUpgrade();
             game.autoloads.Global.instance.onUpgradeSelected.emit();
         }

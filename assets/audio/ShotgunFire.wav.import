@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://g72hyxdnaath"
-path="res://.godot/imported/ShotgunFire.wav-ebb05158098fee0f4da81d18225d1628.sample"
+path="res://.godot/imported/ShotgunFire.wav-70df6b48ce02053448913b184b2bae3e.sample"
 
 [deps]
 
-source_file="res://assets/sprites/audio/ShotgunFire.wav"
-dest_files=["res://.godot/imported/ShotgunFire.wav-ebb05158098fee0f4da81d18225d1628.sample"]
+source_file="res://assets/audio/ShotgunFire.wav"
+dest_files=["res://.godot/imported/ShotgunFire.wav-70df6b48ce02053448913b184b2bae3e.sample"]
 
 [params]
 

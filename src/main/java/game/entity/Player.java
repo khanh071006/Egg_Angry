@@ -45,6 +45,10 @@ public class Player extends BaseUnit {
 		return currentWeapons;
 	}
 
+	@Export
+	@RegisterProperty
+	public PackedScene bombScene;
+
 
 	@Export
 	@RegisterProperty
@@ -107,10 +111,10 @@ public class Player extends BaseUnit {
 
 		Vector2 currentPos = getPosition();
 		Vector2 newPos = currentPos.plus(currentVelocity.times(fDelta));
-		// Ép điểm X nằm gọn trong bản đồ (Tính toán theo tâm map 826 và chiều rộng 2048)
-		float clampedX = (float) Math.clamp(newPos.getX(), -190.0f, 1840.0f);
-		// Ép điểm Y nằm gọn trong bản đồ (Tính toán theo tâm map 310 và chiều cao 1024)
-		float clampedY = (float) Math.clamp(newPos.getY(), -190.0f, 810.0f);
+		// Ép điểm X nằm gọn trong khoảng giới hạn bản đồ
+		float clampedX = (float) Math.clamp(newPos.getX(), -Global.MAP_LIMIT_X, Global.MAP_LIMIT_X);
+		// Ép điểm Y nằm gọn trong khoảng giới hạn bản đồ
+		float clampedY = (float) Math.clamp(newPos.getY(), -Global.MAP_LIMIT_Y, Global.MAP_LIMIT_Y);
 
 		// Đặt lại vị trí mới đã bị nhốt
 		setPosition(new Vector2(clampedX, clampedY));
@@ -130,6 +134,9 @@ public class Player extends BaseUnit {
 		isDashing = true;
 
 		if (dashTimer != null) dashTimer.start(-1.0); // Bắt đầu đếm ngược
+
+		// Phát âm thanh Dash
+		Global.instance.playSfx("res://assets/audio/dash_sound.mp3");
 
 		// Vẽ trail
 		if (trail != null) {

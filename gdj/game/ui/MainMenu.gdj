@@ -27,6 +27,7 @@ functions = [
 	_on_tutorial_pressed,
 	_on_option_pressed,
 	_on_close_option_pressed,
+	_on_music_slider_value_changed,
 	_on_credits_pressed,
 	_on_quit_pressed,
 	_on_battle_mouse_entered,

@@ -1,13 +1,12 @@
 // THIS FILE IS GENERATED! DO NOT EDIT OR DELETE IT. EDIT OR DELETE THE ASSOCIATED SOURCE CODE FILE INSTEAD
 // Note: You can however freely move this file inside your godot project if you want. Keep in mind however, that if you rename the originating source code file, this file will be deleted and regenerated as a new file instead of being updated! Other modifications to the source file however, will result in this file being updated.
 
-registeredName = StatsContainer
-fqName = game.ui.StatsContainer
-relativeSourcePath = src/main/java/game/ui/StatsContainer.java
-baseType = Panel
+registeredName = SlamBehavior
+fqName = game.entity.enemies.SlamBehavior
+relativeSourcePath = src/main/java/game/entity/enemies/SlamBehavior.java
+baseType = Node2D
 supertypes = [
-    godot.api.Panel,
-	godot.api.Control,
+    godot.api.Node2D,
 	godot.api.CanvasItem,
 	godot.api.Node,
 	godot.api.Object,
@@ -20,14 +19,13 @@ signals = [
     
 ]
 properties = [
-    health_label,
-	regen_label,
-	lifesteal_label,
-	damage_label,
-	luck_label,
-	speed_label,
-	block_label,
-	harvesting_label
+    enemy,
+	slam_hitbox,
+	slam_range,
+	cooldown,
+	prep_time,
+	damage,
+	knockback_power
 ]
 functions = [
     _draw,

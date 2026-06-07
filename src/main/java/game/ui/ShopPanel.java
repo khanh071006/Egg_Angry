@@ -23,7 +23,7 @@ public class ShopPanel extends Panel {
 
     @Export
     @RegisterProperty
-    public VariantArray<godot.api.Resource> shopItems = game.Helper.GodotHelper.createResourceArray();
+    public VariantArray<godot.api.Resource> shopItems = game.helper.GodotHelper.createResourceArray();
 
     @RegisterSignal
     public Signal0 onShopNextWave = Signal0.create(this, "onShopNextWave");
@@ -104,7 +104,7 @@ public class ShopPanel extends Panel {
         java.util.Map<String, Global.TierConfig> config = Global.shopProbabilityConfig;
         
         // Chuyển Resource sang ItemBase để gọi hàm
-        VariantArray<ItemBase> castedItems = game.Helper.GodotHelper.createItemBaseArray();
+        VariantArray<ItemBase> castedItems = game.helper.GodotHelper.createItemBaseArray();
         for (int i = 0; i < shopItems.size(); i++) {
             godot.api.Resource res = shopItems.get(i);
             if (res instanceof ItemBase) {
@@ -311,6 +311,9 @@ public class ShopPanel extends Panel {
                 Global.player.addWeapon(upgradedWeapon);
             }
             Global.instance.equippedWeapons.add(upgradedWeapon);
+            
+            // Phát âm thanh khi ghép vũ khí nâng cấp
+            Global.instance.playSfx("res://assets/audio/paying_sound.mp3");
 
             // Create new item card
             if (Global.instance.itemCardScene != null) {
@@ -387,11 +390,18 @@ public class ShopPanel extends Panel {
         }
 
         Global.coins += coins;
+        Global.instance.playSfx("res://assets/audio/paying_sound.mp3");
         GD.print("Đã bán thành công! Tổng tiền hiện tại: " + Global.coins);
     }
 
     @RegisterFunction
     public void _on_roll_button_pressed() {
+        java.io.File logFile = new java.io.File("d:\\Egg_Angry\\java_log.txt");
+        try (java.io.FileWriter fw = new java.io.FileWriter(logFile, true);
+             java.io.PrintWriter pw = new java.io.PrintWriter(fw)) {
+            pw.println("--- _on_roll_button_pressed called! coins = " + Global.coins + ", cost = " + currentRollCost + " ---");
+        } catch (Exception e) {}
+
         if (Global.coins < currentRollCost) {
             GD.print("Không đủ tiền để Roll! Cần " + currentRollCost + " xu, hiện có " + Global.coins + " xu.");
             return;
@@ -399,6 +409,7 @@ public class ShopPanel extends Panel {
 
         // Trừ tiền
         Global.coins -= currentRollCost;
+        Global.instance.playSfx("res://assets/audio/paying_sound.mp3");
         GD.print("Đã Roll cửa hàng! Bị trừ " + currentRollCost + " xu. Tiền còn lại: " + Global.coins);
 
         // Tăng giá cho lần roll tiếp theo

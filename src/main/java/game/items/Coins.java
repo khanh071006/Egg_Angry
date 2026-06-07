@@ -103,6 +103,7 @@ public class Coins extends Area2D {
 
     private void addCoins() {
         Global.coins += value;
+        Global.instance.playSfx("res://assets/audio/coin_sound.mp3");
         queueFree(); // Xóa đồng xu khỏi bản đồ
     }
 }

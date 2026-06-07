@@ -1,16 +1,19 @@
 [gd_resource type="Resource" script_class="PlayerStats" load_steps=3 format=3]
 
-[ext_resource type="Texture2D" uid="uid://cproxhccob85g" path="res://gdj/game/Game+Assets/assets/sprites/Players/Player_1.png" id="1_6skj5"]
+[ext_resource type="Texture2D" uid="uid://dae0y6efbtvju" path="res://assets/sprites/Players/Player_Chrono.png" id="1_chrono_icon"]
 [ext_resource type="Script" path="res://gdj/game/resources/PlayerStats.gdj" id="2_8eowt"]
 
 [resource]
 script = ExtResource("2_8eowt")
 luck = 2.0
-block_chance = 10.0
+blockchance = 10.0
 unit_name = "Chrono"
-icon = ExtResource("1_6skj5")
+icon = ExtResource("1_chrono_icon")
 health = 90.0
 health_increase_per_wave = 0.0
 damage = 1.5
 damage_increase_per_wave = 0.0
 speed = 320.0
+hp_regen = 0.0
+lifesteal = 0.0
+harvesting = 0.0

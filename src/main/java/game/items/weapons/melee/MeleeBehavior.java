@@ -32,6 +32,9 @@ public class MeleeBehavior extends WeaponBehavior {
         
         applyLifesteal();
 
+        // Phát âm thanh đấm/đánh cận chiến
+        game.autoloads.Global.instance.playSfx("res://assets/audio/Punch.mp3");
+
         // Tạo Tween để làm animation chuyển động
         Tween tween = createTween();
 

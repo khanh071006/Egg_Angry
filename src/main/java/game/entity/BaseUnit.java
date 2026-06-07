@@ -81,6 +81,9 @@ public class BaseUnit extends Area2D { // Đổi tên class ở đây
 			Global.camera.addShake(2.5f);
 		}
 
+		// Gọi hiệu ứng chớp trắng
+		setFlashMaterial();
+
 		// Đẩy lùi đối phương ra xa (để hitbox thoái lui rồi đâm lại, trừ máu liên tục)
 		godot.api.Node sourceNode = hitbox.source;
 		if (sourceNode == null) {

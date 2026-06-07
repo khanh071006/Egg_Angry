@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="WaveData" load_steps=15 format=3 uid="uid://c1toi4ngo4fac"]
+[gd_resource type="Resource" script_class="WaveData" load_steps=18 format=3 uid="uid://c1toi4ngo4fac"]
 
 [ext_resource type="Script" uid="uid://cjecllwrga6ph" path="res://gdj/game/resources/waves/WaveData.gdj" id="1_script"]
 [ext_resource type="Script" uid="uid://bf8v16a6b8yrh" path="res://gdj/game/resources/waves/WaveUnitData.gdj" id="2_script"]
@@ -10,6 +10,8 @@
 [ext_resource type="Resource" uid="uid://d15j55qden05i" path="res://resources/units/enemies/stats_enemy_shooter.tres" id="5_stats_shooter"]
 [ext_resource type="PackedScene" uid="uid://bw6b5kktpiof3" path="res://scenes/unit/enemy_chaser_slow.tscn" id="6_scene_slow"]
 [ext_resource type="Resource" uid="uid://cxaovpfmc4ddl" path="res://resources/units/enemies/stats_enemy_chaser_slow.tres" id="6_stats_slow"]
+[ext_resource type="PackedScene" uid="uid://1tfpndswfrsq" path="res://scenes/unit/enemy_splitter_bomber.tscn" id="7_scene_bomber"]
+[ext_resource type="Resource" uid="uid://dpspoavsadn7y" path="res://resources/units/enemies/stats_enemy_splitter_bomber.tres" id="7_stats_bomber"]
 
 [sub_resource type="Resource" id="Resource_unit_1"]
 script = ExtResource("2_script")
@@ -39,9 +41,16 @@ weight = 2.0
 unit_stats = ExtResource("6_stats_slow")
 metadata/_custom_type_script = "uid://bf8v16a6b8yrh"
 
+[sub_resource type="Resource" id="Resource_unit_5"]
+script = ExtResource("2_script")
+unit_scene = ExtResource("7_scene_bomber")
+weight = 3.0
+unit_stats = ExtResource("7_stats_bomber")
+metadata/_custom_type_script = "uid://bf8v16a6b8yrh"
+
 [resource]
 script = ExtResource("1_script")
 from = 16
 to = 20
 wave_time = 60
-units = Array[ExtResource("2_script")]([SubResource("Resource_unit_1"), SubResource("Resource_unit_2"), SubResource("Resource_unit_3"), SubResource("Resource_unit_4")])
+units = Array[ExtResource("2_script")]([SubResource("Resource_unit_1"), SubResource("Resource_unit_2"), SubResource("Resource_unit_3"), SubResource("Resource_unit_4"), SubResource("Resource_unit_5")])

@@ -28,13 +28,14 @@ upgrade_panel = NodePath("GameUI/UpgradePanel")
 shop_panel = NodePath("GameUI/ShopPanel")
 
 [node name="BlackBG" type="Sprite2D" parent="."]
-scale = Vector2(2, 2)
+scale = Vector2(8, 8)
 texture = ExtResource("1_dm0lm")
 
 [node name="GrassBG" type="Sprite2D" parent="."]
-position = Vector2(826, 310)
-scale = Vector2(2, 2)
+scale = Vector2(4, 8)
 texture = ExtResource("2_etbs0")
+
+[node name="Decorations" type="Node2D" parent="."]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 script = ExtResource("5_faeup")

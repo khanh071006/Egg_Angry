@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://cxab321jklmno"]
+[gd_scene load_steps=25 format=3 uid="uid://cxab321jklmno"]
 
 [ext_resource type="Script" uid="uid://euqvfmyikjeo" path="res://gdj/game/ui/SelectionPanel.gdj" id="1_8wgut"]
 [ext_resource type="StyleBox" uid="uid://wmyqnve45qmn" path="res://styles/common_style.tres" id="1_csty"]
@@ -20,6 +20,8 @@
 [ext_resource type="Resource" uid="uid://dmyacvejh2apd" path="res://resources/items/weapons/range/smg/item_smg_1.tres" id="w_smg"]
 [ext_resource type="Resource" uid="uid://655xje12rlbq" path="res://resources/items/weapons/melee/sword/item_sword_1.tres" id="w_sword"]
 [ext_resource type="Resource" uid="uid://cqjb3w3he2ll1" path="res://resources/items/weapons/melee/wand/item_wand_1.tres" id="w_wand"]
+[ext_resource type="Resource" path="res://resources/units/players/stats_player_chrono.tres" id="7_chrono"]
+[ext_resource type="Resource" uid="uid://bfr8qku5x5y46" path="res://resources/units/players/stats_player_aph.tres" id="8_aph"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bg"]
 bg_color = Color(0.20392157, 0.20392157, 0.20392157, 1)
@@ -35,7 +37,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_bg")
 script = ExtResource("1_8wgut")
-players = Array[Resource]([ExtResource("2_rbokc"), ExtResource("3_dh0xd"), ExtResource("4_m67jx"), ExtResource("5_5ne7w"), ExtResource("6_6e6br")])
+players = Array[Resource]([ExtResource("2_rbokc"), ExtResource("3_dh0xd"), ExtResource("4_m67jx"), ExtResource("5_5ne7w"), ExtResource("6_6e6br"), ExtResource("7_chrono")])
 start_weapons = Array[Resource]([ExtResource("w_axe"), ExtResource("w_chain"), ExtResource("w_mace"), ExtResource("w_punch"), ExtResource("w_sword"), ExtResource("w_wand"), ExtResource("w_laser"), ExtResource("w_pistol"), ExtResource("w_revolver"), ExtResource("w_shotgun"), ExtResource("w_smg")])
 
 [node name="MarginContainer" type="MarginContainer" parent="."]

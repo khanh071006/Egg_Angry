@@ -27,5 +27,12 @@ functions = [
     _ready,
 	calculate_tier_probability,
 	get_harvesting_coins,
-	select_items_for_offer
+	select_items_for_offer,
+	start_bgm,
+	stop_bgm,
+	set_bgm_volume,
+	get_bgm_volume_percent,
+	play_chronicle_sound,
+	stop_chronicle_sound,
+	play_sfx
 ]

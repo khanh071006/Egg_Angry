@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="WaveData" load_steps=12 format=3 uid="uid://cp2ar4ixqyu8g"]
+[gd_resource type="Resource" script_class="WaveData" load_steps=15 format=3 uid="uid://cp2ar4ixqyu8g"]
 
 [ext_resource type="Script" uid="uid://cjecllwrga6ph" path="res://gdj/game/resources/waves/WaveData.gdj" id="1_script"]
 [ext_resource type="Script" uid="uid://bf8v16a6b8yrh" path="res://gdj/game/resources/waves/WaveUnitData.gdj" id="2_script"]
@@ -8,6 +8,8 @@
 [ext_resource type="Resource" uid="uid://05y2amr2nbu7" path="res://resources/units/enemies/stats_enemy_chaser_fast.tres" id="4_stats_fast"]
 [ext_resource type="PackedScene" uid="uid://bnldmub10aarb" path="res://scenes/unit/enemy_chaser_mid.tscn" id="5_scene_mid"]
 [ext_resource type="Resource" uid="uid://bqdx4pk5p5ouc" path="res://resources/units/enemies/stats_enemy_chaser_mid.tres" id="5_stats_mid"]
+[ext_resource type="PackedScene" uid="uid://k7kv46e6byce" path="res://scenes/unit/enemy_micro_chaser.tscn" id="6_scene_micro"]
+[ext_resource type="Resource" uid="uid://c53v6y2x7m1o" path="res://resources/units/enemies/stats_enemy_micro_chaser.tres" id="6_stats_micro"]
 
 [sub_resource type="Resource" id="Resource_unit_1"]
 script = ExtResource("2_script")
@@ -30,9 +32,16 @@ weight = 2.0
 unit_stats = ExtResource("5_stats_mid")
 metadata/_custom_type_script = "uid://bf8v16a6b8yrh"
 
+[sub_resource type="Resource" id="Resource_unit_4"]
+script = ExtResource("2_script")
+unit_scene = ExtResource("6_scene_micro")
+weight = 3.0
+unit_stats = ExtResource("6_stats_micro")
+metadata/_custom_type_script = "uid://bf8v16a6b8yrh"
+
 [resource]
 script = ExtResource("1_script")
 from = 7
 to = 10
 wave_time = 40
-units = Array[ExtResource("2_script")]([SubResource("Resource_unit_1"), SubResource("Resource_unit_2"), SubResource("Resource_unit_3")])
+units = Array[ExtResource("2_script")]([SubResource("Resource_unit_1"), SubResource("Resource_unit_2"), SubResource("Resource_unit_3"), SubResource("Resource_unit_4")])

@@ -8,6 +8,9 @@ import game.ui.FloatingText;
 import godot.api.Label;
 import godot.api.Node;
 import godot.api.Node2D;
+import godot.api.Sprite2D;
+import godot.api.Texture2D;
+import godot.api.ResourceLoader;
 import godot.annotation.RegisterClass;
 import godot.annotation.RegisterFunction;
 import godot.annotation.Export;
@@ -93,6 +96,97 @@ public class Arena extends Node2D {
             shopPanel.onShopNextWave.connect(Callable.create(this, new StringName("_on_shop_next_wave")), 0);
             shopPanel.hide(); // Ẩn shop lúc mới vào game
         }
+
+        // --- SPAWN DECORATIONS ---
+        spawnDecorations();
+    }
+
+    private void spawnDecorations() {
+        java.io.File logFile = new java.io.File("d:\\Egg_Angry\\java_log.txt");
+        try (java.io.FileWriter fw = new java.io.FileWriter(logFile, true);
+             java.io.PrintWriter pw = new java.io.PrintWriter(fw)) {
+            pw.println("--- spawnDecorations started at " + new java.util.Date() + " ---");
+
+            Node decorationsNode = getNode("Decorations");
+            if (decorationsNode == null) {
+                pw.println("ERROR: Decorations node not found!");
+                GD.printErr("Arena: Không tìm thấy node Decorations!");
+                return;
+            }
+            pw.println("SUCCESS: Decorations node found: " + decorationsNode);
+
+            // Load các texture trang trí mặt đất, thử cả 2 đường dẫn có thể có
+            Texture2D pebbleTex = (Texture2D) ResourceLoader.load("res://assets/sprites/pebble.png");
+            if (pebbleTex == null) {
+                pw.println("WARNING: Failed to load from res://assets/sprites/pebble.png, trying fallback...");
+                pebbleTex = (Texture2D) ResourceLoader.load("res://gdj/game/Game+Assets/assets/sprites/pebble.png");
+            }
+            
+            Texture2D grassTex = (Texture2D) ResourceLoader.load("res://assets/sprites/grass_tuft.png");
+            if (grassTex == null) {
+                pw.println("WARNING: Failed to load from res://assets/sprites/grass_tuft.png, trying fallback...");
+                grassTex = (Texture2D) ResourceLoader.load("res://gdj/game/Game+Assets/assets/sprites/grass_tuft.png");
+            }
+
+            if (pebbleTex == null) {
+                pw.println("ERROR: pebbleTex is null after fallback!");
+                GD.printErr("Arena: Không load được texture pebble.png!");
+            } else {
+                pw.println("SUCCESS: pebbleTex loaded successfully.");
+            }
+            
+            if (grassTex == null) {
+                pw.println("ERROR: grassTex is null after fallback!");
+                GD.printErr("Arena: Không load được texture grass_tuft.png!");
+            } else {
+                pw.println("SUCCESS: grassTex loaded successfully.");
+            }
+
+            java.util.List<Texture2D> textures = new java.util.ArrayList<>();
+            if (pebbleTex != null) textures.add(pebbleTex);
+            if (grassTex != null) textures.add(grassTex);
+
+            if (textures.isEmpty()) {
+                pw.println("ERROR: No textures loaded. Aborting spawn.");
+                GD.printErr("Arena: Không có texture trang trí nào được load thành công!");
+                return;
+            }
+
+            // Sinh ngẫu nhiên khoảng 350 họa tiết trang trí nhỏ trên bản đồ
+            int count = 350;
+            pw.println("Spawning " + count + " decorations...");
+            for (int i = 0; i < count; i++) {
+                int texIdx = (int) (Math.random() * textures.size());
+                Texture2D tex = textures.get(texIdx);
+
+                Sprite2D sprite = new Sprite2D();
+                sprite.setTexture(tex);
+
+                // Tọa độ ngẫu nhiên trong khoảng [-Global.MAP_LIMIT_X, Global.MAP_LIMIT_X] và Y tương ứng
+                // Chừa lề 100px để không sát rìa mép
+                float limitX = Global.MAP_LIMIT_X - 100.0f;
+                float limitY = Global.MAP_LIMIT_Y - 100.0f;
+                float posX = (float) (2 * (Math.random() - 0.5) * limitX);
+                float posY = (float) (2 * (Math.random() - 0.5) * limitY);
+
+                sprite.setPosition(new Vector2(posX, posY));
+
+                // Góc quay ngẫu nhiên 0 đến 360 độ
+                float rotation = (float) (Math.random() * Math.PI * 2);
+                sprite.setRotation(rotation);
+
+                // Tỉ lệ scale hợp lý (0.10 đến 0.15) để họa tiết tinh tế nhưng vẫn nhìn rõ
+                float scaleBase = (float) (0.10f + Math.random() * 0.05f);
+                sprite.setScale(new Vector2(scaleBase, scaleBase));
+
+                // Thêm vào node cha Decorations (không có collision vật lý để player đi xuyên qua)
+                decorationsNode.addChild(sprite);
+            }
+            pw.println("SUCCESS: Spawned " + count + " decorations successfully.");
+            GD.print("Arena: Đã tự sinh thành công " + count + " họa tiết trang trí mặt đất.");
+        } catch (Exception e) {
+            GD.printErr("Arena spawnDecorations Exception: " + e.getMessage());
+        }
     }
 
     @RegisterFunction
@@ -124,6 +218,7 @@ public class Arena extends Node2D {
         Global.instance.equippedWeapons.add(Global.mainWeaponSelected);
 
         if (spawner != null) {
+            Global.instance.stopBgm();
             spawner.startWave();
         }
         Global.gamePaused = false;
@@ -202,6 +297,11 @@ public class Arena extends Node2D {
         clean_arena();
         clean_arena();
         clean_arena(); // Gọi 2 lần như trong video để đề phòng rơi xu sát nút
+        
+        // Phát nhạc thắng wave
+        Global.instance.playSfx("res://assets/audio/win-wave_sound.mp3");
+        Global.instance.startBgm();
+
         getTree().createTimer(1.0).getTimeout().connect(Callable.create(this, new StringName("show_upgrades")), 0);
     }
 
@@ -271,6 +371,9 @@ public class Arena extends Node2D {
         }
 
         if (upgradePanel != null) {
+            // Phát âm thanh lên cấp
+            Global.instance.playSfx("res://assets/audio/level-up_sound.mp3");
+            
             upgradePanel.loadUpgrades(currentWave);
             upgradePanel.show();
         }
@@ -304,6 +407,11 @@ public class Arena extends Node2D {
     @RegisterFunction
     public void startNewWave() {
         Global.gamePaused = false;
+
+        // Phát âm thanh bắt đầu wave mới
+        Global.instance.playSfx("res://assets/audio/start-wave_sound.mp3");
+        Global.instance.stopBgm();
+
         if (spawner != null) {
             spawner.waveIndex += 1;
             spawner.startWave();

@@ -90,6 +90,7 @@ public class ShopCard extends Panel {
         if (shopItem != null && Global.coins >= shopItem.itemCost) {
             onItemPurchased.emit(shopItem);
             Global.coins -= shopItem.itemCost;
+            Global.instance.playSfx("res://assets/audio/paying_sound.mp3");
             queueFree();
         }
     }

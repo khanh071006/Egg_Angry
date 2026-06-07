@@ -22,7 +22,7 @@ public class UpgradePanel extends Panel {
 
     @Export
     @RegisterProperty
-    public VariantArray<ItemUpgrade> upgradeList = game.Helper.GodotHelper.createItemUpgradeArray();
+    public VariantArray<ItemUpgrade> upgradeList = game.helper.GodotHelper.createItemUpgradeArray();
 
     private Node itemsContainer;
     private Random random = new Random();

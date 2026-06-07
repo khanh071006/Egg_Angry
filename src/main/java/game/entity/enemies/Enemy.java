@@ -101,8 +101,8 @@ public class Enemy extends BaseUnit {
         Vector2 newPos = getPosition().plus(finalVelocity.times(delta));
         
         // Clamp vị trí không cho văng khỏi map
-        float clampedX = Math.max(-1000.0f, Math.min(1000.0f, (float)newPos.getX()));
-        float clampedY = Math.max(-500.0f, Math.min(500.0f, (float)newPos.getY()));
+        float clampedX = Math.max(-Global.MAP_LIMIT_X, Math.min(Global.MAP_LIMIT_X, (float)newPos.getX()));
+        float clampedY = Math.max(-Global.MAP_LIMIT_Y, Math.min(Global.MAP_LIMIT_Y, (float)newPos.getY()));
         
         setPosition(new Vector2(clampedX, clampedY));
         updateRotation();
@@ -230,6 +230,9 @@ public class Enemy extends BaseUnit {
     public void _on_hurtbox_component_on_damage(HitBoxComponent hitbox) {
         // 1. Gọi hàm của lớp cha để trừ máu, hiện số nhảy...
         super._on_hurtbox_component_on_damage(hitbox);
+
+        // Phát âm thanh khi quái trúng đòn
+        Global.instance.playSfx("res://assets/audio/EnemyHit.wav");
 
         // 2. Nếu vũ khí có lực đẩy (Knockback Power > 0)
         if (hitbox.knockbackPower > 0) {

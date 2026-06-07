@@ -125,10 +125,10 @@ public class StoryMenu extends Control {
             waveIntroPanel.setPosition(new Vector2(2814f, 0f));
         }
 
-        if (nextButton != null) nextButton.setVisible(false);
-        if (playerIntroNextButton != null) playerIntroNextButton.setVisible(false);
-        if (enemyIntroNextButton != null) enemyIntroNextButton.setVisible(false);
-        if (playButton != null) playButton.setVisible(false);
+        if (nextButton != null) nextButton.setVisible(true);
+        if (playerIntroNextButton != null) playerIntroNextButton.setVisible(true);
+        if (enemyIntroNextButton != null) enemyIntroNextButton.setVisible(true);
+        if (playButton != null) playButton.setVisible(true);
 
         if (storyLabel != null) {
             storyLabel.setText("");
@@ -289,10 +289,10 @@ public class StoryMenu extends Control {
     private void transitionToPhase(int targetPhase, boolean isBackward) {
         if (plotImagePanel == null || playerIntroPanel == null || enemyIntroPanel == null || waveIntroPanel == null) return;
 
-        if (nextButton != null) nextButton.setVisible(false);
-        if (playerIntroNextButton != null) playerIntroNextButton.setVisible(false);
-        if (enemyIntroNextButton != null) enemyIntroNextButton.setVisible(false);
-        if (playButton != null) playButton.setVisible(false);
+        if (nextButton != null) nextButton.setVisible(true);
+        if (playerIntroNextButton != null) playerIntroNextButton.setVisible(true);
+        if (enemyIntroNextButton != null) enemyIntroNextButton.setVisible(true);
+        if (playButton != null) playButton.setVisible(true);
 
         isTyping = false;
         isWaiting = false;
@@ -387,6 +387,10 @@ public class StoryMenu extends Control {
 
     @RegisterFunction
     public void _on_back_pressed() {
+        if (game.autoloads.Global.instance != null) {
+            game.autoloads.Global.instance.stopChronicleSound();
+            game.autoloads.Global.instance.startBgm();
+        }
         getTree().changeSceneToFile("res://scenes/ui/MainMenu.tscn");
     }
 
@@ -422,7 +426,10 @@ public class StoryMenu extends Control {
 
     @RegisterFunction
     public void _on_play_pressed() {
-        getTree().changeSceneToFile("res://scenes/arena/Arena_Spotlight.tscn");
+        if (game.autoloads.Global.instance != null) {
+            game.autoloads.Global.instance.stopChronicleSound();
+        }
+        getTree().changeSceneToFile("res://scenes/arena/Arena.tscn");
     }
 
     private void animateButtonScale(Button button, Vector2 targetScale) {

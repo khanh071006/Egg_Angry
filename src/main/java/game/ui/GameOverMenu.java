@@ -31,6 +31,7 @@ public class GameOverMenu extends Control {
 
     @RegisterFunction
     public void _on_retry_pressed() {
+        game.autoloads.Global.instance.startBgm();
         getTree().changeSceneToFile("res://scenes/arena/Arena.tscn");
     }
 

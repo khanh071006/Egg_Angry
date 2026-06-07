@@ -31,6 +31,18 @@ public class RangeBehavior extends WeaponBehavior {
         applyLifesteal();
         createProjectile();
 
+        // Phát âm thanh bắn súng tùy thuộc vào loại súng
+        if (weapon.data != null && weapon.data.itemName != null) {
+            String name = weapon.data.itemName.toLowerCase();
+            if (name.contains("laser")) {
+                game.autoloads.Global.instance.playSfx("res://assets/audio/laser_sound.mp3");
+            } else {
+                game.autoloads.Global.instance.playSfx("res://assets/audio/ShotgunFire.wav");
+            }
+        } else {
+            game.autoloads.Global.instance.playSfx("res://assets/audio/ShotgunFire.wav");
+        }
+
         Tween tween = createTween();
         Vector2 startPos = weapon.attackStartPosition;
         Vector2 recoilPos = new Vector2(

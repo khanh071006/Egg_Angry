@@ -4,6 +4,8 @@ import godot.annotation.RegisterClass;
 import godot.annotation.RegisterFunction;
 import godot.api.Control;
 import godot.api.Button;
+import godot.api.HSlider;
+import godot.api.Label;
 import godot.api.Panel;
 import godot.api.Tween;
 import godot.core.StringName;
@@ -20,6 +22,8 @@ public class MainMenu extends Control {
     
     private Panel optionPanel;
     private Button closeOptionButton;
+    private HSlider musicSlider;
+    private Label musicLabel;
     
     private Panel creditsPanel;
     private Button closeCreditsButton;
@@ -36,6 +40,15 @@ public class MainMenu extends Control {
         
         optionPanel = (Panel) getNode("OptionPanel");
         closeOptionButton = (Button) getNode("OptionPanel/CloseOptionButton");
+        musicSlider = (HSlider) getNode("OptionPanel/VBox/MusicSlider");
+        musicLabel = (Label) getNode("OptionPanel/VBox/MusicLabel");
+
+        // Sync slider with current global BGM volume
+        if (musicSlider != null && game.autoloads.Global.instance != null) {
+            float currentPct = game.autoloads.Global.instance.getBgmVolumePercent();
+            musicSlider.setValue(currentPct);
+            updateMusicLabel((int) currentPct);
+        }
         
         creditsPanel = (Panel) getNode("CreditsPanel");
         closeCreditsButton = (Button) getNode("CreditsPanel/CloseCreditsButton");
@@ -82,7 +95,26 @@ public class MainMenu extends Control {
     }
 
     @RegisterFunction
+    public void _on_music_slider_value_changed(float value) {
+        int pct = (int) value;
+        updateMusicLabel(pct);
+        if (game.autoloads.Global.instance != null) {
+            game.autoloads.Global.instance.setBgmVolume(value);
+        }
+    }
+
+    private void updateMusicLabel(int pct) {
+        if (musicLabel != null) {
+            musicLabel.setText("MUSIC VOLUME: " + pct + "%");
+        }
+    }
+
+    @RegisterFunction
     public void _on_credits_pressed() {
+        if (game.autoloads.Global.instance != null) {
+            game.autoloads.Global.instance.playChronicleSound();
+            game.autoloads.Global.instance.stopBgm();
+        }
         getTree().changeSceneToFile("res://scenes/ui/StoryScene.tscn");
     }
 

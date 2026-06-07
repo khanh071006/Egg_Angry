@@ -1,14 +1,12 @@
 // THIS FILE IS GENERATED! DO NOT EDIT OR DELETE IT. EDIT OR DELETE THE ASSOCIATED SOURCE CODE FILE INSTEAD
 // Note: You can however freely move this file inside your godot project if you want. Keep in mind however, that if you rename the originating source code file, this file will be deleted and regenerated as a new file instead of being updated! Other modifications to the source file however, will result in this file being updated.
 
-registeredName = SelectionCard
-fqName = game.ui.SelectionCard
-relativeSourcePath = src/main/java/game/ui/SelectionCard.java
-baseType = Button
+registeredName = LaserSpinnerBehavior
+fqName = game.entity.enemies.LaserSpinnerBehavior
+relativeSourcePath = src/main/java/game/entity/enemies/LaserSpinnerBehavior.java
+baseType = Node2D
 supertypes = [
-    godot.api.Button,
-	godot.api.BaseButton,
-	godot.api.Control,
+    godot.api.Node2D,
 	godot.api.CanvasItem,
 	godot.api.Node,
 	godot.api.Object,
@@ -18,12 +16,27 @@ supertypes = [
 	kotlin.Any
 ]
 signals = [
-    on_card_selected
-]
-properties = [
     
 ]
+properties = [
+    enemy,
+	laser_hitbox,
+	laser_range,
+	damage,
+	cooldown,
+	prep_time,
+	laser_duration,
+	rotation_speed,
+	laser_count,
+	player_radius,
+	tick_rate,
+	lightning_damage,
+	lightning_interval,
+	lightning_prep_time,
+	lightning_radius
+]
 functions = [
-    _on_pressed,
-	set_icon_texture
+    _draw,
+	_process,
+	_ready
 ]

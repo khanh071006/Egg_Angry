@@ -400,6 +400,9 @@ text = "MUSIC VOLUME: 80%"
 
 [node name="MusicSlider" type="HSlider" parent="OptionPanel/VBox"]
 layout_mode = 2
+min_value = 0.0
+max_value = 100.0
+step = 1.0
 value = 80.0
 
 [node name="SFXLabel" type="Label" parent="OptionPanel/VBox"]
@@ -541,4 +544,5 @@ text = "CLOSE"
 [connection signal="mouse_exited" from="BottomRightHBox/QuitButton" to="." method="_on_quit_mouse_exited"]
 [connection signal="pressed" from="BottomRightHBox/QuitButton" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="OptionPanel/CloseOptionButton" to="." method="_on_close_option_pressed"]
+[connection signal="value_changed" from="OptionPanel/VBox/MusicSlider" to="." method="_on_music_slider_value_changed"]
 [connection signal="pressed" from="CreditsPanel/CloseCreditsButton" to="." method="_on_close_credits_pressed"]

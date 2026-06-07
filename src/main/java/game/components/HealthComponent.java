@@ -62,6 +62,10 @@ public class HealthComponent extends Node {
 				((game.entity.Player) parent).stopMovement();
 				game.autoloads.Global.isAttack = false;
 				game.autoloads.Global.gamePaused = true;
+				// Dừng nhạc nền và phát âm thanh Game Over
+				game.autoloads.Global.instance.stopBgm();
+				game.autoloads.Global.instance.playSfx("res://assets/audio/game-over_sound.mp3");
+
 				if (getTree() != null) {
 					getTree().createTimer(1.0).getTimeout().connect(godot.core.Callable.create(this, new StringName("go_to_game_over")), 0);
 				}
@@ -74,7 +78,6 @@ public class HealthComponent extends Node {
 				// ĐỐI VỚI ENEMY:
 				// 1. ĐÓNG BĂNG MỌI HOẠT ĐỘNG
 				parent.setDeferred(new StringName("process_mode"), 4);
-
 				// 2. TÀNG HÌNH (Ẩn nó khỏi màn hình)
 				parent.setDeferred(new StringName("visible"), false);
 			}

@@ -38,6 +38,7 @@ public class CameraController extends Camera2D {
     @RegisterFunction
     @Override
     public void _process(double delta) {
+        float fDelta = (float) delta;
         // Hỏi tổng đài xem Player có tồn tại không và còn sống trong Godot C++ không?
         if (Global.player != null && godot.global.GD.isInstanceValid(Global.player)) {
             // Có thì lấy tọa độ của Player đắp vào tọa độ của Camera

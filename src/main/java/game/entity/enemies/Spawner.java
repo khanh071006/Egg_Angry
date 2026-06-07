@@ -1,6 +1,6 @@
 package game.entity.enemies;
 
-import game.Helper.GodotHelper;
+import game.helper.GodotHelper;
 import game.autoloads.Global;
 import game.entity.BaseUnit;
 import game.resources.units.UnitStats;
@@ -26,9 +26,9 @@ public class Spawner extends Node2D {
     @RegisterProperty
     public VariantArray<WaveData> wavesData = GodotHelper.createWaveDataArray();
 
-    @Export
-    @RegisterProperty
-    public Vector2 spawnAreaSize = new Vector2(1000, 500);
+    // Spawn Area Size từ Global
+    @Export @RegisterProperty
+    public Vector2 spawnAreaSize = new Vector2(Global.MAP_LIMIT_X, Global.MAP_LIMIT_Y);
 
     // --- BIẾN LOGIC (Chỉ chạy ngầm trong Java) ---
     public int waveIndex = 1; // Bắt đầu từ Wave 1
@@ -98,7 +98,7 @@ public class Spawner extends Node2D {
             WaveData wave = wavesData.get(i);
 
             // THAY VÌ GỌI isValidIndex, JAVA TỰ DÙNG getFrom() VÀ getTo() ĐỂ SO SÁNH!
-            if (wave != null && waveIndex >= wave.getFrom() && waveIndex <= wave.getTo()) {
+            if (wave != null && waveIndex >= wave.from && waveIndex <= wave.to) {
                 return wave;
             }
         }
@@ -116,7 +116,7 @@ public class Spawner extends Node2D {
             return;
         }
         // Cài đặt thời gian cho Wave (Mặc định 20s)
-        waveTimer.setWaitTime(currentWaveData.getWaveTime());
+        waveTimer.setWaitTime(currentWaveData.waveTime);
         waveTimer.start();
         setSpawnTimer();
     }
